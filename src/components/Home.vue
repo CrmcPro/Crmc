@@ -1,6 +1,5 @@
 
 
-
 <template>
   <div class="bg-slate-100 h-screen min-w-max">
     <div class="bg-white border">
@@ -8,7 +7,7 @@
         class="container px-2 py-3 mx-auto md:flex md:justify-between md:items-center">
         <div class="flex items-center justify-between">
           <router-link
-            to="/"
+            to="/Home"
             class="
               text-xl
               font-bold
@@ -53,9 +52,11 @@
             md:space-x-10
             md:mt-0">
          
-          <li class="text-xl font-bold text-blue-400  hover:text-gray-800">
-            Accueil
-          </li>
+            <router-link
+              to="/Accueil">
+            <li class="text-sm font-bold text-gray-800 hover:text-blue-400 pointer-events-auto" >
+              Acceuil
+            </li></router-link>
           <li class="text-xl text-gray-800 hover:text-blue-400">
             Utilisateurs
           </li>
@@ -199,11 +200,9 @@
 
 </template>
 <script>
-export default {
-  data() {
-    return {
-      showMenu: false,
-    };
-  },
-};
-</script>
+ import { useRouter} from "vue-router"
+     const router=useRouter()
+  const NavigationToAccueil=()=>{
+        router.push("/Accueil")
+     }
+  </script>
