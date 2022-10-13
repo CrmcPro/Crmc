@@ -129,48 +129,55 @@
               </table>
               </div>
               </section>
-              <!-- <section>
-                <div class="flex flex-nowrap t-96  ">
-                 
-                  <h1>Devis</h1>
-                  <button>Modifier</button>
-                </div>
-              </section> -->
+             
+                  <section>
+                    <table class="pt-32 pb-10  flex item-center text-center justify-center ">
+                      <tr>
+                      <td class="border px-12 py-2 	bg-cyan-700 border-slate-300 ">Devis</td>
+                      <td class="border px-64    border-slate-300 ">
+                        <button>Modifier</button>
+                      </td>
+
+                    </tr>
+                    </table>
+                  </section>
+
+
+
+
+
 
 
               <section>
                 
                 <div>
-                  <table class=" mt-60 text-white border-2  flex item-center text-center justify-center">
-                    <tr>
-                      <th>Devis</th>
-                      <th></th>
-                    </tr>
+                  <table class="  text-white border-2  flex item-center text-center justify-center">
+                   
 
                    
                     <tr>
-                      <td class="border px-12 py-4 	bg-cyan-700 border-slate-300 ">N°Devis</td>
-                      <td class="border w-96  border-slate-300 ">--</td>
+                      <td class="border px-12 py-2 	bg-cyan-700 border-slate-300 ">N°Devis</td>
+                      <td class="border w-96 px-80  border-slate-300 "></td>
 
                     </tr>
                     <tr>
-                      <td class="border px-12 py-4	bg-cyan-700 border-slate-300 ">Eneretique</td>
-                      <td class="border border-slate-300 ">--</td>
+                      <td class="border px-12 py-2	bg-cyan-700 border-slate-300 ">Eneretique</td>
+                      <td class="border border-slate-300 "></td>
 
                     </tr>
                     <tr>
-                      <td class="border px-12 py-4	bg-cyan-700 ">Date</td>
-                      <td class="border  border-slate-300 ">--</td>
+                      <td class="border px-12 py-2	bg-cyan-700 ">Date</td>
+                      <td class="border  border-slate-300 "></td>
 
                     </tr>
                     <tr>
-                      <td class="border px-12 py-4	bg-cyan-700 ">Prime</td>
-                      <td class="border border-slate-300 ">--</td>
+                      <td class="border px-12 py-2	bg-cyan-700 ">Prime</td>
+                      <td class="border border-slate-300 "></td>
 
                     </tr>
                     <tr>
-                      <td class="border px-12 py-4	bg-cyan-700 ">Total TTC</td>
-                      <td class="border pl-30 border-slate-300 ">--</td>
+                      <td class="border px-12 py-2	bg-cyan-700 ">Total TTC</td>
+                      <td class="border border-slate-300 "></td>
 
                     </tr>
                   </table>
