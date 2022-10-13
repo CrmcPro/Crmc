@@ -59,10 +59,12 @@
               md:mt-0
             "
           >
-           
-            <li class="text-sm font-bold text-gray-800 hover:text-blue-400 pointer-events-auto" @click="NavigationToAccueil">
+          <router-link
+              to="/Accueil">
+            <li class="text-sm font-bold text-gray-800 hover:text-blue-400 pointer-events-auto" >
               Acceuil
-            </li>
+            </li></router-link>
+            
             <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
               Utilisateurs
             </li>
@@ -82,8 +84,6 @@
 <script setup>
    import { useRouter} from "vue-router"
      const router=useRouter()
-  const NavigationToAccueil=()=>{
-        router.push("/Accueil")
-     }
+
 </script>
 
