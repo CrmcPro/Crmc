@@ -86,7 +86,6 @@
                               
                               type="button"
                               class=" px-12 py-2  bg-cyan-600	 rounded-l text-sm  text-white "
-                              @click=""
                             >
                             Documents
                             
@@ -94,7 +93,6 @@
                     <button
                               type="button"
                               class=" px-12 py-2  bg-cyan-700	 rounded-r text-sm  text-white "
-                              @click=""
                             >
                               Comparer
                     </button>
@@ -118,7 +116,7 @@
                     <p class="text-xs  text-gray-600 pl-80">Lorem ipsum, dolor s consectetur a moleszevmzkihgruzpjiohgieuhgiorejgjhgfetias laboriosam expedita recusandae, undt quas adipisci!</p>
                 </section>
 
-              
+                
               <section class=" flex flex-nowrap pt-20 align-middle justify-center  ">
                   <label for="underline_select" class="sr-only">Underline select</label>
                     <select id="underline_select" class="pl-6 w-2/6 text-sm bg-transparent border-2 border-gray-300 rounded-lg   ">
@@ -128,9 +126,10 @@
                         <option value="doc4">Documents1-documents5</option>
                     </select>
                     
-                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm  ml-2">
+                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm  ml-2 " @click="ShowProgress = !ShowProgress">
                       Tester
                     </button>
+                   
                </section>   
 
 
@@ -144,13 +143,22 @@
 
                     <section class="pt-20 flex justify-center">
                            
-                    <button class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  ml-2">
+                    <button @click="showModal = !showModal"
+                     class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  ml-2">
                       Comparer tous les documents
                     </button>
-
+                    <div class="page p-8">
+   
+                    <ModalDialog :show="showModal" @close="showModal = false">
+                     <VerificationList/>
+                    </ModalDialog>
+                    </div>
+                    <ModalDialog :show="ShowProgress" @close="ShowProgress = false">
+                     <ProgressBar/>
+                    </ModalDialog>
                     </section>
 
-
+                
 
 
         </section>       
@@ -165,9 +173,31 @@
   </template>
   <script>
    import { useRouter} from "vue-router"
-       const router=useRouter()
-    const NavigationToAccueil=()=>{
+   import ModalDialog from "../components/Model.vue"
+   import VerificationList from "../components/VerificationList.vue"
+   import ProgressBar from "../components/ProgressBar.vue"
+   import { ref } from 'vue';
+   const router=useRouter()
+   const NavigationToAccueil=()=>{
           router.push("/Accueil")
        }
+const components = {
+  ModalDialog,
+  VerificationList,
+  ProgressBar
+
+};
+export default {
+  name: 'Verif',
+  components,
+  setup() {
+    const showModal = ref(false);
+    const ShowProgress = ref(false);
+    return {
+      showModal,
+      ShowProgress
+    };
+  },
+};
     </script>
   
