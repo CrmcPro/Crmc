@@ -1,9 +1,9 @@
 
 <template>
     <div class="bg-slate-100 h-screen min-w-max">
-      <div class="bg-white border">
+      <div class="bg-white border-b-2">
       <nav
-        class="container px-2 py-3 mx-auto md:flex md:justify-between md:items-center">
+        class="container px-2 pb-1 mx-auto md:flex md:justify-between md:items-center">
         <div class="flex items-center justify-between">
          
           <router-link
@@ -62,10 +62,10 @@
           </li>
     
         </ul>
-        <ul class="flex  text-sm ">
+        <ul class="flex text-sm ">
             <div>
-              <li>Name</li>
-            <h6 class="text-gray-500">administrateur</h6>
+              <li class="pl-14 font-medium">Name</li>
+            <h6 class="text-gray-400 font-semibold">Administrateur</h6>
             </div>
            
             <img src="/src/assets/149071.png" alt="image" class="w-10 h-10 ml-3"/>
@@ -111,26 +111,44 @@
         <section class="bg-white h-full mt-8">
                 
                 
-                <section class=" text-center  ">
-                    <h1 class="pr-80 mr-32 pt-28 pb-4 font-bold text-lg">Verifier vos documents</h1>
-                    <p class="text-xs pr-44" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, pariatur quia, beatae dolorem</p>
-                    <p class="text-xs pr-44">Lorem ipsum, dolor s consectetur a molestias laboriosam expedita recusandae, undt quas adipisci!</p>
+                <section class=" text-center mr-96   ">
+                    <h1 class=" pt-28 pb-2 mr-44 font-bold text-xl">Vérifier vos documents</h1>
+                    <p class="text-xs text-gray-600 pl-80" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, fegegegregeglldmzojihfuiehgjiodhfepariatur quia, beatae dolorem</p>
+                    <p class="text-xs  text-gray-600 pl-80">Lorem ipsum, dolor s consectetur a molestias laboriosam expedita recusandfgeklgjkerghjkerhgkehrgeirhgiuehrffae, undt quas adipisci!</p>
+                    <p class="text-xs  text-gray-600 pl-80">Lorem ipsum, dolor s consectetur a moleszevmzkihgruzpjiohgieuhgiorejgjhgfetias laboriosam expedita recusandae, undt quas adipisci!</p>
                 </section>
 
               
               <section class=" flex flex-nowrap pt-20 align-middle justify-center  ">
                   <label for="underline_select" class="sr-only">Underline select</label>
-                    <select id="underline_select" class="block    w-96 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                        <option selected class="font-bold">Documents1-documents 5</option>
+                    <select id="underline_select" class="pl-6 w-2/6 text-sm bg-transparent border-2 border-gray-300 rounded-lg   ">
+                        <option selected class="font-black">Documents1-documents 5</option>
                         <option value="doc2">Documents3-documents2</option>
                         <option value="doc3">Documents8-documents9</option>
                         <option value="doc4">Documents1-documents5</option>
                     </select>
                     
-                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded">
+                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm  ml-2">
                       Tester
                     </button>
-            </section>   
+               </section>   
+
+
+                  <section class="pt-20">
+                    <div class="flex-wrap flex justify-center"> 
+                        <hr class="border-1 border-gray-400 w-80 mt-2 mr-16 ">
+                       <p class="font-bold text-xs ">OU</p> 
+                        <hr class="border-1 border-gray-400 w-80 mt-2 ml-16 ">
+                    </div>   
+                  </section>
+
+                    <section class="pt-20 flex justify-center">
+                           
+                    <button class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  ml-2">
+                      Comparer tous les documents
+                    </button>
+
+                    </section>
 
 
 
