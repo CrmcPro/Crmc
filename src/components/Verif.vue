@@ -81,15 +81,15 @@
                       <p>#D0001</p>                   
                       <p>Lorem ipsum repellendus omnis</p>
                   </div>
-                  <div class="pl-64 pt-6 flex-auto">
-                    <button
-                              
+                 
+                  <div class="pl-64 pt-6 flex-auto "> 
+                  
+                   <button    
                               type="button"
-                              class=" px-12 py-2  bg-cyan-600	 rounded-l text-sm  text-white "
+                              class=" px-12 py-2  bg-cyan-600	 rounded-l text-sm   text-white "
                               @click=""
-                            >
-                            Documents
-                            
+                            > 
+                            Documents                  
                     </button>
                     <button
                               type="button"
@@ -120,7 +120,7 @@
 
               
               <section class=" flex flex-nowrap pt-20 align-middle justify-center  ">
-                  <label for="underline_select" class="sr-only">Underline select</label>
+                  <label for="" class="sr-only">Underline select</label>
                     <select id="underline_select" class="pl-6 w-2/6 text-sm bg-transparent border-2 border-gray-300 rounded-lg   ">
                         <option selected class="font-black">Documents1-documents 5</option>
                         <option value="doc2">Documents3-documents2</option>
