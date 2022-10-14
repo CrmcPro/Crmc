@@ -29,7 +29,7 @@ const name = computed(()=>{
         >
           <div class="flex items-center justify-between">
             <router-link
-              to="/"
+              to="/Home"
               class="
                 text-xl
                 font-bold
@@ -340,6 +340,6 @@ Ajouter un dossier</button>
     </div>
   </div>
 </template>
-<script setup>
+<script >
 
 </script>
