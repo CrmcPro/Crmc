@@ -41,7 +41,7 @@
                       class=" px-56 py-4 bg-[#13698f] text-white text-sm rounded"
                       @click="Login"
                     >
-                      Inscription
+                      Valider
                     </button>
                     </div>
                    

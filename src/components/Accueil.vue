@@ -17,88 +17,80 @@ const name = computed(()=>{
 </script> -->
 <template>
   <div class="bg-slate-100 h-screen min-w-max">
-      <div class="bg-white border">
-        <nav
-          class="
-            container
-            px-6
-            py-3
-            mx-auto
-            md:flex md:justify-between md:items-center
-          "
-        >
-          <div class="flex items-center justify-between">
-            <router-link
-              to="/Home"
-              class="
-                text-xl
-                font-bold
-                text-gray-800
-                md:text-2xl
-                hover:text-blue-400
-              "
-              ><h1 class="text-blue-300 text-4xl shadow-black pt-0 font-bold	 ">
-                CRM<spam class="text-blue-500 ml-0 text-4xl font-bold	">C</spam>
-              </h1>
-            </router-link>
-            <!-- Mobile menu button -->
-            <div @click="showMenu = !showMenu" class="flex md:hidden">
-              <button
-                type="button"
-                class="
-                  text-gray-800
-                  hover:text-gray-400
-                  focus:outline-none focus:text-gray-400
-                "
-              >
-                <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                  <path
-                    fill-rule="evenodd"
-                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-  
-  
-          <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-          <ul
-            :class="showMenu ? 'flex' : 'hidden'"
+    <div class="bg-white border">
+      <nav
+        class="container px-2 py-3 mx-auto md:flex md:justify-between md:items-center">
+        <div class="flex items-center justify-between">
+         
+          <router-link
+            to="/Home"
             class="
-              flex-col
-              mt-8
-              space-y-4
-              md:flex
-              md:space-y-0
-              md:flex-row
-              md:items-center
-              md:space-x-10
-              md:mt-0
-            "
-          >
-           
-            <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-                Accueil
-            </li>
-            <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-              Utilisateurs
-            </li>
-      
-          </ul>
-          <ul class="flex ">
+              text-xl
+              font-bold
+              text-gray-800
+              md:text-2xl
+              hover:text-blue-400">
+            <h1 class="text-blue-300 text-xl shadow-black  font-bold	 ">
+              CRM<spam class="text-blue-500 ml-0 text-xl font-bold	">C</spam>
+            </h1>
+          </router-link>
+          <!-- Mobile menu button -->
+          <div @click="showMenu = !showMenu" class="flex md:hidden">
+            <button
+              type="button"
+              class="
+                text-gray-800
+                hover:text-gray-400
+                focus:outline-none focus:text-gray-400
+              "
+            >
+              <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                <path
+                  fill-rule="evenodd"
+                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                ></path>
+              </svg>
+            </button>
+         </div>
+        </div>
+
+        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+        <ul
+          :class="showMenu ? 'flex' : 'hidden'"
+          class="
+            flex-col
+            mt-8
+            space-y-4
+            md:flex
+            md:space-y-0
+            md:flex-row
+            md:items-center
+            md:space-x-10
+            md:mt-0">
+         
+            <router-link
+              to="/Accueil">
+            <li class="  text-cyan-600 font-bold  hover:text-gray-800 pointer-events-auto" >
+              Acceuil
+            </li></router-link>
+          <li class=" text-gray-800 hover:text-blue-400">
+            Utilisateurs
+          </li>
+    
+        </ul>
+        <ul class="flex  text-sm">
             <div>
               <li>Name</li>
             <h6 class="text-gray-500">administrateur</h6>
             </div>
            
-            <img src="/src/assets/149071.png" alt="image" class="w-8 h-17 ml-5"/>
+            <img src="/src/assets/149071.png" alt="image" class="w-10 h-10 ml-3"/>
           </ul>
-        </nav>
+       </nav>
       </div>
     <div class="flex items-center text-center justify-between">
       <h1 class="font-bold p-6 ">Liste des dossiers</h1>
-      <button class="bg-blue-500 w-80 h-14 pl-2 ml-[70%] text-white rounded-lg	flex items-center justify-around " ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-6 h-6 ">
+      <button class="bg-cyan-700 w-80 h-14 pl-2 ml-[70%] text-white rounded-lg	flex items-center justify-around " ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-6 h-6 ">
   <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
 </svg>
 Ajouter un dossier</button>
@@ -168,7 +160,7 @@ Ajouter un dossier</button>
             <div class="p-1.5 w-full inline-block align-middle">
                 <div class="overflow-hidden border rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-blue-500">
+                        <thead class="bg-cyan-600">
                             <tr>
                                 <th scope="col" class="py-3 pl-4">
                                     <div class="flex items-center h-5">
