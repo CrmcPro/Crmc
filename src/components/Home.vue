@@ -6,6 +6,7 @@
       <nav
         class="container px-2 py-3 mx-auto md:flex md:justify-between md:items-center">
         <div class="flex items-center justify-between">
+         
           <router-link
             to="/Home"
             class="
@@ -54,51 +55,54 @@
          
             <router-link
               to="/Accueil">
-            <li class="text-sm font-bold text-gray-800 hover:text-blue-400 pointer-events-auto" >
+            <li class="  text-cyan-600 font-bold  hover:text-gray-800 pointer-events-auto" >
               Acceuil
             </li></router-link>
-          <li class="text-xl text-gray-800 hover:text-blue-400">
+          <li class=" text-gray-800 hover:text-blue-400">
             Utilisateurs
           </li>
     
         </ul>
-        <ul>
-          <li class="text-xl text-gray-800 hover:text-blue-400">
-            Name
-          </li>
-        </ul>
+        <ul class="flex  text-sm">
+            <div>
+              <li>Name</li>
+            <h6 class="text-gray-500">administrateur</h6>
+            </div>
+           
+            <img src="/src/assets/149071.png" alt="image" class="w-10 h-10 ml-3"/>
+          </ul>
        </nav>
       </div>
     
     
       <section>
         <div class="flex flex-nowrap mt-4 pl-4 ">
-                <div class="  bg-white w-96 pl-6 "  >
-                    <h1 class="font-bold	">Dossier Nom</h1>
-                    <p>#D0001</p>
-                    
+                <div class="  bg-white w-96 pl-6 border-l-8 rounded border-cyan-700 "  >
+                    <h1 class="font-bold">DOSSIER NOM</h1>
+                    <p>#D0001</p>                   
                     <p>Lorem ipsum repellendus omnis</p>
                 </div>
                 <div class="pl-64 pt-6 flex-auto">
                   <button
                             
                             type="button"
-                            class=" px-12 py-2  bg-cyan-700	 rounded text-sm  text-white "
+                            class=" px-12 py-2  bg-cyan-600	 rounded-l text-sm  text-white "
                             @click=""
                           >
                           Documents
                           
                   </button>
-                  <button
-                            type="button"
-                            class=" px-12 py-2  bg-cyan-700	 rounded text-sm  text-white "
-                            @click=""
+                 
+                  <router-link 
+                            to="/Verif"
+                            tag="button"                     
+                            class=" px-12 py-2  bg-cyan-700	 rounded-r text-sm  text-white "
                           >
                             Comparer
-                  </button>
+                   </router-link>
                 </div>  
 
-                <div class=" font-medium	 bg-white w-96 ml-64 pl-6 mr-6 text-cyan-600 flex-auto ">
+                <div class=" font-medium	 bg-white w-96 ml-64 pl-6 mr-6 text-cyan-600 flex-auto  border-r-8 rounded border-cyan-700 ">
                    <h1>Client</h1>
                    <p>Ajouter par </p> 
                    <p>Date d'ajout</p>  
@@ -106,24 +110,24 @@
         </div>
       </section>
             
-
+      <section class="bg-white h-full mt-6">
               <section >
-              <div class="pl-20 pt-8 w-full" >
-                <table class=" 	bg-cyan-700 text-white w-full ">
+              <div class="pl-10  w-full" >
+                <table class=" 	bg-cyan-700 text-white text-sm text-center w-full h-10 border-l-8  border-cyan-700 ">
                   <thead>
                     <tr>
-                      <td class="border border-slate-300 ">Devis</td>
-                      <td class="border border-slate-300 ">Document 2 </td>
-                      <td class="border border-slate-300 ">Document 3 </td>
-                      <td class="border border-slate-300 ">Document 4 </td>
-                      <td class="border border-slate-300 ">Document 5 </td>
-                      <td class="border border-slate-300 ">Document 6 </td>
-                      <td class="border border-slate-300 ">Document 7 </td>
-                      <td class="border border-slate-300 ">Document 8 </td>
-                      <td class="border border-slate-300 ">Document 9 </td>
-                      <td class="border border-slate-300 ">Document 10</td>
-                      <td class="border border-slate-300 ">Document 11</td>
-                      <td class="border border-slate-300 ">Document 12</td>
+                      <td class="border font-medium text-solid border-slate-300  bg-white text-cyan-700 rounded-l"><button>Devis</button> </td>
+                      <td class="border border-slate-300 "><button>Document 2</button></td>
+                      <td class="border border-slate-300 "><button>Document 3</button></td>
+                      <td class="border border-slate-300 "><button>Document 4</button></td>
+                      <td class="border border-slate-300 "><button>Document 5</button></td>
+                      <td class="border border-slate-300 "><button>Document 6</button></td>
+                      <td class="border border-slate-300 "><button>Document 7</button></td>
+                      <td class="border border-slate-300 "><button>Document 8</button></td>
+                      <td class="border border-slate-300 "><button>Document 9</button></td>
+                      <td class="border border-slate-300 "><button>Document 10</button></td>
+                      <td class="border border-slate-300 "><button>Document 11</button></td>
+                      <td class="border border-slate-300 "><button>Document 12</button></td>
 
                     </tr>
                   </thead>
@@ -132,11 +136,11 @@
               </section>
              
                   <section>
-                    <table class="pt-32 pb-10  flex item-center text-center justify-center ">
+                    <table class="pt-16 pb-7  flex item-center text-center justify-center ">
                       <tr>
-                      <td class="border px-12 py-2 	bg-cyan-700 border-slate-300 ">Devis</td>
-                      <td class="border px-64    border-slate-300 ">
-                        <button>Modifier</button>
+                      <td class=" pr-80 font-bold text-lg">Devis</td>
+                      <td class=" pl-80">
+                        <button class="bg-cyan-700 w-32 h-10 rounded text-white">Modifier</button>
                       </td>
 
                     </tr>
@@ -144,53 +148,46 @@
                   </section>
 
 
-
-
-
-
-
               <section>
                 
                 <div>
-                  <table class="  text-white border-2  flex item-center text-center justify-center">
-                   
-
-                   
+                  <table class="  text-white border-separate border-spacing-2 flex item-center text-center justify-center">
+  
                     <tr>
-                      <td class="border px-12 py-2 	bg-cyan-700 border-slate-300 ">N°Devis</td>
-                      <td class="border w-96 px-80  border-slate-300 "></td>
+                      <td class="border rounded-md border-white px-12 py-3 	bg-cyan-600">N°Devis</td>
+                      <td class="border rounded-md border-slate-400 w-96 px-80  "></td>
 
                     </tr>
                     <tr>
-                      <td class="border px-12 py-2	bg-cyan-700 border-slate-300 ">Eneretique</td>
-                      <td class="border border-slate-300 "></td>
+                      <td class="border rounded-md px-12 py-3	bg-cyan-600 border-white ">Eneretique</td>
+                      <td class="border rounded-md border-slate-400 "></td>
 
                     </tr>
                     <tr>
-                      <td class="border px-12 py-2	bg-cyan-700 ">Date</td>
-                      <td class="border  border-slate-300 "></td>
+                      <td class="border px-12 py-3 rounded-md	bg-cyan-600 border-white  ">Date</td>
+                      <td class="border  border-slate-400 rounded-md "></td>
 
                     </tr>
                     <tr>
-                      <td class="border px-12 py-2	bg-cyan-700 ">Prime</td>
-                      <td class="border border-slate-300 "></td>
+                      <td class="border px-12 py-3	bg-cyan-600 rounded-md border-white ">Prime</td>
+                      <td class="border  rounded-md border-slate-400 "></td>
 
                     </tr>
                     <tr>
-                      <td class="border px-12 py-2	bg-cyan-700 ">Total TTC</td>
-                      <td class="border border-slate-300 "></td>
+                      <td class="border px-12 py-3 rounded-md	bg-cyan-600 border-white ">Total TTC</td>
+                      <td class="border rounded-md border-slate-400"></td>
 
                     </tr>
                   </table>
                 </div>
               </section>
 
-              <section class="text-center pt-20">
-                  <h2>Description</h2>
-                  <p>Lorem, ipsum dolorequuntur eum aperiama deserunt iure repellat!</p>
+              <section class="ml-96 pl-6 pt-10">
+                  <h2 class="font-bold pb-4">Description</h2>
+                  <p class="">Lorem, ipsum dolorequuntur eum aperiama desegfegergegegruntdgege iure repellat!</p>
               </section>
 
-
+         </section>    
 
    </div>
    
@@ -202,7 +199,9 @@
 <script>
  import { useRouter} from "vue-router"
      const router=useRouter()
-  const NavigationToAccueil=()=>{
+     const NavigationToAccueil=()=>{
         router.push("/Accueil")
      }
+   
+
   </script>
