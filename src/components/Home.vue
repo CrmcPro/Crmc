@@ -2,9 +2,9 @@
 
 <template>
   <div class="bg-slate-100 h-screen min-w-max">
-    <div class="bg-white border">
+    <div class="bg-white border-b-2">
       <nav
-        class="container px-2 py-3 mx-auto md:flex md:justify-between md:items-center">
+        class="container px-2 pb-1 mx-auto md:flex md:justify-between md:items-center">
         <div class="flex items-center justify-between">
          
           <router-link
@@ -63,17 +63,16 @@
           </li>
     
         </ul>
-        <ul class="flex  text-sm">
+        <ul class="flex text-sm ">
             <div>
-              <li>Name</li>
-            <h6 class="text-gray-500">administrateur</h6>
+              <li class="pl-14 font-medium">Name</li>
+            <h6 class="text-gray-400 font-semibold">Administrateur</h6>
             </div>
            
             <img src="/src/assets/149071.png" alt="image" class="w-10 h-10 ml-3"/>
           </ul>
        </nav>
       </div>
-    
     
       <section>
         <div class="flex flex-nowrap mt-4 pl-4 ">
