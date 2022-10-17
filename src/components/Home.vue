@@ -77,7 +77,13 @@
       <section>
         <div class="flex flex-nowrap mt-4 pl-4 ">
                 <div class="  bg-white w-96 pl-6 border-l-8 rounded border-cyan-700 "  >
-                    <h1 class="font-bold">DOSSIER NOM</h1>
+                  <h1 class="font-bold ">DOSSIER NOM   
+                  <label class="toggle">
+                  <input type="checkbox" >
+                  <span class="slider"></span>
+                  <span class="labels" data-on="Terminé" data-off="En cours"></span>
+                 </label>
+                  </h1>
                     <p>#D0001</p>                   
                     <p>Lorem ipsum repellendus omnis</p>
                 </div>
@@ -86,22 +92,22 @@
                   <router-link 
                             to="/"
                             tag="button"                     
-                            class=" px-12 py-2  bg-cyan-600	 rounded-l text-sm  text-white "
-                          >
-                            Documents
+                            class=" px-10 py-2  bg-cyan-600	 rounded-l text-sm  text-white "
+                          ><font-awesome-icon icon="fa-solid fa-folder-open"/>  
+                           Documents
                    </router-link>
                  
                   <router-link 
                             to="/Verif"
                             tag="button"                     
                             class=" px-12 py-2  bg-cyan-700	 rounded-r text-sm  text-white "
-                          >
+                          ><font-awesome-icon icon="fa-solid fa-code-compare"/>
                             Comparer
                    </router-link>
                 </div>  
 
                 <div class=" font-medium	 bg-white w-96 ml-64 pl-6 mr-6 text-cyan-600 flex-auto  border-r-8 rounded border-cyan-700 ">
-                   <h1>Client</h1>
+                   <h1>Client</h1> 
                    <p>Ajouter par </p> 
                    <p>Date d'ajout</p>  
                  </div>
@@ -114,40 +120,40 @@
                 <table class=" 	bg-cyan-700 text-white text-sm text-center w-full h-10 border-l-8  border-cyan-700 ">
                   <thead>
                     <tr>
-                      <td class="border font-medium text-solid border-slate-300 w-28 bg-white text-cyan-700 rounded-l">                    
+                      <td class="border font-medium text-solid border-slate-300 w-28 focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none rounded-l">                    
                         <router-link to="/Upload">Devis </router-link> </td>
 
-                      <td class="border border-slate-300 ">
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none ">
                       <button>Document 2</button></td>
 
-                      <td class="border border-slate-300 ">
-                      <button>Document 3</button></td>
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none ">
+                      <button> Document 3</button></td>
 
-                      <td class="border border-slate-300 ">
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none ">
                       <button>Document 4</button></td>
 
-                      <td class="border border-slate-300 ">
-                      <button>Document 5</button></td>
+                      <td class="border border-slate-300   focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
+                      <button>  <font-awesome-icon icon="fa-solid fa-circle-exclamation" color="red" class="pr-1"/>Document 5</button></td>
 
-                      <td class="border border-slate-300 ">
-                      <button>Document 6</button></td>
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
+                      <button> <font-awesome-icon icon="fa-solid fa-circle-exclamation" color="red" class="pr-1"/>Document 6</button></td>
 
-                      <td class="border border-slate-300 ">
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 7</button></td>
 
-                      <td class="border border-slate-300 ">
+                      <td class="border border-slate-300   focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 8</button></td>
 
-                      <td class="border border-slate-300 ">
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 9</button></td>
 
-                      <td class="border border-slate-300 ">
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 10</button></td>
 
-                      <td class="border border-slate-300 ">
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 11</button></td>
 
-                      <td class="border border-slate-300 ">
+                      <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 12</button></td>
 
                     </tr>
@@ -203,16 +209,21 @@
                 </div>
               </section>
 
-              <section class="ml-96 pl-6 pt-10">
+              <section class="ml-96 pl-6 pt-10">                       
                   <h2 class="font-bold pb-4">Description</h2>
-                  <p class="">Lorem, ipsum dolorequuntur eum aperiama desegfegergegegruntdgege iure repellat!</p>
+                  <p class="text-slate-400 font-semibold text-sm">Lorem, ipsum dolorequuntur eum aperiama desegfegergegegruntdgege iure repellat!</p>
               </section>
-        </section>
 
+              
+        </section>
+               
 
    </div>
 </template>
 <script>
+
+
+
  import { useRouter} from "vue-router"
      const router=useRouter()
      const NavigationToAccueil=()=>{
@@ -225,3 +236,93 @@
    
 
   </script>
+  <style>
+  .toggle {
+      --width: 70px;
+      --height: calc(var(--width) / 4);
+
+      position: relative;
+      display: inline-block;
+      width: var(--width);
+      height: var(--height);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+      border-radius: var(--height);
+      cursor: pointer;
+      margin-left: 45%;
+    }
+
+    .toggle input {
+      display: none;
+    }
+
+    .toggle .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--height);
+      background-color: rgb(255, 214, 80);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle .slider::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(var(--height));
+      height: calc(var(--height));
+      border-radius: calc(var(--height) / 2);
+      background-color: #f3953d;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    .toggle input:checked+.slider::before {
+      transform: translateX(calc(var(--width) - var(--height)));
+    }
+
+    .toggle .labels {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 12px;
+      font-family: sans-serif;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle .labels::after {
+      content: attr(data-off);
+      position: absolute;
+      right: 5px;
+      color: #f3953d;
+      opacity: 1;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle .labels::before {
+      content: attr(data-on);
+      position: absolute;
+      left: 5px;
+      color: #ffffff;
+      opacity: 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle input:checked~.labels::after {
+      opacity: 0;
+    }
+
+    .toggle input:checked~.labels::before {
+      opacity: 1;
+    }
+  
+  </style>

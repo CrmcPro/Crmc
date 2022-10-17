@@ -1,44 +1,44 @@
 <template>
     <div class="bg-slate-100">
         <section class="h-screen flex center items-center justify-center">
-          <div class="text-gray-800 w-2/5 h-4/5 bg-white rounded-2xl text-center">
+          <div class="text-gray-800 w-2/5 h-3/5 bg-white rounded-2xl shadow-xl text-center">
             <h1 class="text-blue-300 text-4xl shadow-black pt-10 font-bold	 ">
               CRM<spam class="text-blue-500 text-4xl font-bold	">C</spam>
             </h1>
-            <div class="pt-4 text-sm font-semibold	"><h2>Veuillez vous inscrire pour continuer</h2></div>
+            <div class="pt-4 text-lg font-medium"><h2>Veuillez vous inscrire pour continuer</h2></div>
          
             <div class="pt-10">
               <div class="">
                 <form>
-                  <div class="mb-6 px-20">
+                  <div class="mb-6">
                     <input
                       type="text"
-                      class="bg-slate-100 form-control  border border-sky-200 block w-full px-4 py-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput2"
+                      class="bg-slate-100 form-control w-4/5 px-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
+                      id="InputEmail"
                       placeholder="E-mail"
                     />
                   </div>
-                  <div class="mb-6 px-20">
+                  <div class="mb-6">
                     <input
                       type="password"
-                      class="bg-slate-100 form-control  border border-sky-200 block w-full px-4 py-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput2"
+                      class="bg-slate-100 form-control  w-4/5 px-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
+                      id="InputPassword"
                       placeholder="Mot de passe"
                     />
                   </div>
-                  <div class="mb-6 px-20">
+                  <div class="mb-6">
                     <input
                       type="password"
-                      class="bg-slate-100   border border-sky-200 form-control block w-full px-4 py-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput2"
+                      class="bg-slate-100   form-control w-4/5 px-4 py-4 text-base font-normal text-gray-700  bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
+                      id="InputPasswordConfirmation"
                       placeholder="Confirmer le mot de passe"
                     />
                   </div>
                  
-                  <div class=" pb-3 pt-8">
+                  <div class="pb-3 pt-8">
                     <button
                       type="button"
-                      class=" px-56 py-4 bg-[#13698f] text-white text-sm rounded"
+                      class=" w-4/5 py-4 bg-[#13698f] text-white text-sm rounded"
                       @click="Login"
                     >
                       Valider
