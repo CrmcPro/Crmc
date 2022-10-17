@@ -3,7 +3,7 @@
 
     <div class="bg-slate-100">
         <section class="h-screen flex center items-center justify-center">
-          <div class="text-gray-800 w-2/5 h-3/5 bg-white rounded-2xl text-center">
+          <div class="text-gray-800 w-2/5 h-4/5 bg-white rounded-2xl text-center">
             <h1 class="text-blue-300 text-4xl shadow-black pt-10 font-bold	 ">
               CRM<spam class="text-blue-500 ml-0 text-4xl font-bold	">C</spam>
             </h1>
@@ -12,7 +12,7 @@
             <div class="pt-10">
               <div class="">
                 <form>
-                  <div class="mb-6 px-40">
+                  <div class="mb-6 ml-28 w-4/5">
                     <input
                       type="text"
                       class="bg-slate-100   border border-sky-200 form-control block w-full px-4 py-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -20,7 +20,7 @@
                       placeholder="E-mail"
                     />
                   </div>
-                  <div class="mb-6 px-40">
+                  <div class="mb-6 ml-28 w-4/5">
                     <input
                       type="password"
                       class="bg-slate-100 form-control  border border-sky-200 block w-full px-4 py-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"

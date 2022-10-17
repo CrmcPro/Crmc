@@ -3,7 +3,7 @@
     <div class="bg-slate-100 h-screen min-w-max">
       <div class="bg-white border-b-2">
       <nav
-        class="container px-2 pb-1 mx-auto md:flex md:justify-between md:items-center">
+        class="container px-2 pb-2 mx-auto md:flex md:justify-between md:items-center">
         <div class="flex items-center justify-between">
          
           <router-link
