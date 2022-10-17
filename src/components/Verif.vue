@@ -13,10 +13,17 @@
                   
                    <button    
                               type="button"
+<<<<<<<<< Temporary merge branch 1
+                              class=" px-12 py-2  bg-cyan-600	 rounded-l text-sm   text-white "
+                       
+                            > 
+                            Documents                  
+=========
                               class=" px-12 py-2  bg-cyan-600	 rounded-l text-sm  text-white "
                             >
                             Documents
                             
+>>>>>>>>> Temporary merge branch 2
                     </button>
                     <button
                               type="button"
