@@ -37,15 +37,13 @@
           </div>
         </section>
               
-        <section class="bg-white h-full mt-6">
-                <section >
+          <section class="bg-white mt-6">
                 <div class="pl-10  w-full" >
                   <table class=" 	bg-cyan-700 text-white text-sm text-center w-full h-10 border-l-8  border-cyan-700 ">
                     <thead>
                       <tr>
-                        <td class="border font-medium text-solid border-slate-300 w-28 bg-white text-cyan-700 rounded-l">
-                          
-                          <button  >Devis</button> </td>
+                        <td class="border font-medium text-solid border-slate-300 w-28 bg-white text-cyan-700 rounded-l"> 
+                        <button  >Devis</button> </td>
                         <td class="border border-slate-300 "><button>Document 2</button></td>
                         <td class="border border-slate-300 "><button>Document 3</button></td>
                         <td class="border border-slate-300 "><button>Document 4</button></td>
@@ -62,25 +60,22 @@
                     </thead>
                 </table>
                 </div>
-                </section>
-               
-                    <section class="text-center">
+              </section>  
 
-                    <h1 class="font-bold text-xl pt-32 mr-96 pr-52">Devis</h1>
-                    <p class=" mr-72">Vous n'avez pas encore importer votre document ! </p>
-                    
+                <section class="text-center pt-28 pb-12">
+                    <h1 class="font-bold text-xl pr-96">Devis</h1>
+                    <p class="pr-20">Vous n'avez pas encore importer votre document ! </p>
+                 </section>
 
-
-
-                    </section>
-                    <section  class=" mr-96 ml-96 h-80 mt-10 pt-12 text-center outline-dashed outline-gray-300 ">
-                        <div class="pl-32">
-                      <img src="/src/assets/upload.png" alt="image" class="w-16 h-16 ml-72 mb-8  "/>     
+                 <section class="mr-40">
+                 <section  class=" pt-16 text-center w-4/12 float-right mr-96 h-80 outline-dashed outline-gray-300 ">
+                    <div class="">
+                      <img src="/src/assets/upload.png" alt="image" class="w-16 h-16 ml-52 bg-none mb-8 "/>     
                       <p class="text-center text-lg text-stone-600">Glisser & Déposer votre fichier</p>
-                      <button class="bg-cyan-700  px-11 py-3 rounded text-xl mt-8 text-white "> Sélectionner un fichier</button>  
+                      <button class="bg-cyan-700  px-11 py-3 rounded  text-xl mt-8 text-white "> Sélectionner un fichier</button>  
                     </div>       
                 </section>
-           </section>    
+               </section>
   
      </div>
      
