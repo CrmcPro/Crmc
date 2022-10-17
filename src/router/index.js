@@ -1,10 +1,11 @@
 import {createRouter , createWebHistory } from  "vue-router"
 import Accueil from "../components/Accueil.vue"
 import Login from "../components/Login.vue"
-import About from "../components/About.vue"
 import Signup from "../components/Signup.vue"
 import Home from "../components/Home.vue"
 import Verif from "../components/Verif.vue"
+import Upload from "../components/Upload.vue"
+
 
 const routes =[
     {
@@ -12,11 +13,13 @@ const routes =[
         name  :'Login',
         component : Login
     },
+    
     {
-        path : "/About",
-        name  :'About',
-        component : About
+        path : "/Upload",
+        name  :'Upload',
+        component : Upload
     },
+
     {
         path : "/Home",
         name  :'Home',

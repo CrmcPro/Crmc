@@ -1,9 +1,14 @@
 <template>
   <div class="p-4">
-
+  <Navbar/>
     <RouterView/>
   </div>
 </template>
-<script setup></script>
+<script setup>
+import Navbar from "./components/NavBar.vue"
+const components = {
+  Navbar ,
+}
+</script>
 
 <style scoped></style>
