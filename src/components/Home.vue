@@ -109,7 +109,7 @@
       </section>
             
       <section class="bg-white h-full mt-6">
-              <section >
+          <section >
               <div class="pl-10  w-full" >
                 <table class=" 	bg-cyan-700 text-white text-sm text-center w-full h-10 border-l-8  border-cyan-700 ">
                   <thead>
@@ -207,15 +207,10 @@
                   <h2 class="font-bold pb-4">Description</h2>
                   <p class="">Lorem, ipsum dolorequuntur eum aperiama desegfegergegegruntdgege iure repellat!</p>
               </section>
+        </section>
 
-         </section>    
 
    </div>
-   
-
-
-
-
 </template>
 <script>
  import { useRouter} from "vue-router"
