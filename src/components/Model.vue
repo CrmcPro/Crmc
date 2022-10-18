@@ -14,7 +14,7 @@
           v-show="showModal"
         >
           <div
-            class="flex items-start justify-center min-h-screen pt-24 text-center"
+            class="flex items-start justify-center max-h-screen pt-24 text-center"
           >
             <transition
               enter-active-class="transition ease-out duration-300 transform "
@@ -25,7 +25,7 @@
               leave-to-class="opacity-0 translate-y-10 translate-y-0 scale-95"
             >
               <div
-                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl p-8 w-1/2"
+                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl p-20 w-4/5"
                 role="dialog"
                 ref="modal"
                 aria-modal="true"

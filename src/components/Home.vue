@@ -3,7 +3,7 @@
 <template>
   <div class="bg-slate-100 h-screen min-w-max">   
       <section>
-        <div class="flex flex-nowrap mt-4 pl-4 ">
+        <div class="flex flex-nowrap pt-4 pl-4 ">
                 <div class="  bg-white w-96 pl-6 border-l-8 rounded border-cyan-700 "  >
                   <h1 class="font-bold ">DOSSIER NOM   
                   <label class="toggle">
@@ -15,7 +15,7 @@
                     <p>#D0001</p>                   
                     <p>Lorem ipsum repellendus omnis</p>
                 </div>
-                <div class="pl-64 pt-6 flex-auto">
+                <div class="mx-auto md:flex md:justify-between md:items-center ">
                  
                   <router-link 
                             to="/"
@@ -34,7 +34,7 @@
                    </router-link>
                 </div>  
 
-                <div class=" font-medium	 bg-white w-96 ml-64 pl-6 mr-6 text-cyan-600 flex-auto  border-r-8 rounded border-cyan-700 ">
+                <div class=" font-medium bg-white w-96 mr-6 text-cyan-600  border-r-8 rounded border-cyan-700 ">
                    <h1>Client</h1> 
                    <p>Ajouter par </p> 
                    <p>Date d'ajout</p>  
@@ -93,9 +93,11 @@
                   <section>
                     <table class="pt-16 pb-7  flex item-center text-center justify-center ">
                       <tr>
-                      <td class=" pr-80 font-bold text-lg">Devis</td>
+                      <td class=" pr-80 font-bold text-lg ">Devis</td>
                       <td class=" pl-80">
-                        <button class="bg-cyan-700 w-32 h-10 rounded text-sm  text-white">Modifier</button>
+                        <button class="bg-cyan-700 w-32 h-10 rounded text-sm text-white"> Modifier
+                          <font-awesome-icon icon="fa-solid fa-pen" color="" class="ml-2"/>
+                        </button>
                       </td>
 
                     </tr>
@@ -137,8 +139,8 @@
                 </div>
               </section>
 
-              <section class="ml-96 pl-6 pt-10">                       
-                  <h2 class="font-bold pb-4">Description</h2>
+              <section class="item-center text-center justify-center">                       
+                  <h2 class="items-left font-bold pt-4 pb-4">Description</h2>
                   <p class="text-slate-400 font-semibold text-sm">Lorem, ipsum dolorequuntur eum aperiama desegfegergegegruntdgege iure repellat!</p>
               </section>
 
@@ -176,6 +178,7 @@
       box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
       border-radius: var(--height);
       cursor: pointer;
+      margin-top: 2% ;
       margin-left: 45%;
     }
 

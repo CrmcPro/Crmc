@@ -34,7 +34,7 @@
                     <button
                       type="button"
                       class=" w-4/5 py-4 bg-[#13698f] text-white text-sm rounded "
-                      @click="Home"
+                      @click="Accueil"
                     >
                       Connextion
                     </button>
@@ -66,8 +66,8 @@
     const Singup=()=>{
         router.push("/Signup")
      }
-     const Home=()=>{
-        router.push("/Home")
+     const Accueil=()=>{
+        router.push("/Accueil")
      }
     </script>
     
