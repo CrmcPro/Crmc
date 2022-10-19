@@ -2,7 +2,6 @@
 
 <template>
     <div class="bg-slate-100 h-screen min-w-max">
-     
       <section>
         <div class="flex flex-nowrap pt-4 pl-4 ">
                 <div class="  bg-white w-96 pl-6 border-l-8 rounded border-cyan-700 "  >
