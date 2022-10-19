@@ -14,7 +14,7 @@
           v-show="showModal"
         >
           <div
-            class="flex items-start justify-center  py-12 text-center"
+            class="flex items-start justify-center  p-80 text-center"
           >
             <transition
               enter-active-class="transition ease-out duration-300 transform "
@@ -25,15 +25,15 @@
               leave-to-class="opacity-0 translate-y-10 translate-y-0 scale-95"
             >
               <div
-                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl pl-20 pr-6 pt-8 pb-8 w-4/5"
+                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl pr-5 pl-5 pt-8 pb-8 w-4/5"
                 role="dialog"
                 ref="modal"
                 aria-modal="true"
                 v-show="showModal"
                 aria-labelledby="modal-headline"
               >
-                <button type="button" class="absolute top-4 right-6">                           
-                      <span class="text-4xl"  @click="closeModal">&times;</span>      
+                <button type="button" class="absolute top-4 right-6" >                           
+                      <span @click="closeModal">x</span>      
                 </button>
 
                 <slot>I'm empty inside</slot>
@@ -58,7 +58,7 @@
     
   };
   export default {
-    name: 'ModalDialog',
+    name: 'ProgressbarModel',
     props,
     components,
     setup(props, context) {

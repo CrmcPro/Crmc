@@ -45,19 +45,21 @@
                      class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  ">
                       Comparer tous les documents
                     </button>
-                    <ModalDialog :show="showModal" @close="showModal = false">
+                    <ModelProgess :show="showModal" @close="showModal = false">
                      <ProgressBar />
-                    </ModalDialog>
-                    <ModalDialog :show="ShowProgress" @close="ShowProgress = false">
+                    </ModelProgess>
+                    <ModelList :show="ShowProgress" @close="ShowProgress = false">
                      <VerificationList/>
-                    </ModalDialog>
+                    </ModelList>
                     </section>
         </section>       
      </div>  
   </template>
   <script>
    import { useRouter} from "vue-router"
-   import ModalDialog from "../components/Model.vue"
+   import ModelList from "../components/ModelListVerification.vue"
+   import ModelProgess from "../components/PorgressbarModel.vue"
+
    import VerificationList from "../components/VerificationList.vue"
    import ProgressBar from "../components/ProgressBar.vue"
    import Header from "../components/Header.vue"
@@ -68,10 +70,11 @@
           router.push("/Accueil")
        }
 const components = {
-  ModalDialog,
+  ModelList,
   VerificationList,
   ProgressBar ,
-  Header
+  Header,
+  ModelProgess
 };
 export default {
   name: 'Verif',
