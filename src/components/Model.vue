@@ -1,5 +1,5 @@
-<template>
-    <teleport to="body">
+<template >
+    <teleport to="body" >
       <transition
         enter-active-class="transition ease-out duration-200 transform"
         enter-from-class="opacity-0"
@@ -10,11 +10,11 @@
       >
         <div
           ref="modal-backdrop"
-          class="fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50"
+          class=" fixed -inset-0 bg-black bg-opacity-50"
           v-show="showModal"
         >
           <div
-            class="flex items-start justify-center max-h-screen pt-24 text-center"
+            class=" flex justify-center items-center text-center"
           >
             <transition
               enter-active-class="transition ease-out duration-300 transform "
@@ -25,15 +25,15 @@
               leave-to-class="opacity-0 translate-y-10 translate-y-0 scale-95"
             >
               <div
-                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl p-20 w-4/5"
+                class="relative bg-white rounded-sm  overflow-hidden shadow-xl p-10 w-3/5"
                 role="dialog"
                 ref="modal"
                 aria-modal="true"
                 v-show="showModal"
                 aria-labelledby="modal-headline"
               >
-                <button class="absolute top-4 right-4">
-                  <icon-close @click="closeModal" />
+                <button class="absolute top-4 right-4" @click="closeModal">
+                  <img src="../assets/close.png" alt="">  
                 </button>
                 <slot>I'm empty inside</slot>
               </div>
