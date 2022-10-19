@@ -12,138 +12,148 @@
                      <Cherchebar/>
                         <!-- Tableau de suive -->
                 <div class="overflow-hidden border-2  border-inherit rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-cyan-700">
-                            <tr  class="">
-                                <th scope="col" class="py-3 pl-4">
+                    <table class="min-w-full divide-y border-2 divide-gray-200">
+                        <thead class="bg-cyan-700 border-2">
+                            <tr  class="border-2">
+                                <th scope="col" class="py-3 pl-4 border-2">
                                 </th>
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-left text-[#ffffff] uppercase"
+                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                 >
                                     ID dossier
                                    
                                 </th>
                               <th
                                     scope="col"
-                                    class=" flex px-6 py-3 text-xs font-bold text-left text-[#ffffff] uppercase"
+                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                 >
                                     Nom Dossier
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-4 h4 flex" stroke="#ffffff" >
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                  </svg>
+                                    
  
                                 </th>
                            
                                 
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-left text-[#ffffff] uppercase"
+                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                 >
                                     Client
                                    
                                 </th>
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-right text-[#ffffff] uppercase"
+                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                 >
                                     User
                                    
                                 </th>
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-right text-[#ffffff] uppercase"
+                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                 >
                                     Date
                                    
                                 </th>
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-right text-[#ffffff] uppercase"
+                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                 >
                                     Statut
                                    
                                 </th>
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-right text-[#ffffff] uppercase"
+                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                 >
                                     Description
-                                   
-
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class=" divide-black text-center">
-                            <tr>
+                        <tbody class=" divide-black text-center border-2 border-slate-100">
+                            <tr class="hover:bg-slate-200">
                                 <td class="py-3 pl-4">
                                     <div class="flex items-center h-5">
                                         <input
                                             type="checkbox"
                                             class="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
-                                        />
-                                        <label for="checkbox" class="sr-only">
+                                        /> 
+                                        <label for="checkbox" class="sr-only border-2 border-slate-100">
                                             Checkbox
                                         </label>
                                     </div>
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap"
                                 >
                                     #MN0129
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
                                 >
                                     SW Consulting
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
                                 >
                                     Robert DM
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium  border-2 border-slate-100 text-right whitespace-nowrap"
                                 >
                                   
                                         Samuel Snadi
                                 
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
                                 >
                                     20/10/2021
                                 </td>
+                                <td
+                                class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
+
+                                >
+                                    test
+                                </td>
+                                <td
+                                class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
+
+                                >
+                                    test
+                                </td>
+
                             </tr>
-                            <tr>
-                                <td class="py-3 pl-4">
-                                    <div class="flex items-center h-5">
+                            <tr  class="hover:bg-slate-200">
+                                <td class="py-3 pl-4 border-2 border-slate-100 ">
+                                    <div class="flex items-center  h-5">
                                         <input
+                                           
                                             type="checkbox"
                                             class="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
                                         />
-                                        <label for="checkbox" class="sr-only">
+                                        <label for="checkbox" class="sr-only" @click="Clicked.value = !Clicked.value" >
                                             Checkbox
                                         </label>
                                     </div>
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
                                 >
                                     1
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
+                                    class="px-6 py-4 text-sm text-gray-800 border-2 border-slate-100 whitespace-nowrap"
                                 >
                                     Jone Doe
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
+                                    class="px-6 py-4 text-sm text-gray-800 border-2 border-slate-100 whitespace-nowrap"
                                 >
                                     jonne62@gmail.com
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-right whitespace-nowrap"
                                 >
                                     <a
                                         class="text-green-500 hover:text-green-700"
@@ -153,7 +163,7 @@
                                     </a>
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-right whitespace-nowrap"
                                 >
                                     <a
                                         class="text-red-500 hover:text-red-700"
@@ -161,6 +171,15 @@
                                     >
                                         Delete
                                     </a>
+                                </td>
+                                <td
+                                class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-right whitespace-nowrap">
+                                    test
+                                </td>
+                                <td
+                                class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-right whitespace-nowrap">
+
+                                    test
                                 </td>
                             </tr>
                         </tbody>
@@ -174,6 +193,8 @@
 <script>
 import { useRouter} from "vue-router"
 import Cherchebar from "../screen/ChercheBar.vue"
+import { ref } from 'vue';
+
 const router=useRouter()
 
 const components = {
@@ -182,6 +203,12 @@ Cherchebar
 export default {
 name: 'Accueil',
 components,
+setup (){
+    const Clicked = ref(false);
+    console.log('==>',Clicked.value)
+    return {Clicked}
+
+}
 
 };
  </script>

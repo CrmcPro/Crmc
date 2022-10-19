@@ -3,16 +3,23 @@
     <div class="bg-slate-100 h-screen min-w-max">
       <section>
         <div class="flex flex-nowrap pt-4 pl-4 ">
-                <div class="  bg-white w-96 pl-6 border-l-8 rounded border-cyan-700 "  >
-                  <h1 class="font-bold ">DOSSIER NOM   
-                  <label class="toggle">
-                  <input type="checkbox" >
-                  <span class="slider"></span>
-                  <span class="labels" data-on="Terminé" data-off="En cours"></span>
-                 </label>
-                  </h1>
+          <div class=" flex  p-4  items-center bg-white w-96   rounded "  >
+                  <div class=  "bg-cyan-700 w-2 h-20 rounded-3xl m-3  "></div>
+                  <div>
+                    <div class="flex flex-row">
+
+                      <h1 class="font-bold ">DOSSIER NOM   
+                        
+                      </h1>
+                      <label class="toggle">
+                        <input type="checkbox" >
+                        <span class="slider"></span>
+                        <span class="labels" data-on="Terminé" data-off="En cours"></span>
+                      </label>
+                    </div>
                     <p>#D0001</p>                   
                     <p>Lorem ipsum repellendus omnis</p>
+                  </div>
                 </div>
                 <div class="mx-auto md:flex md:justify-between md:items-center ">
                  
@@ -78,7 +85,7 @@
 
                     <section class="pt-20 flex justify-center">
                            
-                    <button @click="showModal = !showModal"
+                    <button @click="ShowProgress = !ShowProgress"
                      class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  ml-2">
                       Comparer tous les documents
                     </button>
