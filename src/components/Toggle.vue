@@ -1,12 +1,10 @@
 <template>
 
-<label class="toggle">
+                <label class="toggle">
                   <input type="checkbox" >
                   <span class="slider"></span>
                   <span class="labels" data-on="Terminé" data-off="En cours"></span>
                  </label>
-
-
 </template>
 
 <style>

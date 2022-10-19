@@ -83,7 +83,6 @@
 
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 12</button></td>
-
                     </tr>
                   </thead>
               </table>
