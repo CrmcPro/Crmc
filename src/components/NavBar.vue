@@ -1,7 +1,7 @@
 <template>
 <div class="bg-white border-b-2">
     <nav
-      class="container px-2 pb-1 mx-auto md:flex md:justify-between md:items-center">
+      class="container py-3 mx-auto md:flex md:justify-between md:items-center">
       <div class="flex items-center justify-between">
        
         <router-link
@@ -12,8 +12,8 @@
             text-gray-800
             md:text-2xl
             hover:text-blue-400">
-          <h1 class="text-blue-300 text-xl shadow-black  font-bold	 ">
-            CRM<spam class="text-blue-500 ml-0 text-xl font-bold	">C</spam>
+          <h1 class="text-blue-300 text-2xl shadow-black  font-bold	 ">
+            CRM<spam class="text-blue-500 ml-0 text-2xl font-bold	">C</spam>
           </h1>
         </router-link>
         <!-- Mobile menu button -->
@@ -52,17 +52,17 @@
        
           <router-link
             to="/Accueil">
-          <li class="  text-cyan-600 font-bold  hover:text-gray-800 pointer-events-auto" >
+          <li class="  text-cyan-600 font-bold text-xl hover:text-gray-800 pointer-events-auto" >
             Acceuil
           </li></router-link>
-        <li class=" text-gray-800 hover:text-blue-400">
+        <li class=" text-neutral-600  text-xl hover:text-blue-400">
           Utilisateurs
         </li>
   
       </ul>
       <ul class="flex text-sm ">
           <div>
-            <li class="pl-14 font-medium">Name</li>
+            <li class="pl-14">Name</li>
           <h6 class="text-gray-400 font-semibold">Administrateur</h6>
           </div>
          

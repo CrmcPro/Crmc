@@ -1,5 +1,5 @@
-<template>
-    <teleport to="body">
+<template >
+    <teleport to="body" >
       <transition
         enter-active-class="transition ease-out duration-200 transform"
         enter-from-class="opacity-0"
@@ -10,7 +10,7 @@
       >
         <div
           ref="modal-backdrop"
-          class="fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50"
+          class=" fixed -inset-0 bg-black bg-opacity-50"
           v-show="showModal"
         >
           <div
@@ -35,7 +35,7 @@
                 <button type="button" class="absolute top-4 right-6">                           
                       <span class="text-4xl"  @click="closeModal">&times;</span>      
                 </button>
-                
+
                 <slot>I'm empty inside</slot>
               </div>
             </transition>

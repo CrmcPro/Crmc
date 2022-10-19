@@ -2,20 +2,20 @@
 <template>
   <div class="bg-slate-100 h-screen min-w-max">
     <div class="flex items-center text-center justify-between p-3">
-      <h1 class="font-bold p-6">Liste des dossiers</h1>
+      <h1 class="font-bold text-2xl py-6 pl-10">Liste des dossiers</h1>
       <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" >
     <img src="../assets/add.svg" class="bg-white w-5 h-5 rounded-3xl m-3">
            Ajouter un dossier</button>
     </div>
-  <div class="bg-white  rounded-xl">
+  <div class="bg-white px-10 rounded-xl">
                             <!-- ChercheBar -->
                      <Cherchebar/>
                         <!-- Tableau de suive -->
-                <div class="overflow-hidden border-2  border-inherit rounded-lg">
-                    <table class="min-w-full divide-y border-2 divide-gray-200">
-                        <thead class="bg-cyan-700 border-2">
+                <div class="overflow-hidden  border-inherit rounded-lg">
+                    <table class="min-w-full divide-y  divide-gray-100">
+                        <thead class="bg-cyan-700  ">
                             <tr  class="border-2">
-                                <th scope="col" class="py-3 pl-4 border-2">
+                                <th scope="col" class="py-3 pl-4 border-2 rounded-tl-md">
                                 </th>
                                 <th
                                     scope="col"
@@ -64,7 +64,7 @@
                                 </th>
                                 <th
                                     scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                    class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
                                 >
                                     Description
                                 </th>
@@ -72,11 +72,11 @@
                         </thead>
                         <tbody class=" divide-black text-center border-2 border-slate-100">
                             <tr class="hover:bg-slate-200">
-                                <td class="py-3 pl-4">
+                                <td class="py-3 pl-2">
                                     <div class="flex items-center h-5">
                                         <input
                                             type="checkbox"
-                                            class="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
+                                            class="text-blue-600  border-gray-200 rounded focus:ring-blue-500"
                                         /> 
                                         <label for="checkbox" class="sr-only border-2 border-slate-100">
                                             Checkbox
@@ -125,7 +125,7 @@
 
                             </tr>
                             <tr  class="hover:bg-slate-200">
-                                <td class="py-3 pl-4 border-2 border-slate-100 ">
+                                <td class="py-3 pl-2 w-8 border-2 border-slate-100 ">
                                     <div class="flex items-center  h-5">
                                         <input
                                            
