@@ -3,43 +3,7 @@
 <template>
   <div class="bg-slate-100 h-screen min-w-max">   
       <section>
-        <div class="flex flex-nowrap pt-4 pl-4 ">
-                <div class="  bg-white w-96 pl-6 border-l-8 rounded border-cyan-700 "  >
-                  <h1 class="font-bold ">DOSSIER NOM   
-                  <label class="toggle">
-                  <input type="checkbox" >
-                  <span class="slider"></span>
-                  <span class="labels" data-on="Terminé" data-off="En cours"></span>
-                 </label>
-                  </h1>
-                    <p>#D0001</p>                   
-                    <p>Lorem ipsum repellendus omnis</p>
-                </div>
-                <div class="mx-auto md:flex md:justify-between md:items-center ">
-                 
-                  <router-link 
-                            to="/"
-                            tag="button"                     
-                            class=" px-10 py-2  bg-cyan-600	 rounded-l text-sm  text-white "
-                          ><font-awesome-icon icon="fa-solid fa-folder-open"/>  
-                           Documents
-                   </router-link>
-                 
-                  <router-link 
-                            to="/Verif"
-                            tag="button"                     
-                            class=" px-12 py-2  bg-cyan-700	 rounded-r text-sm  text-white "
-                          ><font-awesome-icon icon="fa-solid fa-code-compare"/>
-                            Comparer
-                   </router-link>
-                </div>  
-
-                <div class=" font-medium bg-white w-96 mr-6 text-cyan-600  border-r-8 rounded border-cyan-700 ">
-                   <h1>Client</h1> 
-                   <p>Ajouter par </p> 
-                   <p>Date d'ajout</p>  
-                 </div>
-        </div>
+        <Header/>
       </section>
             
       <section class="bg-white h-full mt-6">
@@ -152,7 +116,7 @@
 <script>
 
 
-
+ import Header from "../components/Header.vue"
  import { useRouter} from "vue-router"
      const router=useRouter()
      const NavigationToAccueil=()=>{
@@ -161,7 +125,14 @@
      const NavigationToUpload=()=>{
           router.push("/Upload")
        }
-     
+       const components = {
+Header
+  
+};
+export default {
+  name : "Home" ,
+  components ,
+}
    
 
   </script>
