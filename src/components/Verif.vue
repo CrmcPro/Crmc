@@ -3,7 +3,7 @@
     <div class="bg-slate-100 h-screen min-w-max">
       <section>
         <div class="flex flex-nowrap pt-4 pl-4 ">
-          <div class=" flex  p-4  items-center bg-white w-96   rounded "  >
+          <div class=" flex  p-4  items-center bg-white w-96 rounded "  >
                   <div class=  "bg-cyan-700 w-2 h-20 rounded-3xl m-3  "></div>
                   <div>
                     <div class="flex flex-row">
@@ -85,7 +85,7 @@
 
                     <section class="pt-20 flex justify-center">
                            
-                    <button @click="ShowProgress = !ShowProgress"
+                    <button @click="showModal = !showModal"
                      class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  ml-2">
                       Comparer tous les documents
                     </button>

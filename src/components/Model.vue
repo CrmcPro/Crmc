@@ -14,7 +14,7 @@
           v-show="showModal"
         >
           <div
-            class="flex items-start justify-center max-h-screen pt-24 text-center"
+            class="flex items-start justify-center  py-12 text-center"
           >
             <transition
               enter-active-class="transition ease-out duration-300 transform "
@@ -25,16 +25,17 @@
               leave-to-class="opacity-0 translate-y-10 translate-y-0 scale-95"
             >
               <div
-                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl p-20 w-4/5"
+                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl pl-20 pr-6 pt-8 pb-8 w-4/5"
                 role="dialog"
                 ref="modal"
                 aria-modal="true"
                 v-show="showModal"
                 aria-labelledby="modal-headline"
               >
-                <button class="absolute top-4 right-4">
-                  <icon-close @click="closeModal" />
+                <button type="button" class="absolute top-4 right-6">                           
+                      <span class="text-4xl"  @click="closeModal">&times;</span>      
                 </button>
+                
                 <slot>I'm empty inside</slot>
               </div>
             </transition>
