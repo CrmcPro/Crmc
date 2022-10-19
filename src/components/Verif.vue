@@ -2,20 +2,22 @@
 <template>
     <div class="bg-slate-100 h-screen min-w-max">
       <section>
-        <div class="flex flex-nowrap pt-4 pl-4 ">
-          <div class=" flex  p-4  items-center bg-white w-96   rounded "  >
-                  <div class=  "bg-cyan-700 w-2 h-20 rounded-3xl m-3  "></div>
+        <div class="flex flex-nowrap pt-3 pl-3 ">
+          <div class=" flex  p-0  items-center bg-white w-96   rounded "  >
+                  <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
                   <div>
-                    <div class="flex flex-row">
-
-                      <h1 class="font-bold ">DOSSIER NOM   
-                        
-                      </h1>
-                      <label class="toggle">
-                        <input type="checkbox" >
-                        <span class="slider"></span>
-                        <span class="labels" data-on="Terminé" data-off="En cours"></span>
-                      </label>
+                    <div class="flex justify-between ">
+                      <div >
+                        <h1 class="font-bold">DOSSIER NOM   
+                        </h1>
+                      </div >
+                      <div class="pl-32">
+                        <label class="toggle">
+                          <input type="checkbox" >
+                          <span class="slider"></span>
+                          <span class="labels" data-on="Terminé" data-off="En cours"></span>
+                        </label>
+                      </div>
                     </div>
                     <p>#D0001</p>                   
                     <p>Lorem ipsum repellendus omnis</p>
@@ -39,12 +41,21 @@
                             Comparer
                    </router-link>
                 </div>  
-
-                <div class=" font-medium bg-white w-96 mr-6 text-cyan-600  border-r-8 rounded border-cyan-700 ">
+                <div class="mr-2 flex  p-0   justify-between items-center bg-white w-96   rounded "  >
+                <div class="text-cyan-700 text-lg ml-2">
+                  <h1>Client</h1> 
+                  <p>Ajouter par </p>
+                   <p>Date d'ajout</p>  
+                </div>
+                
+                  <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
+                  
+                </div>
+                <!-- <div class=" font-medium bg-white w-96 mr-6 text-cyan-600  border-r-8 rounded border-cyan-700 ">
                    <h1>Client</h1> 
                    <p>Ajouter par </p> 
                    <p>Date d'ajout</p>  
-                 </div>
+                 </div> -->
         </div>
       </section>
               
@@ -68,7 +79,7 @@
                         <option value="doc4">Documents1-documents5</option>
                     </select>
                     
-                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm  ml-2 " @click="ShowProgress = !ShowProgress">
+                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm  ml-2 " @click="showModal = !showModal">
                       Tester
                     </button>
                    
@@ -92,11 +103,11 @@
                     <div class="page p-8">
    
                     <ModalDialog :show="showModal" @close="showModal = false">
-                     <VerificationList/>
+                     <ProgressBar/>
                     </ModalDialog>
                     </div>
                     <ModalDialog :show="ShowProgress" @close="ShowProgress = false">
-                     <ProgressBar/>
+                     <VerificationList/>
                     </ModalDialog>
                     </section>
         </section>       
