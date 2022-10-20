@@ -1,6 +1,6 @@
 
 <template>
-  <div class="bg-slate-100 h-screen min-w-max">
+  <div class="bg-slate-100 min-w-max">
     <div class="flex items-center text-center justify-between p-3">
       <h1 class="font-bold text-2xl py-6 pl-10">Liste des dossiers</h1>
       <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" >

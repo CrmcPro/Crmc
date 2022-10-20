@@ -1,57 +1,43 @@
 
 
 <template>
-  <div class="bg-slate-100 h-screen min-w-max">   
-      <section>
-        <Header/>
-      </section>
-            
-      <section class="bg-white h-full mt-6">
-          <section >
-              <div class="pl-10  w-full" >
-                <table class=" 	bg-cyan-700 text-white text-sm text-center w-full h-10 border-l-8  border-cyan-700 ">
+  <div class="bg-slate-100 min-w-max">     
+     <Header/>
+      <section class="bg-white mt-8 flex flex-col items-center  ">
+         
+              <div class=" w-11/12" >
+                <table class=" 	bg-cyan-700  text-white text-sm text-center w-full h-10 border-l-8  border-cyan-700 ">
                   <thead>
                     <tr>
                       <td class="border font-medium text-solid border-slate-300 w-28 focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none rounded-l">                    
                         <router-link to="/Upload">Devis </router-link> </td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none ">
                       <button>Document 2</button></td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none ">
                       <button> Document 3</button></td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none ">
                       <button>Document 4</button></td>
-
                       <td class="border border-slate-300   focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>  <font-awesome-icon icon="fa-solid fa-circle-exclamation" color="red" class="pr-1"/>Document 5</button></td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button> <font-awesome-icon icon="fa-solid fa-circle-exclamation" color="red" class="pr-1"/>Document 6</button></td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 7</button></td>
-
                       <td class="border border-slate-300   focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 8</button></td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 9</button></td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 10</button></td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 11</button></td>
-
                       <td class="border border-slate-300  focus:text-cyan-700 focus:bg-slate-100 focus:border-cyan-700 focus:outline-none">
                       <button>Document 12</button></td>
                     </tr>
                   </thead>
               </table>
               </div>
-              </section>
+           
              
                   <section>
                     <table class="pt-16 pb-7  flex item-center text-center justify-center ">

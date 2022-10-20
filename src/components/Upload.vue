@@ -3,6 +3,7 @@
      <Header/>
           <section class="  mt-8  flex flex-col items-center ">
                 <div class=" w-11/12 " >
+                  
                   <table class="  text-white text-sm text-center w-full  h-10">
                     <div class="absolute ml-2 mt-1.5 w-1.5 h-7  rounded-3xl  bg-cyan-700"></div>
                     <thead>
@@ -10,9 +11,9 @@
                         <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700 "><button>Devis</button></td>
                         <td class="border border-slate-300 	bg-cyan-700 "><button>Document 2</button></td>
                         <td class="border border-slate-300 	bg-cyan-700 "><button>Document 3</button></td>
-                        <td class="border border-slate-300  	bg-cyan-700"><button>Document 4</button></td>
-                        <td class="border border-slate-300  	bg-cyan-700"><button>Document 5</button></td>
-                        <td class="border border-slate-300  	bg-cyan-700"><button>Document 6</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700"><button>Document 4</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700"><button>Document 5</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700"><button>Document 6</button></td>
                         <td class="border border-slate-300 	bg-cyan-700 "><button>Document 7</button></td>
                         <td class="border border-slate-300	bg-cyan-700 "><button>Document 8</button></td>
                         <td class="border border-slate-300 	bg-cyan-700 "><button>Document 9</button></td>
