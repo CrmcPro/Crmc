@@ -5,7 +5,7 @@
       <div class="flex items-center justify-between">
        
         <router-link
-          to="/Home"
+          to="/Accueil"
           class="
             text-xl
             font-bold

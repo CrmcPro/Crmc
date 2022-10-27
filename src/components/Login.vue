@@ -1,5 +1,43 @@
-<template>
+<script setup >
+import { useRouter} from "vue-router"
+import { ref } from "vue"
+import axios from "axios"
 
+const Mon_URL="http://192.168.1.36:8000/"     
+ const router=useRouter()
+const Singup=()=>{
+    router.push("/Signup")
+ }
+
+const form = ref({username: "", password: ""})
+const ErrorView = ref(false)
+
+const login = () =>{
+
+    console.log(form.value)
+    let data = form.value
+    console.log(data)
+axios.post(Mon_URL + "accounts/login/",data).then(({data})=>(
+
+data.token ?  router.push("/Accueil"): alert("Wrong password")
+
+
+)).catch(err=>(
+  ErrorView.value=true
+
+
+))
+
+}
+
+
+ 
+</script>
+
+
+
+
+<template>
 
     <div class="bg-slate-100">
         <section class="h-screen flex center items-center justify-center">
@@ -19,6 +57,9 @@
                       class=" bg-slate-100  form-control w-4/5 pl-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid  rounded transition ease-in-out  focus:text-gray-700 focus:bg-slate-100 focus:border-sky-200 focus:outline-none"
                       id="exampleFormControlInput2"
                       placeholder="E-mail"
+                      v-model="form.username"
+
+
                     />
                   </div>
                   <div class="mb-6">
@@ -27,6 +68,7 @@
                       class="bg-slate-100 form-control w-4/5 pl-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out  focus:text-gray-700 focus:bg-slate-100 focus:border-sky-200 focus:outline-none"
                       id="exampleFormControlInput2"
                       placeholder="Mot de passe"
+                      v-model="form.password"
                     />
                   </div>
                  
@@ -34,7 +76,7 @@
                     <button
                       type="button"
                       class=" w-4/5 py-4 bg-[#13698f] text-white text-sm rounded "
-                      @click="Accueil"
+                      @click="login"
                     >
                       Connextion
                     </button>
@@ -55,23 +97,18 @@
                 </form>
               </div>
             </div>
+            <div v-if="ErrorView" class="flex flex-row  justify-center items-center gap-2" >
+              <img alt="Vue logo" src="../assets/illustration.png" class="w-5 h-5">
+              <h2 class="text-red-500 font-mono ">Wrong password or E-mail</h2>
+
+              </div>
           </div>
+         
         </section>
+       
       </div>
-    
     </template>
-    <script setup>
-    import { useRouter} from "vue-router"
-     const router=useRouter()
-    const Singup=()=>{
-        router.push("/Signup")
-     }
-     const Accueil=()=>{
-        router.push("/Accueil")
-     }
-    </script>
-    
-    
+   
     <style scoped>
     
     </style>
