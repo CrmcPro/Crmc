@@ -18,6 +18,8 @@ import { faToggleOff } from '@fortawesome/free-solid-svg-icons'
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 
 /* add each imported icon to the library */
@@ -34,4 +36,5 @@ createApp(App)
 .component('font-awesome-icon',FontAwesomeIcon)
 .use(router)
 .use(store)
+.use(VueAxios, axios)
 .mount('#app')

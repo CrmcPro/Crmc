@@ -2,8 +2,8 @@ import {createRouter , createWebHistory } from  "vue-router"
 import Accueil from "../components/Accueil.vue"
 import Login from "../components/Login.vue"
 import Signup from "../components/Signup.vue"
-import Home from "../components/Home.vue"
-import Verif from "../components/Verif.vue"
+import Devis from "../components/Devis.vue"
+import Test from "../components/Test.vue"
 import Upload from "../components/Upload.vue"
 
 
@@ -21,9 +21,9 @@ const routes =[
     },
 
     {
-        path : "/Home",
-        name  :'Home',
-        component : Home
+        path : "/devis",
+        name  :'Devis',
+        component : Devis
     },
     {
         path : "/Signup",
@@ -36,9 +36,9 @@ const routes =[
         component : Accueil
     },
     {
-        path : "/Verif",
-        name  :'Verif',
-        component : Verif
+        path : "/test",
+        name  :'Test',
+        component : Test
     },
 ]
 

@@ -14,9 +14,13 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
+    "@vuelidate/core": "^2.0.0",
+    "@vuelidate/validators": "^2.0.0",
+    "axios": "^1.1.3",
     "icons": "^1.0.0",
     "vite-plugin-icons": "^0.6.5",
     "vue": "^3.2.37",
+    "vue-axios": "^3.5.0",
     "vue-router": "^4.1.5",
     "vuex": "^4.0.2"
   },

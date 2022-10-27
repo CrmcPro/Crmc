@@ -1,7 +1,26 @@
+<script setup >
+ import Header from "../components/Header.vue"
+ import { useRouter} from "vue-router"
+     const router=useRouter()
+     const NavigationToAccueil=()=>{
+        router.push("/Accueil")
+     }
+     const NavigationToUpload=()=>{
+          router.push("/Upload")
+       }
+ const components = {
+Header
+};
 
+  
+
+
+   
+
+  </script>
 
 <template>
-  <div class="bg-slate-100 h-screen min-w-max">   
+  <div class="bg-slate-100 min-w-max">   
       <section>
         <Header/>
       </section>
@@ -113,29 +132,7 @@
 
    </div>
 </template>
-<script>
 
-
- import Header from "../components/Header.vue"
- import { useRouter} from "vue-router"
-     const router=useRouter()
-     const NavigationToAccueil=()=>{
-        router.push("/Accueil")
-     }
-     const NavigationToUpload=()=>{
-          router.push("/Upload")
-       }
-       const components = {
-Header
-  
-};
-export default {
-  name : "Home" ,
-  components ,
-}
-   
-
-  </script>
   <style>
   .toggle {
       --width: 70px;
