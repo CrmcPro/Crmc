@@ -1,3 +1,22 @@
+<script setup>
+ import { useRouter} from "vue-router"
+ import Header from "./Header.vue"
+
+const components = {
+Header
+
+};
+     const router=useRouter()
+     const NavigationToAccueil=()=>{
+        router.push("/Accueil")
+     }
+     const NavigationToUpload=()=>{
+        router.push("/AjouterDevis")
+     }
+   
+
+  </script>
+
 <template >
     <div class="bg-slate-100  min-w-max ">
      <Header/>
@@ -45,26 +64,3 @@
               </div>
             </div>
    </template>
-  <script>
-   import { useRouter} from "vue-router"
-   import Header from "../components/Header.vue"
-
-const components = {
-Header
-
-};
-export default {
-  nom : 'Upload',
-  components ,
-}
-       const router=useRouter()
-       const NavigationToAccueil=()=>{
-          router.push("/Accueil")
-       }
-       const NavigationToUpload=()=>{
-          router.push("/Upload")
-       }
-     
-  
-    </script>
-  

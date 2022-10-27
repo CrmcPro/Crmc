@@ -24,7 +24,7 @@ data.token ?  router.push("/Accueil"): alert("Wrong password")
 
 )).catch(err=>(
   ErrorView.value=true
-  
+
 
 ))
 

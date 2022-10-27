@@ -5,9 +5,7 @@
      const NavigationToAccueil=()=>{
         router.push("/Accueil")
      }
-     const NavigationToUpload=()=>{
-          router.push("/Upload")
-       }
+
  const components = {
 Header
 };

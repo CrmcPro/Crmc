@@ -4,7 +4,7 @@ import Login from "../components/Login.vue"
 import Signup from "../components/Signup.vue"
 import Devis from "../components/Devis.vue"
 import Test from "../components/Test.vue"
-import Upload from "../components/Upload.vue"
+import AjouterDevis from "../components/AjouterDevis.vue"
 
 
 const routes =[
@@ -15,9 +15,9 @@ const routes =[
     },
     
     {
-        path : "/Upload",
-        name  :'Upload',
-        component : Upload
+        path : "/AjouterDevis",
+        name  :'AjouterDevis',
+        component : AjouterDevis
     },
 
     {
