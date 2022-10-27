@@ -55,7 +55,7 @@
         </section>       
      </div>  
   </template>
-  <script>
+  <script setup>
    import { useRouter} from "vue-router"
    import ModelList from "../components/ModelListVerification.vue"
    import ModelProgess from "../components/PorgressbarModel.vue"
@@ -76,18 +76,11 @@ const components = {
   Header,
   ModelProgess
 };
-export default {
-  name: 'Verif',
-  components,
-  setup() {
+
     const showModal = ref(false);
     const ShowProgress = ref(false);
-    return {
-      showModal,
-      ShowProgress
-    };
-  },
-};
+
+
     </script>
   
 

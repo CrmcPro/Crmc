@@ -32,7 +32,7 @@
                    </router-link>
                  
                   <router-link 
-                            to="/Verif"
+                            to="/AjouterDevis"
                             tag="button"                     
                             class=" px-16 py-3  bg-cyan-700	 rounded-r text-sm  text-white "
                           ><font-awesome-icon icon="fa-solid fa-code-compare"/>

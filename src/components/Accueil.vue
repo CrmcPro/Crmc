@@ -1,6 +1,30 @@
 
+
+
+
+<script setup >
+import { useRouter} from "vue-router"
+import Cherchebar from "../screen/ChercheBar.vue"
+import { ref } from 'vue';
+
+const router=useRouter()
+const navigationUpload =()=>{
+    router.push("/devis")
+}
+const components = {
+Cherchebar
+};
+
+// const Upload =()=>(
+//  axios.   
+// )
+
+    const Clicked = ref(false);
+    console.log('==>',Clicked.value)
+
+ </script>
 <template>
-  <div class="bg-slate-100 min-w-max">
+  <div class="bg-slate-100  min-w-max">
     <div class="flex items-center text-center justify-between p-3">
       <h1 class="font-bold text-2xl py-6 pl-10">Liste des dossiers</h1>
       <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" >
@@ -71,7 +95,7 @@
                             </tr>
                         </thead>
                         <tbody class=" divide-black text-center border-2 border-slate-100">
-                            <tr class="hover:bg-slate-200">
+                            <tr class="hover:bg-slate-200"     @click="navigationUpload">
                                 <td class="py-3 pl-2">
                                     <div class="flex items-center h-5">
                                         <input
@@ -85,6 +109,7 @@
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap"
+                                
                                 >
                                     #MN0129
                                 </td>
@@ -190,25 +215,3 @@
   </div>
 </template>
 
-<script>
-import { useRouter} from "vue-router"
-import Cherchebar from "../screen/ChercheBar.vue"
-import { ref } from 'vue';
-
-const router=useRouter()
-
-const components = {
-Cherchebar
-};
-export default {
-name: 'Accueil',
-components,
-setup (){
-    const Clicked = ref(false);
-    console.log('==>',Clicked.value)
-    return {Clicked}
-
-}
-
-};
- </script>
