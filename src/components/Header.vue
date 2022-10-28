@@ -24,7 +24,7 @@
                 <div class="mx-auto md:flex flex-col mt-10 md:justify-between md:items-center ">
                   <div>
                   <router-link 
-                            to="/"
+                            to="/AjouterDevis"
                             tag="button"                     
                             class=" px-16 py-3  bg-cyan-600	 rounded-l text-sm  text-white "
                           ><font-awesome-icon icon="fa-solid fa-folder-open"/>  
@@ -32,7 +32,7 @@
                    </router-link>
                  
                   <router-link 
-                            to="/AjouterDevis"
+                            to="/test"
                             tag="button"                     
                             class=" px-16 py-3  bg-cyan-700	 rounded-r text-sm  text-white "
                           ><font-awesome-icon icon="fa-solid fa-code-compare"/>
