@@ -1,30 +1,29 @@
-
-
-
-
 <script setup >
 import { useRouter} from "vue-router"
 import Cherchebar from "../screen/ChercheBar.vue"
-import { ref } from 'vue';
+import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
-const Mon_URL="http://192.168.1.36:8000/"     
+import axios from 'axios'
+
+
 const Fils = ref({});
 
 const router=useRouter()
 const navigationUpload =()=>{
     router.push("/devis")
 }
+
+
 const components = {
 Cherchebar ,
 AjouterDossier
 };
-    // console.log("im her")
-    // axios.get(Mon_URL+"/api/dossier/").then(({data})=>(
-    //     Fils.value=data
-
-    // ))
-    // console.log("im out")
-
+onMounted(() => {
+                   // Tous les Dossiers request
+    axios.get('/api/dossiers/').then(response=>{
+        console.log("response",response.data)
+    })
+})
 
 
 
@@ -33,6 +32,9 @@ AjouterDossier
     console.log('==>',Clicked.value)
     console.log('==>Fils',Fils.value)
  </script>
+
+
+
 <template>
   <div class="bg-slate-100  min-w-max">
     <div class="flex items-center text-center justify-between p-3">
@@ -164,9 +166,8 @@ AjouterDossier
                             </tr>
                         </tbody>
                     </table>
-              
-    </div>
-    </div>
-  </div>
+                 </div>
+                </div>
+                </div>
 </template>
 

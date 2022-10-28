@@ -2,8 +2,7 @@
 import { useRouter} from "vue-router"
 import { ref } from "vue"
 import axios from "axios"
-
-const Mon_URL="http://192.168.1.36:8000/"     
+import store from "../store"
  const router=useRouter()
 const Singup=()=>{
     router.push("/Signup")
@@ -12,22 +11,24 @@ const Singup=()=>{
 const form = ref({username: "", password: ""})
 const ErrorView = ref(false)
 
-const login = () =>{
+const submitForm = (e) =>{
+  console.log('im her 1')
 
     console.log(form.value)
     let data = form.value
     console.log(data)
-axios.post(Mon_URL + "accounts/login/",data).then(({data})=>(
-
-data.token ?  router.push("/Accueil"): alert("Wrong password")
-
-
-)).catch(err=>(
-  ErrorView.value=true
-
-
+axios.post("accounts/login/",data).then(response=>{
+  const token = response.data.token
+  store.commit('setToken',token)
+  axios.defaults.headers.common['Authorization'] = 'Token '+ token
+  localStorage.setItem('token',token)
+  console.log("store",store)
+ if(store.state.isAuthenticated){
+  router.push("/Accueil")
+ } 
+}).catch(err=>(
+  console.log(err)
 ))
-
 }
 
 
@@ -50,7 +51,7 @@ data.token ?  router.push("/Accueil"): alert("Wrong password")
             <div class="pt-12">
 
               <div class="">
-                <form>
+                <form >
                   <div class="mb-6">
                     <input
                       type="text"
@@ -76,7 +77,7 @@ data.token ?  router.push("/Accueil"): alert("Wrong password")
                     <button
                       type="button"
                       class=" w-4/5 py-4 bg-[#13698f] text-white text-sm rounded "
-                      @click="login"
+                      @click="submitForm"
                     >
                       Connextion
                     </button>
