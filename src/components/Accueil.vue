@@ -6,22 +6,32 @@
 import { useRouter} from "vue-router"
 import Cherchebar from "../screen/ChercheBar.vue"
 import { ref } from 'vue';
+import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
+const Mon_URL="http://192.168.1.36:8000/"     
+const Fils = ref({});
 
 const router=useRouter()
 const navigationUpload =()=>{
     router.push("/devis")
 }
 const components = {
-Cherchebar
+Cherchebar ,
+AjouterDossier
 };
+    // console.log("im her")
+    // axios.get(Mon_URL+"/api/dossier/").then(({data})=>(
+    //     Fils.value=data
 
-// const Upload =()=>(
-//  axios.   
-// )
+    // ))
+    // console.log("im out")
+
+
+
+
 
     const Clicked = ref(false);
     console.log('==>',Clicked.value)
-
+    console.log('==>Fils',Fils.value)
  </script>
 <template>
   <div class="bg-slate-100  min-w-max">
@@ -95,8 +105,8 @@ Cherchebar
                             </tr>
                         </thead>
                         <tbody class=" divide-black text-center border-2 border-slate-100">
-                            <tr class="hover:bg-slate-200"     @click="navigationUpload">
-                                <td class="py-3 pl-2">
+                            <tr class="hover:bg-slate-200"    >
+                                <td class="py-3 pl-2" >
                                     <div class="flex items-center h-5">
                                         <input
                                             type="checkbox"
@@ -109,7 +119,7 @@ Cherchebar
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap"
-                                
+                                    @click="navigationUpload"
                                 >
                                     #MN0129
                                 </td>
@@ -147,65 +157,10 @@ Cherchebar
                                 >
                                     test
                                 </td>
-
+                                
                             </tr>
-                            <tr  class="hover:bg-slate-200">
-                                <td class="py-3 pl-2 w-8 border-2 border-slate-100 ">
-                                    <div class="flex items-center  h-5">
-                                        <input
-                                           
-                                            type="checkbox"
-                                            class="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
-                                        />
-                                        <label for="checkbox" class="sr-only" @click="Clicked.value = !Clicked.value" >
-                                            Checkbox
-                                        </label>
-                                    </div>
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
-                                >
-                                    1
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 border-2 border-slate-100 whitespace-nowrap"
-                                >
-                                    Jone Doe
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 border-2 border-slate-100 whitespace-nowrap"
-                                >
-                                    jonne62@gmail.com
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-right whitespace-nowrap"
-                                >
-                                    <a
-                                        class="text-green-500 hover:text-green-700"
-                                        href="#"
-                                    >
-                                        Edit
-                                    </a>
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-right whitespace-nowrap"
-                                >
-                                    <a
-                                        class="text-red-500 hover:text-red-700"
-                                        href="#"
-                                    >
-                                        Delete
-                                    </a>
-                                </td>
-                                <td
-                                class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-right whitespace-nowrap">
-                                    test
-                                </td>
-                                <td
-                                class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-right whitespace-nowrap">
-
-                                    test
-                                </td>
+                            <tr>
+                                {{Fils.value}}
                             </tr>
                         </tbody>
                     </table>
