@@ -1,3 +1,22 @@
+
+<script steup >
+import axios from 'axios'
+import { ref ,onMounted} from 'vue';
+
+
+
+const getCurrendUser =()=>{
+ 
+
+}
+onMounted (()=>{
+ 
+})
+
+</script>
+
+
+
 <template>
 <div class="bg-white border-b-2">
     <nav
@@ -67,6 +86,7 @@
           </div>
          
           <img src="/src/assets/149071.png" alt="image" class="w-10 h-10 ml-3"/>
+          
         </ul>
      </nav>
     </div>
@@ -74,6 +94,3 @@
         
     </template>
 
-
-<script>
-</script>
