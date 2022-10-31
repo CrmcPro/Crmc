@@ -5,7 +5,7 @@
 <script setup >
 import { useRouter} from "vue-router"
 import Cherchebar from "../screen/ChercheBar.vue"
-import { ref } from 'vue';
+import { ref,onMounted } from 'vue';
 import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
 const Mon_URL="http://192.168.1.36:8000/"     
 const Fils = ref({});
@@ -24,10 +24,6 @@ AjouterDossier
 
     // ))
     // console.log("im out")
-
-
-
-
 
     const Clicked = ref(false);
     console.log('==>',Clicked.value)

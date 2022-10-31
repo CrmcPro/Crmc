@@ -2,35 +2,27 @@
 import { useRouter} from "vue-router"
 import { ref } from "vue"
 import axios from "axios"
-
 const Mon_URL="http://192.168.1.36:8000/"     
  const router=useRouter()
 const Singup=()=>{
     router.push("/Signup")
  }
-
+ 
 const form = ref({username: "", password: ""})
 const ErrorView = ref(false)
-
 const login = () =>{
-
     console.log(form.value)
     let data = form.value
     console.log(data)
 axios.post(Mon_URL + "accounts/login/",data).then(({data})=>(
-
-data.token ?  router.push("/Accueil"): alert("Wrong password")
-
-
+data.token ?  
+router.push("/Accueil") :
+ 
+alert("Wrong password")
 )).catch(err=>(
   ErrorView.value=true
-
-
 ))
-
 }
-
-
  
 </script>
 
