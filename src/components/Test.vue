@@ -4,8 +4,7 @@
         <!-- Document && Comparer  -->
       <section>
         <Header/>
-      </section>
-              
+      </section>       
         <section class="bg-white h-full mt-8">
                 <section class=" text-center mr-96   ">
                     <h1 class=" pt-28 pb-2 mr-44 font-bold text-xl">Vérifier vos documents</h1>

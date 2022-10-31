@@ -1,34 +1,56 @@
-
-
-
-
 <script setup >
 import { useRouter} from "vue-router"
 import Cherchebar from "../screen/ChercheBar.vue"
-import { ref,onMounted } from 'vue';
+import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
-const Mon_URL="http://192.168.1.36:8000/"     
+import axios from 'axios'
+import store from "../store"
+
+
 const Fils = ref({});
 
 const router=useRouter()
 const navigationUpload =()=>{
     router.push("/devis")
 }
+
 const components = {
 Cherchebar ,
 AjouterDossier
 };
-    // console.log("im her")
-    // axios.get(Mon_URL+"/api/dossier/").then(({data})=>(
-    //     Fils.value=data
+onMounted(() => {
+    const token =store.state.token
+  console.log('token',token)
+                   // Tous les Dossiers request
+    axios.get('/api/dossiers/').then(response=>{
+        console.log("response",response.data)
+    })
 
-    // ))
-    // console.log("im out")
+
+    axios.get("accounts/users/me",
+    {
+        headers: {
+          Authorization: token,
+        }
+  }).then(res=>{
+
+    console.log('====>wow',res.data)
+  }).catch(err=>{
+    console.log(err,'errerer')
+  })
+    
+})
+
+
+
 
     const Clicked = ref(false);
     console.log('==>',Clicked.value)
     console.log('==>Fils',Fils.value)
  </script>
+
+
+
 <template>
   <div class="bg-slate-100  min-w-max">
     <div class="flex items-center text-center justify-between p-3">
@@ -160,9 +182,7 @@ AjouterDossier
                             </tr>
                         </tbody>
                     </table>
-              
-    </div>
-    </div>
-  </div>
+                 </div>
+                </div>
+                </div>
 </template>
-
