@@ -4,6 +4,7 @@ import Cherchebar from "../screen/ChercheBar.vue"
 import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
 import axios from 'axios'
+import store from "../store"
 
 
 const Fils = ref({});
@@ -19,10 +20,24 @@ Cherchebar ,
 AjouterDossier
 };
 onMounted(() => {
+    const token =store.state.token
+  console.log(token)
                    // Tous les Dossiers request
     axios.get('/api/dossiers/').then(response=>{
         console.log("response",response.data)
     })
+    axios.get("accounts/users/me",
+    {
+        headers: {
+          Authorization: token,
+        }
+  }).then(res=>{
+
+    console.log('====>wow',res.data)
+  }).catch(err=>{
+    console.log(err,'errerer')
+  })
+    
 })
 
 
