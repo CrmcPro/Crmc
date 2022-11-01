@@ -12,22 +12,19 @@ const form = ref({username: "", password: ""})
 const ErrorView = ref(false)
 
 const submitForm = (e) =>{
-  console.log('im her 1')
-
-  
-    let data = form.value
-    console.log(data)
-axios.post("accounts/login/",data).then(response=>{
+ 
+  let data = form.value
+  axios.post("accounts/login/",data).then(response=>{
+  console.log("=>>>",response)
   const token = response.data.token
   store.commit('setToken',token)
   axios.defaults.headers.common['Authorization'] = 'Token '+ token
   localStorage.setItem('token',token)
-  console.log("store",store)
  if(store.state.isAuthenticated){
   router.push("/Accueil")
  } 
-}).catch(err=>(
-  console.log(err)
+}).catch(Err=>(
+  console.log("cc2")
 ))
 }
 
