@@ -5,7 +5,10 @@ import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
 import axios from 'axios'
 import store from "../store"
-
+const components = {
+Cherchebar ,
+AjouterDossier
+};
 
 const Fils = ref({});
 
@@ -15,37 +18,23 @@ const navigationUpload =()=>{
 }
 
 
-const components = {
-Cherchebar ,
-AjouterDossier
-};
+
 onMounted(() => {
     const token =store.state.token
-  console.log(token)
+  console.log('tokenAcceuil',axios.defaults.headers)
                    // Tous les Dossiers request
     axios.get('/api/dossiers/').then(response=>{
         console.log("response",response.data)
     })
-    axios.get("accounts/users/me",
-    {
-        headers: {
-          Authorization: token,
-        }
-  }).then(res=>{
-
-    console.log('====>wow',res.data)
-  }).catch(err=>{
-    console.log(err,'errerer')
-  })
+    axios.get('/accounts/users/me').then(res=>{
+        console.log('resUser',res.data)
+    })
+   
     
 })
 
-
-
-
     const Clicked = ref(false);
-    console.log('==>',Clicked.value)
-    console.log('==>Fils',Fils.value)
+
  </script>
 
 
@@ -175,9 +164,6 @@ onMounted(() => {
                                     test
                                 </td>
                                 
-                            </tr>
-                            <tr>
-                                {{Fils.value}}
                             </tr>
                         </tbody>
                     </table>
