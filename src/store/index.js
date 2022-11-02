@@ -1,6 +1,6 @@
 import { createStore} from "vuex"
 import  user from '../store/modules/user'
-
+import  dossiers from '../store/modules/dossiers'
 
 
 const store = createStore({
@@ -8,7 +8,7 @@ const store = createStore({
         token : "" ,
         isAuthenticated : false
     },
-   
+
     mutations : {
         initializeStore(state){
             if(localStorage.getItem('token')){
@@ -30,6 +30,7 @@ const store = createStore({
     },
     modules: {
         user,
+        dossiers
     },
 })
 
