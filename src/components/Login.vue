@@ -26,7 +26,9 @@ axios.post("accounts/login/",data).then(response=>{
  if(store.state.isAuthenticated){
 
   router.push("/Accueil")
- }else {
+ }else if(!store.state.isAuthenticated) {
+  router.push("/")
+
   console.log('im her 3')
 
  }

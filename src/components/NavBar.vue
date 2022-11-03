@@ -1,9 +1,9 @@
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import PorfilModel from './PorfilModel.vue'
 import Profil from "./Profil.vue"
-
+import store from "../store"
 export default {
   name : 'Navbar',
   props :{
@@ -19,21 +19,23 @@ export default {
   data(){
     return {
       ShowProfil: false,
-       show : false
+       show : false ,
+       deconnection : false ,
+
     }
   },
-
   computed : {
     ...mapGetters(['user']) ,
-     
   },
   methods : {
-    ...mapActions(['getCurent','removeToken']),
-    
+    ...mapActions(['getCurent']),
+    ...mapMutations(['removeToken'])
+
    
   },
   mounted(){
     this.getCurent()
+
   }
 }
 </script>
@@ -45,7 +47,6 @@ export default {
     <nav
       class="container py-3 mx-auto md:flex md:justify-between md:items-center">
       <div class="flex items-center justify-between">
-       
         <router-link
           to="/Accueil"
           class="
@@ -116,7 +117,7 @@ export default {
         class="flex items-center    rounded-md"
       >
       <div  @click="show = !show">
-            <img src="/src/assets/149071.png" alt="image" class="w-12 h-12 ml-3"/>
+            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class="w-12 h-12 ml-3"/>
           </div>
       </button>
 
@@ -145,8 +146,8 @@ export default {
           "
         >
         <div          @click="ShowProfil = !ShowProfil"
->
-          Profile
+                  >
+                    Profile
                     <PorfilModel :show="ShowProfil" @close="ShowProfil = false">
                            <Profil/>
                   </PorfilModel>
@@ -155,7 +156,7 @@ export default {
           </div>
         <div
           class=" block px-4  py-2 text-sm  hover:bg-cyan-600  hover:text-white "
-          @click='this.comitremoveToken()'
+          @click="removeToken"
         >
            Déconnection
         </div>
