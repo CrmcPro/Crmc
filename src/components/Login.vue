@@ -13,10 +13,7 @@ const ErrorView = ref(false)
 
 const submitForm = (e) =>{
   console.log('im her 1')
-
-    console.log(form.value)
     let data = form.value
-    console.log(data)
 axios.post("accounts/login/",data).then(response=>{
   console.log('im her 2')
 
@@ -27,7 +24,7 @@ axios.post("accounts/login/",data).then(response=>{
   localStorage.setItem('token',token)
   console.log("store",store)
  if(store.state.isAuthenticated){
-  
+
   router.push("/Accueil")
  }else {
   console.log('im her 3')
@@ -40,7 +37,7 @@ axios.post("accounts/login/",data).then(response=>{
 console.log('im her 5')
 setTimeout(() => {
   ErrorView.value = true
-}, 1000);
+}, 2000);
 
 
 }
