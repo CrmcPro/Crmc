@@ -12,20 +12,36 @@ const form = ref({username: "", password: ""})
 const ErrorView = ref(false)
 
 const submitForm = (e) =>{
- 
-  let data = form.value
-  axios.post("accounts/login/",data).then(response=>{
-  console.log("=>>>",response)
+  console.log('im her 1')
+
+    console.log(form.value)
+    let data = form.value
+    console.log(data)
+axios.post("accounts/login/",data).then(response=>{
+  console.log('im her 2')
+
   const token = response.data.token
   store.commit('setToken',token)
+
   axios.defaults.headers.common['Authorization'] = 'Token '+ token
   localStorage.setItem('token',token)
  if(store.state.isAuthenticated){
+  
   router.push("/Accueil")
- } 
-}).catch(Err=>(
-  console.log("cc2")
+ }else {
+  console.log('im her 3')
+
+ }
+}).catch(err=>(
+  console.log('im her 4')
+
 ))
+console.log('im her 5')
+setTimeout(() => {
+  ErrorView.value = true
+}, 1000);
+
+
 }
 
 

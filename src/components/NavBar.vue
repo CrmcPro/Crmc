@@ -3,14 +3,15 @@
 import axios from 'axios'
 import { ref ,onMounted} from 'vue';
 
+const user = ref(String)
 
 
 const getCurrendUser =()=>{
- 
+
 
 }
 onMounted (()=>{
- 
+
 })
 
 </script>
@@ -81,7 +82,7 @@ onMounted (()=>{
       </ul>
       <ul class="flex text-sm ">
           <div>
-            <li class="pl-14">Name</li>
+            <li class="pl-14">name</li>
           <h6 class="text-gray-400 font-semibold">Administrateur</h6>
           </div>
          

@@ -1,3 +1,7 @@
+<script setup>
+</script>
+
+
 <template >
     <div class="flex flex-col  p-3  shadow-2xl ">
         <div class="overflow-x-auto rounded">
