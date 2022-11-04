@@ -1,14 +1,13 @@
 import { createStore} from "vuex"
 import  user from '../store/modules/user'
 import  dossiers from '../store/modules/dossiers'
-
-
+import router from "../router"
 const store = createStore({
     state :{
         token : "" ,
-        isAuthenticated : false
+        isAuthenticated : localStorage.getItem('token') ?true : false
     },
-
+   
     mutations : {
         initializeStore(state){
             if(localStorage.getItem('token')){
@@ -17,6 +16,7 @@ const store = createStore({
             }else {
                 state.token = '',
                 state.isAuthenticated = false 
+
             }
         },
         setToken( state, token ){
@@ -25,13 +25,16 @@ const store = createStore({
         },
         removeToken( state ){
             state.token = '',
-            state.isAuthenticated = false
+            state.isAuthenticated = false,
+            router.push('/')
+            localStorage.clear()
         }
     },
     modules: {
         user,
         dossiers
     },
+    
 })
 
 export default store

@@ -22,6 +22,8 @@ export default {
     console.log(   'resrt' ,test)
   }else {
     axios.defaults.headers.common['Authorization'] = ''
+    console.log(   'No Authorization' )
+
   }
   
   }

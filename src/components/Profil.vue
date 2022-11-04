@@ -1,3 +1,25 @@
+          <script >
+           import { useRouter} from "vue-router"
+           import { mapActions, mapGetters, mapMutations } from 'vuex'
+          
+           import store from "../store"
+          
+           export default {
+            name : 'Profil',
+           
+            data(){
+              return {
+              }
+            },
+             computed : {
+                ...mapGetters(['user']) ,
+              }
+           }
+          const router=useRouter()
+            const Close=()=>{
+            }
+          </script>
+          
 <template class="absolute  justify-center items-center">
       <section >
         <div class=" flex flex-row  justify-start items-center border-b border-b-slate-200  rounded-l px-2 border-cyan-700 ">
@@ -14,7 +36,7 @@
         
         </div>
         <section class="flex flex-warp justify-around items-center p-3 ">
-            <img src="/src/assets/149071.png" alt="image" class=" w-60 h-60 bg-white border-2 shadow-2xl rounded-full"/>
+            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class=" w-60 h-60 bg-white  rounded-full"/>
 
         </section>
 
@@ -84,11 +106,3 @@
                                             </button>
                                             </div>
 </template>
-
-<script setup>
- import { useRouter} from "vue-router"
-
-const router=useRouter()
-  const Close=()=>{
-  }
-</script>
