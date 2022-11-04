@@ -17,7 +17,7 @@ import { faCodeCompare } from '@fortawesome/free-solid-svg-icons'
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons'
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
-
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 

@@ -1,6 +1,6 @@
 
 <template>
-    <div class="bg-slate-100 h-screen min-w-max">
+    <div class="bg-slate-100 min-w-max">
         <!-- Document && Comparer  -->
       <section>
         <Header/>

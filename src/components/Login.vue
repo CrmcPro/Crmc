@@ -22,7 +22,6 @@ axios.post("accounts/login/",data).then(response=>{
 
   axios.defaults.headers.common['Authorization'] = 'Token '+ token
   localStorage.setItem('token',token)
-  console.log("store",store)
  if(store.state.isAuthenticated){
 
   router.push("/Accueil")

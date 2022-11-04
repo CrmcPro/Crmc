@@ -1,4 +1,4 @@
-<script setup >
+<script>
 import { useRouter} from "vue-router"
 import Cherchebar from "../screen/ChercheBar.vue"
 import { ref ,onMounted} from 'vue';
@@ -7,33 +7,31 @@ import axios from 'axios'
 import store from "../store"
 
 
-const Fils = ref({});
-
+const dossiers = ref([]);
 const router=useRouter()
-const navigationUpload =()=>{
-    router.push("/devis")
+export default {
+
+name:"DossierList",
+data()
+{
+    return {list:undefined}
+},
+
+
+mounted() {
+  const token =store.state.token
+  console.log('tokenAcceuil',axios.defaults.headers)
+     // Tous les Dossiers request
+        axios.get('/api/dossiers/')
+        .then(resp=>{   
+            this.list=resp.data;
+            console.log("data",resp.data)
+           
+        
+    })      
+} 
+// const Clicked = ref(false);
 }
-
-
-const components = {
-Cherchebar ,
-AjouterDossier ,
-};
-onMounted(() => {
-    const token =store.state.token
-  console.log(token)
-                   // Tous les Dossiers request
-    axios.get('/api/dossiers/').then(response=>{
-        console.log("response",response.data)
-    })    
-})
-
-
-
-
-    const Clicked = ref(false);
-    console.log('==>',Clicked.value)
-    console.log('==>Fils',Fils.value)
  </script>
 
 
@@ -53,7 +51,7 @@ onMounted(() => {
                 <div class="overflow-hidden  border-inherit rounded-lg">
                     <table class="min-w-full divide-y  divide-gray-100">
                         <thead class="bg-cyan-700  ">
-                            <tr  class="border-2">
+                            <tr  class="border-2" >
                                 <th scope="col" class="py-3 pl-4 border-2 rounded-tl-md">
                                 </th>
                                 <th
@@ -109,69 +107,74 @@ onMounted(() => {
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class=" divide-black text-center border-2 border-slate-100">
-                            <tr class="hover:bg-slate-200"    >
+                      
+                        <tbody class=" divide-black text-center border-2 border-slate-100"  
+                       >
+                            <tr v-for="item in list" v-bind:key="item.id">
                                 <td class="py-3 pl-2" >
                                     <div class="flex items-center h-5">
                                         <input
                                             type="checkbox"
                                             class="text-blue-600  border-gray-200 rounded focus:ring-blue-500"
                                         /> 
+                                      
                                         <label for="checkbox" class="sr-only border-2 border-slate-100">
                                             Checkbox
                                         </label>
                                     </div>
                                 </td>
+                          
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap"
                                     @click="navigationUpload"
-                                >
-                                    #MN0129
+                                  > 
+                                    {{item.id}}
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
                                 >
-                                    SW Consulting
+                                  {{item.nom_dossier}}
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
                                 >
-                                    Robert DM
+                                   
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium  border-2 border-slate-100 text-right whitespace-nowrap"
                                 >
                                   
-                                        Samuel Snadi
+                                {{item.user}}    
                                 
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
                                 >
-                                    20/10/2021
+                                    {{item.date_creation}}
                                 </td>
                                 <td
                                 class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
 
                                 >
-                                    test
+                                {{item.status}}
+                               
                                 </td>
                                 <td
                                 class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
 
                                 >
-                                    test
+                                    
                                 </td>
-                                
+                           
                             </tr>
                            
 
 
 
                         </tbody>
+    
                     </table>
                  </div>
                 </div>
                 </div>
 </template>
-
