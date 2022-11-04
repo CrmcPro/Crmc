@@ -5,10 +5,7 @@ import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
 import axios from 'axios'
 import store from "../store"
-const components = {
-Cherchebar ,
-AjouterDossier
-};
+
 
 const dossiers = ref([]);
 const router=useRouter()
@@ -170,6 +167,10 @@ mounted() {
                                 </td>
                            
                             </tr>
+                           
+
+
+
                         </tbody>
     
                     </table>

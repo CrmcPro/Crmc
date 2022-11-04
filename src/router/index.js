@@ -5,7 +5,7 @@ import Signup from "../components/Signup.vue"
 import Devis from "../components/Devis.vue"
 import Test from "../components/Test.vue"
 import AjouterDevis from "../components/AjouterDevis.vue"
-
+import Profil from  '../components/profil.vue'
 
 const routes =[
     {
@@ -39,6 +39,11 @@ const routes =[
         path : "/test",
         name  :'Test',
         component : Test
+    },
+    {
+        path : "/Profil",
+        name  :'Profil',
+        component : Profil
     },
 ]
 
