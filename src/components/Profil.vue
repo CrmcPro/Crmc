@@ -36,7 +36,7 @@
         
         </div>
         <section class="flex flex-warp justify-around items-center p-3 ">
-            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class=" w-60 h-60 bg-white  rounded-full"/>
+            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class=" w-52 h-52 bg-white  rounded-full"/>
 
         </section>
 
@@ -45,28 +45,32 @@
                  <div >
 
                 <h1 class="font-bold py-2">Nom</h1>
-
-                    <input class="border-2 border-gray-400  rounded p-2  w-full " placeholder="Thabet"/>
+                   <h1  class="border-2 border-gray-400  rounded p-2  w-full">{{user.first_name}}</h1>
                    </div>
                  <div>
 
                      <h1 class="font-bold py-2">Prenom</h1>
-                      <input class="border-2 rounded p-2  w-full border-gray-400  " placeholder="Ben Aicha"/>
+                     <h1  class="border-2 border-gray-400  rounded p-2  w-full">{{user.last_name}}</h1>
+
+                      <!-- <input class="border-2 rounded p-2  w-full border-gray-400  " placeholder="Ben Aicha"/> -->
                      </div>
                      <div>
 
                     <h1 class="font-bold py-2">Email</h1>
-                    <input class="border-2 rounded p-2  w-full border-gray-400 bg-slate-200 " placeholder="thabet.ba@gmail.com"/>
+                    <!-- <input class="border-2 rounded p-2  w-full border-gray-400 bg-slate-200 " placeholder="thabet.ba@gmail.com"/> -->
+                    <h1  class="border-2 border-gray-400  rounded p-2  w-full text-sm">{{user.email}}</h1>
+
                     </div>
                     <div  > 
 
                    <h1 class="font-bold py-2">Company</h1>
-                    <input class="border-2 p-2 rounded w-full border-gray-400 bg-slate-200  " placeholder="Nom company"/>
+                    <!-- <input class="border-2 p-2 rounded w-full border-gray-400 bg-slate-200  " placeholder="Nom company"/> -->
+                    <h1  class="border-2 p-2 rounded w-full border-gray-400 bg-slate-200  ">{{user.company}}</h1>
                     </div>
                    <div>
-        
                     <h1 class="font-bold py-2">Password</h1>
                     <input class="border-2 p-2 rounded   w-full  border-gray-400 "  type="password" placeholder="*************"/>
+                    <!-- <h1 class="border-2 p-2 rounded   w-full  text-xs border-gray-400 "  type="password" ></h1> -->
                    </div>
      </section>
      <section class=" w-5/12  ">

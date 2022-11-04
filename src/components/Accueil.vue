@@ -1,39 +1,70 @@
-<script setup >
-import { useRouter} from "vue-router"
+<script  >
 import Cherchebar from "../screen/ChercheBar.vue"
 import { ref ,onMounted} from 'vue';
-import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
+import AjouterDossier from '../components/AjouterUnDossier.vue'
+import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import store from "../store"
+import { useRouter } from "vue-router";
 
+const router =useRouter()
 
 const Fils = ref({});
 
-const router=useRouter()
-const navigationUpload =()=>{
-    router.push("/devis")
-}
-
-
-const components = {
-Cherchebar ,
+export default {
+  name : 'Navbar',
+  props :{
+    show: {
+    type: Boolean,
+    default: false,
+  },
+  },
+  components: {
+    Cherchebar ,
 AjouterDossier ,
-};
-onMounted(() => {
+ModalAjouterDossier
+  },
+  data(){
+    return {
+
+        showModal:false,
+      ShowProfil: false,
+       show : false ,
+       deconnection : false ,
+
+    }
+  },
+  computed : {
+    // ...mapGetters(['user']) ,
+  },
+  methods : {
+    // ...mapActions(['getCurent']),
+    // ...mapMutations(['removeToken'])
+
+   
+  },
+  mounted(){
     const token =store.state.token
   console.log(token)
                    // Tous les Dossiers request
     axios.get('/api/dossiers/').then(response=>{
         console.log("response",response.data)
     })    
-})
+  }
+}
+const navigationUpload =(router)=>{
+    router.push('/')
+}
 
 
 
 
-    const Clicked = ref(false);
-    console.log('==>',Clicked.value)
-    console.log('==>Fils',Fils.value)
+
+// const showModal = ref(false);
+
+//     const Clicked = ref(false);
+//     console.log('==>',Clicked.value)
+//     console.log('==>Fils',Fils.value)
  </script>
 
 
@@ -42,9 +73,16 @@ onMounted(() => {
   <div class="bg-slate-100  min-w-max">
     <div class="flex items-center text-center justify-between p-3">
       <h1 class="font-bold text-2xl py-6 pl-10">Liste des dossiers</h1>
-      <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" >
+      <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" @click="showModal = !showModal">
     <img src="../assets/add.svg" class="bg-white w-5 h-5 rounded-3xl m-3">
-           Ajouter un dossier</button>
+         
+    Ajouter un dossier</button>
+<div class="absolute  justify-center items-center">
+
+    <ModalAjouterDossier :show="showModal" @close="showModal = false">
+         <AjouterDossier />
+    </ModalAjouterDossier>
+</div>
     </div>
   <div class="bg-white px-10 rounded-xl">
                             <!-- ChercheBar -->
