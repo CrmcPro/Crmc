@@ -11,7 +11,7 @@ const dossiers = ref([]);
 const router=useRouter()
 export default {
 
-name:"DossierList",
+name:"Accueil",
 data()
 {
     return {list:undefined}
@@ -141,26 +141,26 @@ mounted() {
                                    
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium  border-2 border-slate-100 text-right whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
                                 >
                                   
                                 {{item.user}}    
                                 
                                 </td>
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
                                 >
                                     {{item.date_creation}}
                                 </td>
                                 <td
-                                class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
+                                class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
 
                                 >
                                 {{item.status}}
                                
                                 </td>
                                 <td
-                                class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
+                                class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
 
                                 >
                                     
