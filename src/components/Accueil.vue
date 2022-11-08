@@ -1,19 +1,30 @@
-<script  >
+<script>
 import Cherchebar from "../screen/ChercheBar.vue"
 import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
-import store from "../store"
-import { useRouter } from "vue-router";
-
-const router =useRouter()
-
-const Fils = ref({});
-
+import { useRouter} from "vue-router"
+     const router=useRouter()
+     const NavigationTodevis=()=>{
+        router.push("/devis")
+     }
+const dossiers = ref([]);
 export default {
-  name : 'Navbar',
-  props :{
+
+name:"Acceuil",
+data()
+{
+    return {
+        
+        showModal:false,
+      ShowProfil: false,
+       show : false ,
+       deconnection : false ,
+        list:undefined
+    }
+},
+props :{
     show: {
     type: Boolean,
     default: false,
@@ -24,47 +35,18 @@ export default {
 AjouterDossier ,
 ModalAjouterDossier
   },
-  data(){
-    return {
-
-        showModal:false,
-      ShowProfil: false,
-       show : false ,
-       deconnection : false ,
-
-    }
-  },
-  computed : {
-    // ...mapGetters(['user']) ,
-  },
-  methods : {
-    // ...mapActions(['getCurent']),
-    // ...mapMutations(['removeToken'])
-
-   
-  },
-  mounted(){
-    const token =store.state.token
-  console.log(token)
-                   // Tous les Dossiers request
-    axios.get('/api/dossiers/').then(response=>{
-        console.log("response",response.data)
-    })    
-  }
-}
-const navigationUpload =(router)=>{
-    router.push('/')
+mounted() {
+     // Tous les Dossiers request
+        axios.get('/api/dossiers/').then(resp=>{   
+            this.list=resp.data;
+            console.log("data",list)
+           
+        
+    })      
+} 
+// const Clicked = ref(false);
 }
 
-
-
-
-
-// const showModal = ref(false);
-
-//     const Clicked = ref(false);
-//     console.log('==>',Clicked.value)
-//     console.log('==>Fils',Fils.value)
  </script>
 
 
@@ -91,7 +73,7 @@ const navigationUpload =(router)=>{
                 <div class="overflow-hidden  border-inherit rounded-lg">
                     <table class="min-w-full divide-y  divide-gray-100">
                         <thead class="bg-cyan-700  ">
-                            <tr  class="border-2">
+                            <tr  class="border-2" >
                                 <th scope="col" class="py-3 pl-4 border-2 rounded-tl-md">
                                 </th>
                                 <th
@@ -147,14 +129,17 @@ const navigationUpload =(router)=>{
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class=" divide-black text-center border-2 border-slate-100">
-                            <tr class="hover:bg-slate-200"    >
+                      
+                        <tbody class=" divide-black text-center border-2 border-slate-100"  
+                       >
+                            <tr v-for="item in list" v-bind:key="item.id">
                                 <td class="py-3 pl-2" >
                                     <div class="flex items-center h-5">
                                         <input
                                             type="checkbox"
                                             class="text-blue-600  border-gray-200 rounded focus:ring-blue-500"
                                         /> 
+                                      
                                         <label for="checkbox" class="sr-only border-2 border-slate-100">
                                             Checkbox
                                         </label>
@@ -162,54 +147,58 @@ const navigationUpload =(router)=>{
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap"
-                                    @click="navigationUpload"
+                                    @click="NavigationTodevis"
+                                  > 
+                                    {{item.id}}
+                                </td>
+                                <td
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
+                                    @click="NavigationTodevis"
+
                                 >
-                                    #MN0129
+                                  {{item.nom_dossier}}
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
                                 >
-                                    SW Consulting
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
-                                >
-                                    Robert DM
+                                   
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium  border-2 border-slate-100 text-right whitespace-nowrap"
+                                    @click="NavigationTodevis"
+
                                 >
                                   
-                                        Samuel Snadi
+                                {{item.user}}    
                                 
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
                                 >
-                                    20/10/2021
+                                    {{item.date_creation}}
                                 </td>
                                 <td
                                 class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
 
                                 >
-                                    test
+                                {{item.status}}
+                               
                                 </td>
                                 <td
                                 class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
 
                                 >
-                                    test
+                                    
                                 </td>
-                                
                             </tr>
                            
 
 
 
                         </tbody>
+    
                     </table>
                  </div>
                 </div>
                 </div>
 </template>
-

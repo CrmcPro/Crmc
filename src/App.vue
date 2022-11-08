@@ -21,6 +21,7 @@ export default {
   const token =this.$store.state.token
   if(token){
    let test = axios.defaults.headers.common['Authorization'] = "token " + token
+
     console.log('resrt' ,test)
   }else {
     axios.defaults.headers.common['Authorization'] = ''

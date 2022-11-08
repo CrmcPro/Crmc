@@ -1,23 +1,55 @@
           <script >
            import { useRouter} from "vue-router"
            import { mapActions, mapGetters, mapMutations } from 'vuex'
-          
            import store from "../store"
-          
-           export default {
+           import ChangeImage from "../screen/ChangeImage.vue"
+          import Swal from 'sweetalert2'
+          import Cropper from 'cropperjs';
+
+ 
+          export default {
             name : 'Profil',
-           
+            props:{
+              ChangeImage
+            },
             data(){
               return {
+                files : [] ,
               }
             },
              computed : {
                 ...mapGetters(['user']) ,
+              },
+              methods : {
+               onchange () {
+  //               Swal.fire({
+  //              title: 'SweetAlert2 + cropperjs',
+  //             html: `
+  //             <img id="preview" src=http://192.168.1.36:8000'+{{user.avatar}}>
+  //              <div>
+  //              <img id="cropperjs" src="/images/picture.jpg">
+  //             </div>
+  //               `,
+  //               willOpen() {
+  //   const image = Swal.getPopup().querySelector('#cropperjs')
+  //   const cropper = new Cropper(image, {
+  //     aspectRatio: 1,
+  //     viewMode: 1,
+  //     crop: setInterval(function () {
+  //       const croppedCanvas = cropper.getCroppedCanvas()
+  //       const preview = Swal.getHtmlContainer().querySelector('#preview')
+  //       preview.src = croppedCanvas.toDataURL()
+  //     }, this.files)
+  //   })
+  // },
+  // preConfirm: () => {
+  //   return Swal.getHtmlContainer().querySelector('#preview').src
+  // }
+  //         })
               }
            }
-          const router=useRouter()
-            const Close=()=>{
-            }
+          }
+           
           </script>
           
 <template class="absolute  justify-center items-center">
@@ -35,11 +67,23 @@
             </div>
         
         </div>
-        <section class="flex flex-warp justify-around items-center p-3 ">
-            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class=" w-52 h-52 bg-white  rounded-full"/>
-
+        <section class="flex flex-warp justify-around items-center p-3  " @click="onchange">
+            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class=" w-52 h-52 bg-white border-2 rounded-full"/>
+              <label  class=" bg-slate-200  absolute ml-40  mt-32 border-1 rounded-full" for="fileInput" >
+                <img  class=" w-10 h-10 p-2"  src="../assets/clipart-camera-logo.png" />
+              </label>
+              <!-- {/* <input
+                 type="file"
+                 multiple
+                 name="file"
+                 id="fileInput"
+                 class=" opacity-0 overflow-hidden absolute w-[1px] h-[1px]"
+                 @change="onchange"
+                 ref="file"
+                 accept=".jpg,.jpeg,.png"
+                  /> */} -->
         </section>
-
+     
  <section  class="flex flex-warp justify-around items-center w-full ">
       <section  class="w-5/12 ">
                  <div >

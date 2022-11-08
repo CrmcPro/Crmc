@@ -2,6 +2,7 @@ import { createStore} from "vuex"
 import  user from '../store/modules/user'
 import  dossiers from '../store/modules/dossiers'
 import router from "../router"
+
 const store = createStore({
     state :{
         token : "" ,
