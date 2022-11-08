@@ -15,7 +15,7 @@
       >
 
         <div
-          class=" flex justify-center  py-40 text-center"
+          class=" flex justify-center  py-28 text-center"
         >
           <transition
             enter-active-class="transition ease-out duration-300 transform "

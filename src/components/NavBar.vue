@@ -4,6 +4,8 @@ import { mapActions, mapGetters, mapMutations } from 'vuex'
 import PorfilModel from './PorfilModel.vue'
 import Profil from "./Profil.vue"
 import store from "../store"
+import router from "../router"
+
 export default {
   name : 'Navbar',
   props :{

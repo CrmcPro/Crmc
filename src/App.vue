@@ -9,6 +9,8 @@
 <script >
 import Navbar from "./components/NavBar.vue"
 import axios from 'axios'
+import router from "./router"
+
 export default {
   name: "App",
   components:{
@@ -19,11 +21,12 @@ export default {
   const token =this.$store.state.token
   if(token){
    let test = axios.defaults.headers.common['Authorization'] = "token " + token
-    console.log(   'resrt' ,test)
+
+    console.log('resrt' ,test)
   }else {
     axios.defaults.headers.common['Authorization'] = ''
-    console.log(   'No Authorization' )
-
+    console.log('No Authorization')
+    router.push('/')
   }
   
   }

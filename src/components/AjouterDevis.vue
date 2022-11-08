@@ -6,7 +6,7 @@ import DragDrop from "./DragDrop.vue"
 
 const components = {
 DragDrop,
-Header
+Header ,
 };
 const router=useRouter()
 
