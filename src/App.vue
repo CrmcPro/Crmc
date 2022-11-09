@@ -26,7 +26,6 @@ export default {
   }else {
     axios.defaults.headers.common['Authorization'] = ''
     console.log('No Authorization')
-    router.push('/')
   }
   
   }

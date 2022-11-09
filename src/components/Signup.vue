@@ -1,24 +1,24 @@
 <script setup>
   
   import { useRouter} from "vue-router"
-  const router=useRouter()
-  const Login=()=>{
-      router.push("/")
-   }
-const Mon_URL="http://192.168.1.36:8000/"     
+//   const router=useRouter()
+//   const Login=()=>{
+//       router.push("/")
+//    }
+// const Mon_URL="http://192.168.1.36:8000/"     
 
-const form = ref({username: "", password: ""})
-const ErrorView = ref(false)
-const signup = () =>{
-    console.log(form.value)
-    let data = form.value
-    console.log(data)
-axios.post(Mon_URL + "accounts/signup/",data).then(({data})=>(
-data.token ?  router.push("/"): alert("Wrong password")
-)).catch(err=>(
-  ErrorView.value=true
-))
-}
+// const form = ref({username: "", password: ""})
+// const ErrorView = ref(false)
+// const signup = () =>{
+//     console.log(form.value)
+//     let data = form.value
+//     console.log(data)
+// axios.post(Mon_URL + "accounts/signup/",data).then(({data})=>(
+// data.token ?  router.push("/"): alert("Wrong password")
+// )).catch(err=>(
+//   ErrorView.value=true
+// ))
+// }
  
   </script>
   

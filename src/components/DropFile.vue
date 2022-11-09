@@ -102,8 +102,8 @@ methods: {
         this.isDragging = false;
       },
       remove(i) {
-    this.files.splice(i, 1);
-        },
+       this.files.splice(i, 1);
+     },
     },
   };
   </script>

@@ -6,6 +6,7 @@ import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
 import route from "../router"
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 
    
 const dossiers = ref([]);
@@ -15,13 +16,12 @@ name:"Accueil",
 data()
 {
     return {
-        router:useRouter(),
-
+       router:useRouter(),
        showModal:false,
        ShowProfil: false,
        show : false ,
        deconnection : false ,
-       list:undefined
+    
     }
 },
 props :{
@@ -36,23 +36,24 @@ props :{
     ModalAjouterDossier
   },
   methods: {
-     NavigationTodevis () {
-        console.log("hello");
-        this.router.push("/AjouterDevis");
-     
+    
+    ...mapActions(['getdossiers']),
+    ...mapMutations(['SET_id_dossiers']),
+     NavigationTodevis (id) {
+        console.log("hello",id);
+        this.SET_id_dossiers(),
+        this.router.push("/Devis");
+       
      }
   },
-mounted() {
-     // Tous les Dossiers request
-        axios.get('/api/dossiers/').then(resp=>{   
-            this.list=resp.data;
-            console.log("data",list)
-           
-        
-    })      
-} ,
+ mounted () {
+   this.getdossiers()
+ },
 
-// const Clicked = ref(false);
+ computed : {
+     ...mapGetters(['dossiers']),
+         },
+
 }
 
  </script>
@@ -124,7 +125,7 @@ mounted() {
                       
                         <tbody class=" divide-black text-center border-2 border-slate-100"  
                        >
-                            <tr v-for="item in list" v-bind:key="item.id">
+                            <tr v-for="item in dossiers" v-bind:key="item.id">
                                 <td class="py-3 pl-2" >
                                     <div class="flex items-center h-5">
                                         <input
@@ -139,7 +140,8 @@ mounted() {
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap"
-                                    @click="NavigationTodevis"
+                                    @click="() => NavigationTodevis(item.id)"
+
                                   > 
                                     {{item.id}}
                                 </td>
@@ -171,14 +173,9 @@ mounted() {
                                     
                                 </td>
                             </tr>
-                           
-
-
-
-                        </tbody>
-    
-                    </table>
+                           </tbody>
+                        </table>
+                    </div>
+                   </div>
                  </div>
-                </div>
-                </div>
 </template>
