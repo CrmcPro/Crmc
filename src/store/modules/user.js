@@ -18,10 +18,6 @@ export default {
     //  },
     async getCurent ({commit}){
      let res= await axios.get('/accounts/users/me').then(res=>{
-            console.log('resUser',res.data.first_name)
-            console.log('photo',res.data)
-            // store.modules.user=res.data.first_name
-            console.log('store.user')
              commit('SET_NAME' , res.data)
         })
      },

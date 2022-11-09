@@ -23,15 +23,9 @@ props :{
     Header ,
     DropFile 
   },
-mounted() {
-     // Tous les Dossiers request
-     axios.get('/api/dossiers/document/').then(res=>{
-         console.log(res.data)
-     })
-        axios.get('/api/dossiers/').then(resp=>{   
-            this.list=resp.data;
-            console.log("data",list) })    
 
+mounted() {
+this.
 },
 methods : {
   NavigationToAccueil(){
@@ -57,7 +51,7 @@ methods : {
                     <div class="absolute ml-2 mt-1.5 w-1.5 h-7  rounded-3xl  bg-cyan-700"></div>
                     <thead>
                       <tr>
-                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700 "><button>Devis</button></td>
+                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700 "> Devis</td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>Audit</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>CEE</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>AH</button></td>
@@ -72,7 +66,6 @@ methods : {
                         <td class="border border-slate-300 	bg-cyan-700"><button>COFRAC</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>IMPO</button></td>
 
-  
                       </tr>
                     </thead>
                 </table>
@@ -172,10 +165,6 @@ methods : {
                    <p>Vous n'avez pas encore importer votre document ! </p>  
             </div>
             <DropFile/>
-              
-             
-
-
               </div>
             </div>
    </section>
