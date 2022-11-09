@@ -10,12 +10,7 @@
 Header
 };
 
-  
-
-
-   
-
-  </script>
+</script>
 
 <template>
   <div class="bg-slate-100 min-w-max">   
@@ -30,7 +25,7 @@ Header
                     <div class="absolute ml-2 mt-1.5 w-1.5 h-7  rounded-3xl  bg-cyan-700"></div>
                     <thead>
                       <tr>
-                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700 "><button>Devis</button></td>
+                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700 "><a href="./AjouterDevis"> Devis</a></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>Audit</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>CEE</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>AH</button></td>
@@ -45,7 +40,6 @@ Header
                         <td class="border border-slate-300 	bg-cyan-700"><button>COFRAC</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>IMPO</button></td>
 
-  
                       </tr>
                     </thead>
                 </table>

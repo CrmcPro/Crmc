@@ -1,10 +1,10 @@
-          <script >
-           import { useRouter} from "vue-router"
-           import { mapActions, mapGetters, mapMutations } from 'vuex'
-           import store from "../store"
-           import ChangeImage from "../screen/ChangeImage.vue"
-          import Swal from 'sweetalert2'
-          import Cropper from 'cropperjs';
+<script >
+import { useRouter} from "vue-router"
+import { mapActions, mapGetters, mapMutations } from 'vuex'
+import store from "../store"
+import ChangeImage from "../screen/ChangeImage.vue"
+import Swal from 'sweetalert2'
+import Cropper from 'cropperjs';
 
  
           export default {

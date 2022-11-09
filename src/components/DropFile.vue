@@ -48,34 +48,43 @@
   </template>
   
   <script>
-  export default {
+import axios from 'axios';
+import { mapActions, mapGetters, mapMutations } from 'vuex'
+import store from "../store"
 
+export default {
+
+
+
+
+data() {
+      return {
+        isDragging: false,
+        files: [],
+        pochette_id:2,
+        dossier_id:4 ,
+      };
+},
+
+mounted () {
+   this.getdossiers()
+},
+
+computed : {
+            ...mapGetters(['dossier']) ,
+              },
+methods: {
+  ...mapActions(['getdossiers']),
     uploadFiles() {
     const files = this.files;
     const formData = new FormData();
     files.forEach((file) => {
         formData.append("selectedFiles", file);
     });
-
-    axios({
-        method: "POST",
-        url: "/api/dossiers/document/",
-        data: formData,
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
-    });
 },
 
 
 
-    data() {
-      return {
-        isDragging: false,
-        files: [],
-      };
-    },
-    methods: {
       onChange() {
         this.files = [...this.$refs.file.files];
       },

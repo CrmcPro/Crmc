@@ -2,15 +2,17 @@ import axios from "axios"
 export default {
     state: () => ({
         
-        dossiers: {}
+        dossiers: { pochette_id:2,
+                    dossier_id:4 ,}
     }),
     getters : {
         dossiers : state => state.dossiers
     },
     mutations : {
-        SET_dossiers(state,payload){
+        SET_dossier_id(state,payload){
             state.dossiers = payload
         }
+        
     },
     actions :{
     //  saveName({commit}, data){
@@ -18,8 +20,8 @@ export default {
     //  },
     async getdossiers ({commit}){
      let res= await axios.get('/api/dossiers/').then(response=>{
-        console.log("response",response.data)
-        commit('SET_dossiers' , response.data)
+        console.log("response0000000000",response.data)
+        commit('SET_dossier_id',response.data.id)
 
     })
      }
