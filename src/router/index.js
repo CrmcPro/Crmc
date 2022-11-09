@@ -4,7 +4,6 @@ import Login from "../components/Login.vue"
 import Signup from "../components/Signup.vue"
 import Devis from "../components/Devis.vue"
 import Test from "../components/Test.vue"
-import AjouterDevis from "../components/AjouterDevis.vue"
 import Profil from  '../components/profil.vue'
 
 const routes =[
@@ -13,13 +12,6 @@ const routes =[
         name  :'Login',
         component : Login
     },
-    
-    {
-        path : "/AjouterDevis",
-        name  :'AjouterDevis',
-        component : AjouterDevis
-    },
-
     {
         path : "/devis",
         name  :'Devis',

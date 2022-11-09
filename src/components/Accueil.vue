@@ -5,21 +5,23 @@ import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
+import route from "../router"
 
-
+   
 const dossiers = ref([]);
 export default {
 
-name:"Acceuil",
+name:"Accueil",
 data()
 {
     return {
         router:useRouter(),
-        showModal:false,
-        ShowProfil: false,
-        show : false ,
-        deconnection : false ,
-        list:undefined
+
+       showModal:false,
+       ShowProfil: false,
+       show : false ,
+       deconnection : false ,
+       list:undefined
     }
 },
 props :{
@@ -33,22 +35,27 @@ props :{
     AjouterDossier ,
     ModalAjouterDossier
   },
+  methods: {
+     NavigationTodevis () {
+        console.log("hello");
+        this.router.push("/AjouterDevis");
+     
+     }
+  },
 mounted() {
      // Tous les Dossiers request
         axios.get('/api/dossiers/').then(resp=>{   
             this.list=resp.data;
-            console.log("data",list) })      
-},
-methods : {
-    NavigationTodevis(){
-       this.router.push("/devis")
-     }
-}
+            console.log("data",list)
+           
+        
+    })      
+} ,
+
+// const Clicked = ref(false);
 }
 
  </script>
-
-
 
 <template>
   <div class="bg-slate-100  min-w-max">
@@ -89,23 +96,9 @@ methods : {
                                     Nom Dossier
                                     
  
-                                </th>
-                           
-                                
-                                <th
-                                    scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
-                                >
-                                    Client
-                                   
-                                </th>
-                                <th
-                                    scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
-                                >
-                                    User
-                                   
-                                </th>
+                                </th>                             
+                               
+                              
                                 <th
                                     scope="col"
                                     class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
@@ -152,52 +145,35 @@ methods : {
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
-                                    @click="NavigationTodevis"
+                                    @click="NavigationTodevis" >  
 
-                                >
-                                  {{item.nom_dossier}}
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
-                                >
-                                   
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium  border-2 border-slate-100 text-right whitespace-nowrap"
-                                    @click="NavigationTodevis"
-
-                                >
-                                  
-                                {{item.user}}    
                                 
+                                  {{item.first_name}} {{item.last_name}}
+
                                 </td>
+                               
                                 <td
-                                    class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
-                                >
+                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
+                                    @click="NavigationTodevis" >   
                                     {{item.date_creation}}
                                 </td>
                                 <td
-                                class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
-
-                                >
+                                class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
+                                @click="NavigationTodevis" >  
+                                
                                 {{item.status}}
                                
                                 </td>
                                 <td
-                                class="px-6 py-4 text-sm font-medium text-right  border-2 border-slate-100 whitespace-nowrap"
+                                class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
 
-                                >
+                                >None
                                     
                                 </td>
                             </tr>
-                           
-
-
-
-                        </tbody>
-    
-                    </table>
+                           </tbody>
+                        </table>
+                    </div>
+                   </div>
                  </div>
-                </div>
-                </div>
 </template>

@@ -18,12 +18,7 @@
 
 <section  class="flex flex-warp justify-around items-center w-full ">
     <section  class="w-5/12 ">
-               <div >
-
-              <h1 class="font-bold py-2">Nom</h1>
-
-                  <input class="border-2 border-gray-400  rounded p-2  w-full " placeholder="Nom de dossier"/>
-                 </div>
+            
                <div>
 
                    <h1 class="font-bold py-2">Description</h1>
