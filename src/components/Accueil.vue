@@ -1,48 +1,76 @@
 <script>
-import { useRouter} from "vue-router"
 import Cherchebar from "../screen/ChercheBar.vue"
 import { ref ,onMounted} from 'vue';
-import AjouterDossier from '../components/ModelAjouterUnDossier.vue'
+import AjouterDossier from '../components/AjouterUnDossier.vue'
+import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
-import store from "../store"
+import { useRouter} from "vue-router"
+import route from "../router"
 
-
+   
 const dossiers = ref([]);
-const router=useRouter()
 export default {
 
 name:"Accueil",
 data()
 {
-    return {list:undefined}
+    return {
+        router:useRouter(),
+
+       showModal:false,
+       ShowProfil: false,
+       show : false ,
+       deconnection : false ,
+       list:undefined
+    }
 },
-
-
+props :{
+    show: {
+    type: Boolean,
+    default: false,
+  },
+  },
+  components: {
+    Cherchebar ,
+    AjouterDossier ,
+    ModalAjouterDossier
+  },
+  methods: {
+     NavigationTodevis () {
+        console.log("hello");
+        this.router.push("/AjouterDevis");
+     
+     }
+  },
 mounted() {
-  const token =store.state.token
-  console.log('tokenAcceuil',axios.defaults.headers)
      // Tous les Dossiers request
-        axios.get('/api/dossiers/')
-        .then(resp=>{   
+        axios.get('/api/dossiers/').then(resp=>{   
             this.list=resp.data;
-            console.log("data",resp.data)
+            console.log("data",list)
            
         
     })      
-} 
+} ,
+
 // const Clicked = ref(false);
 }
+
  </script>
-
-
 
 <template>
   <div class="bg-slate-100  min-w-max">
     <div class="flex items-center text-center justify-between p-3">
       <h1 class="font-bold text-2xl py-6 pl-10">Liste des dossiers</h1>
-      <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" >
+      <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" @click="showModal = !showModal">
     <img src="../assets/add.svg" class="bg-white w-5 h-5 rounded-3xl m-3">
-           Ajouter un dossier</button>
+         
+    Ajouter un dossier</button>
+<div class="absolute  justify-center items-center">
+
+    <ModalAjouterDossier :show="showModal" @close="showModal = false">
+         <AjouterDossier />
+    </ModalAjouterDossier>
+</div>
     </div>
   <div class="bg-white px-10 rounded-xl">
                             <!-- ChercheBar -->
@@ -68,23 +96,9 @@ mounted() {
                                     Nom Dossier
                                     
  
-                                </th>
-                           
-                                
-                                <th
-                                    scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
-                                >
-                                    Client
-                                   
-                                </th>
-                                <th
-                                    scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
-                                >
-                                    User
-                                   
-                                </th>
+                                </th>                             
+                               
+                              
                                 <th
                                     scope="col"
                                     class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
@@ -123,49 +137,39 @@ mounted() {
                                         </label>
                                     </div>
                                 </td>
-                          
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap"
-                                    @click="navigationUpload"
+                                    @click="NavigationTodevis"
                                   > 
                                     {{item.id}}
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
-                                >
-                                  {{item.nom_dossier}}
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
-                                >
-                                   
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
-                                >
-                                  
-                                {{item.user}}    
+                                    @click="NavigationTodevis" >  
+
                                 
+                                  {{item.first_name}} {{item.last_name}}
+
                                 </td>
+                               
                                 <td
                                     class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
-                                >
+                                    @click="NavigationTodevis" >   
                                     {{item.date_creation}}
                                 </td>
                                 <td
                                 class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
-
-                                >
+                                @click="NavigationTodevis" >  
+                                
                                 {{item.status}}
                                
                                 </td>
                                 <td
                                 class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
 
-                                >
+                                >None
                                     
                                 </td>
-                           
                             </tr>
                            
 
