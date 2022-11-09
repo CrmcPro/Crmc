@@ -5,10 +5,8 @@ import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
-     const router=useRouter()
-     const NavigationTodevis=()=>{
-        router.push("/devis")
-     }
+
+
 const dossiers = ref([]);
 export default {
 
@@ -16,11 +14,11 @@ name:"Acceuil",
 data()
 {
     return {
-        
+        router:useRouter(),
         showModal:false,
-      ShowProfil: false,
-       show : false ,
-       deconnection : false ,
+        ShowProfil: false,
+        show : false ,
+        deconnection : false ,
         list:undefined
     }
 },
@@ -32,19 +30,20 @@ props :{
   },
   components: {
     Cherchebar ,
-AjouterDossier ,
-ModalAjouterDossier
+    AjouterDossier ,
+    ModalAjouterDossier
   },
 mounted() {
      // Tous les Dossiers request
         axios.get('/api/dossiers/').then(resp=>{   
             this.list=resp.data;
-            console.log("data",list)
-           
-        
-    })      
-} 
-// const Clicked = ref(false);
+            console.log("data",list) })      
+},
+methods : {
+    NavigationTodevis(){
+       this.router.push("/devis")
+     }
+}
 }
 
  </script>

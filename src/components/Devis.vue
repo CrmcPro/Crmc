@@ -1,24 +1,46 @@
-<script setup >
+<script  >
  import Header from "../components/Header.vue"
  import { useRouter} from "vue-router"
-     const router=useRouter()
-     const NavigationToAccueil=()=>{
-        router.push("/Accueil")
+ export default {
+
+name:"Devis",
+data()
+{
+    return {
+        router:useRouter(),
+        View: false 
+    }
+},
+props :{
+    show: {
+    type: Boolean,
+    default: false,
+  },
+  },
+  components: {
+    Header
+
+  },
+mounted() {
+     // Tous les Dossiers request
+        axios.get('/api/dossiers/').then(resp=>{   
+            this.list=resp.data;
+            console.log("data",list) })      
+},
+methods : {
+  NavigationToAccueil(){
+       this.router.push("/Accueil")
      }
-
- const components = {
-Header
-};
-
-  
+}
+}
+     const router=useRouter()
 
 
-   
 
   </script>
 
 <template>
-  <div class="bg-slate-100 min-w-max">   
+  <div  v-if="View" class="bg-slate-100 min-w-max">   
       <section>
         <Header/>
       </section>
@@ -123,12 +145,11 @@ Header
                   <h2 class="items-left font-bold pt-4 pb-4">Description</h2>
                   <p class="text-slate-400 font-semibold text-sm">Lorem, ipsum dolorequuntur eum aperiama desegfegergegegruntdgege iure repellat!</p>
               </section>
-
-              
         </section>
-               
-
    </div>
+   <section v-if="!View">
+
+   </section>
 </template>
 
   <style>
