@@ -171,14 +171,9 @@ mounted() {
                                     
                                 </td>
                             </tr>
-                           
-
-
-
-                        </tbody>
-    
-                    </table>
+                           </tbody>
+                        </table>
+                    </div>
+                   </div>
                  </div>
-                </div>
-                </div>
 </template>
