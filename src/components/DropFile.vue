@@ -1,4 +1,11 @@
 <template>
+
+<div class="text-l flex flex-col ">
+              
+              <h1 class="font-bold py-2 " >Devis</h1>
+                   <p class="px-6">         Vous n'avez pas encore importer votre document ! </p>  
+            </div>
+
     <div class="main">
       <div
         class="dropzone-container"
@@ -50,11 +57,7 @@
 import axios from 'axios';
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import store from "../store"
-
 export default {
-
-
-
 
 data() {
       return {
@@ -70,8 +73,8 @@ mounted () {
 },
 
 computed : {
-            ...mapGetters(['dossier']) ,
-              },
+      ...mapGetters(['dossier']) ,
+          },
 methods: {
   ...mapActions(['getdossiers']),
     uploadFiles() {
@@ -81,9 +84,6 @@ methods: {
         formData.append("selectedFiles", file);
     });
 },
-
-
-
       onChange() {
         this.files = [...this.$refs.file.files];
       },

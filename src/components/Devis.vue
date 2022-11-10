@@ -2,7 +2,7 @@
  import Header from "./Header.vue"
  import { useRouter} from "vue-router"
  import DropFile from "./DropFile.vue"
-
+import DescriptionDevis from "./DescriptionDevis.vue"
  export default {
 
 name:"Devis",
@@ -10,7 +10,7 @@ data()
 {
     return {
         router:useRouter(),
-        View: false 
+        View: false
     }
 },
 props :{
@@ -21,7 +21,8 @@ props :{
   },
   components: {
     Header ,
-    DropFile 
+    DropFile ,
+    DescriptionDevis
   },
 
 mounted() {
@@ -39,130 +40,45 @@ methods : {
   </script>
 
 <template>
-  <div  v-if="View" class="bg-slate-100 min-w-max">   
-      <section>
-        <Header/>
-      </section>
-      <section class="bg-white h-full">
-        <section class="  mt-8  flex flex-col items-center ">
+  <Header/>
+  <section class="  mt-8  flex flex-col items-center  ">
                 <div class=" w-11/12 " >
                   <table class="  text-white text-sm text-center w-full  h-10">
                     <div class="absolute ml-2 mt-1.5 w-1.5 h-7  rounded-3xl  bg-cyan-700"></div>
                     <thead>
                       <tr>
-                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700"> Devis</td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>Audit</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>CEE</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>AH</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>Facture</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>SYNTHESE </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>AMO</button></td>
-                        <td class="border border-slate-300	bg-cyan-700"><button>FICHE_PRECO</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>LISTING_ENTREPRISES </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>GEOPORTAIL </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>GEOLOCALISATION</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>JUSTIF_DOMICILE</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>COFRAC</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>IMPO</button></td>
+                        <td class=" font-medium text-solid  rounded-l  w-24 bg-white text-cyan-700"> Devis</td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>Audit</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>CEE</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>AH</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>Facture</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>SYNTHESE </button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>AMO</button></td>
+                        <td class="border border-slate-300	bg-cyan-700 w-24"><button>FICHE_PRECO</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>LISTING_ENTREPRISES </button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>GEOPORTAIL </button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>GEOLOCALISATION</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>JUSTIF_DOMICILE</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>COFRAC</button></td>
+                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button>IMPO</button></td>
 
                       </tr>
                     </thead>
                 </table>
                 </div>
               </section>  
-             
-                  <section>
-                    <table class="pt-16 pb-7  flex item-center text-center justify-center ">
-                      <tr>
-                      <td class=" pr-80 font-bold text-lg ">Devis</td>
-                      <td class=" pl-80">
-                        <button class="bg-cyan-700 w-32 h-10 rounded text-sm text-white"> Modifier
-                          <font-awesome-icon icon="fa-solid fa-pen" color="" class="ml-2"/>
-                        </button>
-                      </td>
-
-                    </tr>
-                    </table>
-                  </section>
-
-
-              <section>
-                
-                <div>
-                  <table class="  text-white border-separate border-spacing-1 flex item-center text-center justify-center">
-  
-                    <tr>
-                      <td class="border rounded-l-md border-white h-12 text-sm font-semibold	bg-cyan-600">N°Devis</td>
-                      <td class="border rounded-r-md border-slate-400 w-96 px-80  "></td>
-
-                    </tr>
-                    <tr>
-                      <td class="border rounded-l-md h-12	bg-cyan-600 border-white text-sm font-semibold ">Eneretique</td>
-                      <td class="border rounded-r-md border-slate-400 "></td>
-
-                    </tr>
-                    <tr>
-                      <td class="border h-12 rounded-l-md	bg-cyan-600 border-white text-sm font-semibold ">Date</td>
-                      <td class="border  border-slate-400 rounded-r-md "></td>
-
-                    </tr>
-                    <tr>
-                      <td class="border h-12	bg-cyan-600 rounded-l-md border-white text-sm font-semibold">Prime</td>
-                      <td class="border  rounded-r-md border-slate-400 "></td>
-
-                    </tr>
-                    <tr>
-                      <td class="border px-12 h-12 rounded-l-md	bg-cyan-600 border-white text-sm  font-semibold">Total TTC</td>
-                      <td class="border rounded-r-md border-slate-400"></td>
-
-                    </tr>
-                  </table>
-                </div>
-              </section>
-
-              <section class="item-center text-center justify-center">                       
-                  <h2 class="items-left font-bold pt-4 pb-4">Description</h2>
-                  <p class="text-slate-400 font-semibold text-sm">Lorem, ipsum dolorequuntur eum aperiama desegfegergegegruntdgege iure repellat!</p>
-              </section>
+              
+  <div  v-if="View" class="bg-slate-100 min-w-max">   
+      
+      <section class="bg-white h-full">
+              <DescriptionDevis/>              
         </section>
    </div>
-   <section v-if="!View">
-    <div class="bg-slate-100  min-w-max ">
-     <Header/>
-          <section class="   flex flex-col items-center ">
-                <div class=" w-11/12 " >
-                  <table class="  text-white text-sm text-center w-full  h-10">
-                    <div class="absolute  rounded-3xl  bg-cyan-700"></div>
-                    <thead>
-                      <tr>
-                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700 "><button>Devis</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>Audit</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>CEE</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>AH</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>Facture</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>SYNTHESE </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>AMO</button></td>
-                        <td class="border border-slate-300	bg-cyan-700"><button>FICHE_PRECO</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>LISTING_ENTREPRISES </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>GEOPORTAIL </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>GEOLOCALISATION</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>JUSTIF_DOMICILE</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>COFRAC</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700"><button>IMPO</button></td>
 
-  
-                      </tr>
-                    </thead>
-                </table>
-                </div>
-              </section>  
-              
+        <section v-if="!View">
+          <div class="bg-slate-100  min-w-max ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
-            <div class="text-l flex flex-col ">
-              
-              <h1 class="font-bold py-2 " >Devis</h1>
-                   <p class="px-6">         Vous n'avez pas encore importer votre document ! </p>  
-            </div>
+          
             <DropFile/>
               </div>
             </div>

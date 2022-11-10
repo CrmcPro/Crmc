@@ -12,12 +12,12 @@ const form = ref({username: "", password: ""})
 const ErrorView = ref(false)
 
 const submitForm = (e) =>{
-  console.log('im her 1')
+    console.log('im her 1')
     let data = form.value
-axios.post("accounts/login/",data).then(response=>{
-  console.log('im her 2')
+    axios.post("accounts/login/",data).then(response=>{
+    console.log('im her 2')
 
-  const token = response.data.token
+const token = response.data.token
   store.commit('setToken',token)
 
   axios.defaults.headers.common['Authorization'] = 'Token '+ token
@@ -28,27 +28,16 @@ axios.post("accounts/login/",data).then(response=>{
  }else if(!store.state.isAuthenticated) {
   router.push("/")
 
-  console.log('im her 3')
-
  }
 }).catch(err=>(
-  console.log('im her 4')
+  console.log('im here 2')
 
 ))
-console.log('im her 5')
 setTimeout(() => {
   ErrorView.value = true
 }, 2000);
-
-
 }
-
-
- 
 </script>
-
-
-
 
 <template >
   <div class="bg-slate-200  h-screen justify-center items-center flex ">
@@ -66,8 +55,6 @@ setTimeout(() => {
                       id="exampleFormControlInput2"
                       placeholder="E-mail"
                       v-model="form.username"
-
-
                     />
                   </div>
                   <div class="py-2">
@@ -112,8 +99,8 @@ setTimeout(() => {
          
         </section>
       </div>
-    </template>
+</template>
    
-    <style scoped>
+<style scoped>
     
-    </style>
+</style>
