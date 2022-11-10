@@ -38,12 +38,13 @@ props :{
   },
   methods: {
     
-    ...mapActions(['getdossiers','UpdateIdDossier']),
+    ...mapActions(['getdossiers']),
      NavigationTodevis (id) {
-        console.log('test',id)
-        this.UpdateIdDossier(id),
-        console.log(this.UpdateIdDossier(id))
         this.router.push("/Devis");
+        this.router.push({
+            path : '/Devis',
+            query : {id_dossier : id}
+        })
        
      }
   },
@@ -126,7 +127,7 @@ props :{
                       
                         <tbody class=" divide-black text-center border-2 border-slate-100 hover:bg-slate-200 "  
                        >
-                            <tr v-for="item in dossiers" v-bind:key="item.id">
+                            <tr v-for="item in dossiers" v-bind:key="item">
                                 <td class="py-3 pl-2" >
                                     <div class="flex items-center h-5">
                                         <input

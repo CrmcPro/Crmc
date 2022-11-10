@@ -1,53 +1,3 @@
-
-<script  >
- import Header from "./Header.vue"
- import { useRouter} from "vue-router"
- import DropFile from "./DropFile.vue"
-import DescriptionDevis from "./DescriptionDevis.vue"
- import { mapActions, mapGetters,mapMutations } from 'vuex'
-
- export default {
-
-name:"Devis",
-data()
-{
-    return {
-        router:useRouter(),
-    }
-},
-props :{
-    show: {
-    type: Boolean,
-    default: false,
-  },
-  },
-  components: {
-    Header ,
-    DropFile ,
-    DescriptionDevis
-  },
-
-mounted() {
- this.getdocument()
-},
-computed : {
-      ...mapGetters(['View']),
-         },
-methods : {
-
-      ...mapActions(['getdocument','SETIdPochette']),
-
-   
-  NavigationToAccueil(){
-       this.router.push("/Accueil")
-     },
- 
-},
-
-}
-
-</script>
-
 <template>
   <div class="bg-slate-100">
 
@@ -63,29 +13,11 @@ methods : {
                            <span>{{pouchette.text}}</span>
                           </td>
                       </tr>
-                      <tr>
-                        <td class=" font-medium text-solid  rounded-l  w-24 bg-white text-cyan-700"> Devis</td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"  ><button @click="()=>this.SETIdPochette(2)">Audit</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24" ><button  @click="()=>this.SETIdPochette(3)">CEE</button ></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button   @click="()=>this.SETIdPochette(4)">AH</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24" ><button @click="()=>this.SETIdPochette(5)" >Facture</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button @click="()=>this.SETIdPochette(6)">SYNTHESE </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button @click="()=>this.SETIdPochette(7)">AMO</button></td>
-                        <td class="border border-slate-300	bg-cyan-700 w-24"><button @click="()=>this.SETIdPochette(8)">FICHE_PRECO</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button @click="()=>this.SETIdPochette(9)">LISTING_ENTREPRISES </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button @click="()=>this.SETIdPochette(10)">GEOPORTAIL </button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button @click="()=>this.SETIdPochette(11)">GEOLOCALISATION</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button @click="()=>this.SETIdPochette(12)">JUSTIF_DOMICILE</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24"><button @click="()=>this.SETIdPochette(13)">COFRAC</button></td>
-                        <td class="border border-slate-300 	bg-cyan-700 w-24" ><button @click="()=>this.SETIdPochette(14)">IMPO</button></td>
-
-                      </tr>
                     </thead>
                 </table>
                 </div>
               </section>  
-              
-  <div  v-if="this.View" class="bg-slate-100 min-w-max ">   
+  <div  v-if="view" class="bg-slate-100 min-w-max ">   
       
       <section class="bg-white h-full">
               <DescriptionDevis/>              
@@ -108,10 +40,13 @@ import { mapActions , mapGetters} from "vuex"
 import Header from "./Header.vue"
 import DropFile from "./DropFile.vue"
 import DescriptionDevis from "./DescriptionDevis.vue"
+import { useRouter } from 'vue-router'
 export default {
   name:'Devis',
   data(){
     return {
+      router:useRouter(),
+      view : false ,
       pouchettes : [
         { text : 'Devis' , value : 1 , checked : true},
         { text : 'Audit' , value : 2 , checked : false},
@@ -138,8 +73,8 @@ export default {
     DescriptionDevis
   },
   methods : {
-    ...mapActions(['getdocument']),
-    changeStyle(pouchette){
+    ...mapActions(['getdocument' , 'SETIdPochette']),
+    async changeStyle(pouchette){
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
@@ -148,13 +83,30 @@ export default {
           pouch.checked = false
         }
       })
+   const response = await   this.getdocument({
+    pochette_id : pouchette.value ,
+    dossier_id : parseInt(this.$route.query.id_dossier)
+   })
+   if(response.success)
+   {
+    this.view = true 
+   }else 
+   {
+    this.view = false
+   }
         }
   },
   computed : {
-     ...mapGetters(['dossiers_id', 'View']),
+     ...mapGetters(['dossiers_id']),
   },
-  mounted() {
-   this.getdocument()
+  async mounted() {
+  const response = await this.getdocument({
+    pochette_id : 1 ,
+    dossier_id : parseInt(this.$route.query.id_dossier)
+   })
+   if(response.success){
+    this.view = true
+   }
   },
   
 }
