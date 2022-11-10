@@ -6,24 +6,24 @@
         <Header/>
       </section>       
         <section class="bg-white h-full mt-8">
-                <section class=" text-center mr-96   ">
-                    <h1 class=" pt-28 pb-2 mr-44 font-bold text-xl">Vérifier vos documents</h1>
-                    <p class="text-xs text-gray-600 pl-80" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, fegegegregeglldmzojihfuiehgjiodhfepariatur quia, beatae dolorem</p>
-                    <p class="text-xs  text-gray-600 pl-80">Lorem ipsum, dolor s consectetur a molestias laboriosam expedita recusandfgeklgjkerghjkerhgkehrgeirhgiuehrffae, undt quas adipisci!</p>
-                    <p class="text-xs  text-gray-600 pl-80">Lorem ipsum, dolor s consectetur a moleszevmzkihgruzpjiohgieuhgiorejgjhgfetias laboriosam expedita recusandae, undt quas adipisci!</p>
+                <section class=" text-center">
+                    <h1 class=" py-3  font-bold text-xl">Vérifier vos documents</h1>
+                    <p class="text-xs text-gray-600 " >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, fegegegregeglldmzojihfuiehgjiodhfepariatur quia, beatae dolorem</p>
+                    <p class="text-xs  text-gray-600">Lorem ipsum, dolor s consectetur a molestias laboriosam expedita recusandfgeklgjkerghjkerhgkehrgeirhgiuehrffae, undt quas adipisci!</p>
+                    <p class="text-xs  text-gray-600 ">Lorem ipsum, dolor s consectetur a moleszevmzkihgruzpjiohgieuhgiorejgjhgfetias laboriosam expedita recusandae, undt quas adipisci!</p>
                 </section>
 
                 
-              <section class=" flex flex-nowrap pt-20 align-middle justify-center  ">
+              <section class=" flex flex-nowrap  align-middle justify-center  py-2 ">
                   <label for="" class="sr-only">Underline select</label>
-                    <select id="underline_select" class="pl-6 w-2/6 text-sm bg-transparent border-2 border-gray-300 rounded-lg   ">
+                    <select id="underline_select" class="px-2 w-2/6 text-sm bg-transparent border-2 border-gray-300 rounded-lg   ">
                         <option selected class="font-black">Documents1-documents 5</option>
                         <option value="doc2">Documents3-documents2</option>
                         <option value="doc3">Documents8-documents9</option>
                         <option value="doc4">Documents1-documents5</option>
                     </select>
                     
-                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm  ml-2 " @click="showModal = !showModal">
+                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm " @click="showModal = !showModal">
                       Tester
                     </button>
                    

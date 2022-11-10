@@ -52,11 +52,11 @@ import Cropper from 'cropperjs';
            
           </script>
           
-<template class="absolute  justify-center items-center">
-      <section >
-        <div class=" flex flex-row  justify-start items-center border-b border-b-slate-200  rounded-l px-2 border-cyan-700 ">
-          <div>
-            <div class=" bg-cyan-700 w-2 h-7 rounded-full  items-center"></div>
+         <template class="absolute  justify-center items-center ">
+            <section >
+           <div class=" flex flex-row  justify-start items-center border-b border-b-slate-200  rounded-l px-2 border-cyan-700 ">
+           <div>
+          <div class=" bg-cyan-700 w-2 h-7 rounded-full  items-center"></div>
           </div>
           <div>
             <h1 class="text-2xl p-2 font-bold ">Information Utitlisateur</h1>
@@ -64,9 +64,9 @@ import Cropper from 'cropperjs';
             <div>
               <button type="button" class="absolute top-4 right-6" >                           
            </button>
-            </div>
+           </div>
         
-        </div>
+          </div>
         <section class="flex flex-warp justify-around items-center p-3  " @click="onchange">
             <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class=" w-52 h-52 bg-white border-2 rounded-full"/>
               <label  class=" bg-slate-200  absolute ml-40  mt-32 border-1 rounded-full" for="fileInput" >
@@ -82,10 +82,10 @@ import Cropper from 'cropperjs';
                  ref="file"
                  accept=".jpg,.jpeg,.png"
                   /> */} -->
-        </section>
-     
- <section  class="flex flex-warp justify-around items-center w-full ">
-      <section  class="w-5/12 ">
+             </section>
+      
+          <section  class="flex flex-warp justify-around items-center w-full ">
+          <section  class="w-5/12 ">
                  <div >
 
                 <h1 class="font-bold py-2">Nom</h1>
