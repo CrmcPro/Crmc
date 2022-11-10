@@ -51,11 +51,11 @@ export default {
           }).then(response=>{
            console.log("responsedocument",response.data)
            commit('SET_dossiers',response.data)
-           console.log("00000",View) 
+        //    console.log("00000",View) 
            state.View = true
            
        }).catch(err=>{
-        console.log('err',err)
+        // console.log('err',err)
         state.View = false
 
        })},

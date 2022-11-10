@@ -1,6 +1,5 @@
 <script  >
  import Header from "./Header.vue"
- import { useRouter} from "vue-router"
  import DropFile from "./DropFile.vue"
 import DescriptionDevis from "./DescriptionDevis.vue"
  import { mapActions, mapGetters,mapMutations } from 'vuex'
@@ -11,7 +10,24 @@ name:"Devis",
 data()
 {
     return {
-        router:useRouter(),
+        pouchettes : [
+        { text : 'Devis' , value : 1 , checked : true},
+        { text : 'Audit' , value : 2 , checked : false},
+        { text : 'CEE' , value : 3 , checked : false},
+        { text : 'AH' , value : 4 , checked : false},
+        { text : 'Facture' , value : 5, checked : false},
+        { text : 'SYNTHESE' , value : 6 , checked : false},
+        { text : 'AMO' , value : 7 , checked : false},
+        { text : 'FICHE_PRECO' , value : 8 , checked : false},
+        { text : 'LISTING_ENTREPRISES ' , value : 9 , checked : false},
+        { text : 'GEOPORTAIL ' , value : 10 , checked : false},
+        { text : 'GEOLOCALISATION' , value : 11 , checked : false},
+        { text : 'JUSTIF_DOMICILE' , value : 12 , checked : false},
+        { text : 'COFRAC' , value : 13 , checked : false},
+        { text : 'IMPO' , value : 14 , checked : false},
+
+      ],
+      isActive : false
     }
 },
 props :{
@@ -36,10 +52,7 @@ methods : {
 
       ...mapActions(['getdocument','SETIdPochette']),
 
-   
-  NavigationToAccueil(){
-       this.router.push("/Accueil")
-     },
+  
  
 },
 
