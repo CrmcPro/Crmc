@@ -61,32 +61,13 @@ export default {
             CRM<spam class="text-blue-500 ml-0 text-2xl font-bold	">C</spam>
           </h1>
         </router-link>
-        <!-- Mobile menu button -->
-        <div @click="showMenu = !showMenu" class="flex md:hidden">
-          <button
-            type="button"
-            class="
-              text-gray-800
-              hover:text-gray-400
-              focus:outline-none focus:text-gray-400
-            "
-          >
-            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-              <path
-                fill-rule="evenodd"
-                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-              ></path>
-            </svg>
-          </button>
-       </div>
       </div>
-
       <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
       <ul
-        :class="showMenu ? 'flex' : 'hidden'"
+      
         class="
           flex-col
-          mt-8
+          mt-4
           space-y-4
           md:flex
           md:space-y-0
@@ -105,7 +86,14 @@ export default {
         </li>
   
       </ul>
-      <ul class="flex text-sm ">
+      <ul class="flex text-sm md
+       md:flex
+       md:flex-row
+          md:items-end
+          md:space-x-0
+          md:mt-0
+
+        ">
           <div>
             <li class="pl-14">{{user.first_name}}</li>
             <h6 class="text-gray-400 font-semibold">Administrateur</h6>
@@ -119,7 +107,7 @@ export default {
         class="flex items-center    rounded-md"
       >
       <div  @click="show = !show">
-            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class="w-12 h-12 ml-3"/>
+            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class="w-10 h-10 ml-3 rounded-full"/>
           </div>
       </button>
 
@@ -147,7 +135,7 @@ export default {
             hover:bg-cyan-600  hover:text-white
           "
         >
-        <div          @click="ShowProfil = !ShowProfil"
+        <div       @click="ShowProfil = !ShowProfil"
                   >
                     Profile
                     <PorfilModel :show="ShowProfil" @close="ShowProfil = false">

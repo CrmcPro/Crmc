@@ -25,7 +25,6 @@ props :{
   },
 
 mounted() {
-this.
 },
 methods : {
   NavigationToAccueil(){
@@ -44,14 +43,14 @@ methods : {
       <section>
         <Header/>
       </section>
-      <section class="bg-white h-full mt-6">
+      <section class="bg-white h-full">
         <section class="  mt-8  flex flex-col items-center ">
                 <div class=" w-11/12 " >
                   <table class="  text-white text-sm text-center w-full  h-10">
                     <div class="absolute ml-2 mt-1.5 w-1.5 h-7  rounded-3xl  bg-cyan-700"></div>
                     <thead>
                       <tr>
-                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700 "> Devis</td>
+                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700"> Devis</td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>Audit</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>CEE</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>AH</button></td>
@@ -130,10 +129,10 @@ methods : {
    <section v-if="!View">
     <div class="bg-slate-100  min-w-max ">
      <Header/>
-          <section class="  mt-8  flex flex-col items-center ">
+          <section class="   flex flex-col items-center ">
                 <div class=" w-11/12 " >
                   <table class="  text-white text-sm text-center w-full  h-10">
-                    <div class="absolute ml-2 mt-1.5 w-1.5 h-7  rounded-3xl  bg-cyan-700"></div>
+                    <div class="absolute  rounded-3xl  bg-cyan-700"></div>
                     <thead>
                       <tr>
                         <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700 "><button>Devis</button></td>
@@ -159,10 +158,10 @@ methods : {
               </section>  
               
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
-            <div class="text-xl flex flex-col mr-52 mb-3  mt-32">
+            <div class="text-l flex flex-col ">
               
-              <h1 class="font-bold" >Devis</h1>
-                   <p>Vous n'avez pas encore importer votre document ! </p>  
+              <h1 class="font-bold py-2 " >Devis</h1>
+                   <p class="px-6">         Vous n'avez pas encore importer votre document ! </p>  
             </div>
             <DropFile/>
               </div>
