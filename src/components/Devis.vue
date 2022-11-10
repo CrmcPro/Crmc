@@ -3,6 +3,8 @@
  import { useRouter} from "vue-router"
  import DropFile from "./DropFile.vue"
 import DescriptionDevis from "./DescriptionDevis.vue"
+ import { mapActions, mapGetters,mapMutations } from 'vuex'
+
  export default {
 
 name:"Devis",
@@ -10,7 +12,6 @@ data()
 {
     return {
         router:useRouter(),
-        View: false
     }
 },
 props :{
@@ -26,18 +27,22 @@ props :{
   },
 
 mounted() {
+ this.getdocument()
 },
+computed : {
+     ...mapGetters(['dossiers_id', 'View']),
+         },
 methods : {
+    ...mapActions(['getdocument']),
   NavigationToAccueil(){
        this.router.push("/Accueil")
-     }
+     },
+ 
+},
+
 }
-}
-     const router=useRouter()
 
-
-
-  </script>
+</script>
 
 <template>
   <Header/>
@@ -68,14 +73,14 @@ methods : {
                 </div>
               </section>  
               
-  <div  v-if="View" class="bg-slate-100 min-w-max">   
+  <div  v-if="this.View" class="bg-slate-100 min-w-max">   
       
       <section class="bg-white h-full">
               <DescriptionDevis/>              
         </section>
    </div>
 
-        <section v-if="!View">
+        <section v-else>
           <div class="bg-slate-100  min-w-max ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
           

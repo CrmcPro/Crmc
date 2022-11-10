@@ -5,7 +5,7 @@ import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
-import route from "../router"
+// import route from "../router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 
    
@@ -40,8 +40,9 @@ props :{
     ...mapActions(['getdossiers']),
     ...mapMutations(['SET_id_dossiers']),
      NavigationTodevis (id) {
-        console.log("hello",id);
-        this.SET_id_dossiers(),
+        console.log('test',id)
+        this.SET_id_dossiers(id),
+        console.log(this.SET_id_dossiers(id))
         this.router.push("/Devis");
        
      }
@@ -147,7 +148,7 @@ props :{
                                 </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap"
-                                    @click="NavigationTodevis" >  
+                                    @click="() => NavigationTodevis(item.id)" >  
 
                                 
                                   {{item.first_name}} {{item.last_name}}
@@ -156,12 +157,12 @@ props :{
                                
                                 <td
                                     class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
-                                    @click="NavigationTodevis" >   
+                                    @click="() => NavigationTodevis(item.id)" >   
                                     {{item.date_creation}}
                                 </td>
                                 <td
                                 class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap"
-                                @click="NavigationTodevis" >  
+                                @click="() => NavigationTodevis(item.id)" >  
                                 
                                 {{item.status}}
                                
