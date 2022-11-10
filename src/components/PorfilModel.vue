@@ -15,7 +15,7 @@
       >
 
         <div
-          class=" flex justify-center  py-28 text-center"
+          class=" flex justify-center items-center  "
         >
           <transition
             enter-active-class="transition ease-out duration-300 transform "
@@ -26,7 +26,7 @@
             leave-to-class="opacity-0 translate-y-10 translate-y-0 scale-95"
           >
             <div
-              class="relative bg-white px-5 rounded-lg text-left overflow-hidden shadow-xl   py-8 w-2/5"
+              class="relative bg-white px-5 rounded-lg text-left overflow-hidden shadow-xl  w-2/5"
               role="dialog"
               ref="modal"
               aria-modal="true"

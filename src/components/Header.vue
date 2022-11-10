@@ -1,14 +1,13 @@
 <template>
-    <div class="flex flex-nowrap pt-3 pl-3 ">
+    <div class="flex flex-nowrap  p-4 ">
           <div class=" flex  items-center bg-white w-[30%] h-21 shadow-lg  rounded "  >
                   <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
                   <div>
                     <div class="flex justify-between ">
                       <div >
-                        <h1 class="font-bold text-xl">DOSSIER NOM   
-                        </h1>
+                        <h1 class="font-bold text-xl">DOSSIER NOM </h1>
                       </div >
-                      <div class="pl-64">
+                      <div class="px-12">
                         <label class="toggle">
                           <input type="checkbox" >
                           <span class="slider"></span>
@@ -22,22 +21,17 @@
                 </div>
                
                 <div class="mx-auto md:flex flex-col mt-10 md:justify-between md:items-center ">
-                  <div>
+                  <div >
                   <router-link 
-                            to="/AjouterDevis"
+                            to="/Devis"
                             tag="button"                     
-                            class=" px-16 py-3  bg-cyan-600	 rounded-l text-sm  text-white "
+                            class="   p-3  px-5 bg-cyan-600	 rounded-l text-sm  text-white "
                           ><font-awesome-icon icon="fa-solid fa-folder-open"/>  
                            Documents
                    </router-link>
                  
-                  <router-link 
-                            to="/test"
-                            tag="button"                     
-                            class=" px-16 py-3  bg-cyan-700	 rounded-r text-sm  text-white "
-                          ><font-awesome-icon icon="fa-solid fa-code-compare"/>
-                            Comparer
-                   </router-link>  
+                  <router-link  to="/test"  tag="button"   class="  p-3   px-7 bg-cyan-700	 rounded-r text-sm  text-white ">
+                    <font-awesome-icon icon="fa-solid fa-code-compare"/>  Comparer   </router-link>  
                    </div>
                    <div class="flex flex-row items-center text-red-500 text-xs">
                       <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="pr-1 text-lg"/> 
