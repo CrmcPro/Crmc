@@ -1,8 +1,8 @@
 import axios from "axios"
 export default {
     state: () => ({
-        pochette_id: 1 , 
-        dossier_id: 1 ,
+        pochette_id: 2 , 
+        dossier_id: 0 ,
         dossiers: [] ,
         View: false 
 
@@ -33,9 +33,9 @@ export default {
        
 
     })},
-    async getdocument ({state}){
+    async getdocument ({state,commit}){
         let {pochette_id,dossier_id,View}=state
-        console.log( pochette_id, dossier_id)
+        console.log( pochette_id, dossier_id,View)
         // ?pochette_id=2&dossier_id=4
         let res= await axios.get("/api/dossiers/document/", {
             params: {
@@ -46,9 +46,9 @@ export default {
            console.log("responsedocument",response.data)
            commit('SET_dossiers',response.data)
            commit('SET_id_dossiers',response.data.id)
-           View = true
-          
-   
+           console.log("00000",View) 
+           state.View = true
+           
        }).catch(err=>{
         console.log('err',err)
        })}
