@@ -25,7 +25,6 @@ props :{
   },
 
 mounted() {
-this.
 },
 methods : {
   NavigationToAccueil(){

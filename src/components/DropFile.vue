@@ -46,7 +46,6 @@
       </div>
     </div>
   </template>
-  
   <script>
 import axios from 'axios';
 import { mapActions, mapGetters, mapMutations } from 'vuex'
