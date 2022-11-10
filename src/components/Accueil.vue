@@ -5,6 +5,7 @@ import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
+
 // import route from "../router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 
@@ -37,12 +38,11 @@ props :{
   },
   methods: {
     
-    ...mapActions(['getdossiers']),
-    ...mapMutations(['SET_id_dossiers']),
+    ...mapActions(['getdossiers','UpdateIdDossier']),
      NavigationTodevis (id) {
         console.log('test',id)
-        this.SET_id_dossiers(id),
-        console.log(this.SET_id_dossiers(id))
+        this.UpdateIdDossier(id),
+        console.log(this.UpdateIdDossier(id))
         this.router.push("/Devis");
        
      }

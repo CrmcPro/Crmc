@@ -21,9 +21,6 @@
 // }
  
   </script>
-  
-
-
 <template>
   <div class="bg-slate-100">
       <section class="h-screen flex center items-center justify-center">
