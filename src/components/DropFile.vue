@@ -63,26 +63,32 @@ data() {
       return {
         isDragging: false,
         files: [],
-        pochette_id:2,
-        dossier_id:4 ,
       };
 },
 
 mounted () {
-   this.getdossiers()
+
 },
 
 computed : {
-      ...mapGetters(['dossier']) ,
+  ...mapGetters(["dossier_id","pochette_id"]),
+
           },
 methods: {
-  ...mapActions(['getdossiers']),
     uploadFiles() {
-    const files = this.files;
-    const formData = new FormData();
-    files.forEach((file) => {
+      const files = this.files;
+      const formData = new FormData();
+      files.forEach((file) => {
         formData.append("selectedFiles", file);
-    });
+      });
+      axios.post("/api/dossiers/document/",files ,{
+            params: {
+                pochette_id : this.pochette_id, 
+                dossier_id : this.dossier_id
+            }
+          }).then(res=>{
+            console.log('res',res.data)
+          })
 },
       onChange() {
         this.files = [...this.$refs.file.files];
