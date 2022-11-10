@@ -2,6 +2,7 @@
  import Header from "./Header.vue"
  import { useRouter} from "vue-router"
  import DropFile from "./DropFile.vue"
+ import { mapActions, mapGetters, mapMutations } from 'vuex'
 
  export default {
 
@@ -10,7 +11,7 @@ data()
 {
     return {
         router:useRouter(),
-        View: false 
+
     }
 },
 props :{
@@ -25,21 +26,29 @@ props :{
   },
 
 mounted() {
+ this.getdocument()
 },
+computed : {
+     ...mapGetters(['dossiers_id', 'View']),
+         },
 methods : {
+    ...mapActions(['getdocument']),
   NavigationToAccueil(){
        this.router.push("/Accueil")
-     }
+     },
+ 
+},
+
 }
-}
-     const router=useRouter()
+
+  
 
 
 
   </script>
 
 <template>
-  <div  v-if="View" class="bg-slate-100 min-w-max">   
+  <div  v-if="!this.View" class="bg-slate-100 min-w-max">   
       <section>
         <Header/>
       </section>
@@ -50,7 +59,7 @@ methods : {
                     <div class="absolute ml-2 mt-1.5 w-1.5 h-7  rounded-3xl  bg-cyan-700"></div>
                     <thead>
                       <tr>
-                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700"> Devis</td>
+                        <td class=" font-medium text-solid  rounded-l  w-28 bg-white text-cyan-700">Devis</td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>Audit</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>CEE</button></td>
                         <td class="border border-slate-300 	bg-cyan-700"><button>AH</button></td>
@@ -126,7 +135,7 @@ methods : {
               </section>
         </section>
    </div>
-   <section v-if="!View">
+   <section v-if="this.View">
     <div class="bg-slate-100  min-w-max ">
      <Header/>
           <section class="   flex flex-col items-center ">
