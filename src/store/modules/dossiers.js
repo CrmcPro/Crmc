@@ -16,7 +16,12 @@ export default {
     mutations : {
         SET_DOSSIERS(state,payload){
             state.dossiers = payload
-        },       
+        },    
+        SET_DOSSIER_ID(state,payload)   
+        {
+            state.dossier_id = payload
+        },
+        
     },
     actions :{
 
@@ -36,6 +41,8 @@ export default {
                 } });
 
            commit('SET_DOSSIERS',response.data);
+           commit('SET_DOSSIER_ID',payload.dossier_id);
+
            return { success : true }
         }catch(error)
         {

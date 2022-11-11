@@ -2,8 +2,8 @@
 
 <div class="text-l flex flex-col ">
               
-              <h1 class="font-bold py-2 " >Devis</h1>
-                   <p class="px-6">         Vous n'avez pas encore importer votre document ! </p>  
+              <h1 class="font-bold pt-24 " >Devis</h1>
+                   <p class="px-6"> Vous n'avez pas encore importer votre document ! </p>  
             </div>
 
     <div class="main">
@@ -23,12 +23,13 @@
           ref="file"
           accept=".pdf,.jpg,.jpeg,.png"
         />
-  
+         
         <label for="fileInput" class="file-label">
           <img src="/src/assets/upload.png" alt="image" class="w-12 h-12 flex items-center bg-none mb-8 ml-40 "/>    
           <div v-if="isDragging">Déposer ICI.</div>
           <div v-else>GLisser & Déposer votre fichier.</div>
           <div class="btn1">Sélectionnner un fichier</div>
+          <div class="py-10" v-if="files.length"><spinner/></div>
         </label>
            
         <div class="preview-container mt-4" v-if="files.length">
@@ -41,11 +42,12 @@
           <div>
             <button
               class="ml-2"
-              type="button"
-              @click="remove(files.indexOf(file))"
-              title="Remove file"
+              type="submit"
+              @click.prevent.stop="sendFile(files)"
+              title="Send file"
             >
-              <b>×</b>
+              <b>Send</b>
+              
             </button>
           </div>
         </div>
@@ -53,18 +55,29 @@
       </div>
     </div>
   </template>
-  <script>
+<script>
+
+
 import axios from 'axios';
 import { mapActions, mapGetters, mapMutations } from 'vuex'
+import spinner from "./Spinner.vue"
 import store from "../store"
 export default {
 
+  components: {
+    spinner
+
+  },
+
 data() {
       return {
+        Spinn :false,
         isDragging: false,
         files: [],
       };
 },
+
+
 
 mounted () {
 
@@ -72,26 +85,15 @@ mounted () {
 
 computed : {
   ...mapGetters(["dossier_id","pochette_id"]),
+        
 
           },
 methods: {
-    uploadFiles() {
-      const files = this.files;
-      const formData = new FormData();
-      files.forEach((file) => {
-        formData.append("selectedFiles", file);
-      });
-      axios.post("/api/dossiers/document/",files ,{
-            params: {
-                pochette_id : this.pochette_id, 
-                dossier_id : this.dossier_id
-            }
-          }).then(res=>{
-            console.log('res',res.data)
-          })
-},
+
+
       onChange() {
         this.files = [...this.$refs.file.files];
+
       },
       dragover(e) {
         e.preventDefault();
@@ -106,9 +108,26 @@ methods: {
         this.onChange();
         this.isDragging = false;
       },
-      remove(i) {
-       this.files.splice(i, 1);
-     },
+
+
+      async sendFile() {
+      let bodyformData = new FormData();
+      bodyformData.append('pochette_id',this.pochette_id)
+      bodyformData.append('dossier_id',this.dossier_id)
+      bodyformData.append('file',this.files[0])
+      for (const value of bodyformData.values()) {
+  console.log(value);
+}
+      console.log("11",bodyformData)
+      const response= await axios.post("/api/dossiers/document/",   
+          bodyformData
+      
+          )
+      if (response )
+      {
+        console.log(response)
+      }
+     }
     },
   };
   </script>

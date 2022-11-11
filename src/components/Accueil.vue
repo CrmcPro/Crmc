@@ -1,5 +1,5 @@
 <script>
-import Cherchebar from "../screen/ChercheBar.vue"
+import cherchebar from "../screen/chercheBar.vue"
 import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
@@ -32,7 +32,7 @@ props :{
   },
   },
   components: {
-    Cherchebar ,
+    cherchebar ,
     AjouterDossier ,
     ModalAjouterDossier
   },
@@ -77,7 +77,7 @@ props :{
     </div>
   <div class="bg-white px-10 rounded-xl">
                             <!-- ChercheBar -->
-                     <Cherchebar/>
+                     <cherchebar/>
                         <!-- Tableau de suive -->
                 <div class="overflow-hidden  border-inherit rounded-lg">
                     <table class="min-w-full divide-y  divide-gray-100">
