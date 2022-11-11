@@ -9,7 +9,7 @@
                     <thead>
                       <tr >
                         <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700 w-24 cursor-pointer"  @click="changeStyle(pouchette)" >
-                          <div class="absolute ml-2 mt-1.5 w-1.5 h-7  rounded-3xl  bg-cyan-700" v-if="pouchette.checked"></div>
+                          <div class="absolute py-3  ml-1  w-1.5   rounded-3xl  bg-cyan-700" v-if="pouchette.checked"></div>
                            <span>{{pouchette.text}}</span>
                           </td>
                       </tr>
