@@ -17,6 +17,9 @@ import { faCodeCompare } from '@fortawesome/free-solid-svg-icons'
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons'
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faEye } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -29,6 +32,11 @@ library.add(faFolderOpen)
 library.add(faCodeCompare)
 library.add(faCircleExclamation)
 library.add(faPen)
+library.add(faEye)
+library.add(faCheck)
+
+
+
 
 
 

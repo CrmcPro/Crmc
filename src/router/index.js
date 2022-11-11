@@ -40,11 +40,7 @@ const routes =[
         name  :'Test',
         component : Test
     },
-    {
-        path : "/Profil",
-        name  :'Profil',
-        component : Profil
-    },
+
 ]
 
 const router = createRouter({
