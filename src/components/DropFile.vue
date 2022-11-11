@@ -1,8 +1,7 @@
 <template>
 
 <div class="text-l flex flex-col ">
-              
-              <h1 class="font-bold py-2 " >Devis</h1>
+              <h1 class="font-bold pt-24 " >Devis</h1>
                    <p class="px-6">         Vous n'avez pas encore importer votre document ! </p>  
             </div>
 
@@ -81,17 +80,11 @@ methods: {
       files.forEach((file) => {
         formData.append("selectedFiles", file);
       });
-      axios.post("/api/dossiers/document/",files ,{
-            params: {
-                pochette_id : this.pochette_id, 
-                dossier_id : this.dossier_id
-            }
-          }).then(res=>{
-            console.log('res',res.data)
-          })
+     
 },
       onChange() {
         this.files = [...this.$refs.file.files];
+        axios.post()
       },
       dragover(e) {
         e.preventDefault();

@@ -8,9 +8,9 @@
                   <table class="  text-white text-sm text-center w-full  h-10">
                     <thead>
                       <tr >
-                        <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700 w-24 cursor-pointer"  @click="changeStyle(pouchette)" >
+                        <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700 w-20 cursor-pointer"  @click="changeStyle(pouchette)" >
                           <div class="absolute py-3  ml-1  w-1.5   rounded-3xl  bg-cyan-700" v-if="pouchette.checked"></div>
-                           <span>{{pouchette.text}}</span>
+                           <span class="text-xs">{{pouchette.text}}</span>
                           </td>
                       </tr>
                     </thead>
@@ -97,7 +97,6 @@ export default {
         }
   },
   computed : {
-     ...mapGetters(['dossiers_id']),
   },
   async mounted() {
   const response = await this.getdocument({
@@ -119,7 +118,7 @@ export default {
   text-decoration-style: solid;
   font-size: medium;
   border-radius:5%;
-  width: 96px;
+  width: 170px;
 }
 .toggle {
       --width: 70px;
