@@ -17,17 +17,15 @@
                 </table>
                 </div>
               </section>  
-  <div  v-if="view" class="bg-slate-100 min-w-max ">   
+  <div  v-if="view" class="bg-slate-100   ">   
       
       <section class="bg-white h-full">
               <DescriptionDevis/>              
         </section>
    </div>
-
         <section v-else>
-          <div class="bg-slate-100  min-w-max ">
+          <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
-          
             <DropFile/>
               </div>
             </div>
