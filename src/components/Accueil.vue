@@ -1,4 +1,3 @@
-
 <template>
     <div class="bg-slate-100  min-w-max">
       <div class="flex items-center text-center justify-between p-3">
@@ -130,14 +129,11 @@ import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
-
 // import route from "../router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
-
    
 const dossiers = ref([]);
 export default {
-
 name:"Accueil",
 data()
 {
@@ -176,12 +172,8 @@ props :{
  mounted () {
    this.getdossiers()
  },
-
  computed : {
      ...mapGetters(['dossiers']),
          },
-
 }
-
  </script>
-

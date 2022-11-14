@@ -24,13 +24,15 @@ export default {
         },         
         SET_POCHETTE_ID(state , payload){
             state.pochette_id = payload
+        },
+        SET_DOSSIER_ID(state , payload){
+            state.dossier_id  = payload
         }
     },
     actions :{
 
     async getdossiers ({commit}){
      let res= await axios.get('/api/dossiers/').then(response=>{
-        console.log("responseData",response.data)
         commit('SET_DOSSIERS',response.data)
        
 
@@ -43,16 +45,16 @@ export default {
                 } },);
            commit('SET_POCHETTE',response.data);
            commit('SET_POCHETTE_ID',payload.pochette_id);
+           commit('SET_DOSSIER_ID',payload.dossier_id);
+
 
            return { success : true }
         }catch(error)
         {
-            console.log(error.response);
             return { success : false}
         }
     },
     async PostDocument ({commit} , payload){
-        console.log(payload)
         
        try {
           const response = await axios.post("/api/dossiers/document/", {params: {
@@ -64,7 +66,6 @@ export default {
           return { success : true }
        }catch(error)
        {
-           console.log(error.response);
            return { success : false}
        }
    },
