@@ -165,10 +165,10 @@ props :{
     
     ...mapActions(['getdossiers']),
      NavigationTodevis (id) {
-        this.router.push("/Devis");
+        this.router.push("/Pochettes");
         this.router.push({
-            path : '/Devis',
-            query : {id_dossier : id}
+            path : '/Pochettes',
+            query : { id_dossier : id }
         })
        
      }

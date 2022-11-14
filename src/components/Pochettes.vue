@@ -17,9 +17,9 @@
                 </table>
                 </div>
               </section>  
-  <div  v-if="view" class="bg-slate-100   ">   
+  <div  v-if="view" class="bg-slate-100 ">   
       
-      <section class="bg-white h-full">
+      <section>
               <DescriptionDevis/>              
         </section>
    </div>
@@ -40,7 +40,7 @@ import DropFile from "./DropFile.vue"
 import DescriptionDevis from "./DescriptionDevis.vue"
 import { useRouter } from 'vue-router'
 export default {
-  name:'Devis',
+  name:'Pochettes',
   data(){
     return {
       router:useRouter(),
@@ -73,17 +73,21 @@ export default {
   methods : {
     ...mapActions(['getdocument' , 'SETIdPochette']),
     async changeStyle(pouchette){
+      
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
           pouch.checked = true
+
         }else {
           pouch.checked = false
         }
       })
+      console.log('=============)',pouchette.text)
    const response = await   this.getdocument({
-    pochette_id : pouchette.value ,
-    dossier_id : parseInt(this.$route.query.id_dossier)
+        pochette_id : pouchette.value ,
+        dossier_id : parseInt(this.$route.query.id_dossier),
+        pochette_name : pouchette.text ,
    })
    if(response.success)
    {

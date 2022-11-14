@@ -5,7 +5,8 @@ export default {
         dossier_id: null ,
         dossiers: [] ,
         pochette: [] ,
-        View: false 
+        View: false ,
+        pochette_name : null
 
     }),
     getters : {
@@ -13,7 +14,9 @@ export default {
         dossiers : state => state.dossiers,
         dossier_id:state => state.dossier_id ,
         pochette_id : state => state.pochette_id ,
-        View : state => state.View
+        pochette_name : state => state.pochette_name,
+        View : state => state.View ,
+
     },
     mutations : {
         SET_DOSSIERS(state,payload){
@@ -24,7 +27,11 @@ export default {
         },         
         SET_POCHETTE_ID(state , payload){
             state.pochette_id = payload
+        },
+        SET_POCHETTE_NAME(state , payload){
+            state.pochette_name = payload
         }
+      
     },
     actions :{
 
@@ -32,18 +39,19 @@ export default {
      let res= await axios.get('/api/dossiers/').then(response=>{
         console.log("responseData",response.data)
         commit('SET_DOSSIERS',response.data)
-       
+        
 
     })},
     async getdocument ({commit} , payload){
         try {
            const response = await axios.get("/api/dossiers/document/", {params: {
                     pochette_id : payload.pochette_id, 
-                    dossier_id : payload.dossier_id
+                    dossier_id : payload.dossier_id ,
+                    pochette_name :payload.pochette_name 
                 } },);
            commit('SET_POCHETTE',response.data);
            commit('SET_POCHETTE_ID',payload.pochette_id);
-
+           commit('SET_POCHETTE_NAME',payload.pochette_name);
            return { success : true }
         }catch(error)
         {

@@ -2,7 +2,7 @@ import {createRouter , createWebHistory } from  "vue-router"
 import Accueil from "../components/Accueil.vue"
 import Login from "../components/Login.vue"
 import Signup from "../components/Signup.vue"
-import Devis from "../components/Devis.vue"
+import Pochettes from "../components/Pochettes.vue"
 import Test from "../components/Test.vue"
 import Profil from  '../components/profil.vue'
 import store from '../store'
@@ -21,9 +21,9 @@ const routes =[
 //           }
     },
     {
-        path : "/devis",
-        name  :'Devis',
-        component : Devis
+        path : "/Pochettes",
+        name  :'Pochettes',
+        component : Pochettes
     },
     {
         path : "/Signup",
