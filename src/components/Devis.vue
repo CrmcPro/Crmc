@@ -8,9 +8,9 @@
                   <table class="  text-white text-sm text-center w-full  h-10">
                     <thead>
                       <tr >
-                        <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700 w-24 cursor-pointer"  @click="changeStyle(pouchette)" >
+                        <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700 w-20 cursor-pointer"  @click="changeStyle(pouchette)" >
                           <div class="absolute py-3  ml-1  w-1.5   rounded-3xl  bg-cyan-700" v-if="pouchette.checked"></div>
-                           <span>{{pouchette.text}}</span>
+                           <span class="text-xs">{{pouchette.text}}</span>
                           </td>
                       </tr>
                     </thead>
@@ -28,7 +28,7 @@
           <div class="bg-slate-100  min-w-max ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
           
-            <DropFile/>
+            <DropFile :pochette="id_pochette"/>
               </div>
             </div>
    </section>
@@ -47,6 +47,7 @@ export default {
     return {
       router:useRouter(),
       view : false ,
+      id_pochette: null,
       pouchettes : [
         { text : 'Devis' , value : 1 , checked : true},
         { text : 'Audit' , value : 2 , checked : false},
@@ -78,6 +79,8 @@ export default {
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
+          this.id_pochette = pouchette.value
+          console.log(this.id_pochette)
           pouch.checked = true
         }else {
           pouch.checked = false
@@ -97,7 +100,6 @@ export default {
         }
   },
   computed : {
-     ...mapGetters(['dossiers_id']),
   },
   async mounted() {
   const response = await this.getdocument({
@@ -119,7 +121,7 @@ export default {
   text-decoration-style: solid;
   font-size: medium;
   border-radius:5%;
-  width: 96px;
+  width: 170px;
 }
 .toggle {
       --width: 70px;

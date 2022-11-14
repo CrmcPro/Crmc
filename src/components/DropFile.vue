@@ -39,7 +39,7 @@
               {{ file.name }}
             </p>
           </div>
-          <div>
+          <div> <a href=""></a>
             <button
               class="ml-2"
               type="submit"
@@ -76,6 +76,7 @@ data() {
         files: [],
       };
 },
+props : ['pochette'],
 
 
 
@@ -111,8 +112,9 @@ methods: {
 
 
       async sendFile() {
+        console.log(this.pochette)
       let bodyformData = new FormData();
-      bodyformData.append('pochette_id',this.pochette_id)
+      bodyformData.append('pochette_id',this.pochette)
       bodyformData.append('dossier_id',this.dossier_id)
       bodyformData.append('file',this.files[0])
       for (const value of bodyformData.values()) {
