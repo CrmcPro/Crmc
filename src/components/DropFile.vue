@@ -29,7 +29,7 @@
           <div v-if="isDragging">Déposer ICI.</div>
           <div v-else>GLisser & Déposer votre fichier.</div>
           <div class="btn1">Sélectionnner un fichier</div>
-          <div class="py-10" v-if="files.length"><spinner/></div>
+          <div class="py-10" v-if="Spin"><spinner/></div>
         </label>
            
         <div class="preview-container mt-4" v-if="files.length">
@@ -71,17 +71,17 @@ export default {
 
 data() {
       return {
-        Spinn :false,
+        Spin :false,
         isDragging: false,
         files: [],
       };
 },
-props : ['pochette'],
+props : ['pochette' , "view"],
 
 
 
 mounted () {
-
+  this.onChange()
 },
 
 computed : {
@@ -90,7 +90,7 @@ computed : {
 
           },
 methods: {
-
+...mapActions(["getdocument"]) ,
 
       onChange() {
         this.files = [...this.$refs.file.files];
@@ -112,23 +112,17 @@ methods: {
 
 
       async sendFile() {
-        console.log(this.pochette)
+        this.Spin=true;
       let bodyformData = new FormData();
       bodyformData.append('pochette_id',this.pochette)
       bodyformData.append('dossier_id',this.dossier_id)
       bodyformData.append('file',this.files[0])
-      for (const value of bodyformData.values()) {
-  console.log(value);
-}
-      console.log("11",bodyformData)
-      const response= await axios.post("/api/dossiers/document/",   
-          bodyformData
-      
-          )
-      if (response )
+     const response= await axios.post("/api/dossiers/document/",bodyformData)
+      if (response)
       {
-        console.log(response)
-      }
+          this.Spin=false;
+
+        }
      }
     },
   };

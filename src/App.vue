@@ -22,10 +22,8 @@ export default {
   if(token){
    let test = axios.defaults.headers.common['Authorization'] = "token " + token
 
-    console.log('resrt' ,test)
   }else {
     axios.defaults.headers.common['Authorization'] = ''
-    console.log('No Authorization')
   }
   
   }

@@ -27,7 +27,7 @@
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
           
-            <DropFile :pochette="id_pochette"/>
+            <DropFile :pochette="id_pochette" :view="view" @reloadData="reloadData"/>
               </div>
             </div>
    </section>
@@ -72,14 +72,29 @@ export default {
     DropFile ,
     DescriptionDevis
   },
+  
+computed : {
+  ...mapGetters(["dossier_id","pochette_id"]),
+        
+
+          },
   methods : {
     ...mapActions(['getdocument' , 'SETIdPochette']),
+    reloadData()
+    {
+      this.getdocument({
+                 pochette_id : this.pochette_id, 
+                 dossier_id : this.dossier_id
+}) 
+
+this.view = true
+        
+    },
     async changeStyle(pouchette){
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
           this.id_pochette = pouchette.value
-          console.log(this.id_pochette)
           pouch.checked = true
         }else {
           pouch.checked = false

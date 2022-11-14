@@ -33,7 +33,6 @@ export default {
 
     async getdossiers ({commit}){
      let res= await axios.get('/api/dossiers/').then(response=>{
-        console.log("responseData",response.data)
         commit('SET_DOSSIERS',response.data)
        
 
@@ -52,12 +51,10 @@ export default {
            return { success : true }
         }catch(error)
         {
-            console.log(error.response);
             return { success : false}
         }
     },
     async PostDocument ({commit} , payload){
-        console.log(payload)
         
        try {
           const response = await axios.post("/api/dossiers/document/", {params: {
@@ -69,7 +66,6 @@ export default {
           return { success : true }
        }catch(error)
        {
-           console.log(error.response);
            return { success : false}
        }
    },
