@@ -13,7 +13,7 @@
                         </button> 
                        
                         <div v-if="Modifer"  @click="Modifer = !Modifer" >
-                           <button class="bg-cyan-700 w-32 h-10 rounded text-xs  text-white"> Modifier
+                           <button class="bg-cyan-700 w-32 h-10 rounded text-xs mr-4  text-white"> Modifier
                             <font-awesome-icon icon="fa-solid fa-pen"  class="ml-2"/>
                           </button>
                       
@@ -24,6 +24,11 @@
                           <font-awesome-icon icon="fa-solid fa-check"  class="ml-2"/>
                            </button>
                         </div>
+                        <div v-if="Modifer">
+                                 <button class="bg-cyan-700 w-32 h-10 rounded text-xs  text-white" @click="deletePochette"> Delete
+                                  <font-awesome-icon icon="fa-solid fa-trash"  class="ml-2"/>
+                                        </button>
+                      </div>
                       </div>
                     </div>
                   </section>
@@ -62,6 +67,8 @@ import identitéTable from '../components/pochette/identitéTable.vue'
 import DonneésEnergétiqueTable from "../components/pochette/DonneésEnergétiqueTable.vue"
 import TravauxTable from "../components/pochette/TravauxTable.vue"
 import Montants from "../components/pochette/Montants.vue"
+import Swal from 'sweetalert2'
+import axios from "axios"
 export default {
   name:'DescriptionDevis',
   data(){
@@ -77,13 +84,39 @@ export default {
     Montants
   },
   computed : {
-     ...mapGetters(['pochette' , 'pochette_id','pochette_name']),
+     ...mapGetters(['pochette' , 'pochette_id','pochette_name','dossier_id']),
      
   },
   methods: {
- 
+    deletePochette(){
 
-  },
+      Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios.delete("/api/dossiers/document/",{params: {
+                    pochette_id : this.pochette_id, 
+                    dossier_id : this.dossier_id
+                } }).then(response=>{
+
+                  Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                  )
+                  window.location.reload()
+                })
+    }
+  })
+  
+    },
+    }
 
 }
 </script>

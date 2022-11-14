@@ -20,13 +20,14 @@
   <div  v-if="view" class="bg-slate-100 ">   
       
       <section>
-              <DescriptionDevis/>              
+              <DescriptionDevis />              
         </section>
    </div>
         <section v-else>
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
-            <DropFile/>
+          
+            <DropFile :pochette="id_pochette" @onReloadEnd="reloadData"/>
               </div>
             </div>
    </section>
@@ -45,6 +46,7 @@ export default {
     return {
       router:useRouter(),
       view : false ,
+      id_pochette: null,
       pouchettes : [
         { text : 'Devis' , value : 1 , checked : true},
         { text : 'Audit' , value : 2 , checked : false},
@@ -70,13 +72,25 @@ export default {
     DropFile ,
     DescriptionDevis
   },
+  
+computed : {
+  ...mapGetters(["dossier_id","pochette_id"]),
+        
+
+          },
   methods : {
-    ...mapActions(['getdocument' , 'SETIdPochette']),
+    ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData']),
+    reloadData(data) {
+     this.getPochetteData(data)
+this.view = true
+        
+    },
     async changeStyle(pouchette){
       
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
+          this.id_pochette = pouchette.value
           pouch.checked = true
 
         }else {

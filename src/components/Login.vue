@@ -12,10 +12,8 @@ const form = ref({username: "", password: ""})
 const ErrorView = ref(false)
 
 const submitForm = (e) =>{
-    console.log('im her 1')
     let data = form.value
     axios.post("accounts/login/",data).then(response=>{
-    console.log('im her 2')
 
 const token = response.data.token
   store.commit('setToken',token)

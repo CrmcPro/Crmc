@@ -30,14 +30,19 @@ export default {
         },
         SET_POCHETTE_NAME(state , payload){
             state.pochette_name = payload
+        },
+        SET_DOSSIER_ID(state , payload){
+            state.dossier_id  = payload
         }
       
     },
     actions :{
+    async getPochetteData({commit},response){
+        commit('SET_POCHETTE',response)
 
+    },
     async getdossiers ({commit}){
      let res= await axios.get('/api/dossiers/').then(response=>{
-        console.log("responseData",response.data)
         commit('SET_DOSSIERS',response.data)
         
 
@@ -52,30 +57,30 @@ export default {
            commit('SET_POCHETTE',response.data);
            commit('SET_POCHETTE_ID',payload.pochette_id);
            commit('SET_POCHETTE_NAME',payload.pochette_name);
+           commit('SET_DOSSIER_ID',payload.dossier_id);
+
+
            return { success : true }
         }catch(error)
         {
-            console.log(error.response);
             return { success : false}
         }
     },
     async PostDocument ({commit} , payload){
-        console.log(payload)
         
-       try {
-          const response = await axios.post("/api/dossiers/document/", {params: {
-                   pochette_id : payload.pochette_id, 
-                   dossier_id : payload.dossier_id
-               } },pochette);
-
-          commit('SET_DOSSIERS',response.data);
-          return { success : true }
-       }catch(error)
-       {
-           console.log(error.response);
-           return { success : false}
-       }
-   },
+        try {
+           const response = await axios.post("/api/dossiers/document/", {params: {
+                    pochette_id : payload.pochette_id, 
+                    dossier_id : payload.dossier_id
+                } },pochette);
+ 
+           commit('SET_DOSSIERS',response.data);
+           return { success : true }
+        }catch(error)
+        {
+            return { success : false}
+        }
+    },
     }
 
 }
