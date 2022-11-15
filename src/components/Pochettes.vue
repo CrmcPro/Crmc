@@ -17,17 +17,17 @@
                 </table>
                 </div>
               </section>  
-  <div  v-if="view" class="bg-slate-100   ">   
+  <div  v-if="view" class="bg-slate-100 ">   
       
-      <section class="bg-white h-full">
-              <DescriptionDevis/>              
+      <section>
+              <DescriptionDevis />              
         </section>
    </div>
         <section v-else>
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
           
-            <DropFile :pochette="id_pochette" :view="view" @reloadData="reloadData"/>
+            <DropFile :pochette="id_pochette" @onReloadEnd="reloadData"/>
               </div>
             </div>
    </section>
@@ -41,7 +41,7 @@ import DropFile from "./DropFile.vue"
 import DescriptionDevis from "./DescriptionDevis.vue"
 import { useRouter } from 'vue-router'
 export default {
-  name:'Devis',
+  name:'Pochettes',
   data(){
     return {
       router:useRouter(),
@@ -79,30 +79,29 @@ computed : {
 
           },
   methods : {
-    ...mapActions(['getdocument' , 'SETIdPochette']),
-    reloadData()
-    {
-      this.getdocument({
-                 pochette_id : this.pochette_id, 
-                 dossier_id : this.dossier_id
-}) 
-
+    ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData']),
+    reloadData(data) {
+     this.getPochetteData(data)
 this.view = true
         
     },
     async changeStyle(pouchette){
+      
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
           this.id_pochette = pouchette.value
           pouch.checked = true
+
         }else {
           pouch.checked = false
         }
       })
+      console.log('=============)',pouchette.text)
    const response = await   this.getdocument({
-    pochette_id : pouchette.value ,
-    dossier_id : parseInt(this.$route.query.id_dossier)
+        pochette_id : pouchette.value ,
+        dossier_id : parseInt(this.$route.query.id_dossier),
+        pochette_name : pouchette.text ,
    })
    if(response.success)
    {

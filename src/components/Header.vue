@@ -5,7 +5,7 @@
                   <div>
                     <div class="flex justify-between ">
                       <div >
-                        <h1 class="font-bold text-xl">DOSSIER NOM </h1>
+                        <h1 class="font-bold text-xl pr-16">DOSSIER NOM </h1>
                       </div >
                       <div class="px-12">
                         <label class="toggle">
@@ -23,14 +23,14 @@
                 <div class="mx-auto md:flex flex-col mt-10 md:justify-between md:items-center ">
                   <div >
                   <router-link 
-                            to="/Devis"
+                            to="/Pochettes"
                             tag="button"                     
-                            class="   p-3  px-5 bg-cyan-600	 rounded-l text-sm  text-white "
+                            class="   p-3  px-10 bg-cyan-600	 rounded-l text-sm  text-white "
                           ><font-awesome-icon icon="fa-solid fa-folder-open"/>  
                            Documents
                    </router-link>
                  
-                  <router-link  to="/test"  tag="button"   class="  p-3   px-7 bg-cyan-700	 rounded-r text-sm  text-white ">
+                  <router-link  to="/test"  tag="button"   class="  p-3   px-10 bg-cyan-700	 rounded-r text-sm  text-white ">
                     <font-awesome-icon icon="fa-solid fa-code-compare"/>  Comparer   </router-link>  
                    </div>
                    <div class="flex flex-row items-center text-red-500 text-xs">

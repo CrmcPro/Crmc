@@ -61,6 +61,8 @@
 import axios from 'axios';
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import spinner from "./Spinner.vue"
+import Swal from 'sweetalert2'
+
 import store from "../store"
 export default {
 
@@ -92,6 +94,7 @@ computed : {
 methods: {
 ...mapActions(["getdocument"]) ,
 
+
       onChange() {
         this.files = [...this.$refs.file.files];
 
@@ -121,9 +124,14 @@ methods: {
      const response= await axios.post("/api/dossiers/document/",bodyformData)
       if (response)
       {
+        console.log('response',response)
           this.Spin=false;
-          alert("le document est importé")
-
+          Swal.fire(
+                    'Importé!',
+                    'le document est importé.',
+                    'success'
+                  )
+         this.$emit('onReloadEnd', response)
         }
      }
     },
@@ -151,8 +159,8 @@ methods: {
 }
 .btn2{
     border-radius: 4%;
-    height: 2.5rem;
-    width: 14rem;
+    height: 2.4rem;
+    width: 8rem;
     padding-top: 2%;
     margin-top: 1rem;
     margin-left: 20%;

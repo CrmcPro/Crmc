@@ -5,7 +5,7 @@
       <section>
         <Header/>
       </section>       
-        <section class="bg-white h-full mt-8">
+        <section class="bg-white h-full mt-8 pt-20">
                 <section class=" text-center">
                     <h1 class=" py-3  font-bold text-xl">Vérifier vos documents</h1>
                     <p class="text-xs text-gray-600 " >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, fegegegregeglldmzojihfuiehgjiodhfepariatur quia, beatae dolorem</p>
