@@ -80,8 +80,7 @@ computed : {
           },
   methods : {
     ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData']),
-    reloadData(data) {
-     this.getPochetteData(data)
+    reloadData() {
 this.view = true
         
     },

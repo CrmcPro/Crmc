@@ -1,6 +1,5 @@
-<template>
-
-    <div class="bg-slate-200   p-5 rounded-xl mr-14" >
+<template >
+    <div class="bg-slate-200   p-5 rounded-xl mr-14" v-if="pochette_id === 1">
         <h1  class="text-gray-600  text-left p-2 px-2 font-semibold" >Identité</h1>
      <div class="flex flex-row" v-if="pochette.num_devis">
        <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600">N°devis</h1>
@@ -20,21 +19,14 @@
       <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs font-bold	bg-cyan-600">date°visite°prealable</h1>
       <input class="border rounded-r-md border-slate-200   flex-row  text-center text-xs py-2 bg-white w-80 text-black" :value='pochette.date_visite_prealable' :disabled="this.Modifer" />
       </div>
-     <div class="flex flex-row" v-if="pochette.gain_energetique">
-       <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Gain°energetique</h1>
-       <input class="border rounded-r-md border-slate-200  bg-white text-xs py-2  text-center flex-row  w-80 text-black" :value='pochette.gain_energetique' :disabled='this.Modifer'/>
-     </div> 
+     
      <div class="flex flex-row " v-if="pochette.date_cette_proposition">
        <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Date_cette_proposition
       </h1>
      <h1 class="border rounded-r-md border-slate-200 bg-white  flex-row text-xs py-2 w-80 text-black">{{pochette.date_cette_proposition }}</h1>
     </div>
            <!-- montant_prime -->
-           <div class="flex flex-row " v-if="pochette_id == 3">
-             <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Montant_prime
-            </h1>
-             <input class="border rounded-r-md border-white  flex-row  w-80 text-xs py-2 text-black" :value='pochette.montant_prime ? pochette.montant_prime : "Null" ' />
-           </div>
+           
            <!-- date_audit                    -->
            <div class="flex flex-row " v-if="pochette.date_audit">
              <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">date_audit

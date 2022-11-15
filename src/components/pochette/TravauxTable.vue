@@ -1,5 +1,5 @@
 <template>
-     <div  class="py-5 flex flex-col rounded-lg"  v-if="pochette.travaux">
+     <div  class="py-5 flex flex-col rounded-lg"  v-if="pochette_id === 1">
                                      <div class="py-5 flex  flex-col justify-center items-center rounded-lg">
                                        <div class=" rounded-lg p-5 bg-slate-200 late-200">
                                        <h1 class="text-gray-600  text-left px-3 p-1 font-semibold">Travaux</h1>

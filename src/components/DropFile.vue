@@ -120,9 +120,13 @@ methods: {
      const response= await axios.post("/api/dossiers/document/",bodyformData)
       if (response)
       {
-        console.log('response',response)
+        console.log('response',this.pouchette_id ,this.dossier_id,)
           this.Spin=false;
-         this.$emit('onReloadEnd', response)
+          this.getdocument({
+        pochette_id : this.pochette,
+        dossier_id : this.dossier_id,
+   })
+         this.$emit('onReloadEnd')
         }
      }
     },
