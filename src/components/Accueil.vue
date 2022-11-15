@@ -63,19 +63,15 @@
                               </tr>
                           </thead>
                         
-                          <tbody class=" divide-black text-center border-2 border-slate-100 hover:bg-slate-200 "  
+                          <tbody class=" divide-black text-center border-2 border-slate-100 "  
                          >
-                              <tr v-for="item in dossiers" v-bind:key="item">
-                                  <td class="py-3 pl-2" >
-                                      <div class="flex items-center h-5">
+                              <tr v-for="item in dossiers" v-bind:key="item" class=" hover:bg-slate-200">
+                                  <td class="py-3" >
+                                      <div class="flex items-center justify-center h-5 ">
                                           <input
                                               type="checkbox"
                                               class="text-blue-600  border-gray-200 rounded focus:ring-blue-500"
-                                          /> 
-                                        
-                                          <label for="checkbox" class="sr-only border-2 border-slate-100">
-                                              Checkbox
-                                          </label>
+                                          />                                       
                                       </div>
                                   </td>
                                   <td
@@ -109,7 +105,7 @@
                                   <td
                                   class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
-                                  >None
+                                  >  {{item.description}}
                                       
                                   </td>
                               </tr>

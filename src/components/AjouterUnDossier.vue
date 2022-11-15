@@ -68,6 +68,7 @@
 <script>
 
 import axios from "axios"
+import Swal from 'sweetalert2'
 
 
 
@@ -82,26 +83,18 @@ data(){
     last_name:'',
     description:''
     }
- 
-
-  }
-   
+  } 
 },
-
-// computed : {
-//      ...mapGetters(['dossier_id']),
-     
-//   },
-
 methods :{
-
-  submitForm() {
+  
+submitForm() {
 
   axios.post("/api/dossiers/",this.dossier  
   ).then(response => {
-    console.log(response,'responseCrecationDossier')
-
+    console.log(response,'responseCrecationDossier')   
+    window.location.reload()
   })
+ 
 }
 
 
