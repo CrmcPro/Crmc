@@ -13,11 +13,14 @@
                           
                           <span class=" text-left font-bold text-lg  ">{{pochette_name}}</span>
                         </div>
-                          <button  class="bg-cyan-700  w-32 h-10 rounded-md text-xs mr-4 text-white">
-                            <a :href="'http://192.168.1.36:8000'+pochette.url_pdf" target="_blank"> Voir PDF
-                              <font-awesome-icon icon="fa-solid fa-eye" color="" class="ml-2" />
+                            <a :href="'http://192.168.1.36:8000'+pochette.url_pdf" target="_blank">
+                              
+                              <button  class="bg-cyan-700  w-32 h-10 rounded-md text-xs mr-4 text-white">
+                                     Voir PDF
+                             <font-awesome-icon icon="fa-solid fa-eye" color="" class="ml-2" />
+                            </button> 
+
                             </a>
-                          </button> 
                        
                         <div v-if="Modifer"  @click="Modifer = !Modifer" >
                            <button class="bg-cyan-700 w-32 h-10 rounded text-xs mr-4  text-white"> Modifier
@@ -146,13 +149,13 @@ export default {
                     pochette_id : this.pochette_id, 
                     dossier_id : this.dossier_id
                 } }).then(response=>{
-
+                  this.$emit('onDeleteEnd')
                   Swal.fire(
                     'Supprimé!',
                     'le document est supprimé.',
                     'success'
                   )
-
+                
                 })
     }
   })

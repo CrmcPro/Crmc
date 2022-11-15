@@ -20,7 +20,7 @@
   <div  v-if="view" class="bg-slate-100 ">   
       
       <section>
-              <DescriptionDevis />              
+              <DescriptionDevis   @onDeleteEnd="deletedata"/>              
         </section>
    </div>
         <section v-else>
@@ -81,8 +81,12 @@ computed : {
   methods : {
     ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData']),
     reloadData() {
-this.view = true
+this.view = !this.view
         
+    },
+    deletedata(){
+      this.view = false
+
     },
     async changeStyle(pouchette){
       
