@@ -120,8 +120,9 @@ methods: {
      const response= await axios.post("/api/dossiers/document/",bodyformData)
       if (response)
       {
+        console.log('response',response)
           this.Spin=false;
-
+         this.$emit('onReloadEnd', response)
         }
      }
     },

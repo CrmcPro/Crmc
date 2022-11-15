@@ -23,7 +23,7 @@
                 <div class="mx-auto md:flex flex-col mt-10 md:justify-between md:items-center ">
                   <div >
                   <router-link 
-                            to="/Devis"
+                            to="/Pochettes"
                             tag="button"                     
                             class="   p-3  px-5 bg-cyan-600	 rounded-l text-sm  text-white "
                           ><font-awesome-icon icon="fa-solid fa-folder-open"/>  
