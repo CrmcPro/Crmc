@@ -1,5 +1,5 @@
 <template >
-    <div >
+    <div  v-if="pochette_id === 1">
         <div class="bg-slate-200 late-200 p-4 rounded-md ">
          
          <h1 class="text-gray-600  text-left p-2  font-semibold">Montants</h1>
@@ -19,6 +19,9 @@
     </div>
          
 </template>
+
+
+
 <script>
 import {mapGetters} from 'vuex'
 export default {

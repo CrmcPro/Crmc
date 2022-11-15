@@ -38,7 +38,8 @@ export default {
     },
     actions :{
     async getPochetteData({commit},response){
-        commit('SET_POCHETTE',response)
+        console.log(response,'responseDossier.js')
+        commit('SET_POCHETTE',response.data)
 
     },
     async getdossiers ({commit}){
