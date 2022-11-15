@@ -6,7 +6,7 @@
                 <div class=" bg-cyan-700 w-2 h-7 rounded-full  items-center"></div>
               </div>
               <div>
-                <h1 class="text-2xl p-2 font-bold ">Create un Nouveau dossier</h1>
+                <h1 class="text-2xl p-2 font-bold ">Créer un nouveau dossier</h1>
               </div>
                 <div>
                   <button type="button" class="absolute top-4 right-6" >                           
@@ -15,7 +15,8 @@
             
             </div>
           </section>
-            <form @submit.prevent="submitForm">
+
+     <form @submit.prevent="submitForm">
         <section  class="flex flex-warp justify-around items-center w-full ">
             <section  class="w-5/12 ">
                     
@@ -24,9 +25,9 @@
 
                           <h1 class="font-bold py-2">Description</h1>
                             <input class="border-2 rounded p-2 h-48  w-full border-gray-400  " 
-                            placeholder="Description de la neauveau dossier"
+                            placeholder="Description du nouveau dossier"
                             type="text"
-                            v-model="description"
+                            v-model="dossier.description"
                             />
                           </div>
                     </section>
@@ -34,19 +35,19 @@
                       <div>
 
                         <h1 class="font-bold py-2">Nom</h1>
-                        <input class="border-2 p-2  rounded w-full bg-slate-200  border-gray-400 " 
-                        placeholder="first_name"
+                        <input class="border-2 p-2  rounded w-full  border-gray-400 " 
+                        placeholder="Nom"
                         type="text"
-                        v-model="nom"
+                        v-model="dossier.first_name"
                         />
                       </div>
 
                       <div>
                     <h1 class="font-bold py-2">Prenom</h1>
-                      <input class="border-2 p-2 rounded  w-full border-gray-400  " 
-                      placeholder="02550182805"
+                      <input class="border-2 p-2 rounded  w-full border-gray-400 " 
+                      placeholder="Prenom"
                       type="text"
-                      v-model="prenom"
+                      v-model="dossier.last_name"
                       />
                     </div>
                 
@@ -55,15 +56,14 @@
           </section>
                     <div class=" flex justify-center items-center p-4" >
                                 <button
-                                  type="button"
+                                  type="submit"
                                   class=" w-44 py-4 bg-[#13698f] text-white text-sm rounded "                                       
-                                  @click="submit"
                                   >
-                                  Confirmer
-                                  
+                                  Confirmer            
                                   </button>
-                              </div>
-    </form>                          
+                     </div>
+    </form>     
+
 </template>
 <script>
 
@@ -77,24 +77,31 @@ name:'AjouterUnDossier',
 
 data(){
   return {
-    nom:'',
-    prenom:'',
+    dossier : {
+    first_name:'',
+    last_name:'',
     description:''
+    }
+ 
 
   }
    
 },
 
-computed : {
-     ...mapGetters(['dossier_id']),
+// computed : {
+//      ...mapGetters(['dossier_id']),
      
-  },
+//   },
 
 methods :{
 
-AjoutDossier() {
+  submitForm() {
 
-  axios.post("/api/dossier/")
+  axios.post("/api/dossiers/",this.dossier  
+  ).then(response => {
+    console.log(response,'responseCrecationDossier')
+
+  })
 }
 
 
