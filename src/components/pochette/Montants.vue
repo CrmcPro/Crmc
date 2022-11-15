@@ -5,15 +5,15 @@
          <h1 class="text-gray-600  text-left p-2  font-semibold">Montants</h1>
          <div class="flex flex-row " v-if="pochette.total_ttc">
          <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Total°TTC</h1>
-         <input class="border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs font-bold py-2 text-red-400 text-center" :value="pochette.total_ttc" :disabled="this.Modifer"/>
+         <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.total_ttc" :disabled="this.Modifer"/>
          </div>
          <div class="flex flex-row " v-if="pochette.reste_payer">
        <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">reste_payer</h1>
-      <input class="border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center" :value="pochette.reste_payer" :disabled="this.Modifer"/>
+      <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.reste_payer" :disabled="this.Modifer"/>
          </div>
        <div class="flex flex-row  " v-if="pochette.prime_cee">
         <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">prime_cee</h1>
-        <input class="border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center"  :value="pochette.prime_cee" :disabled="this.Modifer" />
+        <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']"  :value="pochette.prime_cee" :disabled="this.Modifer" />
       </div>
      </div>
     </div>
