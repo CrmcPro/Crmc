@@ -34,8 +34,8 @@
                               <font-awesome-icon icon="fa-solid fa-check"  class="ml-2"/>
                             </button>
                           </div>
-                          <div v-if="Modifer">
-                            <button class="bg-cyan-700 w-32 h-10 rounded text-xs  text-white" @click="deletePochette"> Delete
+                          <div >
+                            <button :class='[Modifer ? "bg-cyan-700 w-32 h-10 rounded text-xs  text-white" : "bg-slate-500 w-32 h-10 rounded text-xs  text-white ml-4"]' @click="deletePochette" > Delete
                               <font-awesome-icon icon="fa-solid fa-trash"  class="ml-2"/>
                             </button>
                           </div>
@@ -135,9 +135,9 @@ export default {
   },
   methods: {
     deletePochette(){
-
-      Swal.fire({
-    title: 'Vous etes sur?',    
+  this.Modifer ? (
+    Swal.fire({
+    title: 'Vous etes sur ?',
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
@@ -160,6 +160,8 @@ export default {
     }
   })
   
+  ) : null
+      
     },
     }
 
