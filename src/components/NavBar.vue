@@ -50,7 +50,7 @@ export default {
       class="container py-3 mx-auto md:flex md:justify-between md:items-center">
       <div class="flex items-center justify-between">
         <router-link
-          to="/test"
+          to="/Accueil"
           class="
             text-xl
             font-bold
@@ -82,7 +82,7 @@ export default {
             Acceuil
           </li></router-link>
         <li class=" text-neutral-600  text-xl hover:text-blue-400">
-          Utilisateurs.
+          Utilisateurs
         </li>
   
       </ul>

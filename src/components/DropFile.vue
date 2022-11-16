@@ -35,7 +35,7 @@
         <div class="preview-container mt-4" v-if="files.length">
         <div v-for="file in files" :key="file.name" class="preview-card">
           <div>
-            <p>
+            <p class="pt-5">
               {{ file.name }}
             </p>
           </div>
@@ -46,7 +46,7 @@
               @click.prevent.stop="sendFile(files)"
               title="Send file"
             >
-              <b>Send</b>
+              <div class="btn2">Importer</div> 
               
             </button>
           </div>
@@ -61,6 +61,8 @@
 import axios from 'axios';
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import spinner from "./Spinner.vue"
+import Swal from 'sweetalert2'
+
 import store from "../store"
 export default {
 
@@ -92,6 +94,7 @@ computed : {
 methods: {
 ...mapActions(["getdocument"]) ,
 
+
       onChange() {
         this.files = [...this.$refs.file.files];
 
@@ -99,6 +102,7 @@ methods: {
       dragover(e) {
         e.preventDefault();
         this.isDragging = true;
+      
       },
       dragleave() {
         this.isDragging = false;
@@ -112,7 +116,7 @@ methods: {
 
 
       async sendFile() {
-        this.Spin=true;
+      this.Spin=true;
       let bodyformData = new FormData();
       bodyformData.append('pochette_id',this.pochette)
       bodyformData.append('dossier_id',this.dossier_id)
@@ -152,6 +156,17 @@ methods: {
     background-color: rgb(24, 115, 168);
     color: white;
 }
+.btn2{
+    border-radius: 4%;
+    height: 2.4rem;
+    width: 8rem;
+    padding-top: 2%;
+    margin-top: 1rem;
+    margin-left: 20%;
+    background-color: rgb(24, 115, 168);
+    color: white;
+    font-size: large;
+}
 
 .dropzone-container {
     width: 30rem;
@@ -180,14 +195,13 @@ methods: {
 
 .preview-container {
     display: flex;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .preview-card {
     display: flex;
-    border: 1px solid #a2a2a2;
     padding: 5px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .preview-img {
