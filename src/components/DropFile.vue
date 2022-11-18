@@ -29,7 +29,7 @@
           <div v-if="isDragging">Déposer ICI.</div>
           <div v-else>GLisser & Déposer votre fichier.</div>
           <div class="btn1">Sélectionnner un fichier</div>
-          <div class="py-10" v-if="Spin"><spinner/></div>
+          <div class="py-10" v-if="Spin"><progressBar/></div>
         </label>
            
         <div class="preview-container mt-4" v-if="files.length">
@@ -60,14 +60,15 @@
 
 import axios from 'axios';
 import { mapActions, mapGetters, mapMutations } from 'vuex'
-import spinner from "./Spinner.vue"
+import progressBar from "./ProgressBar.vue"
 import Swal from 'sweetalert2'
 
 import store from "../store"
 export default {
 
   components: {
-    spinner
+    
+    progressBar
 
   },
 
@@ -124,12 +125,12 @@ methods: {
      const response= await axios.post("/api/dossiers/document/",bodyformData)
       if (response)
       {
-        console.log('response',this.pouchette_id ,this.dossier_id,)
+    
           this.Spin=false;
           this.getdocument({
         pochette_id : this.pochette,
         dossier_id : this.dossier_id,
-   })
+       })
          this.$emit('onReloadEnd')
         }
      }
