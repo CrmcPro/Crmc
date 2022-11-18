@@ -18,7 +18,7 @@ export default {
         }
     },
 
-    created(){
+    8(){
         var intval =setInterval(()=>{
             if(this.precentage < 100)
             this.precentage += .1

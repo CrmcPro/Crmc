@@ -1,6 +1,6 @@
 <template>
 
-<div class="text-l flex flex-col ">
+<div class="text-l flex flex-col">
               
               <h1 class="font-bold pt-24 " >Devis</h1>
                    <p class="px-6"> Vous n'avez pas encore importer votre document ! </p>  
@@ -24,11 +24,20 @@
           accept=".pdf,.jpg,.jpeg,.png"
         />
          
-        <label for="fileInput" class="file-label">
+        <label for="fileInput" class="file-label" >
           <img src="/src/assets/upload.png" alt="image" class="w-12 h-12 flex items-center bg-none mb-8 ml-40 "/>    
           <div v-if="isDragging">Déposer ICI.</div>
           <div v-else>GLisser & Déposer votre fichier.</div>
-          <div class="btn1">Sélectionnner un fichier</div>
+          <div class="flex flex-row justify-center items-center">
+
+            <div class="bg-[#1873a8]  p-2 border rounded px-5 text-white" v-if="!isDragging || !files.length">Sélectionnner un fichier</div>
+            <div class="bg-lime-400  p-2 border rounded px-5 text-white">
+              <div class=" " v-if="isDragging||files.length">                            
+              <font-awesome-icon icon="fa-solid fa-file"  class="ml-2"/>
+            </div>
+Importer</div>
+     
+          </div>
           <div class="py-10" v-if="Spin"><spinner/></div>
         </label>
            
@@ -36,7 +45,6 @@
         <div v-for="file in files" :key="file.name" class="preview-card">
           <div>
             <p class="pt-5">
-              {{ file.name }}
             </p>
           </div>
           <div> <a href=""></a>
@@ -46,7 +54,6 @@
               @click.prevent.stop="sendFile(files)"
               title="Send file"
             >
-              <div class="btn2">Importer</div> 
               
             </button>
           </div>
@@ -146,16 +153,7 @@ methods: {
     text-align: center;
 }
 
-.btn1{
-    border-radius: 4%;
-    height: 2.5rem;
-    width: 14rem;
-    padding-top: 1%;
-    margin-top: 1rem;
-    margin-left: 20%;
-    background-color: rgb(24, 115, 168);
-    color: white;
-}
+
 .btn2{
     border-radius: 4%;
     height: 2.4rem;

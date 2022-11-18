@@ -17,13 +17,15 @@
                 </table>
                 </div>
               </section>  
-  <div  v-if="view" class="bg-slate-100 ">   
-      
+              <section v-if="looding">
+                <Spinner/>
+              </section>
+  <div  v-if="view &&!looding" class="bg-slate-100 ">   
       <section>
               <DescriptionDevis   @onDeleteEnd="deletedata"/>              
         </section>
    </div>
-        <section v-else>
+        <section v-if="!view &&!looding" >
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
           
@@ -40,10 +42,12 @@ import Header from "./Header.vue"
 import DropFile from "./DropFile.vue"
 import DescriptionDevis from "./DescriptionDevis.vue"
 import { useRouter } from 'vue-router'
+import Spinner from "./Spinner.vue"
 export default {
   name:'Pochettes',
   data(){
     return {
+      looding : true ,
       router:useRouter(),
       view : false ,
       id_pochette: null,
@@ -70,7 +74,8 @@ export default {
   components: {
     Header ,
     DropFile ,
-    DescriptionDevis
+    DescriptionDevis ,
+    Spinner
   },
   
 computed : {
@@ -124,6 +129,7 @@ this.view = !this.view
    })
    if(response.success){
     this.view = true
+    this.looding = false
    }
   },
   

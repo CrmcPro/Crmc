@@ -21,8 +21,8 @@
 // }
  
   </script>
-<template>
-  <div class="bg-slate-100">
+<template >
+  <div class="bg-slate-100  px-5 rounded">
       <section class="h-screen flex center items-center justify-center">
         <div class="text-gray-800 w-2/5 h-3/5 bg-white rounded-2xl shadow-xl text-center">
           <h1 class="text-blue-300 text-4xl shadow-black pt-10 font-bold	 ">

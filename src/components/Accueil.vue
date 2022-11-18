@@ -65,8 +65,9 @@
                         
                           <tbody class=" divide-black text-center border-2 border-slate-100 "  
                          >
-                              <tr v-for="item in dossiers" v-bind:key="item" class=" hover:bg-slate-200">
-                                  <td class="py-3" >
+                              <tr v-for="(item , index) in dossiers" v-bind:key="item" class=" hover:bg-slate-200"  >
+                                  <td class="py-3" 
+ >
                                       <div class="flex items-center justify-center h-5 ">
                                           <input
                                               type="checkbox"
@@ -77,9 +78,8 @@
                                   <td
                                       class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
                                       @click="() => NavigationTodevis(item.id)"
-  
-                                    > 
-                                      {{item.id}}
+                                 > 
+                                    {{index+=1}}
                                   </td>
                                   <td
                                       class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap  cursor-pointer"
@@ -163,7 +163,8 @@ props :{
             query : { id_dossier : id }
         })
        
-     }
+     },
+   
   },
  mounted () {
    this.getdossiers()
