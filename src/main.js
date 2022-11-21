@@ -20,12 +20,12 @@ import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faTrash} from '@fortawesome/free-solid-svg-icons'
-
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+// fa fa-sign-in
+import {faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-axios.defaults.baseURL="http://192.168.1.36:8000/"
+axios.defaults.baseURL="http://192.168.1.252:8080/"
 
 /* add each imported icon to the library */
 library.add(faToggleOff)
@@ -36,6 +36,8 @@ library.add(faPen)
 library.add(faEye)
 library.add(faCheck)
 library.add(faTrash)
+library.add(faCircleDown)
+
 
 
 

@@ -32,6 +32,7 @@
                  
                   <router-link  to="/test"  tag="button"   class="  p-3   px-10 bg-cyan-700	 rounded-r text-sm  text-white ">
                     <font-awesome-icon icon="fa-solid fa-code-compare"/>  Comparer   </router-link>  
+                    
                    </div>
                    <div class="flex flex-row items-center text-red-500 text-xs">
                       <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="pr-1 text-lg"/> 
