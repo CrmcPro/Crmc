@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 import { mapActions , mapGetters} from "vuex"
 import Header from "./Header.vue"
 import DropFile from "./DropFile.vue"
@@ -86,8 +87,21 @@ computed : {
   methods : {
     ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData']),
     reloadData() {
-this.view = !this.view
+     
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'le document est téléchargé ',
+          showConfirmButton: false,
+          timer: 3000
+          }).then(res=>(
+            
+            this.view= !this.view
+          ))
+         
+       
         
+
     },
     deletedata(){
       this.view = false

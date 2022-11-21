@@ -1,6 +1,6 @@
 import { createStore} from "vuex"
 import  user from '../store/modules/user'
-import  dossiers from '../store/modules/dossiers'
+import  dossiers from './modules/dossiers&Pochette'
 import router from "../router"
 
 const store = createStore({

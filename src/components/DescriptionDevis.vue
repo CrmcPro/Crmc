@@ -6,9 +6,6 @@
                       <!-- Second Div -->
                       <div class="border-b-2 p-2 px-48">
                       <div class="flex flex-row  justify-end  px-24 ">
-                      
-
-                       
                         <div class="absolute left-32 py-4  ">
                           <span class=" text-left font-bold text-lg  " v-if="pochette_id===1">Devis</span>
                           <span class=" text-left font-bold text-lg  " v-if="pochette_id!==1">{{pochette_name}}</span>
@@ -136,13 +133,13 @@ export default {
   methods: {
     deletePochette(){
   this.Modifer ? (
-    Swal.fire({
-    title: 'Vous etes sur ?',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Oui supprime!'
+        Swal.fire({
+        title: 'Vous etes sur ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui supprime!'
   }).then((result) => {
     if (result.isConfirmed) {
       axios.delete("/api/dossiers/document/",{params: {

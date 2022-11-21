@@ -17,10 +17,8 @@
               <section class=" flex flex-nowrap  align-middle justify-center  py-2 ">
                   <label for="" class="sr-only">Underline select</label>
                     <select id="underline_select" class="px-2 w-2/6 text-sm bg-transparent border-2 border-gray-300 rounded-lg   ">
-                        <option selected class="font-black">Documents1-documents 5</option>
-                        <option value="doc2">Documents3-documents2</option>
-                        <option value="doc3">Documents8-documents9</option>
-                        <option value="doc4">Documents1-documents5</option>
+                        <option selected class="font-black">Devis-Audit</option>
+                       
                     </select>
                     
                     <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm " @click="showModal = !showModal">
@@ -45,11 +43,10 @@
                       Comparer tous les documents
                     </button>
                     <ModelProgess :show="showModal" @close="showModal = false">
-                     <ProgressBar />
+                     <circleProgressBar />
                     </ModelProgess>
-                    <ModelList :show="ShowProgress" @close="ShowProgress = false">
-                     <VerificationList/>
-                    </ModelList>
+                    <ModelList  />
+                  
                     </section>
         </section>       
      </div>  
@@ -60,7 +57,7 @@
    import ModelProgess from "../components/PorgressbarModel.vue"
 
    import VerificationList from "../components/VerificationList.vue"
-   import ProgressBar from "../components/ProgressBar.vue"
+   import circleProgressBar from "../components/circleProgressBar.vue"
    import Header from "../components/Header.vue"
    import { ref } from 'vue';
    
@@ -71,7 +68,7 @@
 const components = {
   ModelList,
   VerificationList,
-  ProgressBar ,
+  circleProgressBar ,
   Header,
   ModelProgess
 };
