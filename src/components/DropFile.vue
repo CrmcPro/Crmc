@@ -25,31 +25,41 @@
         />
          
         <label for="fileInput" class="file-label">
+          <div v-if="!Spin">
           <img src="/src/assets/upload.png" alt="image" class="w-12 h-12 flex items-center bg-none mb-8 ml-40 "/>    
           <div v-if="isDragging">Déposer ICI.</div>
-          <div v-else>GLisser & Déposer votre fichier.</div>
-          <div class="btn1">Sélectionnner un fichier</div>
-          <div class="py-10" v-if="Spin"><progressBar/></div>
+          <div v-else class="py-2">GLisser & Déposer votre fichier.</div>
+          <div class="flex flex-row justify-around ">
+
+            <div class="text-white text-sm p-2  bg-[#1873a8] rounded text-center ">
+              Sélectionnner un fichier</div>
+          <div v-if="files.length"> <a href=""></a>
+            <button
+              class=""
+              type="submit"
+              @click.prevent.stop="sendFile(files)"
+              title="Send file"
+            >
+            <AnimatedBtn/>
+            </button>
+          </div>
+        </div>
+          </div>
+          
+        
+          <div class="py-5 text-center" v-if="Spin">
+            <progressBar/>
+          </div>
         </label>
            
         <div class="preview-container mt-4" v-if="files.length">
         <div v-for="file in files" :key="file.name" class="preview-card">
           <div>
-            <p class="pt-5">
+            <p class="pt-5 border-b-2 border-black">
               {{ file.name }}
             </p>
           </div>
-          <div> <a href=""></a>
-            <button
-              class="ml-2"
-              type="submit"
-              @click.prevent.stop="sendFile(files)"
-              title="Send file"
-            >
-              <div class="btn2">Importer</div> 
-              
-            </button>
-          </div>
+         
         </div>
       </div>
       </div>
@@ -61,13 +71,14 @@
 import axios from 'axios';
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import progressBar from "./ProgressBar.vue"
+import AnimatedBtn from './AnimatedBtn.vue';
 import Swal from 'sweetalert2'
 
 import store from "../store"
 export default {
 
   components: {
-    
+    AnimatedBtn ,
     progressBar
 
   },
@@ -125,8 +136,8 @@ methods: {
      const response= await axios.post("/api/dossiers/document/",bodyformData)
       if (response)
       {
-    
-          this.Spin=false;
+
+           this.Spin=false;
           this.getdocument({
         pochette_id : this.pochette,
         dossier_id : this.dossier_id,
@@ -154,7 +165,7 @@ methods: {
     padding-top: 1%;
     margin-top: 1rem;
     margin-left: 20%;
-    background-color: rgb(24, 115, 168);
+    background-color: #1873a8;
     color: white;
 }
 .btn2{
@@ -164,7 +175,7 @@ methods: {
     padding-top: 2%;
     margin-top: 1rem;
     margin-left: 20%;
-    background-color: rgb(24, 115, 168);
+    background-color: #1873a8;
     color: white;
     font-size: large;
 }

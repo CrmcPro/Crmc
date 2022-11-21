@@ -136,13 +136,13 @@ export default {
   methods: {
     deletePochette(){
   this.Modifer ? (
-    Swal.fire({
-    title: 'Vous etes sur ?',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Oui supprime!'
+        Swal.fire({
+        title: 'Vous etes sur ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui supprime!'
   }).then((result) => {
     if (result.isConfirmed) {
       axios.delete("/api/dossiers/document/",{params: {
