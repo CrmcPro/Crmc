@@ -106,7 +106,7 @@ this.view = !this.view
         }
       })
       console.log('=============)',pouchette.text)
-   const response = await   this.getdocument({
+       const response = await   this.getdocument({
         pochette_id : pouchette.value ,
         dossier_id : parseInt(this.$route.query.id_dossier),
         pochette_name : pouchette.text ,

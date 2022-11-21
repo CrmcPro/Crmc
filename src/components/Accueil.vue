@@ -14,6 +14,7 @@
   </div>
       </div>
     <div class="bg-white px-10 rounded-xl">
+        <btnmagic/>
                               <!-- ChercheBar -->
                        <ChercheBar/>
                           <!-- Tableau de suive -->
@@ -127,7 +128,6 @@ import axios from 'axios'
 import { useRouter} from "vue-router"
 // import route from "../router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
-   
 const dossiers = ref([]);
 export default {
 name:"Accueil",
@@ -151,7 +151,8 @@ props :{
   components: {
     ChercheBar ,
     AjouterDossier ,
-    ModalAjouterDossier
+    ModalAjouterDossier,
+    
   },
   methods: {
     
