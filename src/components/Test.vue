@@ -36,12 +36,7 @@
                     </div>   
                   </section>
 
-                    <section class="pt-20 flex justify-center">
-                           
-                    <button @click="ShowProgress = !ShowProgress"
-                     class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  ">
-                      Comparer tous les documents
-                    </button>
+                    <section class="pt-20 flex justify-center">                 
                     <ModelProgess :show="showModal" @close="showModal = false">
                      <circleProgressBar />
                     </ModelProgess>
@@ -55,7 +50,6 @@
    import { useRouter} from "vue-router"
    import ModelList from "../components/ModelListVerification.vue"
    import ModelProgess from "../components/PorgressbarModel.vue"
-
    import VerificationList from "../components/VerificationList.vue"
    import circleProgressBar from "../components/circleProgressBar.vue"
    import Header from "../components/Header.vue"
@@ -81,6 +75,6 @@ const components = {
   
 
 
-  <style>
+<style>
 
 </style>
