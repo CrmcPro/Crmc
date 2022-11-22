@@ -31,7 +31,7 @@
           <div v-else class="py-2">GLisser & Déposer votre fichier.</div>
           <div class="flex flex-row justify-around ">
 
-            <div class="text-white text-sm p-2  bg-[#1873a8] rounded text-center ">
+            <div class="text-white text-sm p-2 mt-1 bg-[#1873a8] rounded text-center ">
               Sélectionnner un fichier</div>
           <div v-if="files.length"> <a href=""></a>
             <button
@@ -55,7 +55,7 @@
         <div class="preview-container mt-4" v-if="files.length">
         <div v-for="file in files" :key="file.name" class="preview-card">
           <div>
-            <p class="pt-5 border-b-2 border-black">
+            <p class=" border-b-2 ml-32 border-sky-600    text-sky-600">
               {{ file.name }}
             </p>
           </div>
