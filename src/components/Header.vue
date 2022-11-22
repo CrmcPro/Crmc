@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-nowrap  p-4 ">
+    <div class="flex flex-row  justify-around p-4 ">
           <div class=" flex  items-center bg-white w-[30%] h-21 shadow-lg  rounded "  >
                   <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
                   <div>
@@ -15,12 +15,12 @@
                         </label>
                       </div>
                     </div>
-                    <p>#D0001</p>                   
+                    <p>#D0</p>                   
                     <p class="text-neutral-600">Lorem ipsum repellendus omnis</p>
                   </div>
                 </div>
                
-                <div class="mx-auto md:flex flex-col mt-10 md:justify-between md:items-center ">
+                <div  class=" md:flex flex-col mt-10 md:justify-between md:items-center ">
                   <div >
                   <router-link 
                             to="/Pochettes"
@@ -35,7 +35,7 @@
                     
                    </div>
                    <div class="flex flex-row items-center text-red-500 text-xs">
-                      <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="pr-1 text-lg"/> 
+                      <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="pr-1 text-lg py-4"/> 
                       <p>Documents qui manque</p>
                     </div>
                   </div>  
