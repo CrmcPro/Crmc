@@ -22,7 +22,7 @@
       >
         <div class="max-w-6xl p-6 bg-white rounded-md shadow-xl">
           <div class="flex items-center justify-between">
-            <h3 class="text-2xl">Model Title</h3>
+            <h3 class="text-2xl">Verification Terminer !</h3>
             <svg
               @click="isOpen = false"
               xmlns="http://www.w3.org/2000/svg"
@@ -43,8 +43,8 @@
             <div class="overflow-x-auto relative sm:rounded-lg ">
     
     <div>    
-        <h1 class="font-bold">Verification Terminer !</h1>
-        <p>Erreur</p> 
+        <h1 class="font-bold"></h1>
+        <p>1 Erreur</p> 
     </div>
     <table class="w-full text-sm text-left text-blue-100 mt-8  border-separate">
         <thead class="text-xs text-white uppercase bg-white  dark:text-black ">
