@@ -1,6 +1,6 @@
 <template >
-     <div class= "bg-slate-200  p-5 rounded-xl " v-if="pochette_id === 1">
-                                        <h1  class="text-gray-600  text-left p-2 px-2 font-semibold">Données Energétique</h1>
+     <div class= "bg-slate-200  p-5 rounded-xl  " v-if="pochette_id === 1">
+                      <h1  class="text-gray-600  text-left p-2 px-2 font-semibold">Données Energétique</h1>
                       <div class="flex flex-row" v-if="pochette.cef_init && pochette.cep_init">
   
                         <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs font-bold	bg-cyan-600">Cef_init / Cep_init</h1>

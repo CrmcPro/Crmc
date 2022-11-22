@@ -1,92 +1,122 @@
-<template >
-    <teleport to="body" >
-      <transition
-        enter-active-class="transition ease-out duration-200 transform"
-        enter-from-class="opacity-0"
-        enter-to-class="opacity-100"
-        leave-active-class="transition ease-in duration-200 transform"
-        leave-from-class="opacity-100"
-        leave-to-class="opacity-0"
+<template>
+  <div class="container mx-auto">
+    <div class="flex justify-center">
+      <button
+        @click="isOpen = true"
+        class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  "
+        type="button"
       >
-        <div
-          ref="modal-backdrop"
-          class=" fixed -inset-0 bg-black bg-opacity-50"
-          v-show="showModal"
-        >
-          <div
-            class="flex items-start justify-center  py-12 text-center"
-          >
-            <transition
-              enter-active-class="transition ease-out duration-300 transform "
-              enter-from-class="opacity-0 translate-y-10 scale-95"
-              enter-to-class="opacity-100 translate-y-0 scale-100"
-              leave-active-class="ease-in duration-200"
-              leave-from-class="opacity-100 translate-y-0 scale-100"
-              leave-to-class="opacity-0 translate-y-10 translate-y-0 scale-95"
-            >
-              <div
-               @click="closeModal"
-                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl pl-20 pr-6 pt-8 pb-8 w-4/5"
-                role="dialog"
-                ref="modal"
-                aria-modal="true"
-                v-show="showModal"
-                aria-labelledby="modal-headline"
-              >
-                <button type="button" class="absolute top-4 right-6" >                           
-                      <span></span>      
-                </button>
+      Comparer tous les documents
+      </button>
 
-                <slot>I'm empty inside</slot>
-              </div>
-            </transition>
+      <div
+        v-show="isOpen"
+        class="
+          absolute
+          inset-0
+          flex
+          items-center
+          justify-center
+          bg-gray-700 bg-opacity-50
+        "
+      >
+        <div class="max-w-6xl p-6 bg-white rounded-md shadow-xl">
+          <div class="flex items-center justify-between">
+            <h3 class="text-2xl">Verification Terminer !</h3>
+            <svg
+              @click="isOpen = false"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-8 h-8 text-red-600 cursor-pointer"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <div class="mt-4">
+            <div class="overflow-x-auto relative sm:rounded-lg ">
+    
+    <div>    
+       
+        <p>{{count}} Erreur</p> 
+    </div>
+    <table class="w-full text-sm text-left text-blue-100 mt-8  border-separate">
+        <thead class="text-xs text-white uppercase bg-white  dark:text-black ">
+            <tr v-for="(item , index) in Lists" v-bind:key="index">
+                <th scope="col" class="py-3 px-4 text-center text-white bg-cyan-700 border-2 rounded-l-md">
+                </th>
+                <th scope="col" class="py-3 text-center text-slate-700 bg-slate-200 border-2">
+                    {{item.name}}
+                </th>
+                <th scope="col" class="py-3 px-6 bg-slate-100 border-2 text-slate-700">
+                    {{item.message}}
+                </th>
+                <div>
+                  <th v-if="item.status==='success' " scope="col" class="py-3 px-6 ">
+                    <img src="../assets/check.png" alt="" class="w-5 h-5">
+                </th>
+              
+                <th v-else scope="col" class="py-3 px-6"  >
+                    <img src="../assets/illustration.png" alt="" class="w-5 h-5">
+                </th>
+                </div>
+              
+            </tr>
+        </thead>
+    </table>
+                          <div class=" justify-center flex pb-3 pt-8">
+                               <button
+                                 type="button"
+                                 class=" w-36 py-3 bg-[#13698f] text-white text-sm rounded "   
+                                 @click="isOpen = false"              
+                                 >          
+                                 Valider
+                              </button>
+                           </div>
+                        </div>
           </div>
         </div>
-      </transition>
-    </teleport>
-  </template>
-  
-  <script>
-  import { ref, watch } from 'vue';
-  import useClickOutside from '../composables/useClickOutside';
-  const props = {
-    show: {
-      type: Boolean,
-      default: false,
-    },
-  };
-  const components = {
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import axios from "axios"
+export default {
+  name :'ModelList' ,
+  data() {
+    return {
+      count:0,
+      isOpen: false,
+      Lists : [] ,
+
+    };
     
-  };
-  export default {
-    name: 'ModalDialog',
-    props,
-    components,
-    setup(props, context) {
-      const showModal = ref(false);
-      const modal = ref(null);
-      const { onClickOutside } = useClickOutside();
-      function closeModal() {
-        context.emit('close');
-      }
-      onClickOutside(modal, () => {
-        if (showModal.value === true) {
-          closeModal();
-        }
-      });
-      watch(
-        () => props.show,
-        show => {
-          showModal.value = show;
-        },
-      );
-      return {
-        closeModal,
-        showModal,
-        modal,
-      };
+  },
+
+  mounted () {
+        axios.get("/api/dossiers/compare/?dossier_id=1").then(res=>{
+             this.Lists= res.data
+             console.log(this.Lists)
+        })
+
     },
-  };
-  </script>
+
   
-  <style></style>
+    methods: {
+          Increment() {
+           this.count++;
+          }
+  },
+
+
+
+
+};
+</script>

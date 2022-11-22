@@ -57,7 +57,7 @@
                     <div class=" flex justify-center items-center p-4" >
                                 <button
                                   type="submit"
-                                  class=" w-44 py-4 bg-[#13698f] text-white text-sm rounded "                                       
+                                  class=" w-44 py-4 bg-[#13698f] text-white text-sm rounded "   
                                   >
                                   Confirmer            
                                   </button>
@@ -86,6 +86,7 @@ data(){
   } 
 },
 methods :{
+
   
 submitForm() {
 
@@ -95,24 +96,8 @@ submitForm() {
     window.location.reload()
   })
  
+}}
 }
-
-
-
-
-
-
-
-
-
-}
-
-
-}
-
-
-
-
 
 </script>
 

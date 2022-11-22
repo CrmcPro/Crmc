@@ -10,7 +10,7 @@
     <section class="">
         <p class="text-xl text-center p-4 font-semibold ">Traitement encours ..</p>
         <div class="w-full bg-gray-500 rounded-full dark:bg-gray-700">
-        <div id="Progressbar" class="bg-cyan-600 text-xs h-3.5  text-white text-black  text-center  
+        <div id="Progressbar" class="bg-cyan-600 text-xs h-3.5  text-white   text-center  
         leading-none rounded-full"  :style="{ 'color': 'white' ,'width': progress +  '%'}" >{{ Math.floor(progress) + '%'}}</div>
         </div>
         <p class="text-center pt-6 pb-10">Veuillez patientez</p>
@@ -27,7 +27,6 @@
 
 <script>
 import pusher from 'pusher-js';
-
 export default {
   data() {
     return {
