@@ -40,7 +40,7 @@ export default {
     async getPochetteData({commit},response){
         console.log(response,'responseDossier.js')
         commit('SET_POCHETTE',response.data)
-
+        
     },
     async getdossiers ({commit}){
      let res= await axios.get('/api/dossiers/').then(response=>{
@@ -76,6 +76,8 @@ export default {
                 } },pochette);
  
            commit('SET_DOSSIERS',response.data);
+           console.log('SET_DOSSIERS',response.data);
+
            return { success : true }
         }catch(error)
         {

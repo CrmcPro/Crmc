@@ -126,7 +126,6 @@ import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
-// import route from "../router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 const dossiers = ref([]);
 export default {
@@ -175,3 +174,11 @@ props :{
          },
 }
  </script>
+<style scoped>
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* ruleset for 320px - 480px */
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* regles CSS */
+}
+</style>

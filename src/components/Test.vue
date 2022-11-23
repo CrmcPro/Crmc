@@ -22,7 +22,8 @@
                     </select>
                     
                     <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm " @click="showModal = !showModal">
-                      Tester
+                      <ModelList  />
+
                     </button>
                    
                </section>   
@@ -36,16 +37,8 @@
                     </div>   
                   </section>
 
-                    <section class="pt-20 flex justify-center">
-                           
-                    <button @click="ShowProgress = !ShowProgress"
-                     class="bg-cyan-700 text-white	w-60 h-10 rounded text-sm  ">
-                      Comparer tous les documents
-                    </button>
-                    <ModelProgess :show="showModal" @close="showModal = false">
-                     <circleProgressBar />
-                    </ModelProgess>
-                    <ModelList  />
+                    <section class="pt-20 flex justify-center">                 
+                      <ModelList  />
                   
                     </section>
         </section>       
@@ -55,7 +48,6 @@
    import { useRouter} from "vue-router"
    import ModelList from "../components/ModelListVerification.vue"
    import ModelProgess from "../components/PorgressbarModel.vue"
-
    import VerificationList from "../components/VerificationList.vue"
    import circleProgressBar from "../components/circleProgressBar.vue"
    import Header from "../components/Header.vue"
@@ -81,6 +73,6 @@ const components = {
   
 
 
-  <style>
+<style>
 
 </style>
