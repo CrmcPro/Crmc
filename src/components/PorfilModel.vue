@@ -10,12 +10,12 @@
     >
       <div
         ref="modal-backdrop"
-        class=" fixed -inset-0  bg-black bg-opacity-50"
+        class=" absolute -inset-0 h-max flex-auto bg-black bg-opacity-50"
         v-show="showModal"
       >
 
         <div
-          class=" flex justify-center items-center  "
+          class=" flex justify-center items-center  py-24"
         >
           <transition
             enter-active-class="transition ease-out duration-300 transform "
@@ -34,7 +34,7 @@
               aria-labelledby="modal-headline"
             >
           
-            <img src="../assets/close.png" @click="closeModal()" class="absolute   right-4 top-11 ">              
+            <img src="../assets/close.png" @click="closeModal()" class="absolute   right-4 top-2 ">              
 
               <slot>I'm empty inside</slot>
             </div>
