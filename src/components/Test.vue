@@ -22,7 +22,8 @@
                     </select>
                     
                     <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm " @click="showModal = !showModal">
-                      Tester
+                      <ModelList  />
+
                     </button>
                    
                </section>   
@@ -37,10 +38,7 @@
                   </section>
 
                     <section class="pt-20 flex justify-center">                 
-                    <ModelProgess :show="showModal" @close="showModal = false">
-                     <circleProgressBar />
-                    </ModelProgess>
-                    <ModelList  />
+                      <ModelList  />
                   
                     </section>
         </section>       

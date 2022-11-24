@@ -48,7 +48,6 @@
 <script>
 import { ref, watch } from 'vue';
 import useClickOutside from '../composables/useClickOutside';
-
 const components = {
   
 };

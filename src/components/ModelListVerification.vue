@@ -44,11 +44,11 @@
     
     <div>    
        
-        <p>{{CountErr}} Erreur</p> 
+        <p class="text-red-600 font-bold">{{CountErr}} Erreur</p> 
     </div>
     <table class="w-full text-sm text-left text-blue-100   border-separate">
         <thead class="text-xs text-white  bg-white  dark:text-black ">
-                 {{count=1}} {{CountErr=0}} 
+                <h1 class="hidden">{{count=1}} {{CountErr=0}} </h1> 
 
             <tr v-for="(item , index) in Lists" v-bind:key="index">
               <div class="flex flex-row" v-if="index !== 'cef_cep'" >
@@ -56,21 +56,21 @@
                 <th scope="col" class="py-3  w-16  text-center text-white bg-cyan-700 border-2 rounded-l-md">
                   {{count++}}
                 </th>
-                <th scope="col" :class='[item.status!=="success" ? "bg-red-600 rounded-l-md py-3 w-64 text-center text-white bg-slate-200 border-2" : 
+                <th scope="col" :class='[item.status!=="success" ? "bg-red-600 rounded-l-md py-3 w-64 text-center text-white  border-2" : 
                    "py-3 w-64 text-center text-slate-700 bg-slate-200 border-2"]'
                  >
                     {{item.name}}
                 </th>
-                <th scope="col" :class='[item.status!=="success" ? "py-3 w-4/5 pl-6 bg-red-200 border-2 text-slate-700" :"py-3 w-4/5 pl-6 bg-slate-100 border-2 text-slate-700"]'>
+                <th scope="col" :class='[item.status!=="success" ? " py-3 w-4/5 pl-6 bg-red-200 border-2" :"py-3 w-4/5 pl-6 bg-slate-100 border-2 text-slate-700"]'>
                     {{item.message}}
                 </th>
                 <div>
                   <th v-if="item.status==='success' " scope="col" class="pt-3 px-2 ">
-                    <img src="../assets/check.png" alt="" class="w-5 h-5">
+                    <font-awesome-icon icon="fa-solid fa-check"  class="text-green-600 w-5 h-5"/>
                 </th>
                 
-                <th v-else scope="col" class="flex pt-3 px-2  "  >
-                  {{CountErr++}}
+                <th v-else scope="col" class="flex pt-3 px-2  ">
+                  <h1 class="hidden">{{CountErr++}}</h1>
                   <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="text-red-500 h-5 "/> 
                 </th>
                 
@@ -93,11 +93,11 @@
               </th>
         <div>
            <th v-if="el.status==='success' " scope="col" class="pt-3 px-2 ">
-            <img src="../assets/check.png" alt="" class="w-5 h-5">
+            <font-awesome-icon icon="fa-solid fa-check"  class="text-green-600 w-5 h-5"/>
             </th>
 
-         <th v-else scope="col" class="flex pt-3 px-2 "  >
-          <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="text-red-500 h-5 "/> 
+         <th v-else scope="col" class=" pt-3 px-2 "  >
+          <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="text-red-500  w-5 h-5 "/> 
                </th> 
 
           </div>
@@ -132,23 +132,17 @@ export default {
       isOpen: false,
       Lists : [] ,
       Listt : [] ,
-
-
     };
     
   },
-
   mounted () {
         axios.get("/api/dossiers/compare/?dossier_id=1").then(res=>{
              this.Lists= res.data
              console.log(this.Lists)
              this.Listt= res.data.cef_cep
              console.log(res.data.cef_cep)
-
             
         })
-
     },
-
 };
 </script>
