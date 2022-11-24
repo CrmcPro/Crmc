@@ -141,10 +141,14 @@ computed : {
     pochette_id : 1 ,
     dossier_id : parseInt(this.$route.query.id_dossier)
    })
+   console.log('response.success',response)
+
    if(response.success){
     this.view = true
     this.looding = false
-   }
+   }else
+   this.looding = false
+
   },
   
 }
