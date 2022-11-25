@@ -90,26 +90,25 @@
           files: [],
         };
   },
-  props : ['pochette' , "view"],
+  props : ['id_props_pochette' ,'id_props_dossier', "view"],
   
   
   
   mounted () {
     this.onChange()
+
   },
   
   computed : {
-    ...mapGetters(["dossier_id","pochette_id","pochette_name"]),
+    ...mapGetters(["pochette_name"]),
           
   
             },
   methods: {
   ...mapActions(["getdocument"]) ,
   
-  
         onChange() {
           this.files = [...this.$refs.file.files];
-  
         },
         dragover(e) {
           e.preventDefault();
@@ -130,8 +129,8 @@
         async sendFile() {
         this.Spin=true;
         let bodyformData = new FormData();
-        bodyformData.append('pochette_id',this.pochette)
-        bodyformData.append('dossier_id',this.dossier_id)
+        bodyformData.append('pochette_id',this.id_props_pochette)
+        bodyformData.append('dossier_id',this.id_props_dossier)
         bodyformData.append('file',this.files[0])
        const response= await axios.post("/api/dossiers/document/",bodyformData)
         if (response)
@@ -139,8 +138,8 @@
   
              this.Spin=false;
             this.getdocument({
-          pochette_id : this.pochette,
-          dossier_id : this.dossier_id,
+          pochette_id : this.id_props_pochette,
+          dossier_id : this.id_props_dossier,
          })
            this.$emit('onReloadEnd')
           }
