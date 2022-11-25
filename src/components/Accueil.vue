@@ -127,7 +127,7 @@ import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
-const dossiers = ref([]);
+// const dossiers = ref([]);
 export default {
 name:"Accueil",
 data()
@@ -153,12 +153,15 @@ props :{
     ModalAjouterDossier,
     
   },
-   methods: {
+  computed : {
+     ...mapGetters(['dossiers']),
+         },
+  methods: {
     
     ...mapActions(['getdossiers' ,'GetOnedossier']),
-     NavigationTodevis (id) {
-         this.GetOnedossier({id})
-        this.router.push("/Pochettes");
+   async NavigationTodevis (id) {
+        console.log('id_Navigation',id)
+        await this.GetOnedossier({id})  
         this.router.push({
             path : '/Pochettes',
             query : { id_dossier : id }
@@ -169,12 +172,10 @@ props :{
      
    
   },
- mounted () {
-   this.getdossiers()
- },
- computed : {
-     ...mapGetters(['dossiers']),
-         },
+  async mounted  () {
+   const response = await this.getdossiers()
+ }
+
 }
  </script>
 <style scoped>

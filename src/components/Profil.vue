@@ -4,9 +4,7 @@ import { mapActions, mapGetters, mapMutations } from 'vuex'
 import store from "../store"
 import ChangeImage from "../screen/ChangeImage.vue"
 
-
- 
-          export default {
+export default {
             name : 'Profil',
             props:{
               ChangeImage
@@ -24,7 +22,7 @@ import ChangeImage from "../screen/ChangeImage.vue"
   
               }
            }
-          }
+}
            
           </script>
           
