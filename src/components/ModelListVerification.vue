@@ -22,7 +22,10 @@
       >
         <div class="w-4/5 p-6 bg-white rounded-md shadow-xl">
           <div class="flex items-center justify-between">
+
             <h3 class="font-bold">Vérification Terminer !</h3>
+
+
             <svg
               @click="isOpen = false"
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +48,9 @@
     
     <div>    
        
+
         <p class="text-slate-600 pb-5">{{CountErr}} Erreur</p> 
+
     </div>
     <table class="w-full text-sm text-left text-blue-100   border-separate">
         <thead class="text-xs text-white  bg-white  dark:text-black ">
