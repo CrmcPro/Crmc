@@ -22,14 +22,17 @@
               </section>
   <div  v-if="view &&!looding" class="bg-slate-100 ">   
       <section>
-              <DescriptionDevis   @onDeleteEnd="deletedata"/>              
+              <DescriptionDevis  :title="currentTitle" @onDeleteEnd="deletedata"/>              
         </section>
    </div>
         <section v-if="!view &&!looding" >
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
           
+
+
             <DropFile :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData"/>
+
               </div>
             </div>
    </section>
@@ -48,25 +51,27 @@ export default {
   name:'Pochettes',
   data(){
     return {
+      currentTitle : 'Devis' ,
       looding : true ,
       router:useRouter(),
       view : false ,
+      test: false ,
       id_pochette: null,
       pouchettes : [
-        { text : 'Devis' , value : 1 , checked : true},
-        { text : 'Audit' , value : 2 , checked : false},
-        { text : 'CEE' , value : 3 , checked : false},
-        { text : 'AH' , value : 4 , checked : false},
-        { text : 'Facture' , value : 5, checked : false},
-        { text : 'SYNTHESE' , value : 6 , checked : false},
-        { text : 'AMO' , value : 7 , checked : false},
-        { text : 'FICHE_PRECO' , value : 8 , checked : false},
-        { text : 'LISTING_ENTREPRISES ' , value : 9 , checked : false},
-        { text : 'GEOPORTAIL ' , value : 10 , checked : false},
-        { text : 'GEOLOCALISATION' , value : 11 , checked : false},
-        { text : 'JUSTIF_DOMICILE' , value : 12 , checked : false},
-        { text : 'COFRAC' , value : 13 , checked : false},
-        { text : 'IMPO' , value : 14 , checked : false},
+        { text : 'Devis' , value : 1 , checked : true ,PusherLooding :  false },
+        { text : 'Audit' , value : 2 , checked : false ,PusherLooding :  false },
+        { text : 'CEE' , value : 3 , checked : false ,PusherLooding :  false },
+        { text : 'AH' , value : 4 , checked : false ,PusherLooding :  false },
+        { text : 'Facture' , value : 5, checked : false ,PusherLooding :  false},
+        { text : 'Synthese' , value : 6 , checked : false ,PusherLooding :  false},
+        { text : 'Amo' , value : 7 , checked : false ,PusherLooding :  false},
+        { text : 'Fiche Preconisation' , value : 8 , checked : false ,PusherLooding :  false},
+        { text : 'Liste des Entreprises' , value : 9 , checked : false ,PusherLooding :  false},
+        { text : 'GEOPORTAIL ' , value : 10 , checked : false ,PusherLooding :  false},
+        { text : 'GEOLOCALISATION' , value : 11 , checked : false ,PusherLooding :  false},
+        { text : 'JUSTIFICATIF DE DOMICILE' , value : 12 , checked : false ,PusherLooding :  false},
+        { text : 'COFRAC' , value : 13 , checked : false ,PusherLooding :  false},
+        { text : "AVIS D'IMPOT" , value : 14 , checked : false ,PusherLooding :  false},
 
       ],
       isActive : false
@@ -78,7 +83,12 @@ export default {
     DescriptionDevis ,
     Spinner
   },
-  
+  watch:{
+    test: function(){
+      alert('hello')
+      
+    }
+  },
 computed : {
   ...mapGetters(["dossier_id","pochette_id"]),
         
@@ -108,15 +118,19 @@ computed : {
 
     },
     async changeStyle(pouchette){
-      
+     
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
           this.id_pochette = pouchette.value
-          pouch.checked = true
+          pouch.checked = true,
+          this.currentTitle = pouch.text
+         
 
         }else {
           pouch.checked = false
+         
+
         }
       })
       console.log('=============)',this.$route.query.id_dossier)

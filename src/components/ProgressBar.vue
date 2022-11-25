@@ -43,7 +43,7 @@ export default {
     });
     var channel = pusher.subscribe('CEE-Project');
     channel.bind('cee_project', (data) => {
-      console.log('data====>',data.message.progress)
+      console.log('data====>',data)
       let maxProgress = data.message.progress;
       this.statusText = data.message.message;
       console.log(maxProgress)

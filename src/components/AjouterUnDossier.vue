@@ -96,7 +96,9 @@ submitForm() {
     window.location.reload()
   })
  
-}}
+}
+
+}
 }
 
 </script>

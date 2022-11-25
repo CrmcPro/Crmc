@@ -2,7 +2,7 @@
 
   <div class="text-l flex flex-col ">
                 
-                <h1 class="font-bold pt-24 " >{{pochette_name}}</h1>
+                <h1 class="font-bold pt-24 " >{{title}}</h1>
                      <p class="px-6"> Vous n'avez pas encore importer votre document ! </p>  
               </div>
   
@@ -55,11 +55,21 @@
           <div class="preview-container mt-4" v-if="files.length">
           <div v-for="file in files" :key="file.name" class="preview-card">
             <div>
-              <p class=" border-b-2 border-black">
+              <p class=" border-b-2 border-black ml-32">
                 {{ file.name }}
-              </p>
+              </p>        
             </div>
-           
+            <div>
+            <button
+              class="ml-2"
+              type="button"
+              @click="remove(files.indexOf(file))"
+              title="Remove file"
+            >
+              <b>×</b>
+            </button>
+          </div>
+
           </div>
         </div>
         </div>
@@ -90,7 +100,9 @@
           files: [],
         };
   },
+
   props : ['id_props_pochette' ,'id_props_dossier', "view"],
+
   
   
   
@@ -123,6 +135,10 @@
           this.$refs.file.files = e.dataTransfer.files;
           this.onChange();
           this.isDragging = false;
+        },
+
+        remove(i) {
+       this.files.splice(i, 1);
         },
   
   

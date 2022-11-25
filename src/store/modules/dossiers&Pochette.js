@@ -6,7 +6,8 @@ export default {
         dossiers: [] ,
         pochette: [] ,
         View: false ,
-        pochette_name : null
+        pochette_name : null,
+        oneDossier :[],
 
     }),
     getters : {
@@ -19,6 +20,10 @@ export default {
 
     },
     mutations : {
+        SET_OneDossier(state,payload){
+            state.oneDossier =payload
+        },
+
         SET_DOSSIERS(state,payload){
             state.dossiers = payload
         },
@@ -48,6 +53,20 @@ export default {
         
 
     })},
+    async GetOnedossier({commit},payload){
+      try{
+      const response = await axios.get("/api/dossiers/", {params: {
+            dossier_id : payload.dossier_id
+
+        } },);
+        commit('SET_DOSSIER_ID',payload.dossier_id);
+        console.log(response,"response")
+        return { success : true }
+      }catch(error)
+          {
+           return { success : false}
+           }
+    },
     async getdocument ({commit} , payload){
         try {
            const response = await axios.get("/api/dossiers/document/", {params: {
@@ -85,6 +104,8 @@ export default {
             return { success : false}
         }
     },
+    
+
     }
 
 }
