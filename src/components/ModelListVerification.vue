@@ -22,7 +22,7 @@
       >
         <div class="w-4/5 p-6 bg-white rounded-md shadow-xl">
           <div class="flex items-center justify-between">
-            <h3 class="text-2xl">Verification Terminer !</h3>
+            <h3 class="font-bold">Vérification Terminer !</h3>
             <svg
               @click="isOpen = false"
               xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +39,12 @@
               />
             </svg>
           </div>
-          <div class="mt-4">
+          <div class="">
             <div class="overflow-x-auto relative sm:rounded-lg ">
     
     <div>    
        
-        <p class="text-red-600 font-bold">{{CountErr}} Erreur</p> 
+        <p class="text-slate-600 pb-5">{{CountErr}} Erreur</p> 
     </div>
     <table class="w-full text-sm text-left text-blue-100   border-separate">
         <thead class="text-xs text-white  bg-white  dark:text-black ">
@@ -61,7 +61,7 @@
                  >
                     {{item.name}}
                 </th>
-                <th scope="col" :class='[item.status!=="success" ? " py-3 w-4/5 pl-6 bg-red-200 border-2" :"py-3 w-4/5 pl-6 bg-slate-100 border-2 text-slate-700"]'>
+                <th scope="col" :class='[item.status!=="success" ? " py-3 w-4/5 pl-6 text-slate-700 bg-red-200 border-2" :"py-3 w-4/5 pl-6 bg-slate-100 border-2 text-slate-700"]'>
                     {{item.message}}
                 </th>
                 <div>
@@ -84,10 +84,11 @@
             <th scope="col" class="py-3  w-16  text-center text-white bg-cyan-700 border-2 rounded-l-md">
                 {{count +'/'+i}}
             </th>
-              <th scope="col" class="py-3 w-64 text-center text-slate-700 bg-slate-200 border-2">
+              <th scope="col" :class='[el.status!=="success" ? "bg-red-600 rounded-l-md py-3 w-64 text-center text-white  border-2" : 
+                   "py-3 w-64 text-center text-slate-700 bg-slate-200 border-2"]'>
                   {{el.name}}
               </th>
-              <th scope="col" class="py-3 w-4/5 pl-6 bg-slate-100 border-2 text-slate-700">
+              <th scope="col"  :class='[el.status!=="success" ? " py-3 w-4/5 pl-6 text-slate-700 bg-red-200 border-2" :"py-3 w-4/5 pl-6 bg-slate-100 border-2 text-slate-700"]'>
                 {{el.message}}
               
               </th>
@@ -97,6 +98,7 @@
             </th>
 
          <th v-else scope="col" class=" pt-3 px-2 "  >
+             <h1 class="hidden">{{CountErr++}}</h1>
           <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="text-red-500  w-5 h-5 "/> 
                </th> 
 

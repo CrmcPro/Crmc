@@ -60,7 +60,7 @@ import ChangeImage from "../screen/ChangeImage.vue"
                    </div>
                  <div>
 
-                     <h1 class="font-bold py-2">Prenom</h1>
+                     <h1 class="font-bold py-2">Prénom</h1>
                      <h1  class="border-2 border-gray-400  rounded p-2  w-full">{{user.last_name}}</h1>
 
                       <!-- <input class="border-2 rounded p-2  w-full border-gray-400  " placeholder="Ben Aicha"/> -->
@@ -74,12 +74,12 @@ import ChangeImage from "../screen/ChangeImage.vue"
                     </div>
                     <div  > 
 
-                   <h1 class="font-bold py-2">Company</h1>
+                   <h1 class="font-bold py-2">Compagnie</h1>
                     <!-- <input class="border-2 p-2 rounded w-full border-gray-400 bg-slate-200  " placeholder="Nom company"/> -->
                     <h1  class="border-2 p-2 rounded w-full border-gray-400 bg-slate-200  ">{{user.company}}</h1>
                     </div>
                    <div>
-                    <h1 class="font-bold py-2">Password</h1>
+                    <h1 class="font-bold py-2">Mot de passe</h1>
                     <input class="border-2 p-2 rounded   w-full  border-gray-400 "  type="password" placeholder="*************"/>
                     <!-- <h1 class="border-2 p-2 rounded   w-full  text-xs border-gray-400 "  type="password" ></h1> -->
                    </div>
@@ -87,17 +87,17 @@ import ChangeImage from "../screen/ChangeImage.vue"
      <section class=" w-5/12  ">
             <div>
 
-                <h1 class="font-bold py-2">Company Email</h1>
+                <h1 class="font-bold py-2"> Email compagnie</h1>
                 <input class="border-2 p-2  rounded w-full bg-slate-200  border-gray-400 " placeholder="sw.consulting@gmail.com"/>
             </div>
                <div>
 
-             <h1 class="font-bold py-2">Numéro SIREN</h1>
+             <h1 class="font-bold py-2">Numéro du SIREN</h1>
                <input class="border-2 p-2 rounded  w-full border-gray-400  " placeholder="02550182805"/>
             </div>
           <div>
 
-          <h1 class="font-bold py-2">Rue de la societe</h1>
+          <h1 class="font-bold py-2">Adresse</h1>
           <input class="border-2 p-2  rounded w-full border-gray-400  " placeholder="Rue de la societe"/>
            </div>
            <div>

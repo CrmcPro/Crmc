@@ -153,17 +153,20 @@ props :{
     ModalAjouterDossier,
     
   },
-  methods: {
+   methods: {
     
-    ...mapActions(['getdossiers']),
+    ...mapActions(['getdossiers' ,'GetOnedossier']),
      NavigationTodevis (id) {
+         this.GetOnedossier({id})
         this.router.push("/Pochettes");
         this.router.push({
             path : '/Pochettes',
             query : { id_dossier : id }
+            
         })
-       
+        console.log('im her ',id)
      },
+     
    
   },
  mounted () {

@@ -7,8 +7,7 @@
                       <div class="border-b-2 p-2 px-48">
                       <div class="flex flex-row  justify-end  px-24 ">
                         <div class="absolute left-32 py-4  ">
-                          <span class=" text-left font-bold text-lg  " v-if="pochette_id===1">Devis</span>
-                          <span class=" text-left font-bold text-lg  " v-if="pochette_id!==1">{{pochette_name}}</span>
+                          <span class=" text-left font-bold text-lg  " >{{title}}</span>
                         </div>
                             <a :href="'http://192.168.1.36:8000'+pochette.url_pdf" target="_blank">
                               
@@ -114,6 +113,7 @@ import Swal from 'sweetalert2'
 import axios from "axios"
 export default {
   name:'DescriptionDevis',
+  props:["title"],
   data(){
     return {
       Modifer : true ,

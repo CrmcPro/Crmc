@@ -45,7 +45,12 @@
                 <div class="text-cyan-700 font-semibold text-lg ml-2">
                   <h1>Client</h1> 
                   <p>Ajouter par </p>
-                   <p>Date d'ajout</p>  
+                   <p v-for="(item) in dossiers" v-bind:key="item">Date d'ajout   {{item.date_creation}}  </p> 
+                  
+                  <p  v-for="(item) in dossiers" v-bind:key="item" >
+                  
+                  </p> 
+                  
                 </div>
                 
                   <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
@@ -54,3 +59,26 @@
 
         </div>
 </template>
+
+<script>
+import { mapActions, mapGetters, mapMutations } from 'vuex'
+
+export default {
+  name : 'Header',
+  props :{
+   
+  },
+  methods: {
+    
+   
+   
+     },
+
+
+  computed : {
+     ...mapGetters(['dossiers']),
+         },
+ 
+     
+}
+</script>
