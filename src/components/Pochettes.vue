@@ -29,7 +29,10 @@
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
           
-            <DropFile :title="currentTitle" :pochette="id_pochette" @onReloadEnd="reloadData"/>
+
+
+            <DropFile :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData"/>
+
               </div>
             </div>
    </section>
@@ -130,12 +133,14 @@ computed : {
 
         }
       })
-      console.log('=============)',pouchette.text)
-       const response = await   this.getdocument({
-        pochette_id : pouchette.value ,
+      console.log('=============)',this.$route.query.id_dossier)
+      
+      const response = await   this.getdocument({
+        pochette_id : this.id_pochette ,
         dossier_id : parseInt(this.$route.query.id_dossier),
         pochette_name : pouchette.text ,
-   })
+      })
+      console.log('==============>', this.id_pochette , parseInt(this.$route.query.id_dossier))
    if(response.success)
    {
     this.view = true 
