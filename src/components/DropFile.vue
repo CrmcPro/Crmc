@@ -100,9 +100,7 @@
           files: [],
         };
   },
-
   props : ['id_props_pochette' ,'id_props_dossier', "view"],
-
   
   
   

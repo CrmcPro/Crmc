@@ -2,10 +2,11 @@
     <div class="flex flex-row  justify-around p-4 ">
           <div class=" flex  items-center bg-white w-[30%] h-21 shadow-lg  rounded "  >
                   <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
-                  <div>
+                  <div v-for="(item) in oneDossier" v-bind:key="item" >
                     <div class="flex justify-between ">
-                      <div >
-                        <h1 class="font-bold text-xl pr-16">DOSSIER NOM </h1>
+                      <div>
+                      
+                        <h1 class="font-bold text-l pr-28"> {{item.first_name}} {{item.last_name}} </h1> 
                       </div >
                       <div class="px-12">
                         <label class="toggle">
@@ -15,8 +16,8 @@
                         </label>
                       </div>
                     </div>
-                    <p>#D0</p>                   
-                    <p class="text-neutral-600">Lorem ipsum repellendus omnis</p>
+                    <p>#{{item.id}}</p>                   
+                    <p class="text-neutral-600"> {{item.description}}</p>
                   </div>
                 </div>
                
@@ -42,14 +43,13 @@
                   
                 
                 <div class="mr-2 flex  p-0   justify-between items-center bg-white w-[30%]  shadow-lg rounded "  >
-                <div class="text-cyan-700 font-semibold text-lg ml-2">
-                  <h1>Client</h1> 
-                  <p>Ajouter par </p>
-                   <p v-for="(item) in dossiers" v-bind:key="item">Date d'ajout   {{item.date_creation}}  </p> 
-                  
-                  <p  v-for="(item) in dossiers" v-bind:key="item" >
-                  
-                  </p> 
+                <div class="text-cyan-700 font-semibold text-lg ml-2  ">
+                
+                  <div > 
+                    
+                  <p  >Ajouter par <span class="text-black" > {{user.first_name}}    {{user.last_name}} </span>    </p>
+                   <p v-for="(item) in oneDossier" v-bind:key="item" class="pr-2"> Date d'ajout  <span class="text-black" >{{item.date_creation}}</span>   </p> </div>
+                
                   
                 </div>
                 
@@ -65,18 +65,15 @@ import { mapActions, mapGetters, mapMutations } from 'vuex'
 
 export default {
   name : 'Header',
-  props :{
-   
+  props :{ 
   },
   methods: {
     
-   
-   
      },
 
-
   computed : {
-     ...mapGetters(['dossiers']),
+     ...mapGetters(['oneDossier']),
+     ...mapGetters(['user']) ,
          },
  
      
