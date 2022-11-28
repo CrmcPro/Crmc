@@ -47,7 +47,7 @@
                 
                   <div > 
                     
-                  <p  >Ajouter par <span class="text-black" > {{user.first_name}}    {{user.last_name}} </span>    </p>
+                  <p  >Ajouter par <span class="text-black" >  {{user.first_name}}    {{user.last_name}} </span>    </p>
                    <p v-for="(item) in oneDossier" v-bind:key="item" class="pr-2"> Date d'ajout  <span class="text-black" >{{item.date_creation}}</span>   </p> </div>
                 
                   
