@@ -43,7 +43,7 @@
                       </div>
 
                       <div>
-                    <h1 class="font-bold py-2">Prenom</h1>
+                    <h1 class="font-bold py-2">Prénom</h1>
                       <input class="border-2 p-2 rounded  w-full border-gray-400 " 
                       placeholder="Prenom"
                       type="text"

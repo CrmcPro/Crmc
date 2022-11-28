@@ -148,7 +148,7 @@ export default {
           class=" block px-4  py-2 text-sm  hover:bg-cyan-600  hover:text-white "
           @click="removeToken"
         >
-           Déconnection
+           Déconnexion
         </div>
       </div>
     </div>
