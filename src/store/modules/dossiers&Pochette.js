@@ -11,6 +11,7 @@ export default {
 
     }),
     getters : {
+        oneDossier:state => state.oneDossier,
         pochette :  state => state.pochette,
         dossiers : state => state.dossiers,
         dossier_id:state => state.dossier_id ,
@@ -54,18 +55,12 @@ export default {
 
     })},
     async GetOnedossier({commit},payload){
-      try{
-      const response = await axios.get("/api/dossiers/", {params: {
-            dossier_id : payload.dossier_id
-
+        const response = await axios.get("/api/dossiers/", {params: { 
+            dossier_id : payload.id ,
         } },);
-        commit('SET_DOSSIER_ID',payload.dossier_id);
-        console.log(response,"response")
+        commit('SET_OneDossier',response.data);
         return { success : true }
-      }catch(error)
-          {
-           return { success : false}
-           }
+      
     },
     async getdocument ({commit} , payload){
         try {
