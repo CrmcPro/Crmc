@@ -4,8 +4,7 @@
                   <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
                   <div v-for="(item) in oneDossier" v-bind:key="item" >
                     <div class="flex justify-between ">
-                      <div>
-                      
+                      <div>      
                         <h1 class="font-bold text-l pr-28"> {{item.first_name}} {{item.last_name}} </h1> 
                       </div >
                       <div class="px-12">
@@ -32,9 +31,9 @@
                    </router-link>
                  
                   <router-link  to="/test"  tag="button"   class="  p-3   px-10 bg-cyan-700	 rounded-r text-sm  text-white ">
-                    <font-awesome-icon icon="fa-solid fa-code-compare"/>  Comparer   </router-link>  
-                    
+                    <font-awesome-icon icon="fa-solid fa-code-compare"/>  Comparer   </router-link>         
                    </div>
+
                    <div class="flex flex-row items-center text-red-500 text-xs">
                       <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="pr-1 text-lg py-4"/> 
                       <p>Documents qui manque</p>
@@ -45,10 +44,11 @@
                 <div class="mr-2 flex  p-0   justify-between items-center bg-white w-[30%]  shadow-lg rounded "  >
                 <div class="text-cyan-700 font-semibold text-lg ml-2  ">
                 
-                  <div > 
-                    
-                  <p  >Ajouter par <span class="text-black" >  {{user.first_name}}    {{user.last_name}} </span>    </p>
-                   <p v-for="(item) in oneDossier" v-bind:key="item" class="pr-2"> Date d'ajout  <span class="text-black" >{{item.date_creation}}</span>   </p> </div>
+                  <div >    
+                     Ajouter par :  <span class="text-black pl-16" >  {{user.first_name}} {{user.last_name}} </span>  
+                      <br>
+                     Date d'ajout : <span v-for="(item) in oneDossier" v-bind:key="item" class="text-black pl-14" >{{dateTime(item.date_creation)}}</span>  
+                   </div>
                 
                   
                 </div>
@@ -61,14 +61,17 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import {mapActions,mapGetters,mapMutations} from 'vuex'
+import moment from 'moment'
 
 export default {
   name : 'Header',
   props :{ 
   },
   methods: {
-    
+    dateTime(value) {
+      return moment(value).format("DD-MM-YYYY [à] HH:mm a");
+    },
      },
 
   computed : {

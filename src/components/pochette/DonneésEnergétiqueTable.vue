@@ -33,9 +33,9 @@
                             <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.parcelle_cadastrale ? pochette.parcelle_cadastrale : 'null' "  :disabled="this.Modifer"/>
                          </div>
 
-                         <div class="flex flex-row " v-if="pochette.adresse">
+                         <div class="flex flex-row " v-if="pochette.adresse_client">
                             <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Adresse</h1>
-                            <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.adresse ? pochette.adresse : 'null' "  :disabled="this.Modifer"/>
+                            <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.adresse_client ? pochette.adresse_client : 'null' "  :disabled="this.Modifer"/>
                          </div>
 
                          <div class="flex flex-row " v-if="pochette.version_logiciel">

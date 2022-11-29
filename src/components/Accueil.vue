@@ -94,7 +94,8 @@
                                   <td
                                       class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
                                       @click="() => NavigationTodevis(item.id)" >   
-                                      {{item.date_creation}}
+                                      {{dateTime(item.date_creation)}}
+                                    
                                   </td>
                                   <td
                                   class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
@@ -127,9 +128,17 @@ import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
-// const dossiers = ref([]);
+import moment from 'moment'
+
+
+Vue.filter('formatDate', function(value) {
+    if (value) {
+      return moment(String(value)).format('MM/DD/YYYY hh:mm')
+    }
+  });
 export default {
 name:"Accueil",
+
 data()
 {
     return {
@@ -141,6 +150,8 @@ data()
     
     }
 },
+
+
 props :{
     show: {
     type: Boolean,
@@ -156,7 +167,17 @@ props :{
   computed : {
      ...mapGetters(['dossiers']),
          },
+         
+     
+   
+    
+
+
   methods: {
+    
+    dateTime(value) {
+      return moment(value).format("DD-MM-YYYY [à] HH:mm a");
+    },
     
     ...mapActions(['getdossiers' ,'GetOnedossier']),
    async NavigationTodevis (id) {
@@ -168,13 +189,13 @@ props :{
             
         })
         console.log('im her ',id)
-     },
-     
-   
+     }  
   },
   async mounted  () {
    const response = await this.getdossiers()
  }
+
+ 
 
 }
  </script>

@@ -3,6 +3,7 @@ import './style.css'
 import App from './App.vue'
 import router from "./router"
 import store from "./store"
+import moment from 'moment'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -29,6 +30,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 axios.defaults.baseURL="http://192.168.1.36:8000/"
+
 
 
 /* add each imported icon to the library */
