@@ -61,14 +61,18 @@
                                   >
                                       Description
                                   </th>
+                                  <td class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase">
+                                      <div class="flex items-center justify-center h-5 ">            
+                                        Action                       
+                                      </div>
+                                  </td>
                               </tr>
                           </thead>
                         
                           <tbody class=" divide-black text-center border-2 border-slate-100 "  
                          >
                               <tr v-for="(item , index) in dossiers" v-bind:key="item" class=" hover:bg-slate-200"  >
-                                  <td class="py-3" 
- >
+                                  <td class="py-3">
                                       <div class="flex items-center justify-center h-5 ">
                                           <input
                                               type="checkbox"
@@ -110,6 +114,17 @@
                                   >  {{item.description}}
                                       
                                   </td>
+                                  <td class=" py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer">
+                                      <div class="flex items-center justify-center h-5 ">
+                                        <td class="py-3 px-3">
+                                          <div class="flex items-around justify-around h-5  ">
+                                           <font-awesome-icon icon="fa-solid fa-pen"  class="  px-2 text-gray-500" />
+                                           <font-awesome-icon icon="fa-solid fa-trash"  class=" px-2 text-red-500"  @click="()=> deleteDossier(item.id)"/>
+
+                                      </div>
+                                       </td>                                      
+                                      </div>
+                                  </td>
                               </tr>
                              </tbody>
                           </table>
@@ -129,7 +144,7 @@ import axios from 'axios'
 import { useRouter} from "vue-router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import moment from 'moment'
-
+import Swal from 'sweetalert2'
 
 Vue.filter('formatDate', function(value) {
     if (value) {
@@ -174,7 +189,33 @@ props :{
 
 
   methods: {
-    
+    deleteDossier(el_Id){
+        Swal.fire({
+        title: 'Vous etes sur ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#0E7490',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui supprimer!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios.delete("/api/dossiers/",{params: { 
+                    dossier_id : el_Id
+                } }).then(response=>{
+                  Swal.fire(
+                    'Supprimé!',
+                    'le document est supprimé.',
+                    'success'
+                  )
+                
+                }).then(res=>{
+                    window.location.reload()
+                })
+            }
+  })
+  
+      
+    },
     dateTime(value) {
       return moment(value).format("DD-MM-YYYY [à] HH:mm a");
     },
@@ -194,6 +235,7 @@ props :{
   async mounted  () {
    const response = await this.getdossiers()
  }
+ 
 
  
 

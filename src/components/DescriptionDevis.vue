@@ -152,7 +152,7 @@ export default {
         title: 'Vous etes sur ?',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        confirmButtonColor: '#0E7490',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Oui supprimer!'
   }).then((result) => {
@@ -163,9 +163,11 @@ export default {
                 } }).then(response=>{
                   this.$emit('onDeleteEnd')
                   Swal.fire(
+                     
                     'Supprimé!',
                     'le document est supprimé.',
                     'success'
+                  
                   )
                 
                 })
