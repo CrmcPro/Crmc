@@ -21,9 +21,6 @@ import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faTrash , faFile} from '@fortawesome/free-solid-svg-icons'
-
-
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 // fa fa-sign-in
 import {faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
@@ -45,7 +42,6 @@ library.add(faCheck)
 library.add(faTrash)
 library.add(faFile)
 library.add(faCircleDown)
-
 
 
 

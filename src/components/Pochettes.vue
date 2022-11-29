@@ -31,7 +31,7 @@
           
 
 
-            <DropFile :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData"/>
+            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData"/>
 
               </div>
             </div>

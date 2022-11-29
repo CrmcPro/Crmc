@@ -1,8 +1,7 @@
 <template>
 
-  <div class="text-l flex flex-col ">
-                
-                <h1 class="font-bold pt-24 " >{{title}}</h1>
+  <div class="text-l flex flex-col ">               
+                <h1 class="font-bold pt-24 text-black" >{{title}}</h1>
                      <p class="px-6"> Vous n'avez pas encore importer votre document ! </p>  
               </div>
   
@@ -100,7 +99,7 @@
           files: [],
         };
   },
-  props : ['id_props_pochette' ,'id_props_dossier', "view"],
+  props : ['id_props_pochette' ,'id_props_dossier', "view","title"],
   
   
   
