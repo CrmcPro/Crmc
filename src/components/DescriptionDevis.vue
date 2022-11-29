@@ -4,9 +4,9 @@
       <section class="w-full">
         <div class="py-3 text-left   ">
                       <!-- Second Div -->
-                      <div class="border-b-2 p-2 px-48">
+                      <div class="border-b-2 p-2">
                       <div class="flex flex-row  justify-end  px-24 ">
-                        <div class="absolute left-32 py-4  ">
+                        <div class="absolute left-40 py-4  ">
                           <span class=" text-left font-bold text-lg  " >{{title}}</span>
                         </div>
                             <a :href="'http://192.168.1.36:8000'+pochette.url_pdf" target="_blank">
@@ -31,7 +31,7 @@
                             </button>
                           </div>
                           <div >
-                            <button :class='[Modifer ? "bg-cyan-700 w-32 h-10 rounded text-xs  text-white" : "bg-slate-500 w-32 h-10 rounded text-xs  text-white ml-4"]' @click="deletePochette" > Supprimer
+                            <button :class='[Modifer ? "bg-red-500 w-32 h-10 rounded text-xs  text-white" : "bg-slate-500 w-32 h-10 rounded text-xs  text-white ml-4"]' @click="deletePochette" > Supprimer
                               <font-awesome-icon icon="fa-solid fa-trash"  class="ml-2"/>
                             </button>
                           </div>
@@ -42,6 +42,10 @@
                     </section>
                   
             <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='pochette_id != 1 & pochette_id !=5 '>
+                      <div class="flex flex-row py-1 " v-if="pochette.nom_client">
+                          <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Nom Client</h1>
+                          <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.nom_client ? pochette.nom_client : 'null' "  :disabled="this.Modifer"/>
+                      </div>
                       <div class="flex flex-row py-1" v-if="pochette.gain_energetique">
                         <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Gain Energetique</h1>
                         <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value='pochette.gain_energetique' :disabled="this.Modifer"/>
@@ -79,6 +83,15 @@
                 </h1>
                 <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value='pochette.montant_prime ? pochette.montant_prime : "Null" ' :disabled="this.Modifer"/>
              </div>
+             <div class="flex flex-row py-1 " v-if="pochette.parcelle_cadastrale">
+                <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Parecelle Cadastrale</h1>
+                <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.parcelle_cadastrale ? pochette.parcelle_cadastrale : 'null' "  :disabled="this.Modifer"/>
+             </div>
+             <div class="flex flex-row py-1 " v-if="pochette.adresse_client">
+                <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Adresse Client</h1>
+                <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.adresse_client ? pochette.adresse_client : 'null' "  :disabled="this.Modifer"/>
+             </div>
+              
         </section> 
         <section  class="py-4 " v-if="pochette_id === 1 || pochette_id === 5">
                       <div class="flex flex-center justify-center items-center">

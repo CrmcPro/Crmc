@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "serve": "vite --host 192.168.1.16" ,
+    "serve": "vite --host 192.168.1.187",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -24,6 +24,7 @@
     "cropperjs": "^1.5.12",
     "icons": "^1.0.0",
     "ladda": "2.0.1",
+    "moment": "^2.29.4",
     "pusher": "^5.1.1-beta",
     "serve": "^14.1.1",
     "smart-webcomponents": "^14.4.0",
