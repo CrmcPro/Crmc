@@ -5,6 +5,7 @@ import Signup from "../components/Signup.vue"
 import Pochettes from "../components/Pochettes.vue"
 import Test from "../components/Test.vue"
 import Profil from  '../components/profil.vue'
+import utilisateurs from '../components/utilisateurs/utilisateurs.vue'
 import store from '../store'
 
 const routes =[
@@ -50,6 +51,12 @@ const routes =[
         meta : { auth : true}
 
     },
+    { path : '/utilisateurs' ,
+      name : 'utilisateurs', 
+      component : utilisateurs ,
+      meta : {auth : true}
+    
+    }
 
 ]
 

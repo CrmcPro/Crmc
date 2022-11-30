@@ -81,9 +81,12 @@ export default {
           <li class="  text-cyan-600 font-bold text-xl hover:text-gray-800 pointer-events-auto" >
             Acceuil
           </li></router-link>
-        <li class=" text-neutral-600  text-xl hover:text-blue-400">
-          Utilisateurs
-        </li>
+        <router-link to="/utilisateurs">
+
+          <li class=" text-neutral-600  text-xl hover:text-blue-400">
+            Utilisateurs
+          </li>
+        </router-link>
   
       </ul>
       <ul class="flex text-sm md
@@ -147,6 +150,7 @@ export default {
         <div
           class=" block px-4  py-2 text-sm  hover:bg-cyan-600  hover:text-white "
           @click="removeToken"
+
         >
            Déconnexion
         </div>

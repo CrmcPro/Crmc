@@ -1,0 +1,205 @@
+<template>
+    <div class="bg-slate-100  min-w-max">
+      <div class="flex items-center text-center justify-between p-3">
+        <h1 class="font-bold text-base py-6 pl-10">Liste des dossiers</h1>
+        <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between">
+      <img src="../assets/add.svg" class="bg-white w-5 h-5 rounded-3xl m-3">
+           
+      Ajouter un utilisateur</button>
+  <div class="absolute  justify-center items-center">
+  
+
+  </div>
+      </div>
+    <div class="bg-white px-10 rounded-xl">
+                              <!-- ChercheBar -->
+                          <!-- Tableau de suive -->
+                  <div class="overflow-hidden  border-inherit rounded-lg">
+                      <table class="min-w-full divide-y  divide-gray-100">
+                          <thead class="bg-cyan-700  ">
+                              <tr  class="border-2" >
+                                  <th scope="col" class="py-3 pl-4 border-2 rounded-tl-md">
+                                  </th>
+                                  <th
+                                      scope="col"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                  >
+                                      ID dossier
+                                     
+                                  </th>
+                                <th
+                                      scope="col"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                  >
+                                      Nom Dossier
+                                      
+   
+                                  </th>                             
+                                 
+                                
+                                  <th
+                                      scope="col"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                  >
+                                      Date
+                                     
+                                  </th>
+                                  <th
+                                      scope="col"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                  >
+                                      Statut
+                                     
+                                  </th>
+                                  <th
+                                      scope="col"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
+                                  >
+                                      Description
+                                  </th>
+                                  <td class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase">
+                                      <div class="flex items-center justify-center h-5 ">            
+                                        Action                       
+                                      </div>
+                                  </td>
+                              </tr>
+                          </thead>
+                        
+                          <tbody class=" divide-black text-center border-2 border-slate-100 "  
+                         >
+                              <tr  class=" hover:bg-slate-200"  >
+                                  <td class="py-3">
+                                      <div class="flex items-center justify-center h-5 ">
+                                          <input
+                                              type="checkbox"
+                                              class="text-blue-600  border-gray-200 rounded focus:ring-blue-500"
+                                          />                                       
+                                      </div>
+                                  </td>
+                                  <td
+                                      class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                    
+                                 > 
+                                    {{index+=1}}
+                                  </td>
+                                  <td
+                                      class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap  cursor-pointer"
+                                     >  
+  
+                                  
+                                    test
+  
+                                  </td>
+                                 
+                                  <td
+                                      class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                     >   
+                                      <!-- {{dateTime(item.date_creation)}} -->
+                                    
+                                  </td>
+                                  <td
+                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                 >  
+                                  
+                                 
+                                  </td>
+                                  <td
+                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+  
+                                  >  
+                                      
+                                  </td>
+                                  <td class=" py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer">
+                                      <div class="flex items-center justify-center h-5 ">
+                                        <td class="py-3 px-3">
+                                          <div class="flex items-around justify-around h-5  ">
+                                           <font-awesome-icon icon="fa-solid fa-pen"  class="  px-2 text-gray-500" />
+                                           <font-awesome-icon icon="fa-solid fa-trash"  class=" px-2 text-red-500"  />
+
+                                      </div>
+                                       </td>                                      
+                                      </div>
+                                  </td>
+                              </tr>
+                             </tbody>
+                          </table>
+                      </div>
+                     </div>
+                   </div>
+  </template>
+
+
+
+<script>
+import axios from 'axios'
+import { useRouter} from "vue-router"
+import { mapActions, mapGetters, mapMutations } from 'vuex'
+import moment from 'moment'
+import Swal from 'sweetalert2'
+
+Vue.filter('formatDate', function(value) {
+    if (value) {
+      return moment(String(value)).format('MM/DD/YYYY hh:mm')
+    }
+  });
+export default {
+name:"utilisateurs",
+
+data()
+{
+    return {
+       router:useRouter(),
+       listuser: [ ],
+       showModal:false,
+       ShowProfil: false,
+       show : false ,
+       deconnection : false ,
+    
+    }
+},
+
+
+props :{
+    show: {
+    type: Boolean,
+    default: false,
+  },
+  },
+  components: {
+
+    
+  },
+  computed : {
+     ...mapGetters(['dossiers']),
+ },
+         
+     
+   
+    
+
+
+  methods: {
+  
+  },
+   mounted  () {
+   axios.get('/accounts/users').then(res=>{
+        console.log('===>^-^',res.data)
+        this.listuser.push(res.data)
+    }).catch(err=>{
+        console.log(err)
+    })
+ }
+ 
+
+ 
+
+}
+ </script>
+<style scoped>
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* ruleset for 320px - 480px */
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* regles CSS */
+}
+</style>
