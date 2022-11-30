@@ -164,8 +164,8 @@ export default {
                   this.$emit('onDeleteEnd')
                   Swal.fire(
                     'Supprimé!',
-                    'le document est supprimé.',
-                    'success'
+                    'le document a été supprimé.',
+                    
                   )
                 
                 })

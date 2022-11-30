@@ -100,7 +100,8 @@ computed : {
      
         Swal.fire({
           position: 'center',
-          icon: 'success',
+          icon:'success',
+          color:'#716add',
           title: 'le document est téléchargé ',
           showConfirmButton: false,
           timer: 3000
