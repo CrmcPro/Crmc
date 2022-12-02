@@ -31,7 +31,7 @@
           
 
 
-            <DropFile :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData"/>
+            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData" :progressOn="progressOn"/>
 
               </div>
             </div>
@@ -45,6 +45,7 @@ import { mapActions , mapGetters} from "vuex"
 import Header from "./Header.vue"
 import DropFile from "./DropFile.vue"
 import DescriptionDevis from "./DescriptionDevis.vue"
+import progressBar from "./progressBar.vue"
 import { useRouter } from 'vue-router'
 import Spinner from "./Spinner.vue"
 export default {
@@ -52,6 +53,7 @@ export default {
   data(){
     return {
       currentTitle : 'Devis' ,
+      progressOn : false ,
       looding : true ,
       router:useRouter(),
       view : false ,
@@ -81,10 +83,13 @@ export default {
     Header ,
     DropFile ,
     DescriptionDevis ,
-    Spinner
+    Spinner ,
+    progressBar
   },
+  
+ 
   watch:{
-    test: function(){
+    pusher: function(){
       alert('hello')
       
     }
@@ -118,7 +123,7 @@ computed : {
 
     },
     async changeStyle(pouchette){
-     
+ 
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
@@ -141,31 +146,40 @@ computed : {
         pochette_name : pouchette.text ,
       })
       console.log('==============>', this.id_pochette , parseInt(this.$route.query.id_dossier))
-   if(response.success)
-   {
-    this.view = true 
-   }else 
-   {
-    this.view = false
+      
+      if(response.success)
+       {
+      this.view = true 
+      }else 
+      {
+        this.view = false
+     }
    }
-        }
   },
   computed : {
   },
   async mounted() {
+   
   const response = await this.getdocument({
     pochette_id : 1 ,
     dossier_id : parseInt(this.$route.query.id_dossier)
+
    })
    console.log('response.success',response)
 
    if(response.success){
+
     this.view = true
     this.looding = false
-   }else
+   }else if(response.success==false){
+    this.looding = false
+   }
+   else
    this.looding = false
+  
 
   },
+ 
   
 }
 </script>

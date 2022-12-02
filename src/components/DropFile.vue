@@ -1,8 +1,7 @@
 <template>
 
-  <div class="text-l flex flex-col ">
-                
-                <h1 class="font-bold pt-24 " >{{title}}</h1>
+  <div class="text-l flex flex-col ">               
+                <h1 class="font-bold pt-24 text-black" >{{title}}</h1>
                      <p class="px-6"> Vous n'avez pas encore importer votre document ! </p>  
               </div>
   
@@ -25,7 +24,7 @@
           />
            
           <label for="fileInput" class="file-label">
-            <div v-if="!Spin">
+            <div v-if="!Spin && !progressOn">
             <img src="/src/assets/upload.png" alt="image" class="w-12 h-12 flex items-center bg-none mb-8 ml-40 "/>    
             <div v-if="isDragging">Déposer ICI.</div>
             <div v-else class="py-2">GLisser & Déposer votre fichier.</div>
@@ -47,8 +46,8 @@
             </div>
             
           
-            <div class="py-5 text-center" v-if="Spin">
-              <ProgressBar/>
+            <div class="py-5 text-center" v-if="Spin || progressOn">
+              <ProgressBar :progress="progress" :statusText="statusText"/>
             </div>
           </label>
              
@@ -95,20 +94,51 @@
   
   data() {
         return {
+          statusText:'' , 
+          progress : 0 , 
+          progressOn : false ,
           Spin :false,
           isDragging: false,
           files: [],
         };
   },
-  props : ['id_props_pochette' ,'id_props_dossier', "view"],
+  props : ['id_props_pochette' ,'id_props_dossier', "view","title" ],
   
   
   
   mounted () {
     this.onChange()
+    var pusher = new Pusher('c03731b582014f75770a', {
+      cluster: 'eu',
+      encrypted: true
+    });
+    let channelName = `cee_project_${this.id_props_dossier}_${this.id_props_pochette}`
+      console.log(`cee_project_`,channelName)
+    var channel = pusher.subscribe(channelName);
+    channel.bind('cee_project', (data) => {
+      console.log('DropFile====>',data)
+      
+      if(100>data.message.progress>0){
+        this.progressOn = true
+       console.log('helllo hello')    
+     }
+      let maxProgress = data.message.progress;
+      this.statusText = data.message.message;
+      console.log(maxProgress)
+      
+        setInterval(() => {
+          if(this.progress<= maxProgress){
+          this.progress +=.1    
+          }
+  
+        }, 10);
+        
+    })
 
   },
-  
+ watch(){
+
+ },
   computed : {
     ...mapGetters(["pochette_name"]),
           

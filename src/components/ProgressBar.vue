@@ -26,39 +26,13 @@
 
 
 <script>
-import pusher from 'pusher-js';
 export default {
   data() {
-    return {
-      statusText: '',
-      progress: 0,
-      connectivityText: '',
-      connectivityStatus: true,
-    }
-  },
-  created() {
-    var pusher = new Pusher('c03731b582014f75770a', {
-      cluster: 'eu',
-      encrypted: true
-    });
-    var channel = pusher.subscribe('CEE-Project');
-    channel.bind('cee_project', (data) => {
-      console.log('data====>',data)
-      let maxProgress = data.message.progress;
-      this.statusText = data.message.message;
-      console.log(maxProgress)
-      
-        setInterval(() => {
-          if(this.progress<= maxProgress){
-          this.progress +=.1    
-          }
-  
-        }, 10);
-        
-    }); 
-  },
  
-  
+  },
+  props : ["progress" ,"statusText"],
+
+
 
 }
 </script>

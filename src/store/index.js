@@ -14,6 +14,7 @@ const store = createStore({
             if(localStorage.getItem('token')){
                 state.token=localStorage.getItem('token')
                 state.isAuthenticated = true
+
             }else {
                 state.token = '',
                 state.isAuthenticated = false 
