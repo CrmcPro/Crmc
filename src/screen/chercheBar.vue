@@ -21,7 +21,5 @@
 
 
 <script setup>
-// export default {
-//     name:'Cherchebar'
-// }
+
 </script>

@@ -16,7 +16,7 @@
     <div class="bg-white px-10 rounded-xl">
         <btnmagic/>
                               <!-- ChercheBar -->
-                       <ChercheBar/>
+                       <chercheBar/>
                           <!-- Tableau de suive -->
                   <div class="overflow-hidden  border-inherit rounded-lg">
                       <table class="min-w-full divide-y  divide-gray-100">
@@ -136,7 +136,7 @@
 
 
 <script>
-import ChercheBar from "../screen/ChercheBar.vue"
+import chercheBar from "../screen/chercheBar.vue"
 import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
@@ -174,7 +174,7 @@ props :{
   },
   },
   components: {
-    ChercheBar ,
+    chercheBar ,
     AjouterDossier ,
     ModalAjouterDossier,
     
@@ -225,10 +225,12 @@ props :{
         console.log('id_Navigation',id)
         await this.GetOnedossier({id})  
         this.router.push({
-            path : '/Pochettes',
+            path : '/Pochettes/1',
             query : { id_dossier : id }
             
         })
+        localStorage.setItem('id_dossier',id)
+
         console.log('im her ',id)
      }  
   },
