@@ -46,7 +46,6 @@ library.add(faChevronRight)
 library.add(faArrowLeft)
 
 
-
 createApp(App)
 .component('font-awesome-icon',FontAwesomeIcon)
 .use(router)

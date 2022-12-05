@@ -21,8 +21,9 @@ const token = response.data.token
 
   axios.defaults.headers.common['Authorization'] = 'Token '+ token
   localStorage.setItem('token',token)
+  //we us window.location.reload() for delete data in vuex
+  window.location.reload()
  if(store.state.isAuthenticated){
-
   router.push("/Accueil")
  }else if(!store.state.isAuthenticated) {
   router.push("/")
