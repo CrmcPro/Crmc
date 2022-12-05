@@ -4,6 +4,7 @@ import { mapActions, mapGetters, mapMutations } from 'vuex'
 import PorfilModel from './PorfilModel.vue'
 import Profil from "./Profil.vue"
 import store from "../store"
+import { useRouter} from "vue-router"
 import router from "../router"
 
 export default {
@@ -13,26 +14,41 @@ export default {
     type: Boolean,
     default: false,
   },
+ 
+  
+
   },
   components: {
     Profil,
-    PorfilModel
+    PorfilModel,
   },
   data(){
     return {
+      Modifer : true ,
+      router:useRouter(),
       ShowProfil: false,
        show : false ,
        deconnection : false ,
-
     }
   },
+
+  
+
   computed : {
     ...mapGetters(['user']) ,
   },
+
   methods : {
     ...mapActions(['getCurent']),
-    ...mapMutations(['removeToken'])
-
+    ...mapMutations(['removeToken']),
+    
+      Utilisateur() {
+          router.push("/Utilisateur")
+      },
+      
+      Accueil() {
+          router.push("/Accueil")
+      },
    
   },
   mounted(){
@@ -75,18 +91,20 @@ export default {
           md:items-center
           md:space-x-10
           md:mt-0">
-       
-          <router-link
-            to="/Accueil">
-          <li class="  text-cyan-600 font-bold text-xl hover:text-gray-800 pointer-events-auto" >
-            Acceuil
-          </li></router-link>
-        <router-link to="/utilisateurs">
 
-          <li class=" text-neutral-600  text-xl hover:text-blue-400">
-            Utilisateurs
-          </li>
-        </router-link>
+          <div>   
+              <li class="  text-cyan-600 font-bold text-xl hover:text-blue-400 cursor-pointer"
+              @click="Accueil" >
+                Acceuil
+              </li>
+        </div>
+        <div>
+             
+            <li class="text-cyan-600 font-bold text-xl hover:text-blue-400 cursor-pointer"
+            @click="Utilisateur">
+              Utilisateurs
+            </li>
+        </div>
   
       </ul>
       <ul class="flex text-sm md
@@ -157,16 +175,10 @@ export default {
       </div>
     </div>
   </div>
-        </ul>
-      
+        </ul>   
       </nav>
-      <div>
-        
-        
+      <div>   
       </div>
     </div>
-    
-
-        
-    </template>
+</template>
 

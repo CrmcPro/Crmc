@@ -1,9 +1,12 @@
 import {createRouter , createWebHistory } from  "vue-router"
 import Accueil from "../components/Accueil.vue"
 import Login from "../components/Login.vue"
-import Signup from "../components/Signup.vue"
+import Signup1 from "../components/Signup/Signup1.vue"
+import Signup2 from "../components/Signup/Signup2.vue"
+import Signup3 from "../components/Signup/Signup3.vue"
+import Utilisateur from "../components/Utilisateur.vue"
 import Pochettes from "../components/Pochettes.vue"
-import Test from "../components/Test.vue"
+import VerificationList from "../components/VerificationList.vue"
 import Ah from '../components/pochettes/Ah.vue'
 import Amo from '../components/pochettes/Amo.vue'
 import Audit from '../components/pochettes/Audit.vue'
@@ -13,7 +16,6 @@ import Cofrac from "../components/pochettes/Cofrac.vue"
 import Devis from "../components/pochettes/Devis.vue"
 import Facture from "../components/pochettes/Facture.vue"
 import Geoportail from "../components/pochettes/Geoportail.vue"
-
 import FichePréconisation from "../components/pochettes/FichePréconisation.vue"
 import ListedesEntreprises from "../components/pochettes/ListedesEntreprises.vue"
 import Synthèse from "../components/pochettes/ListedesEntreprises.vue"
@@ -96,9 +98,26 @@ const routes =[
           ],
     },
     {
-        path : "/Signup",
-        name  :'Signup',
-        component : Signup ,
+        path : "/Signup1",
+        name  :'Signup1',
+        component : Signup1 ,
+        meta : { auth : false}
+
+
+    },
+    
+    {
+        path : "/Signup2",
+        name  :'Signup2',
+        component : Signup2 ,
+        meta : { auth : false}
+
+
+    },
+    {
+        path : "/Signup3",
+        name  :'Signup3',
+        component : Signup3 ,
         meta : { auth : false}
 
 
@@ -110,9 +129,15 @@ const routes =[
         meta : { auth : true}
     },
     {
-        path : "/test",
-        name  :'Test',
-        component : Test ,
+        path : "/Utilisateur",
+        name  :'Utilisateur',
+        component : Utilisateur  ,
+        meta : { auth : true}
+    },
+    {
+        path : "/VerificationList",
+        name  :'VerificationList',
+        component : VerificationList ,
         meta : { auth : true}
 
     },
