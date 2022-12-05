@@ -1,36 +1,3 @@
-<script setup>
-import { useRouter} from "vue-router"
-import { ref } from "vue"
-import axios from "axios"
-
-
-const router=useRouter()
-
-const Login=()=>{
-    router.push("/")
- }
- const Signup1=()=>{
-    router.push("/Signup1")
- }
-
-
-const Signup3=()=>{
-    router.push({
-             path : '/Signup3',
-             query : { dataForm2 }
- })}
- console.log(router,"router")
-
-const form = ref({Nom: "", Prenom: "",password: "", PasswordConfirmation: "",
-            CompanyName:"", CompanyEmail:"",SirenNumber:"", StreetCompany:""})
-          
-const dataForm2 = form.value
-console.log(dataForm2,"form22")
-
-
-
- 
-</script>
 <template >
   <div class="bg-slate-200  h-screen py-96 justify-center items-center flex">
       <section class="w-3/6  ">
@@ -101,7 +68,7 @@ console.log(dataForm2,"form22")
                   <button
                     type="button"
                     class=" w-4/5 py-4 bg-[#13698f] text-white rounded"
-                    @click="Signup3"
+                    @click="() => ToSignup3(form)"
                   >
                     Suivant
                     <font-awesome-icon icon="fa-solid fa-chevron-right"  class="float-right pr-3"/>
@@ -131,6 +98,42 @@ console.log(dataForm2,"form22")
       </section>
     </div>
   </template>
+
+
+  <script setup>
+  import { useRouter} from "vue-router"
+  import { ref } from "vue"
+  import axios from "axios"
+  
+  
+  const router=useRouter()
+  
+  const Login=()=>{
+      router.push("/")
+   }
+   const Signup1=()=>{
+      router.push("/Signup1")
+   }
+  
+  const form = ref({Nom: "", Prenom: "",password: "", PasswordConfirmation: ""})
+            
+  
+
+  const ToSignup3 =(form )=> {
+          
+          router.push({
+            path : '/Signup3', 
+          })
+          localStorage.setItem('Nom',form.Nom)
+          localStorage.setItem('Prenom',form.Prenom)
+          localStorage.setItem('password',form.password)
+          localStorage.setItem('PasswordConfirmation',form.PasswordConfirmation)
+        
+       }  
+    
+  
+  </script>
+  
   
   <style>
   .file {

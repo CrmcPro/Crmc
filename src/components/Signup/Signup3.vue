@@ -1,44 +1,3 @@
-<script setup>
-import { useRouter} from "vue-router"
-import { ref } from "vue"
-import axios from "axios"
-
-const router=useRouter()
-const Login=()=>{
-    router.push("/")
- }
- const Signup2=()=>{
-    router.push("/Signup2")
- }
-
-
-const form = ref({Email: "",Adresse: "",CodePostal: ""})
-let data = form.value
-const ErrorView = ref(false)
-
-const submitForm = (e) =>{
-    
-    axios.post("companies/",data).then(response=>{
-            axios.defaults.headers.common['Authorization'] = 'Token '+ token
-            localStorage.setItem('token',token)
-            if(store.state.isAuthenticated){
-
-            router.push("/Accueil")
-            }else if(!store.state.isAuthenticated) {
-            router.push("/")
-
-            }
-            }).catch(err=>(
-            console.log('im here 2')
-
-            ))
-            setTimeout(() => {
-            ErrorView.value = true
-            }, 2000);
-}
-
- 
-</script>
 <template >
   <div class="bg-slate-200  h-screen py-96 justify-center items-center flex">
       <section class="w-3/6  ">
@@ -96,7 +55,7 @@ const submitForm = (e) =>{
                   <button
                     type="button"
                     class=" w-4/5 py-4 bg-[#13698f] text-white rounded"
-                    @click="submitForm"
+                    @click="Submit"
                   >
                     Valider
                   </button>
@@ -125,6 +84,60 @@ const submitForm = (e) =>{
       </section>
     </div>
   </template>
+
+  <script setup>
+  import { useRouter} from "vue-router"
+  import { ref } from "vue"
+  import axios from "axios"
+import store from "../../store"
+  
+  const router=useRouter()
+  const Login=()=>{
+      router.push("/")
+   }
+   const Signup2=()=>{
+      router.push("/Signup2")
+   }
+
+
+    let CompanyName1 = localStorage.getItem('CompanyName')
+    let CompanyEmail = localStorage.getItem('CompanyEmail')
+    let SirenNumber = localStorage.getItem('SirenNumber')
+    let StreetCompany = localStorage.getItem('StreetCompany')
+    let Nom = localStorage.getItem('Nom')
+    let Prenom = localStorage.getItem('Prenom')
+    let password = localStorage.getItem('password')
+    let PasswordConfirmation = localStorage.getItem('PasswordConfirmation')
+
+  let data2= {CompanyName1,CompanyEmail,SirenNumber,StreetCompany,Nom,Prenom,password,PasswordConfirmation}
+   
+   console.log("Data2",data2)
+  
+  const data = ref({Email: "",Adresse: "",CodePostal: "",CompanyName1,CompanyEmail,SirenNumber,StreetCompany,Nom,Prenom,password,PasswordConfirmation})
+  console.log("data",data)
+ 
+  // console.log("Data",data)
+
+  // let data1 = form.value
+
+  // console.log("data1",data)
+  // let data={data1,data2}
+
+  // console.log("Data",data)
+
+  
+  const Submit = () =>{
+      
+      axios.post("/companies/registration/",data).then(res=>{
+          
+            console.log("resultat",res.data)
+          
+      })
+  
+  }
+  
+   
+  </script>
   
   <style>
   .file {
