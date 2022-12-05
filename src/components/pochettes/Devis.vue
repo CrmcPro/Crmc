@@ -64,6 +64,7 @@ methods : {
     ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData','testProgress']),
 },
 async mounted() {
+
    console.log('Devis', this.dossier_id  , "route" , parseInt(this.$route.query.id_dossier) )
     const response = await   this.getdocument({
         pochette_id : this.id_pochette ,

@@ -166,6 +166,7 @@
        }
       },
       async  mounted() {
+      
     const res = await this.testProgress({
         pochette_id : this.id_props_pochette ,
         dossier_id : this.id_props_dossier,

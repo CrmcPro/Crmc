@@ -112,7 +112,7 @@ computed : {
           this.id_pochette = pouchette.value
           this.router.push({
             path : '/Pochettes/'+pouchette.value,
-            query : { id_dossier : localStorage.getItem('id_dossier') }
+            query : { id_dossier : parseInt(this.$route.query.id_dossier) }
             
         })
         console.log('/Pochettes/'+pouchette.value)
@@ -132,6 +132,17 @@ computed : {
   computed : {
   },
   mounted() {
+  
+    
+  },
+  created(){
+    this.router.push({
+            path : '/Pochettes/1',
+            query : { id_dossier : parseInt(this.$route.query.id_dossier) },
+            
+            
+        })
+    
   }
   }
 </script>
