@@ -211,16 +211,14 @@ props :{
       return moment(value).format("DD-MM-YYYY [à] HH:mm a");
     },
     
-    ...mapActions(['getdossiers' ,'GetOnedossier']),
+    ...mapActions(['getdossiers']),
    async NavigationTodevis (id) {
-        console.log('id_Navigation',id)
-        await this.GetOnedossier({id})  
+        console.log('id_Navigation',id)     
         this.router.push({
             path : '/Pochettes/1',
             query : { id_dossier : id }
             
         })
-        localStorage.setItem('id_dossier',id)
 
         console.log('im her ',id)
      }  
@@ -229,10 +227,6 @@ props :{
   async mounted  () {
    const response = await this.getdossiers()
  }
- 
-
- 
-
 }
  </script>
 <style scoped>

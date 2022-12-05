@@ -1,6 +1,6 @@
 <template>
   <div class="bg-slate-100">
-  <Header/>
+  <Header />
   <section class="  mt-8  flex flex-col items-center max-h-full ">
                 <div class=" w-11/12 " >
                   <table class="  text-white text-sm text-center w-full  h-10">

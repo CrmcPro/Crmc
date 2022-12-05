@@ -1,8 +1,6 @@
 import axios from "axios"
 export default {
     state: () => ({
-        pochette_id: 1 , 
-        dossier_id: null ,
         dossiers: [] ,
         pochette: [] ,
         View: false ,
@@ -40,9 +38,7 @@ export default {
       
     },
     actions :{
-        async getID_Dossier({commit},response){
-
-        },
+   
     async getPochetteData({commit},response){
         console.log(response,'responseDossier.js')
         commit('SET_POCHETTE_ID',response.id_pochette)
@@ -54,14 +50,7 @@ export default {
         
 
     })},
-    async GetOnedossier({commit},payload){
-        const response = await axios.get("/api/dossiers/", {params: { 
-            dossier_id : payload.id ,
-        } },);
-        commit('SET_OneDossier',response.data);
-        return { success : true }
-      
-    },
+   
     async testProgress ({commit} , payload){
         try {
            const response = await axios.get("/api/dossiers/document/progress/", {params: {

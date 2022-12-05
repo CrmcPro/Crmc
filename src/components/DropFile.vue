@@ -29,7 +29,7 @@
          />
           
          <label for="fileInput" class="file-label">
-           <div v-if="!Spin && !progressOn">
+           <div v-if="!Spin">
            <img src="/src/assets/upload.png" alt="image" class="w-12 h-12 flex items-center bg-none mb-8 ml-40 "/>    
            <div v-if="isDragging">Déposer ICI.</div>
            <div v-else class="py-2">GLisser & Déposer votre fichier.</div>
@@ -50,7 +50,7 @@
            </div>
            
          
-           <div class="py-5 text-center" v-if="Spin || progressOn">
+           <div class="py-5 text-center" v-if="Spin">
              <ProgressBar :progress="progress" :statusText="statusText"/>
            </div>
          </label>
@@ -103,12 +103,12 @@
           reOpen_Mode_UploadFils: false , 
           statusText:'' , 
           progress : 0 , 
-          progressOn : false ,
           Spin :false,        //responsible for the progress view 
           isDragging: false,
           files: [],
         };
   },
+  
   props : ['id_props_pochette' ,'id_props_dossier',"title" ],  
  
   
@@ -171,11 +171,10 @@
         dossier_id : this.id_props_dossier,
       })
 console.log('resDrop',res )
-    if( res.dossier_id === this.id_props_dossier && res.pochette_id === this.id_props_pochette){
+    if( res.dossier_id === this.id_props_dossier && res.pochette_id === this.id_props_pochette && res.pct !==100){
       this.Spin=true;
-      this.progress === res.pct
-     this.progressOn = true
-
+      this.progress = res.pct 
+      console.log('progres', this.progress , "yes you condition work fine ")
      }
     this.onChange()
     var pusher = new Pusher('c03731b582014f75770a', {
@@ -187,25 +186,17 @@ console.log('resDrop',res )
    
     channel.bind('cee_project',async (data) => {
       let maxProgress = await data.message.progress;
-        console.log(test,'test')
         this.progress =  data.message.progress    
-        this.progressOn = true 
-        if(this.progressOn){
         setInterval(() => {
           if(this.progress<= maxProgress){
           this.progress +=.1    
           }
   
         }, 10);
-        }else if(this.progress === 100){
-          this.progressOn = false 
-        }   
-       
-
+        
       this.statusText = data.message.message;
       console.log(maxProgress)
-      
-      
+       
      if(this.progress===100){
       this.getdocument({
           pochette_id : this.id_props_pochette,

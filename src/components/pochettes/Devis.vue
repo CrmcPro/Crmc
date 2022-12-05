@@ -4,7 +4,7 @@
               </section>
   <div  v-if="(!looding && view)" class="bg-slate-100 ">   
       <section>
-              <DescriptionDevis  :title="currentTitle" @onDeleteEnd="deletedata"/>              
+              <DescriptionDevis :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)"  :title="currentTitle" @onDeleteEnd="deletedata"/>              
         </section>
    </div>
         <section v-if="(!looding && !view)" >
@@ -47,7 +47,6 @@ components: {
     progressBar
   },
 computed : {
-     ...mapGetters(['dossier_id']),
          },
 methods : {
     reloadData() {
@@ -67,11 +66,11 @@ methods : {
 async mounted() {
    console.log('Devis', this.dossier_id  , "route" , parseInt(this.$route.query.id_dossier) )
     const response = await   this.getdocument({
-        pochette_id : this.pochette_id ,
+        pochette_id : this.id_pochette ,
         dossier_id : parseInt(this.$route.query.id_dossier),
       })
       console.log('response',response)
-      if(response.success)
+      if(response.success == true)
        {
       this.looding = false 
       this.view = true

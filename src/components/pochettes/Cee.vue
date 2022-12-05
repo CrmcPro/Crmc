@@ -1,80 +1,91 @@
 <template>
-   <section v-if="looding">
-                <Spinner/>
-              </section>
-  <div  v-if="view &&!looding" class="bg-slate-100 ">   
-      <section>
-              <DescriptionDevis  :title="currentTitle" @onDeleteEnd="deletedata"/>              
-        </section>
-   </div>
-        <section v-if="!view &&!looding" >
-          <div class="bg-slate-100  ">
-           <div  class="bg-white flex flex-col  items-center rounded-3xl">
-            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(dossier_id)" @onReloadEnd="reloadData" />
+  <section v-if="looding">
+                  <Spinner/>
+                </section>
+    <div  v-if="(!looding && view)" class="bg-slate-100 ">   
+        <section>
+                <DescriptionDevis :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)"  :title="currentTitle" @onDeleteEnd="deletedata"/>              
+          </section>
+     </div>
+          <section v-if="(!looding && !view)" >
+            <div class="bg-slate-100  ">
+             <div  class="bg-white flex flex-col  items-center rounded-3xl">
+              <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData" />
+                </div>
               </div>
-            </div>
-   </section>
-
-   
-
-</template>
-
-<script>
-import Swal from 'sweetalert2'
-import { mapActions , mapGetters} from "vuex"
-import DropFile from "../DropFile.vue"
-import DescriptionDevis from "../DescriptionDevis.vue"
-import progressBar from "../ProgressBar.vue"
-import { useRouter } from 'vue-router'
-import Spinner from "../Spinner.vue"
-export default {
-
-    name:"Cee",
-
-data()
-{
-    return {
-        looding : false ,
-      router:useRouter(),
-      view : false ,
-      test: false ,
-      id_pochette: 3,
-      currentTitle : "CEE"
-    }
-},
-components: {
-    DropFile ,
-    DescriptionDevis ,
-    Spinner ,
-    progressBar
+     </section>
+     </template>
+  
+  
+  <script>
+  import Swal from 'sweetalert2'
+  import { mapActions , mapGetters} from "vuex"
+  import DropFile from "../DropFile.vue"
+  import DescriptionDevis from "../DescriptionDevis.vue"
+  import progressBar from "../ProgressBar.vue"
+  import { useRouter } from 'vue-router'
+  import Spinner from "../Spinner.vue"
+  export default {
+      name:"CEE",
+      
+  
+  data()
+  {
+      return {
+       looding : true ,
+        router:useRouter(),
+        view : false ,
+        test: false ,
+        id_pochette: 3,
+        currentTitle : "CEE"
+      }
   },
+  
+  components: {
+      DropFile ,
+      DescriptionDevis ,
+      Spinner ,
+      progressBar
+    },
   computed : {
-     ...mapGetters(['dossier_id']),
-         },
-async mounted() {
-   
-   const response = await this.getdocument({
-     pochette_id : 1 ,
-     dossier_id : parseInt(this.$route.query.id_dossier)
- 
-    })
-    console.log('response.success',response)
- 
-    if(response.success){
- 
-     this.view = true
-     this.looding = false
-    }else if(response.success==false){
-     this.looding = false
-    }
-    else
-    this.looding = false
-   
+       ...mapGetters(['dossier_id']),
+           },
+  methods : {
+      reloadData() {
+       Swal.fire({
+         position: 'center',
+         icon: 'success',
+         title: 'le document est téléchargé ',
+         showConfirmButton: false,
+         timer: 3000
+         }).then(res=>(
+           
+           this.view= !this.view
+         ))  
+   },
+      ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData','testProgress']),
+  },
+  async mounted() {
+   console.log('Audit', this.id_pochette , "route" , parseInt(this.$route.query.id_dossier) )
+    const response = await   this.getdocument({
+        pochette_id : this.id_pochette ,
+        dossier_id : parseInt(this.$route.query.id_dossier),
+      })
+      console.log('response',response)
+      if(response.success)
+       {
+      this.looding = false 
+      this.view = true
+      }else if(response.success === false)
+
+      {
+        this.view = false
+        this.looding = false 
+     }
  
    },
-
-}
-</script>
+  }
+  </script>
 
 <style>
 

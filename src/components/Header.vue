@@ -2,10 +2,10 @@
     <div class="flex flex-row  justify-around p-4 ">
           <div class=" flex  items-center bg-white w-[30%] h-21 shadow-lg  rounded "  >
                   <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
-                  <div>
+                  <div  v-for="item in   OneDossier" v-bind:key="item" >
                     <div class="flex justify-between ">
                       <div>      
-                        <h1 class="font-bold text-l pr-28"  v-for="(item) in   OneDossier" v-bind:key="item" > {{item.first_name}} {{item.last_name}} </h1> 
+                        <h1 class="font-bold text-l pr-28" > {{item.first_name}} {{item.last_name}} </h1> 
                       </div >
                       <div class="px-12">
                         <label class="toggle">
@@ -15,8 +15,8 @@
                         </label>
                       </div>
                     </div>
-                    <p  v-for="(item) in   OneDossier" v-bind:key="item" >#{{item.id}}</p>                   
-                    <p class="text-neutral-600"  v-for="(item) in   OneDossier" v-bind:key="item" > {{item.description}}</p>
+                    <p  >#{{item.id}}</p>                   
+                    <p class="text-neutral-600" > {{item.description}}</p>
                   </div>
                 </div>
                
@@ -47,7 +47,7 @@
                   <div >    
                      Ajouter par :  <span class="text-black pl-16" >  {{user.first_name}} {{user.last_name}} </span>  
                       <br>
-                     Date d'ajout : <span v-for="(item) in oneDossier" v-bind:key="item" class="text-black pl-14" >{{dateTime(item.date_creation)}}</span>  
+                     Date d'ajout : <span v-for="(item) in OneDossier" v-bind:key="item" class="text-black pl-14" >{{dateTime(item.date_creation)}}</span>  
                    </div>
                 
                   
@@ -70,10 +70,11 @@ export default {
   data() {
     return { 
       OneDossier : [],
+      dossier_id: parseInt(this.$route.query.id_dossier) ,
     };
     
   },
-
+  
 
   methods: {
     dateTime(value) {
@@ -84,7 +85,7 @@ export default {
      },
      computed : {
     
-    ...mapGetters(['user','dossier_id']) ,
+          ...mapGetters(['user']) ,
         },
 
  mounted () {

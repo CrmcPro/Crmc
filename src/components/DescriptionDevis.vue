@@ -44,7 +44,7 @@
                     
                     </section>
                   
-            <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='pochette_id != 1 & pochette_id !=5 '>
+            <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='id_props_pochette != 1 & id_props_pochette !=5 '>
                       <div class="flex flex-row py-1 " v-if="pochette.nom_client">
                           <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Nom Client</h1>
                           <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.nom_client ? pochette.nom_client : 'null' "  :disabled="this.Modifer"/>
@@ -81,7 +81,7 @@
                     <h1 class="border rounded-l-md border-slate-400 py-3 w-36 text-center text-xs  font-bold	bg-cyan-600">Ref Audit</h1>
                    <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'   :value='pochette.ref_audit' :disabled="this.Modifer"/>
                  </div>
-              <div class="flex flex-row py-1 " v-if="pochette_id == 3">
+              <div class="flex flex-row py-1 " v-if="id_props_pochette == 3">
                 <h1 class="border rounded-l-md border-slate-400 py-3 w-36 text-xs font-bold text-center 	bg-cyan-600">Montant de prime
                 </h1>
                 <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value='pochette.montant_prime ? pochette.montant_prime : "Null" ' :disabled="this.Modifer"/>
@@ -96,7 +96,7 @@
              </div>
               
         </section> 
-        <section  class="py-4 " v-if="pochette_id === 1 || pochette_id === 5">
+        <section  class="py-4 " v-if="id_props_pochette === 1 || id_props_pochette === 5">
                       <div class="flex flex-center justify-center items-center">
                        <div  class="text-white border-separate border-spacing-1 flex flex-col item-center text-center justify-center">
                         <div class="flex flex-row justify-center w-full ">
@@ -138,6 +138,8 @@ export default {
      }
 
   },
+  props : ['id_props_pochette' ,'id_props_dossier',"title" ],  
+
   components : {
     identitéTable ,
     DonneésEnergétiqueTable ,
@@ -145,7 +147,7 @@ export default {
     Montants
   },
   computed : {
-     ...mapGetters(['pochette' , 'pochette_id','pochette_name','dossier_id']),
+     ...mapGetters(['pochette']),
      
   },
   methods: {
@@ -161,8 +163,8 @@ export default {
   }).then((result) => {
     if (result.isConfirmed) {
       axios.delete("/api/dossiers/document/",{params: {
-                    pochette_id : this.pochette_id, 
-                    dossier_id : this.dossier_id
+                    pochette_id : this.id_props_pochette, 
+                    dossier_id : this.id_props_dossier ,
                 } }).then(response=>{
                   this.$emit('onDeleteEnd')
                   Swal.fire(
