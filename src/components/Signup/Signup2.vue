@@ -20,7 +20,7 @@
                         class="bg-slate-100 form-control mx-2 w-80 px-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
                         id="Nom"
                         placeholder="Nom"
-                        v-model="form.Nom"
+                        v-model="form.last_name"
                         required
                         />
                         </div>
@@ -30,7 +30,7 @@
                         class="bg-slate-100 form-control mx-2 w-80 px-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
                         id="Prenom"
                         placeholder="Prénom"
-                        v-model="form.Prenom"
+                        v-model="form.first_name"
                         required
                         />
                         </div>
@@ -115,20 +115,17 @@
       router.push("/Signup1")
    }
   
-  const form = ref({Nom: "", Prenom: "",password: "", PasswordConfirmation: ""})
+  const form = ref({last_name: "", first_name: "",password: "", PasswordConfirmation: ""})
             
   
 
   const ToSignup3 =(form )=> {
-          
           router.push({
             path : '/Signup3', 
           })
-          localStorage.setItem('Nom',form.Nom)
-          localStorage.setItem('Prenom',form.Prenom)
-          localStorage.setItem('password',form.password)
-          localStorage.setItem('PasswordConfirmation',form.PasswordConfirmation)
-        
+          localStorage.setItem('last_name',form.last_name)
+          localStorage.setItem('first_name',form.last_name)
+          localStorage.setItem('password',form.password)      
        }  
     
   
