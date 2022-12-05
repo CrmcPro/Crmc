@@ -1,25 +1,27 @@
 import axios from "axios"
 export default {
     state: () => ({
-        pochette_id: 1 , 
         dossiers: [] ,
         pochette: [] ,
         View: false ,
         pochette_name : null,
+        oneDossier :[],
+        
     }),
     getters : {
-      
+        oneDossier: state => state.oneDossier,
         pochette :  state => state.pochette,
         dossiers : state => state.dossiers,
-        dossier_id:state => state.dossier_id ,
+        dossier_id : state => state.dossier_id ,
         pochette_id : state => state.pochette_id ,
         pochette_name : state => state.pochette_name,
         View : state => state.View ,
 
     },
     mutations : {
-      
-
+        SET_OneDossier(state,payload){
+            state.oneDossier =payload
+        },
         SET_DOSSIERS(state,payload){
             state.dossiers = payload
         },
@@ -36,6 +38,7 @@ export default {
       
     },
     actions :{
+   
     async getPochetteData({commit},response){
         console.log(response,'responseDossier.js')
         commit('SET_POCHETTE_ID',response.id_pochette)
@@ -54,11 +57,17 @@ export default {
                     pochette_id : payload.pochette_id, 
                     dossier_id : payload.dossier_id ,
                 } },);
- 
-           return { success : true }
+             
+           return { 
+            success : true  , 
+            is_loading : response.data.is_loading ,
+            pct : response.data.pct ,
+            dossier_id : response.data.dossier ,
+            pochette_id : response.data.pochette_id
+         }
         }catch(error)
         {
-                
+          
             return { success : false}
         }
     },

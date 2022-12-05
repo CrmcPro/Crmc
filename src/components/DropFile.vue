@@ -29,7 +29,7 @@
          />
           
          <label for="fileInput" class="file-label">
-           <div v-if="!Spin && !progressOn">
+           <div v-if="!Spin">
            <img src="/src/assets/upload.png" alt="image" class="w-12 h-12 flex items-center bg-none mb-8 ml-40 "/>    
            <div v-if="isDragging">Déposer ICI.</div>
            <div v-else class="py-2">GLisser & Déposer votre fichier.</div>
@@ -50,7 +50,7 @@
            </div>
            
          
-           <div class="py-5 text-center" v-if="Spin || progressOn">
+           <div class="py-5 text-center" v-if="Spin">
              <ProgressBar :progress="progress" :statusText="statusText"/>
            </div>
          </label>
@@ -103,59 +103,14 @@
           reOpen_Mode_UploadFils: false , 
           statusText:'' , 
           progress : 0 , 
-          progressOn : false ,
           Spin :false,        //responsible for the progress view 
           isDragging: false,
           files: [],
         };
   },
-  props : ['id_props_pochette' ,'id_props_dossier',"title" ],  
-  async  mounted() {
-     
-    this.onChange()
-    var pusher = new Pusher('c03731b582014f75770a', {
-      cluster: 'eu',
-      encrypted: true
-    });
-    let channelName =  `CEE-project`
-    var channel = await pusher.subscribe(channelName);
-    let test = 0 
-   
-    channel.bind('cee_project',async (data) => {
-      let maxProgress = await data.message.progress;
-      console.log('DropFile ID',this.id_props_dossier,this.pochette_id)
-       if(test === 0 ){
-        console.log(test,'test')
-        this.progress =  data.message.progress
-        this.progressOn = true
-         test = 2
-       }
-      if(test == 2){
-
-        setInterval(() => {
-          if(this.progress<= maxProgress){
-          this.progress +=.1    
-          }
   
-        }, 10);
-       
-       console.log('helllo hello')}else   this.progressOn =false , test = 0
-
-      this.statusText = data.message.message;
-      console.log(maxProgress)
-      
-      
-     if(this.progress===100){
-      this.getdocument({
-          pochette_id : this.id_props_pochette,
-          dossier_id : this.id_props_dossier,
-         })
-         this.$emit('onReloadEnd')
-         console.log( this.$emit('onReloadEnd'))
-        }
-    })
-
-  },
+  props : ['id_props_pochette' ,'id_props_dossier',"title" ],  
+ 
   
  watch(){
 
@@ -166,7 +121,7 @@
   
             },
   methods: {
-  ...mapActions(["getdocument"]) ,
+    ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData','testProgress']),
   
         onChange() {
           this.files = [...this.$refs.file.files];
@@ -210,6 +165,49 @@
           }
        }
       },
+      async  mounted() {
+    const res = await this.testProgress({
+        pochette_id : this.id_props_pochette ,
+        dossier_id : this.id_props_dossier,
+      })
+console.log('resDrop',res )
+    if( res.dossier_id === this.id_props_dossier && res.pochette_id === this.id_props_pochette && res.pct !==100){
+      this.Spin=true;
+      this.progress = res.pct 
+      console.log('progres', this.progress , "yes you condition work fine ")
+     }
+    this.onChange()
+    var pusher = new Pusher('c03731b582014f75770a', {
+      cluster: 'eu',
+      encrypted: true
+    });
+    let channelName =  `CEE-project`
+    var channel = await pusher.subscribe(channelName);
+   
+    channel.bind('cee_project',async (data) => {
+      let maxProgress = await data.message.progress;
+        this.progress =  data.message.progress    
+        setInterval(() => {
+          if(this.progress<= maxProgress){
+          this.progress +=.1    
+          }
+  
+        }, 10);
+        
+      this.statusText = data.message.message;
+      console.log(maxProgress)
+       
+     if(this.progress===100){
+      this.getdocument({
+          pochette_id : this.id_props_pochette,
+          dossier_id : this.id_props_dossier,
+         })
+         this.$emit('onReloadEnd')
+         console.log( this.$emit('onReloadEnd'))
+        }
+    })
+
+  },
     };
     </script>
   <style>

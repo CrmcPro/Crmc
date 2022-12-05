@@ -219,7 +219,6 @@ props :{
             query : { id_dossier : id }
             
         })
-        localStorage.setItem('id_dossier',id)
 
         console.log('im her ',id)
      }  

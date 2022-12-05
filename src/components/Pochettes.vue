@@ -1,6 +1,6 @@
 <template>
   <div class="bg-slate-100">
-  <Header/>
+  <Header />
   <section class="  mt-8  flex flex-col items-center max-h-full ">
                 <div class=" w-11/12 " >
                   <table class="  text-white text-sm text-center w-full  h-10">
@@ -110,9 +110,13 @@ computed : {
         if(pouch.value == pouchette.value)
         {
           this.id_pochette = pouchette.value
-          this.router.push('/Pochettes/'+pouchette.value)
-
+          this.router.push({
+            path : '/Pochettes/'+pouchette.value,
+            query : { id_dossier : localStorage.getItem('id_dossier') }
+            
+        })
         console.log('/Pochettes/'+pouchette.value)
+
           pouch.checked = true,
           this.currentTitle = pouch.text
          

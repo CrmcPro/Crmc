@@ -70,7 +70,7 @@ export default {
   data() {
     return { 
       OneDossier : [],
-      dossier_id: parseInt(localStorage.getItem('id_dossier')) ,
+      dossier_id: parseInt(this.$route.query.id_dossier) ,
     };
     
   },
