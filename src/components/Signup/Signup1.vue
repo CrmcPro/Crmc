@@ -1,28 +1,4 @@
-<script setup >
-import { useRouter} from "vue-router"
-import { ref } from "vue"
-import axios from "axios"
 
-
-const router=useRouter()
-const Login=()=>{
-    router.push("/")
- }
-
- 
-const form = ref({CompanyName: "", CompanyEmail: "",SirenNumber: "", StreetCompany: ""})
-
-const dataForm = form.value
-console.log(dataForm,"form")
-
-const Signup2=()=>{
-    router.push({
-             path : '/Signup2',
-             query : { dataForm }
- })}
-
- 
-</script>
 
 <template >
   <div class="bg-slate-200  h-screen py-96 justify-center items-center flex">
@@ -94,7 +70,7 @@ const Signup2=()=>{
                   <button
                     type="button"
                     class=" w-4/5 py-4 bg-[#13698f] text-white  rounded"
-                    @click="Signup2"
+                    @click="() => ToSignup2(form)" >  
                   >
                     Suivant 
                     <font-awesome-icon icon="fa-solid fa-chevron-right"  class="float-right pr-3"/>
@@ -125,6 +101,41 @@ const Signup2=()=>{
       </section>
     </div>
   </template>
+
+  <script setup >
+  import { useRouter} from "vue-router"
+  import { ref } from "vue"
+  import axios from "axios"
+  
+  
+  
+  
+  
+  const router=useRouter()
+  const Login=()=>{
+      router.push("/")
+   }
+  
+   
+  const form = ref({CompanyName: "", CompanyEmail: "",SirenNumber: "", StreetCompany: ""})
+  
+  
+   const ToSignup2 =(form )=> {
+          
+          router.push({
+            path : '/Signup2',  
+          })
+          localStorage.setItem('CompanyName',form.CompanyName)
+          localStorage.setItem('CompanyEmail',form.CompanyEmail)
+          localStorage.setItem('SirenNumber',form.SirenNumber)
+          localStorage.setItem('StreetCompany',form.StreetCompany)
+        
+       }  
+    
+  
+  
+  
+  </script>
   
   <style>
   .file {

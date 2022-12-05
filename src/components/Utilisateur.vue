@@ -171,7 +171,7 @@
   </template>
 
 <script>
-import ChercheBar from "../screen/ChercheBar.vue"
+import ChercheBar from "../screen/chercheBar.vue"
 import { ref ,onMounted} from 'vue';
 import AjouterDossier from '../components/AjouterUnDossier.vue'
 import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
