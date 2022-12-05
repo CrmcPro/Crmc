@@ -1,8 +1,8 @@
 import axios from "axios"
 export default {
     state: () => ({
-        pochette_id: null , 
-        dossier_id: null ,
+        pochette_id: 1 , 
+        dossier_id: parseInt(localStorage.getItem('id_dossier')) ,
         dossiers: [] ,
         pochette: [] ,
         View: false ,
@@ -37,15 +37,13 @@ export default {
         SET_POCHETTE_NAME(state , payload){
             state.pochette_name = payload
         },
-        SET_DOSSIER_ID(state , payload){
-            state.dossier_id  = payload
-        }
+      
       
     },
     actions :{
     async getPochetteData({commit},response){
         console.log(response,'responseDossier.js')
-        commit('SET_POCHETTE',response.data)
+        commit('SET_POCHETTE_ID',response.id_pochette)
         
     },
     async getdossiers ({commit}){
@@ -62,23 +60,34 @@ export default {
         return { success : true }
       
     },
+    async testProgress ({commit} , payload){
+        try {
+           const response = await axios.get("/api/dossiers/document/progress/", {params: {
+                    pochette_id : payload.pochette_id, 
+                    dossier_id : payload.dossier_id ,
+                } },);
+ 
+           return { success : true }
+        }catch(error)
+        {
+                
+            return { success : false}
+        }
+    },
     async getdocument ({commit} , payload){
         try {
            const response = await axios.get("/api/dossiers/document/", {params: {
                     pochette_id : payload.pochette_id, 
                     dossier_id : payload.dossier_id ,
-                    pochette_name :payload.pochette_name 
                 } },);
            commit('SET_POCHETTE',response.data);
            commit('SET_POCHETTE_ID',payload.pochette_id);
            commit('SET_POCHETTE_NAME',payload.pochette_name);
-           commit('SET_DOSSIER_ID',payload.dossier_id);
-
 
            return { success : true }
         }catch(error)
         {
-
+                
             return { success : false}
         }
     },
@@ -91,7 +100,6 @@ export default {
                 } },pochette);
  
            commit('SET_DOSSIERS',response.data);
-           console.log('SET_DOSSIERS',response.data);
 
            return { success : true }
         }catch(error)

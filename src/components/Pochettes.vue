@@ -1,23 +1,29 @@
 <template>
   <div class="bg-slate-100">
-
-  
   <Header/>
-  <section class="  mt-8  flex flex-col items-center  ">
+  <section class="  mt-8  flex flex-col items-center max-h-full ">
                 <div class=" w-11/12 " >
                   <table class="  text-white text-sm text-center w-full  h-10">
                     <thead>
                       <tr >
-                        <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700 w-20 cursor-pointer"  @click="changeStyle(pouchette)" >
+                        <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700 w-20 cursor-pointer"  @click="changeStyle(pouchette)"  >
                           <div class="absolute py-3  ml-1  w-1.5   rounded-3xl  bg-cyan-700" v-if="pouchette.checked"></div>
-                           <span class="text-xs">{{pouchette.text}}</span>
+                          <span class="text-xs" >{{pouchette.text}}</span>
                           </td>
                       </tr>
                     </thead>
                 </table>
                 </div>
               </section>  
-              <section v-if="looding">
+              <section class="bg-slate-100 px-5" >
+                <div class="bg-white rounded-lg">
+
+                <router-view></router-view>
+                </div>
+
+              </section>
+             
+              <!-- <section v-if="looding">
                 <Spinner/>
               </section>
   <div  v-if="view &&!looding" class="bg-slate-100 ">   
@@ -29,13 +35,13 @@
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
           
+           {{parseInt(this.$route.query.id_dossier)}} {{this.id_pochette}}
 
-
-            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData" :progressOn="progressOn"/>
+            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData" />
 
               </div>
             </div>
-   </section>
+   </section> -->
   </div>
 </template>
 
@@ -43,22 +49,20 @@
 import Swal from 'sweetalert2'
 import { mapActions , mapGetters} from "vuex"
 import Header from "./Header.vue"
-import DropFile from "./DropFile.vue"
 import DescriptionDevis from "./DescriptionDevis.vue"
-import progressBar from "./progressBar.vue"
+import progressBar from "./ProgressBar.vue"
 import { useRouter } from 'vue-router'
-import Spinner from "./Spinner.vue"
 export default {
   name:'Pochettes',
   data(){
     return {
+
       currentTitle : 'Devis' ,
-      progressOn : false ,
       looding : true ,
       router:useRouter(),
       view : false ,
       test: false ,
-      id_pochette: null,
+      id_pochette: 1,
       pouchettes : [
         { text : 'Devis' , value : 1 , checked : true ,PusherLooding :  false },
         { text : 'Audit' , value : 2 , checked : false ,PusherLooding :  false },
@@ -70,8 +74,6 @@ export default {
         { text : 'Fiche Préconisation' , value : 8 , checked : false ,PusherLooding :  false},
         { text : 'Liste des Entreprises' , value : 9 , checked : false ,PusherLooding :  false},
         { text : 'Géoportail ' , value : 10 , checked : false ,PusherLooding :  false},
-        { text : 'Géolocalisation' , value : 11 , checked : false ,PusherLooding :  false},
-        { text : 'Justificatif de domicile' , value : 12 , checked : false ,PusherLooding :  false},
         { text : 'Cofrac' , value : 13 , checked : false ,PusherLooding :  false},
         { text : "Avis d'impôt" , value : 14 , checked : false ,PusherLooding :  false},
 
@@ -81,107 +83,53 @@ export default {
   },
   components: {
     Header ,
-    DropFile ,
     DescriptionDevis ,
-    Spinner ,
     progressBar
   },
   
  
-  watch:{
-    pusher: function(){
-      alert('hello')
+  // watch:{
+  //   currentTitle: function(){
       
-    }
-  },
+  //   }
+  // },
 computed : {
   ...mapGetters(["dossier_id","pochette_id"]),
         
 
           },
   methods : {
-    ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData']),
-    reloadData() {
-     
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'le document est téléchargé ',
-          showConfirmButton: false,
-          timer: 3000
-          }).then(res=>(
-            
-            this.view= !this.view
-          ))
-         
-       
-        
+    ...mapActions([  'SETIdPochette','getPochetteData']),
 
-    },
     deletedata(){
       this.view = false
 
     },
     async changeStyle(pouchette){
- 
       this.pouchettes.map(pouch => {
         if(pouch.value == pouchette.value)
         {
           this.id_pochette = pouchette.value
+          this.router.push('/Pochettes/'+pouchette.value)
+
+        console.log('/Pochettes/'+pouchette.value)
           pouch.checked = true,
           this.currentTitle = pouch.text
          
 
         }else {
           pouch.checked = false
-         
-
         }
       })
-      console.log('=============)',this.$route.query.id_dossier)
       
-      const response = await   this.getdocument({
-        pochette_id : this.id_pochette ,
-        dossier_id : parseInt(this.$route.query.id_dossier),
-        pochette_name : pouchette.text ,
-      })
-      console.log('==============>', this.id_pochette , parseInt(this.$route.query.id_dossier))
-      
-      if(response.success)
-       {
-      this.view = true 
-      }else 
-      {
-        this.view = false
-     }
+     
    }
   },
   computed : {
   },
-  async mounted() {
-   
-  const response = await this.getdocument({
-    pochette_id : 1 ,
-    dossier_id : parseInt(this.$route.query.id_dossier)
-
-   })
-   console.log('response.success',response)
-
-   if(response.success){
-
-    this.view = true
-    this.looding = false
-   }else if(response.success==false){
-    this.looding = false
-   }
-   else
-   this.looding = false
-  
-
-  },
- 
-  
-}
+  mounted() {
+  }
+  }
 </script>
 
 <style >
