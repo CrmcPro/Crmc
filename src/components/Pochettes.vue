@@ -110,9 +110,13 @@ computed : {
         if(pouch.value == pouchette.value)
         {
           this.id_pochette = pouchette.value
-          this.router.push('/Pochettes/'+pouchette.value)
-
+          this.router.push({
+            path : '/Pochettes/'+pouchette.value,
+            query : { id_dossier : localStorage.getItem('id_dossier') }
+            
+        })
         console.log('/Pochettes/'+pouchette.value)
+
           pouch.checked = true,
           this.currentTitle = pouch.text
          

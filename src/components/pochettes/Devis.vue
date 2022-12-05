@@ -10,7 +10,7 @@
         <section v-if="(!looding && !view)" >
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
-            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(dossier_id)" @onReloadEnd="reloadData" />
+            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData" />
               </div>
             </div>
    </section>
@@ -36,6 +36,7 @@ data()
       view : false ,
       test: false ,
       id_pochette: 1,
+      currentTitle : "Devis"
     }
 },
 
@@ -46,7 +47,7 @@ components: {
     progressBar
   },
 computed : {
-     ...mapGetters(['dossier_id','pochette_id']),
+     ...mapGetters(['dossier_id']),
          },
 methods : {
     reloadData() {
@@ -64,20 +65,10 @@ methods : {
     ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData','testProgress']),
 },
 async mounted() {
-
-    const res = await this.testProgress({
-        pochette_id : this.pochette_id ,
-        dossier_id : parseInt(this.dossier_id),
-      })
-console.log(res)
-
-
-
-    console.log('==============>', this.pochette_id , this.dossier_id)
-
+   console.log('Devis', this.dossier_id  , "route" , parseInt(this.$route.query.id_dossier) )
     const response = await   this.getdocument({
         pochette_id : this.pochette_id ,
-        dossier_id : parseInt(this.dossier_id),
+        dossier_id : parseInt(this.$route.query.id_dossier),
       })
       console.log('response',response)
       if(response.success)

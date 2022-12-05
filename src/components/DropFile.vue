@@ -110,52 +110,7 @@
         };
   },
   props : ['id_props_pochette' ,'id_props_dossier',"title" ],  
-  async  mounted() {
-     
-    this.onChange()
-    var pusher = new Pusher('c03731b582014f75770a', {
-      cluster: 'eu',
-      encrypted: true
-    });
-    let channelName =  `CEE-project`
-    var channel = await pusher.subscribe(channelName);
-    let test = 0 
-   
-    channel.bind('cee_project',async (data) => {
-      let maxProgress = await data.message.progress;
-      console.log('DropFile ID',this.id_props_dossier,this.pochette_id)
-       if(test === 0 ){
-        console.log(test,'test')
-        this.progress =  data.message.progress
-        this.progressOn = true
-         test = 2
-       }
-      if(test == 2){
-
-        setInterval(() => {
-          if(this.progress<= maxProgress){
-          this.progress +=.1    
-          }
-  
-        }, 10);
-       
-       console.log('helllo hello')}else   this.progressOn =false , test = 0
-
-      this.statusText = data.message.message;
-      console.log(maxProgress)
-      
-      
-     if(this.progress===100){
-      this.getdocument({
-          pochette_id : this.id_props_pochette,
-          dossier_id : this.id_props_dossier,
-         })
-         this.$emit('onReloadEnd')
-         console.log( this.$emit('onReloadEnd'))
-        }
-    })
-
-  },
+ 
   
  watch(){
 
@@ -166,7 +121,7 @@
   
             },
   methods: {
-  ...mapActions(["getdocument"]) ,
+    ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData','testProgress']),
   
         onChange() {
           this.files = [...this.$refs.file.files];
@@ -210,6 +165,58 @@
           }
        }
       },
+      async  mounted() {
+    const res = await this.testProgress({
+        pochette_id : this.id_props_pochette ,
+        dossier_id : this.id_props_dossier,
+      })
+console.log('resDrop',res )
+    if( res.dossier_id === this.id_props_dossier && res.pochette_id === this.id_props_pochette){
+      this.Spin=true;
+      this.progress === res.pct
+     this.progressOn = true
+
+     }
+    this.onChange()
+    var pusher = new Pusher('c03731b582014f75770a', {
+      cluster: 'eu',
+      encrypted: true
+    });
+    let channelName =  `CEE-project`
+    var channel = await pusher.subscribe(channelName);
+   
+    channel.bind('cee_project',async (data) => {
+      let maxProgress = await data.message.progress;
+        console.log(test,'test')
+        this.progress =  data.message.progress    
+        this.progressOn = true 
+        if(this.progressOn){
+        setInterval(() => {
+          if(this.progress<= maxProgress){
+          this.progress +=.1    
+          }
+  
+        }, 10);
+        }else if(this.progress === 100){
+          this.progressOn = false 
+        }   
+       
+
+      this.statusText = data.message.message;
+      console.log(maxProgress)
+      
+      
+     if(this.progress===100){
+      this.getdocument({
+          pochette_id : this.id_props_pochette,
+          dossier_id : this.id_props_dossier,
+         })
+         this.$emit('onReloadEnd')
+         console.log( this.$emit('onReloadEnd'))
+        }
+    })
+
+  },
     };
     </script>
   <style>

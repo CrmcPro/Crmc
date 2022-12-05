@@ -10,10 +10,7 @@
         <section v-if="!view &&!looding" >
           <div class="bg-slate-100  ">
            <div  class="bg-white flex flex-col  items-center rounded-3xl">
-          
-           {{parseInt(this.$route.query.id_dossier)}} 
-
-            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData" />
+            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(dossier_id)" @onReloadEnd="reloadData" />
               </div>
             </div>
    </section>
@@ -41,8 +38,8 @@ data()
       router:useRouter(),
       view : false ,
       test: false ,
-      id_pochette: 1,
-    
+      id_pochette: 3,
+      currentTitle : "CEE"
     }
 },
 components: {
@@ -51,6 +48,9 @@ components: {
     Spinner ,
     progressBar
   },
+  computed : {
+     ...mapGetters(['dossier_id']),
+         },
 async mounted() {
    
    const response = await this.getdocument({
