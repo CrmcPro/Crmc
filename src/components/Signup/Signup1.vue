@@ -23,7 +23,7 @@
                     id="CompanyName"
                     placeholder="Nom Compagnie"
                     required
-                    v-model="form.CompanyName"
+                    v-model="form.company_name"
                   />
                 </div>
 
@@ -34,7 +34,7 @@
                     id="CompanyEmail"
                     placeholder="Email Compagnie"
                     required
-                    v-model="form.CompanyEmail"
+                    v-model="form.company_email"
                   />
                 </div>
 
@@ -48,7 +48,7 @@
                     id="SirenNumber"
                     placeholder="Numero Siren"
                     required
-                    v-model="form.SirenNumber"
+                    v-model="form.siren_number"
                   />
                 </div>
 
@@ -59,7 +59,7 @@
                     id="StreetCompany"
                     placeholder="Rue du Compagnie"
                     required
-                    v-model="form.StreetCompany"
+                    v-model="form.company_street"
                   />
                 </div>
 
@@ -71,7 +71,7 @@
                     type="button"
                     class=" w-4/5 py-4 bg-[#13698f] text-white  rounded"
                     @click="() => ToSignup2(form)" >  
-                  >
+                  
                     Suivant 
                     <font-awesome-icon icon="fa-solid fa-chevron-right"  class="float-right pr-3"/>
                  
@@ -117,7 +117,7 @@
    }
   
    
-  const form = ref({CompanyName: "", CompanyEmail: "",SirenNumber: "", StreetCompany: ""})
+  const form = ref({company_name: "", company_email: "",siren_number: "", company_street: ""})
   
   
    const ToSignup2 =(form )=> {
@@ -125,10 +125,10 @@
           router.push({
             path : '/Signup2',  
           })
-          localStorage.setItem('CompanyName',form.CompanyName)
-          localStorage.setItem('CompanyEmail',form.CompanyEmail)
-          localStorage.setItem('SirenNumber',form.SirenNumber)
-          localStorage.setItem('StreetCompany',form.StreetCompany)
+          localStorage.setItem('company_name',form.company_name)
+          localStorage.setItem('company_email',form.company_email)
+          localStorage.setItem('siren_number',form.siren_number)
+          localStorage.setItem('company_street',form.company_street)
         
        }  
     

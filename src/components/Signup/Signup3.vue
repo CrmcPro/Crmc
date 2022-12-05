@@ -10,6 +10,9 @@
           <div class="pt-4 text-lg font-medium"><h2>Veuillez vous inscrire pour continuer</h2></div>
           <div class="pt-10">
             <div class="">
+             
+             
+             
               <form>
 
              
@@ -19,9 +22,9 @@
                                 <input
                                 type="email"
                                 class="bg-slate-100 form-control mx-2 w-4/5  px-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
-                                id="Email"
+                                id="email"
                                 placeholder="Email"
-                                v-model="form.Email"
+                                v-model="form.email"
                                 required
                                 />
                                 </div>
@@ -31,20 +34,20 @@
                                 <input
                                     type="text"
                                     class="bg-slate-100 form-control mx-2 w-4/5  px-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
-                                    id="Adresse"
+                                    id="company_department"
                                     placeholder="Adresse"
-                                    v-model="form.Adresse"
+                                    v-model="form.company_department"
                                     required
                                 />
                                 </div>
 
                                     <div class="mb-6">
                                     <input
-                                        type="text"
+                                        type="number"
                                         class="bg-slate-100   form-control mx-2 w-4/5  px-4 py-4 text-base font-normal text-gray-700  bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
-                                        id="CodePostal"
+                                        id="zip_code"
                                         placeholder="Code postal"
-                                        v-model="form.CodePostal"
+                                        v-model="form.zip_code"
                                         required
                                     />
                                     </div>
@@ -53,7 +56,7 @@
             
                 <div class="pb-3 pt-8">
                   <button
-                    type="button"
+                    type="submit"
                     class=" w-4/5 py-4 bg-[#13698f] text-white rounded"
                     @click="Submit"
                   >
@@ -100,37 +103,34 @@ import store from "../../store"
    }
 
 
-    let CompanyName1 = localStorage.getItem('CompanyName')
-    let CompanyEmail = localStorage.getItem('CompanyEmail')
-    let SirenNumber = localStorage.getItem('SirenNumber')
-    let StreetCompany = localStorage.getItem('StreetCompany')
-    let Nom = localStorage.getItem('Nom')
-    let Prenom = localStorage.getItem('Prenom')
+    let company_name = localStorage.getItem('company_name')
+    let company_email = localStorage.getItem('company_email')
+    let siren_number = localStorage.getItem('siren_number')
+    let company_street = localStorage.getItem('company_street')
+    let last_name = localStorage.getItem('last_name')
+    let first_name = localStorage.getItem('first_name')
     let password = localStorage.getItem('password')
-    let PasswordConfirmation = localStorage.getItem('PasswordConfirmation')
-
-  let data2= {CompanyName1,CompanyEmail,SirenNumber,StreetCompany,Nom,Prenom,password,PasswordConfirmation}
    
-   console.log("Data2",data2)
-  
-  const data = ref({Email: "",Adresse: "",CodePostal: "",CompanyName1,CompanyEmail,SirenNumber,StreetCompany,Nom,Prenom,password,PasswordConfirmation})
-  console.log("data",data)
- 
-  // console.log("Data",data)
 
-  // let data1 = form.value
 
-  // console.log("data1",data)
-  // let data={data1,data2}
+  const form = ref({email: "",
+                    company_department:"",
+                    zip_code:"",
+                    company_name: company_name,
+                    company_email: company_email,
+                    siren_number: parseInt(siren_number),
+                    company_street: company_street,
+                    last_name: last_name,
+                    first_name: first_name,
+                    password: password
+                  })
 
-  // console.log("Data",data)
-
-  
-  const Submit = () =>{
-      
-      axios.post("/companies/registration/",data).then(res=>{
-          
-            console.log("resultat",res.data)
+  const Submit = (e) =>{
+    let data=(form.value)
+    console.log("data",data)
+    e.preventDefault();
+      axios.post("/companies/registration/",data).then(res=>{    
+            console.log("resultat",res)
           
       })
   
