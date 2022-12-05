@@ -24,14 +24,17 @@
                             </button>
                             
                           </div>
+
                           <div v-if="!Modifer"  @click="Modifer = !Modifer">
                             
                             <button class="bg-cyan-700 w-32 h-10 rounded text-xs  text-white"> Enregister
                               <font-awesome-icon icon="fa-solid fa-check"  class="ml-2"/>
                             </button>
                           </div>
-                          <div >
-                            <button :class='[Modifer ? "bg-red-500 w-32 h-10 rounded text-xs  text-white" : "bg-slate-500 w-32 h-10 rounded text-xs  text-white ml-4"]' @click="deletePochette" > Supprimer
+
+                          <div>
+                            <button :class='[Modifer ? "bg-red-500 w-32 h-10 rounded text-xs  text-white" : "bg-slate-500 w-32 h-10 rounded text-xs  text-white ml-4"]' @click="deletePochette" > 
+                              Supprimer
                               <font-awesome-icon icon="fa-solid fa-trash"  class="ml-2"/>
                             </button>
                           </div>
@@ -152,7 +155,7 @@ export default {
         title: 'Vous etes sur ?',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        confirmButtonColor: '#0E7490',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Oui supprimer!'
   }).then((result) => {
@@ -163,6 +166,7 @@ export default {
                 } }).then(response=>{
                   this.$emit('onDeleteEnd')
                   Swal.fire(
+                     
                     'Supprimé!',
                     'le document a été supprimé.',
                     

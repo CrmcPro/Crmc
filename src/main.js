@@ -20,17 +20,15 @@ import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import { faTrash , faFile} from '@fortawesome/free-solid-svg-icons'
-
-
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
-// fa fa-sign-in
+import { faTrash,faFile} from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import {faCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-axios.defaults.baseURL="http://192.168.1.36:8000/"
 
+axios.defaults.baseURL="http://192.168.1.36:8000/"
 
 
 /* add each imported icon to the library */
@@ -44,11 +42,8 @@ library.add(faCheck)
 library.add(faTrash)
 library.add(faFile)
 library.add(faCircleDown)
-
-
-
-
-
+library.add(faChevronRight)
+library.add(faArrowLeft)
 
 
 

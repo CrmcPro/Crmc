@@ -1,10 +1,12 @@
 import {createRouter , createWebHistory } from  "vue-router"
 import Accueil from "../components/Accueil.vue"
 import Login from "../components/Login.vue"
-import Signup from "../components/Signup.vue"
+import Signup1 from "../components/Signup/Signup1.vue"
+import Signup2 from "../components/Signup/Signup2.vue"
+import Signup3 from "../components/Signup/Signup3.vue"
+import Utilisateur from "../components/Utilisateur.vue"
 import Pochettes from "../components/Pochettes.vue"
-import Test from "../components/Test.vue"
-import Profil from  '../components/profil.vue'
+import VerificationList from "../components/VerificationList.vue"
 import store from '../store'
 
 const routes =[
@@ -14,13 +16,6 @@ const routes =[
         component : Login, 
         meta : { auth : false}
 
-        // children: [],
-//         beforeEnter: (to, from, next) => {
-//             // ...
-// if(store.state.token){
-//     next('Accueil')
-// }  else next()        
-//           }
     },
     {
         path : "/Pochettes",
@@ -30,9 +25,26 @@ const routes =[
 
     },
     {
-        path : "/Signup",
-        name  :'Signup',
-        component : Signup ,
+        path : "/Signup1",
+        name  :'Signup1',
+        component : Signup1 ,
+        meta : { auth : false}
+
+
+    },
+    
+    {
+        path : "/Signup2",
+        name  :'Signup2',
+        component : Signup2 ,
+        meta : { auth : false}
+
+
+    },
+    {
+        path : "/Signup3",
+        name  :'Signup3',
+        component : Signup3 ,
         meta : { auth : false}
 
 
@@ -44,9 +56,15 @@ const routes =[
         meta : { auth : true}
     },
     {
-        path : "/test",
-        name  :'Test',
-        component : Test ,
+        path : "/Utilisateur",
+        name  :'Utilisateur',
+        component : Utilisateur  ,
+        meta : { auth : true}
+    },
+    {
+        path : "/VerificationList",
+        name  :'VerificationList',
+        component : VerificationList ,
         meta : { auth : true}
 
     },

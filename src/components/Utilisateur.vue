@@ -1,11 +1,11 @@
 <template>
     <div class="bg-slate-100  min-w-max">
       <div class="flex items-center text-center justify-between p-3">
-        <h1 class="font-bold text-base py-6 pl-10">Liste des dossiers</h1>
+        <h1 class="font-bold text-base py-6 pl-10">Liste des utilisateurs</h1>
         <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" @click="showModal = !showModal">
       <img src="../assets/add.svg" class="bg-white w-5 h-5 rounded-3xl m-3">
            
-      Ajouter un dossier</button>
+      Ajouter un Utilisateur</button>
   <div class="absolute  justify-center items-center">
   
       <ModalAjouterDossier :show="showModal" @close="showModal = false">
@@ -28,18 +28,24 @@
                                       scope="col"
                                       class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                   >
-                                      Numéro dossier
+                                      Numéro Utilisateur
                                      
                                   </th>
                                 <th
                                       scope="col"
                                       class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                   >
-                                      Nom Dossier
+                                      Nom et Prenom
                                       
    
                                   </th>                             
-                                 
+                                  <th
+                                      scope="col"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                  >
+                                      Email
+                                     
+                                  </th>
                                 
                                   <th
                                       scope="col"
@@ -52,14 +58,26 @@
                                       scope="col"
                                       class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
                                   >
-                                      Statut
+                                  Compagnie
                                      
                                   </th>
                                   <th
                                       scope="col"
                                       class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
                                   >
-                                      Description
+                                     Admin
+                                  </th>
+                                  <th
+                                      scope="col"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
+                                  >
+                                     Staff
+                                  </th>
+                                  <th
+                                      scope="col"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
+                                  >
+                                     Photo
                                   </th>
                                   <td class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase">
                                       <div class="flex items-center justify-center h-5 ">            
@@ -71,7 +89,7 @@
                         
                           <tbody class=" divide-black text-center border-2 border-slate-100 "  
                          >
-                              <tr v-for="(item , index) in dossiers" v-bind:key="item" class=" hover:bg-slate-200"  >
+                              <tr v-for="(item , index) in users " v-bind:key="item" class=" hover:bg-slate-200"  >
                                   <td class="py-3">
                                       <div class="flex items-center justify-center h-5 ">
                                           <input
@@ -82,38 +100,57 @@
                                   </td>
                                   <td
                                       class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
-                                      @click="() => NavigationTodevis(item.id)"
+                                
                                  > 
                                     {{index+=1}}
                                   </td>
                                   <td
                                       class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap  cursor-pointer"
-                                      @click="() => NavigationTodevis(item.id)" >  
+                                    >  
   
                                   
                                     {{item.first_name}} {{item.last_name}}
   
                                   </td>
-                                 
+                                  <td
+                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+  
+                                  >   {{item.email}}
+                                      
+                                  </td>
                                   <td
                                       class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
-                                      @click="() => NavigationTodevis(item.id)" >   
-                                      {{dateTime(item.date_creation)}}
+                                     >   
+                                     {{dateTime(item.date_joined)}}
                                     
                                   </td>
                                   <td
                                   class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
-                                  @click="() => NavigationTodevis(item.id)" >  
+                                >  
                                   
-                                  {{item.status}}
+                                {{item.company}}
                                  
                                   </td>
                                   <td
                                   class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
-                                  >  {{item.description}}
+                                  >  
+                                  {{item.is_admin_company}}
+                                  </td>
+                                  <td
+                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+  
+                                  >   {{item.is_staff}}
                                       
                                   </td>
+                                  <td
+                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+  
+                                  >   {{item.avatar}}
+                                      
+                                  </td>
+                                
+                                 
                                   <td class=" py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer">
                                       <div class="flex items-center justify-center h-5 ">
                                         <td class="py-3 px-3">
@@ -132,8 +169,6 @@
                      </div>
                    </div>
   </template>
-
-
 
 <script>
 import ChercheBar from "../screen/ChercheBar.vue"
@@ -173,14 +208,19 @@ props :{
     ChercheBar ,
     AjouterDossier ,
     ModalAjouterDossier,
+   
     
   },
   computed : {
-     ...mapGetters(['dossiers']),
+     ...mapGetters(['users']),
          },
          
 
   methods: {
+    dateTime(value) {
+      return moment(value).format("DD-MM-YYYY [à] HH:mm a");
+    },
+
     deleteDossier(el_Id){
         Swal.fire({
         title: 'Vous etes sur ?',
@@ -191,7 +231,7 @@ props :{
         confirmButtonText: 'Oui supprimer!'
   }).then((result) => {
     if (result.isConfirmed) {
-      axios.delete("/api/dossiers/",{params: { 
+      axios.delete("/accounts/users",{params: { 
                     dossier_id : el_Id
                 } }).then(response=>{
                   Swal.fire(
@@ -206,26 +246,13 @@ props :{
             }
   })  
  },
-
-    dateTime(value) {
-      return moment(value).format("DD-MM-YYYY [à] HH:mm a");
-    },
-    
-    ...mapActions(['getdossiers' ,'GetOnedossier']),
-   async NavigationTodevis (id) {
-        console.log('id_Navigation',id)
-        await this.GetOnedossier({id})  
-        this.router.push({
-            path : '/Pochettes',
-            query : { id_dossier : id }
-            
-        })
-        console.log('im her ',id)
-     }  
+   
+    ...mapActions(['getAllUsers']),
+   
   },
 
   async mounted  () {
-   const response = await this.getdossiers()
+   const response = await this.getAllUsers()
  }
  
 

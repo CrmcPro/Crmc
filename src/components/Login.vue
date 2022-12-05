@@ -3,9 +3,10 @@ import { useRouter} from "vue-router"
 import { ref } from "vue"
 import axios from "axios"
 import store from "../store"
- const router=useRouter()
-const Singup=()=>{
-    router.push("/Signup")
+
+const router=useRouter()
+const Signup=()=>{
+    router.push("/Signup1")
  }
 
 const form = ref({username: "", password: ""})
@@ -79,7 +80,7 @@ setTimeout(() => {
                     <button
                       type="button"
                       class=" w-4/5 py-4 border border-sky-600	 rounded text-sm  text-cyan-600 "
-                      @click="Singup"
+                      @click="Signup"
                     >
                       Inscription
                     </button>
