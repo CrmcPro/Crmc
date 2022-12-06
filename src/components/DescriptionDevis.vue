@@ -166,16 +166,12 @@ export default {
                     pochette_id : this.id_props_pochette, 
                     dossier_id : this.id_props_dossier ,
                 } }).then(response=>{
-                  this.$emit('onDeleteEnd')
                   Swal.fire(
-                     
                     'Supprimé!',
-                    'le document a été supprimé.',
-                    
-                  )
-                
-                })
-    }
+                    'le document a été supprimé.',  
+                  )        
+                  this.$emit('onReloadEnd')
+                })}
   })
   
   ) : null
