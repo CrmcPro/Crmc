@@ -4,7 +4,7 @@
               </section>
   <div  v-if="(!looding && view)" class="bg-slate-100 ">   
       <section>
-              <DescriptionDevis :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)"  :title="currentTitle" @onDeleteEnd="deletedata"/>              
+              <DescriptionDevis :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)"  :title="currentTitle"  @onReloadEnd="reloadData"/>              
         </section>
    </div>
         <section v-if="(!looding && !view)" >
