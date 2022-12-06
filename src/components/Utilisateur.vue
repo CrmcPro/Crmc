@@ -22,18 +22,17 @@
                       <table class="min-w-full divide-y  divide-gray-100">
                           <thead class="bg-cyan-700  ">
                               <tr  class="border-2" >
-                                  <th scope="col" class="py-3 pl-4 border-2 rounded-tl-md">
-                                  </th>
+                                 
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class="py-3 text-xs font-bold text-center border-2 text-[#ffffff] "
                                   >
                                       Numéro Utilisateur
                                      
                                   </th>
                                 <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff]"
                                   >
                                       Nom et Prenom
                                       
@@ -41,7 +40,7 @@
                                   </th>                             
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff]"
                                   >
                                       Email
                                      
@@ -49,37 +48,37 @@
                                 
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff]"
                                   >
                                       Date
                                      
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] "
                                   >
                                   Compagnie
                                      
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff]"
                                   >
                                      Admin
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] "
                                   >
                                      Staff
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
+                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff]"
                                   >
                                      Photo
                                   </th>
-                                  <td class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase">
+                                  <td class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff]">
                                       <div class="flex items-center justify-center h-5 ">            
                                         Action                       
                                       </div>
@@ -90,22 +89,15 @@
                           <tbody class=" divide-black text-center border-2 border-slate-100 "  
                          >
                               <tr v-for="(item , index) in users " v-bind:key="item" class=" hover:bg-slate-200"  >
-                                  <td class="py-3">
-                                      <div class="flex items-center justify-center h-5 ">
-                                          <input
-                                              type="checkbox"
-                                              class="text-blue-600  border-gray-200 rounded focus:ring-blue-500"
-                                          />                                       
-                                      </div>
-                                  </td>
+                                  
                                   <td
-                                      class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                      class=" py-4 text-xs font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
                                 
                                  > 
                                     {{index+=1}}
                                   </td>
                                   <td
-                                      class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap  cursor-pointer"
+                                      class="px-6 py-4 text-xs font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap  cursor-pointer"
                                     >  
   
                                   
@@ -113,45 +105,45 @@
   
                                   </td>
                                   <td
-                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
                                   >   {{item.email}}
                                       
                                   </td>
                                   <td
-                                      class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                      class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
                                      >   
                                      {{dateTime(item.date_joined)}}
                                     
                                   </td>
                                   <td
-                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
                                 >  
                                   
                                 {{item.company}}
                                  
                                   </td>
                                   <td
-                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
                                   >  
                                   {{item.is_admin_company}}
                                   </td>
                                   <td
-                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
                                   >   {{item.is_staff}}
                                       
                                   </td>
                                   <td
-                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  class="px-4 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
-                                  >   {{item.avatar}}
+                                  >  <img :src="'http://192.168.1.36:8000'+item.avatar" class=" w-12 h-12 border-2 rounded-full ml-8"/> 
                                       
                                   </td>
                                 
                                  
-                                  <td class=" py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer">
+                                  <td class=" py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer">
                                       <div class="flex items-center justify-center h-5 ">
                                         <td class="py-3 px-3">
                                           <div class="flex items-around justify-around h-5  ">
