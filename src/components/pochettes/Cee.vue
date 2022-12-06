@@ -10,7 +10,7 @@
           <section v-if="(!looding && !view)" >
             <div class="bg-slate-100  ">
              <div  class="bg-white flex flex-col  items-center rounded-3xl">
-              <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData" />
+              <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData"/>
                 </div>
               </div>
      </section>
