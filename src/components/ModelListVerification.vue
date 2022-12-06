@@ -146,9 +146,7 @@ export default {
   mounted () {
         axios.get("/api/dossiers/compare/?dossier_id=1").then(res=>{
              this.Lists= res.data
-             console.log(this.Lists)
              this.Listt= res.data.cef_cep
-             console.log(res.data.cef_cep)
             
         })
     },

@@ -91,7 +91,6 @@ submitForm() {
 
   axios.post("/api/dossiers/",this.dossier  
   ).then(response => {
-    console.log(response,'responseCrecationDossier')   
     window.location.reload()
   })
  

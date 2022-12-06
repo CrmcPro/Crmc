@@ -94,7 +94,6 @@ export default {
       axios.get("/api/dossiers/",{params: { 
             dossier_id : this.dossier_id,
         } },).then (res => {
-          console.log("responseOneFolder",res.data)
             this.OneDossier =(res.data)
         })
     

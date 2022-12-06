@@ -127,7 +127,6 @@ import store from "../../store"
 
   const Submit = (e) =>{
     let data=(form.value)
-    console.log("data",data)
     e.preventDefault();
       axios.post("/companies/registration/",data).then(res=>{    
             console.log("resultat",res)

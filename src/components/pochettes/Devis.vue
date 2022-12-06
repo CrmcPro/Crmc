@@ -65,12 +65,10 @@ methods : {
 },
 async mounted() {
 
-   console.log('Devis', this.dossier_id  , "route" , parseInt(this.$route.query.id_dossier) )
     const response = await   this.getdocument({
         pochette_id : this.id_pochette ,
         dossier_id : parseInt(this.$route.query.id_dossier),
       })
-      console.log('response',response)
       if(response.success == true)
        {
       this.looding = false 

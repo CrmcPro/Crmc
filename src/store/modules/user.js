@@ -22,7 +22,6 @@ export default {
      async getAllUsers ({commit}){
         let res = await axios.get('/accounts/users').then(res=>{
             commit('SET_USERS' , res.data)
-            console.log("users",res.data)
         })
      } ,
 

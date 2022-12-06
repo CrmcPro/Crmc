@@ -220,7 +220,6 @@ props :{
             
         })
 
-        console.log('im her ',id)
      }  
   },
 
