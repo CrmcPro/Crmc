@@ -2,8 +2,6 @@
   <section v-if="reOpen_Mode_UploadFils">
     <Spinner/>
   </section>
-   <!-- <div v-if="reOpen_Mode_UploadFils">
-   </div> -->
    <section v-if="!reOpen_Mode_UploadFils">
 
      <div class="text-l flex flex-col " >               
@@ -170,11 +168,9 @@
         pochette_id : this.id_props_pochette ,
         dossier_id : this.id_props_dossier,
       })
-console.log('resDrop',res )
     if( res.dossier_id === this.id_props_dossier && res.pochette_id === this.id_props_pochette && res.pct !==100){
       this.Spin=true;
       this.progress = res.pct 
-      console.log('progres', this.progress , "yes you condition work fine ")
      }
     this.onChange()
     var pusher = new Pusher('c03731b582014f75770a', {
@@ -183,19 +179,19 @@ console.log('resDrop',res )
     });
     let channelName =  `CEE-project`
     var channel = await pusher.subscribe(channelName);
-   
     channel.bind('cee_project',async (data) => {
+      if(this.id_props_dossier == parseInt(data.message.dossier_id) && this.id_props_pochette == parseInt(data.message.pochette_id) ){
+
       let maxProgress = await data.message.progress;
-        this.progress =  data.message.progress    
         setInterval(() => {
-          if(this.progress<= maxProgress){
+           if(this.progress<= maxProgress){
           this.progress +=.1    
-          }
+          } 
   
-        }, 10);
+        }, 10)
         
       this.statusText = data.message.message;
-      console.log(maxProgress)
+      }
        
      if(this.progress===100){
       this.getdocument({
@@ -203,7 +199,6 @@ console.log('resDrop',res )
           dossier_id : this.id_props_dossier,
          })
          this.$emit('onReloadEnd')
-         console.log( this.$emit('onReloadEnd'))
         }
     })
 

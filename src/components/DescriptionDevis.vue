@@ -7,7 +7,7 @@
                       <div class="border-b-2 p-2">
                       <div class="flex flex-row  justify-end  px-24 ">
                         <div class="absolute left-40 py-4  ">
-                          <span class=" text-left font-bold text-lg  " >{{title}}</span>
+                          <span class=" text-left font-bold text-lg  ">{{title}}</span>
                         </div>
                             <a :href="'http://192.168.1.36:8000'+pochette.url_pdf" target="_blank">
                               

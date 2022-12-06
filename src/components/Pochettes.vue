@@ -23,25 +23,6 @@
 
               </section>
              
-              <!-- <section v-if="looding">
-                <Spinner/>
-              </section>
-  <div  v-if="view &&!looding" class="bg-slate-100 ">   
-      <section>
-              <DescriptionDevis  :title="currentTitle" @onDeleteEnd="deletedata"/>              
-        </section>
-   </div>
-        <section v-if="!view &&!looding" >
-          <div class="bg-slate-100  ">
-           <div  class="bg-white flex flex-col  items-center rounded-3xl">
-          
-           {{parseInt(this.$route.query.id_dossier)}} {{this.id_pochette}}
-
-            <DropFile :id_props_pochette="id_pochette" :title="currentTitle" :id_props_dossier="parseInt(this.$route.query.id_dossier)" @onReloadEnd="reloadData" />
-
-              </div>
-            </div>
-   </section> -->
   </div>
 </template>
 
@@ -112,10 +93,9 @@ computed : {
           this.id_pochette = pouchette.value
           this.router.push({
             path : '/Pochettes/'+pouchette.value,
-            query : { id_dossier : localStorage.getItem('id_dossier') }
+            query : { id_dossier : parseInt(this.$route.query.id_dossier) }
             
         })
-        console.log('/Pochettes/'+pouchette.value)
 
           pouch.checked = true,
           this.currentTitle = pouch.text
@@ -132,6 +112,17 @@ computed : {
   computed : {
   },
   mounted() {
+  
+    
+  },
+  created(){
+    this.router.push({
+            path : '/Pochettes/1',
+            query : { id_dossier : parseInt(this.$route.query.id_dossier) },
+            
+            
+        })
+    
   }
   }
 </script>
