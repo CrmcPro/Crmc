@@ -63,7 +63,7 @@ export default {
 <template>
 <div class="bg-white border-b-2">
     <nav
-      class="container py-3 mx-auto md:flex md:justify-between md:items-center">
+      class="container py-2 mx-auto md:flex md:justify-between md:items-center">
       <div class="flex items-center justify-between">
         <router-link
           to="/Accueil"

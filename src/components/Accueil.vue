@@ -22,18 +22,17 @@
                       <table class="min-w-full divide-y  divide-gray-100">
                           <thead class="bg-cyan-700  ">
                               <tr  class="border-2" >
-                                  <th scope="col" class="py-3 pl-4 border-2 rounded-tl-md">
-                                  </th>
+                                 
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class=" py-2 text-xs  text-center border-2 text-[#ffffff] "
                                   >
                                       Numéro dossier
                                      
                                   </th>
                                 <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class="px-6 py-2 text-xs  text-center border-2 text-[#ffffff] "
                                   >
                                       Nom Dossier
                                       
@@ -43,51 +42,44 @@
                                 
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class="px-6 py-2 text-xs  text-center border-2 text-[#ffffff] "
                                   >
                                       Date
                                      
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] uppercase"
+                                      class="px-6 py-2 text-xs  text-center border-2 text-[#ffffff] "
                                   >
                                       Statut
                                      
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase"
+                                      class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff] "
                                   >
                                       Description
                                   </th>
-                                  <td class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] uppercase">
-                                      <div class="flex items-center justify-center h-5 ">            
+                                  <th class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff]">
+                                              
                                         Action                       
-                                      </div>
-                                  </td>
+                                     
+                                  </th>
                               </tr>
                           </thead>
                         
                           <tbody class=" divide-black text-center border-2 border-slate-100 "  
                          >
                               <tr v-for="(item , index) in dossiers" v-bind:key="item" class=" hover:bg-slate-200"  >
-                                  <td class="py-3">
-                                      <div class="flex items-center justify-center h-5 ">
-                                          <input
-                                              type="checkbox"
-                                              class="text-blue-600  border-gray-200 rounded focus:ring-blue-500"
-                                          />                                       
-                                      </div>
-                                  </td>
+                                 
                                   <td
-                                      class="px-6 py-4 text-sm font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                      class=" py-4 text-xs font-medium text-gray-800 border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
                                       @click="() => NavigationTodevis(item.id)"
                                  > 
                                     {{index+=1}}
                                   </td>
                                   <td
-                                      class="px-6 py-4 text-sm font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap  cursor-pointer"
+                                      class="px-6 py-4 text-xs font-medium border-2 border-slate-100 text-gray-800 whitespace-nowrap  cursor-pointer"
                                       @click="() => NavigationTodevis(item.id)" >  
   
                                   
@@ -96,27 +88,27 @@
                                   </td>
                                  
                                   <td
-                                      class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                      class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
                                       @click="() => NavigationTodevis(item.id)" >   
                                       {{dateTime(item.date_creation)}}
                                     
                                   </td>
                                   <td
-                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
                                   @click="() => NavigationTodevis(item.id)" >  
                                   
                                   {{item.status}}
                                  
                                   </td>
                                   <td
-                                  class="px-6 py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
                                   >  {{item.description}}
                                       
                                   </td>
                                   <td class=" py-4 text-sm font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer">
                                       <div class="flex items-center justify-center h-5 ">
-                                        <td class="py-3 px-3">
+                                        <td class="py-2px-3">
                                           <div class="flex items-around justify-around h-5  ">
                                            <font-awesome-icon icon="fa-solid fa-pen"  class="  px-2 text-gray-500" />
                                            <font-awesome-icon icon="fa-solid fa-trash"  class=" px-2 text-red-500"  @click="()=> deleteDossier(item.id)"/>
@@ -132,8 +124,6 @@
                      </div>
                    </div>
   </template>
-
-
 
 <script>
 import chercheBar from "../screen/chercheBar.vue"
@@ -213,7 +203,7 @@ props :{
     
     ...mapActions(['getdossiers']),
    async NavigationTodevis (id) {
-        console.log('id_Navigation',id)     
+        console.log('id_dossier1',id)     
         this.router.push({
             path : '/Pochettes/1',
             query : { id_dossier : id }

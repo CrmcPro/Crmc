@@ -131,6 +131,7 @@
 </template>
 <script>
 import axios from "axios"
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
   name :'ModelList' ,
   data() {
@@ -140,11 +141,24 @@ export default {
       isOpen: false,
       Lists : [] ,
       Listt : [] ,
+      dossier_id: parseInt(this.$route.query.id_dossier) ,
+    
     };
     
   },
+
+  computed : {
+    
+         },
+         
+
   mounted () {
-        axios.get("/api/dossiers/compare/?dossier_id=1").then(res=>{
+   
+        axios.get("/api/dossiers/compare/",{params: {
+              dossier_id : this.dossier_id, 
+        } 
+        }).then(res=>{
+          
              this.Lists= res.data
              this.Listt= res.data.cef_cep
             

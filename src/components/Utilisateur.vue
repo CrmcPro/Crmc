@@ -25,14 +25,14 @@
                                  
                                   <th
                                       scope="col"
-                                      class="py-3 text-xs font-bold text-center border-2 text-[#ffffff] "
+                                      class="py-2 text-xs  text-center border-2 text-[#ffffff] "
                                   >
                                       Numéro Utilisateur
                                      
                                   </th>
                                 <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff]"
+                                      class="px-6 py-2 text-xs  text-center border-2 text-[#ffffff]"
                                   >
                                       Nom et Prenom
                                       
@@ -40,7 +40,7 @@
                                   </th>                             
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff]"
+                                      class="px-6 py-2 text-xs  text-center border-2 text-[#ffffff]"
                                   >
                                       Email
                                      
@@ -48,41 +48,41 @@
                                 
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff]"
+                                      class="px-6 py-2 text-xs  text-center border-2 text-[#ffffff]"
                                   >
                                       Date
                                      
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 text-[#ffffff] "
+                                      class="px-6 py-2 text-xs  text-center border-2 text-[#ffffff] "
                                   >
                                   Compagnie
                                      
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff]"
+                                      class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff]"
                                   >
                                      Admin
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff] "
+                                      class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff] "
                                   >
                                      Staff
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff]"
+                                      class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff]"
                                   >
                                      Photo
                                   </th>
-                                  <td class="px-6 py-3 text-xs font-bold text-center border-2 rounded-tr-md text-[#ffffff]">
-                                      <div class="flex items-center justify-center h-5 ">            
+                                  <th class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff]">
+                                             
                                         Action                       
-                                      </div>
-                                  </td>
+                                    
+                                  </th>
                               </tr>
                           </thead>
                         
@@ -138,14 +138,14 @@
                                   <td
                                   class="px-4 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
-                                  >  <img :src="'http://192.168.1.36:8000'+item.avatar" class=" w-12 h-12 border-2 rounded-full ml-8"/> 
+                                  >  <img :src="'http://192.168.1.36:8000'+item.avatar" class=" w-12 h-12 border-2 rounded-full ml-10"/> 
                                       
                                   </td>
                                 
                                  
                                   <td class=" py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer">
                                       <div class="flex items-center justify-center h-5 ">
-                                        <td class="py-3 px-3">
+                                        <td class="py-2 px-3">
                                           <div class="flex items-around justify-around h-5  ">
                                            <font-awesome-icon icon="fa-solid fa-pen"  class="  px-2 text-gray-500" />
                                            <font-awesome-icon icon="fa-solid fa-trash"  class=" px-2 text-red-500"  @click="()=> deleteDossier(item.id)"/>
