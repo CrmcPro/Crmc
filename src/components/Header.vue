@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-row  justify-around p-4 ">
-          <div class=" flex  items-center bg-white w-[30%] h-21 shadow-lg  rounded "  >
+          <div class=" flex  items-center bg-white w-[30%] h-24 shadow-lg  rounded "  >
                   <div class=  "bg-cyan-700 w-1.5 h-20 rounded-3xl m-3"></div>
                   <div  v-for="item in   OneDossier" v-bind:key="item" >
                     <div class="flex justify-between ">
@@ -20,18 +20,19 @@
                   </div>
                 </div>
                
-                <div  class=" md:flex flex-col mt-10 md:justify-between md:items-center ">
-                  <div >
-                  <router-link 
-                            to="/Acceuil"
-                            tag="button"                     
-                            class="   p-3  px-10 bg-cyan-600	 rounded-l text-sm  text-white "
-                          ><font-awesome-icon icon="fa-solid fa-folder-open"/>  
+                <div  class=" md:flex flex-col mt-7 md:justify-between md:items-center ">
+                  <div  v-for="item in   OneDossier" v-bind:key="item">
+
+                    <button  class="   p-2  px-10 bg-cyan-600	 rounded-l text-sm  text-white "><font-awesome-icon icon="fa-solid fa-folder-open"/>  
                            Documents
-                   </router-link>
-                 
-                  <router-link  to="/VerificationList"  tag="button"   class="  p-3   px-10 bg-cyan-700	 rounded-r text-sm  text-white ">
-                    <font-awesome-icon icon="fa-solid fa-code-compare"/>  Comparer   </router-link>         
+                    </button>
+                  
+                    <button  
+                    class="  p-2   px-10 bg-cyan-700	 rounded-r text-sm  text-white "
+                    @click="() => NavigationToComparer(item.id)">
+                    <font-awesome-icon icon="fa-solid fa-code-compare"/>   Comparer  
+                    </button>  
+
                    </div>
 
                    <div class="flex flex-row items-center text-red-500 text-xs">
@@ -41,7 +42,7 @@
                   </div>  
                   
                 
-                <div class="mr-2 flex  p-0   justify-between items-center bg-white w-[30%]  shadow-lg rounded "  >
+                <div class="flex justify-between items-center bg-white w-[30%] h-24  shadow-lg rounded "  >
                 <div class="text-cyan-700 font-semibold text-lg ml-2  ">
                 
                   <div >    
@@ -64,11 +65,13 @@
 import {mapActions,mapGetters,mapMutations} from 'vuex'
 import moment from 'moment'
 import axios from "axios"
+import { useRouter} from "vue-router"
 
 export default {
   name : 'Header',
   data() {
     return { 
+      router:useRouter(),
       OneDossier : [],
       dossier_id: parseInt(this.$route.query.id_dossier) ,
     };
@@ -81,7 +84,17 @@ export default {
       return moment(value).format("DD-MM-YYYY [à] HH:mm a");
     },
 
-    
+    async NavigationToComparer (id) {
+        console.log('id_dossier2',id)     
+        this.router.push({
+            path : '/VerificationList',
+            query : { id_dossier : id }
+            
+        })
+
+     }
+     
+     
      },
      computed : {
     

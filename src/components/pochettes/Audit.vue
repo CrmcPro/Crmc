@@ -5,7 +5,7 @@
     <div  v-if="(!looding && view)" class="bg-slate-100 ">   
         <section>
                 <DescriptionDevis :id_props_pochette="id_pochette" :id_props_dossier="parseInt(this.$route.query.id_dossier)"  :title="currentTitle" @onReloadEnd="reloadData"/>              
-          </section>
+              </section>
      </div>
           <section v-if="(!looding && !view)" >
             <div class="bg-slate-100  ">

@@ -45,10 +45,25 @@
                     </section>
                   
             <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='id_props_pochette != 1 & id_props_pochette !=5 '>
+                     
+              
+                    <div class="flex flex-row py-1 " v-if="pochette.bureau_etude">
+                        <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Bureau d'etude</h1>
+                        <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.bureau_etude ? pochette.bureau_etude: 'null' "  :disabled="this.Modifer"/>
+                    </div>
+              
+                    <div class="flex flex-row py-1 " v-if="pochette.proprietaire">
+                        <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Proprietaire</h1>
+                        <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.proprietaire ? pochette.proprietaire: 'null' "  :disabled="this.Modifer"/>
+                    </div>
                       <div class="flex flex-row py-1 " v-if="pochette.nom_client">
                           <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Nom Client</h1>
                           <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.nom_client ? pochette.nom_client : 'null' "  :disabled="this.Modifer"/>
                       </div>
+                      <div class="flex flex-row py-1 " v-if="pochette.technique">
+                        <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Technique</h1>
+                        <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.technique ? pochette.technique: 'null' "  :disabled="this.Modifer"/>
+                    </div>
                       <div class="flex flex-row py-1" v-if="pochette.gain_energetique">
                         <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Gain Energetique</h1>
                         <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value='pochette.gain_energetique' :disabled="this.Modifer"/>
@@ -94,7 +109,29 @@
                 <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Adresse Client</h1>
                 <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.adresse_client ? pochette.adresse_client : 'null' "  :disabled="this.Modifer"/>
              </div>
-              
+             <div class="flex flex-row py-1 " v-if="pochette.adresse">
+                <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Adresse</h1>
+                <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.adresse ? pochette.adresse : 'null' "  :disabled="this.Modifer"/>
+             </div>
+            
+             <div class="flex flex-row py-1" v-if="pochette.email && pochette.tel">
+                      <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Email /Telephone</h1>
+                      <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'   :value='(pochette.email + " / "+ pochette.tel)' :disabled="this.Modifer"/>
+                    </div>
+             <div class="flex flex-row py-1 " v-if="pochette.nature_chauffage">
+                <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">Nature de chauffage</h1>
+                <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.nature_chauffage ? pochette.nature_chauffage: 'null' "  :disabled="this.Modifer"/>
+             </div>
+            
+             <div class="flex flex-row py-1 " v-if="pochette.rge_qualification">
+                <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs font-bold	bg-cyan-600">RGE Qualification</h1>
+                <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value="pochette.rge_qualification ? pochette.rge_qualification: 'null' "  :disabled="this.Modifer"/>
+             </div>
+             <div class="flex flex-row py-1" v-if="pochette.surface_habitable">
+                         <h1 class="border rounded-l-md border-slate-400 py-3 w-36  text-xs  font-bold	bg-cyan-600">Surface habitable et Surface shon </h1>
+                         <input :class='[Modifer ? "border rounded-r-md border-slate-400 bg-slate-100  flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2" : "border rounded-r-md border-slate-400 bg-white flex-row  w-[550px] ml-1 text-xs  py-2 text-black text-left p-2"]'  :value='pochette.surface_habitable+" / " +pochette.surface_shon' :disabled="this.Modifer" />
+                      </div>
+             
         </section> 
         <section  class="py-4 " v-if="id_props_pochette === 1 || id_props_pochette === 5">
                       <div class="flex flex-center justify-center items-center">

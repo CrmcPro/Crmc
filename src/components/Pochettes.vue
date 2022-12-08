@@ -1,12 +1,12 @@
 <template>
   <div class="bg-slate-100">
   <Header />
-  <section class="  mt-8  flex flex-col items-center max-h-full ">
+  <section class="    flex flex-col items-center max-h-full ">
                 <div class=" w-11/12 " >
-                  <table class="  text-white text-sm text-center w-full  h-10">
+                  <table class="  text-white text-sm text-center w-full  h-9">
                     <thead>
                       <tr >
-                        <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700 w-20 cursor-pointer"  @click="changeStyle(pouchette)"  >
+                        <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700  cursor-pointer"  @click="changeStyle(pouchette)"  >
                           <div class="absolute py-3  ml-1  w-1.5   rounded-3xl  bg-cyan-700" v-if="pouchette.checked"></div>
                           <span class="text-xs" >{{pouchette.text}}</span>
                           </td>
