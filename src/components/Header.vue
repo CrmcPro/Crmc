@@ -5,9 +5,9 @@
                   <div  v-for="item in   OneDossier" v-bind:key="item" >
                     <div class="flex justify-between ">
                       <div>      
-                        <h1 class="font-bold text-l pr-28" > {{item.first_name}} {{item.last_name}} </h1> 
+                        <h1 class="font-bold pr-28" > {{item.first_name}} {{item.last_name}} </h1> 
                       </div >
-                      <div class="px-12">
+                      <div class="">
                         <label class="toggle">
                           <input type="checkbox" >
                           <span class="slider"></span>
@@ -16,37 +16,37 @@
                       </div>
                     </div>
                     <p  >#{{item.id}}</p>                   
-                    <p class="text-neutral-600" > {{item.description}}</p>
+                    <p class="text-neutral-400 text-sm" > {{item.description}}</p>
                   </div>
                 </div>
                
                 <div  class=" md:flex flex-col mt-7 md:justify-between md:items-center ">
                   <div  v-for="item in   OneDossier" v-bind:key="item">
 
-                    <button  class="   p-2  px-10 bg-cyan-600	 rounded-l text-sm  text-white "><font-awesome-icon icon="fa-solid fa-folder-open"/>  
+                    <button  class="   p-2  px-10 bg-cyan-600	 rounded-l text-xs font-semibold  text-white "><font-awesome-icon icon="fa-solid fa-folder-open"/>  
                            Documents
                     </button>
                   
                     <button  
-                    class="  p-2   px-10 bg-cyan-700	 rounded-r text-sm  text-white "
+                    class="  p-2   px-10 bg-cyan-700	 rounded-r text-xs font-semibold  text-white "
                     @click="() => NavigationToComparer(item.id)">
                     <font-awesome-icon icon="fa-solid fa-code-compare"/>   Comparer  
                     </button>  
 
                    </div>
 
-                   <div class="flex flex-row items-center text-red-500 text-xs">
-                      <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="pr-1 text-lg py-4"/> 
+                   <div class="flex flex-row items-center text-red-600 text-xs">
+                      <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="pr-1 py-4"/> 
                       <p>Documents qui manque</p>
                     </div>
                   </div>  
                   
                 
                 <div class="flex justify-between items-center bg-white w-[30%] h-24  shadow-lg rounded "  >
-                <div class="text-cyan-700 font-semibold text-lg ml-2  ">
+                <div class="text-cyan-700 font-semibold ml-8  ">
                 
                   <div >    
-                     Ajouter par :  <span class="text-black pl-16" >  {{user.first_name}} {{user.last_name}} </span>  
+                     Ajouter par :  <span class="text-black font-bold pl-16 " >  {{user.first_name}} {{user.last_name}} </span>  
                       <br>
                      Date d'ajout : <span v-for="(item) in OneDossier" v-bind:key="item" class="text-black pl-14" >{{dateTime(item.date_creation)}}</span>  
                    </div>
@@ -81,7 +81,7 @@ export default {
 
   methods: {
     dateTime(value) {
-      return moment(value).format("DD-MM-YYYY [à] HH:mm a");
+      return moment(value).format("DD-MM-YYYY [à] HH:mm ");
     },
 
     async NavigationToComparer (id) {

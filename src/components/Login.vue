@@ -35,7 +35,7 @@ const token = response.data.token
 ))
 setTimeout(() => {
   ErrorView.value = true
-}, 2000);
+},);
 }
 </script>
 

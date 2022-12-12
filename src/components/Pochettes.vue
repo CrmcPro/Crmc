@@ -3,7 +3,7 @@
   <Header />
   <section class="    flex flex-col items-center max-h-full ">
                 <div class=" w-11/12 " >
-                  <table class="  text-white text-sm text-center w-full  h-9">
+                  <table class="  text-white text-sm text-center w-full h-9">
                     <thead>
                       <tr >
                         <td  v-for="pouchette in pouchettes" :key="pouchette.value" :class="{ active : pouchette.checked}" class="border border-slate-300 	bg-cyan-700  cursor-pointer"  @click="changeStyle(pouchette)"  >
