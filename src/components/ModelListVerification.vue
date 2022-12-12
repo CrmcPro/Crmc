@@ -116,7 +116,7 @@
                           <div class=" justify-center flex pb-3 pt-8">
                                <button
                                  type="button"
-                                 class=" w-36 py-3 bg-[#13698f] text-white text-sm rounded "   
+                                 class=" w-36 py-2 bg-[#13698f] text-white text-sm rounded "   
                                  @click="isOpen = false"              
                                  >          
                                  Valider

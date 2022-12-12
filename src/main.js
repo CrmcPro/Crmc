@@ -24,14 +24,18 @@ import { faTrash,faFile} from '@fortawesome/free-solid-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import {faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 
-axios.defaults.baseURL="http://192.168.1.151:8000/"
+axios.defaults.baseURL="http://192.168.1.210:8000/"
 
 
 /* add each imported icon to the library */
+library.add(faUser)
+library.add(faPlus)
 library.add(faToggleOff)
 library.add(faFolderOpen)
 library.add(faCodeCompare)

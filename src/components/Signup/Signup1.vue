@@ -17,6 +17,7 @@
                <section class="flex flex-wrap justify-center ">
 
                 <div  class="mb-6 ">
+                  
                   <input
                     type="text"
                     class="bg-slate-100 form-control w-80 mx-2 px-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
@@ -92,9 +93,9 @@
                    >         
                    Vous avez un compte ?
                   </button>
-                </div>
-               
+                </div>  
               </form>
+              
             </div>
           </div>
         </div>
@@ -102,13 +103,12 @@
     </div>
   </template>
 
-  <script setup >
-  import { useRouter} from "vue-router"
-  import { ref } from "vue"
-  import axios from "axios"
+<script setup >
+import { useRouter} from "vue-router"
+import { ref } from "vue"
+import axios from "axios"
   
-  
-  
+
   
   
   const router=useRouter()
@@ -118,19 +118,22 @@
   
    
   const form = ref({company_name: "", company_email: "",siren_number: "", company_street: ""})
+  const ErrorView = ref(false)
+
   
-  
-   const ToSignup2 =(form )=> {
+  const ToSignup2 =(form )=> {
           
           router.push({
             path : '/Signup2',  
           })
+          
           localStorage.setItem('company_name',form.company_name)
           localStorage.setItem('company_email',form.company_email)
           localStorage.setItem('siren_number',form.siren_number)
-          localStorage.setItem('company_street',form.company_street)
-        
-       }  
+          localStorage.setItem('company_street',form.company_street)     
+      
+     
+  }  
     
   
   

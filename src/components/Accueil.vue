@@ -1,9 +1,9 @@
 <template>
     <div class="bg-slate-100  min-w-max">
-      <div class="flex items-center text-center justify-between p-3">
-        <h1 class="font-bold text-base py-6 pl-10">Liste des dossiers</h1>
-        <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" @click="showModal = !showModal">
-      <img src="../assets/add.svg" class="bg-white w-5 h-5 rounded-3xl m-3">
+      <div class="flex items-center text-center justify-between ">
+        <h1 class="font-bold text-base py-6 ml-4  pl-10">Liste des dossiers</h1>
+        <button class="bg-cyan-700 w-70 h-8 px-6 text-xs mr-12  text-white rounded-md flex items-center justify-between" @click="showModal = !showModal">
+            <font-awesome-icon icon="fa-solid fa-plus" class="pr-2.5 "/>
            
       Ajouter un dossier</button>
   <div class="absolute  justify-center items-center">
@@ -20,12 +20,12 @@
                           <!-- Tableau de suive -->
                   <div class="overflow-hidden  border-inherit rounded-lg">
                       <table class="min-w-full divide-y  divide-gray-100">
-                          <thead class="bg-cyan-700  ">
+                          <thead class="bg-cyan-700 rounded-tl-lg  ">
                               <tr  class="border-2" >
                                  
                                   <th
                                       scope="col"
-                                      class=" py-2 text-xs  text-center border-2 text-[#ffffff] "
+                                      class=" py-2 text-xs  text-center rounded-tl-lg border-2 text-[#ffffff] "
                                   >
                                       Numéro dossier
                                      
@@ -56,7 +56,7 @@
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff] "
+                                      class="px-6 py-2 text-xs  text-center border-2 text-[#ffffff] "
                                   >
                                       Description
                                   </th>
@@ -112,7 +112,7 @@
                                           <div class="flex items-around justify-around h-5  ">
                                            <font-awesome-icon icon="fa-solid fa-pen"  class="  px-2 text-gray-500" />
                                            <font-awesome-icon icon="fa-solid fa-trash"  class=" px-2 text-red-500"  @click="()=> deleteDossier(item.id)"/>
-
+                                          
                                       </div>
                                        </td>                                      
                                       </div>

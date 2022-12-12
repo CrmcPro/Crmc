@@ -5,29 +5,29 @@
       <section>
         <Header/>
       </section>       
-        <section class="bg-white h-full  pt-20">
+        <section class="bg-white h-full  pt-16">
                 <section class=" text-center">
-                    <h1 class=" py-8  font-bold text-xl">Vérifier vos documents</h1>
+                    <h1 class=" pb-16 pr-96 mr-44 font-bold text-xl">Vérifier vos documents</h1>
                     
                 </section>
 
                 
-              <section class=" flex flex-nowrap  align-middle justify-center  py-2 ">
+              <section class=" flex flex-nowrap  align-middle justify-center py-2 ">
                   <label for="" class="sr-only">Underline select</label>
                     <select id="underline_select" class="px-2 w-2/6 text-sm bg-transparent border-2 border-gray-300 rounded-lg   ">
                         <option selected class="font-black">Devis-Audit</option>
                        
                     </select>
                     
-                    <button class="bg-cyan-700 text-white	w-56 h-10 rounded text-sm ">
-                      <!-- <ModelList  /> --> Envoyer
+                    <button class="bg-cyan-700 text-white	w-44 h-10 rounded text-sm ">
+                      <!-- <ModelList  /> --> Comparer
 
                     </button>
                    
                </section>   
 
 
-                  <section class="pt-20">
+                  <section class="pt-16">
                     <div class="flex-wrap flex justify-center"> 
                         <hr class="border-1 border-gray-400 w-80 mt-2 mr-16 ">
                        <p class="font-bold text-xs ">OU</p> 
@@ -35,7 +35,7 @@
                     </div>   
                   </section>
 
-                    <section class="pt-20 flex justify-center">                 
+                    <section class="pt-16 flex justify-center">                 
                       <ModelList  />
                   
                     </section>

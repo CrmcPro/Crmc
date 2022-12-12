@@ -1,10 +1,10 @@
 <template>
     <div class="bg-slate-100  min-w-max">
-      <div class="flex items-center text-center justify-between p-3">
-        <h1 class="font-bold text-base py-6 pl-10">Liste des utilisateurs</h1>
-        <button class="bg-cyan-700 w-70 h-9 p-5  text-white rounded-lg flex items-center justify-between" @click="showModal = !showModal">
-      <img src="../assets/add.svg" class="bg-white w-5 h-5 rounded-3xl m-3">
-           
+      <div class="flex items-center text-center justify-between ">
+        <h1 class="font-bold text-base py-6 ml-4 pl-10">Liste des utilisateurs</h1>
+        <button class="bg-cyan-700 w-70 h-8 px-6 text-xs mr-12 text-white rounded-md flex items-center justify-between">
+    
+          <font-awesome-icon icon="fa-solid fa-user" class=" w-3 pr-2.5" />
       Ajouter un Utilisateur</button>
   <div class="absolute  justify-center items-center">
   
@@ -20,12 +20,12 @@
                           <!-- Tableau de suive -->
                   <div class="overflow-hidden  border-inherit rounded-lg">
                       <table class="min-w-full divide-y  divide-gray-100">
-                          <thead class="bg-cyan-700  ">
+                          <thead class="bg-cyan-700 rounded-tl-lg ">
                               <tr  class="border-2" >
                                  
                                   <th
                                       scope="col"
-                                      class="py-2 text-xs  text-center border-2 text-[#ffffff] "
+                                      class="py-2 text-xs  text-center border-2 rounded-tl-lg  text-[#ffffff] "
                                   >
                                       Numéro Utilisateur
                                      
@@ -62,19 +62,19 @@
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff]"
+                                      class="px-6 py-2 text-xs  text-center border-2  text-[#ffffff]"
                                   >
                                      Admin
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff] "
+                                      class="px-6 py-2 text-xs  text-center border-2  text-[#ffffff] "
                                   >
                                      Staff
                                   </th>
                                   <th
                                       scope="col"
-                                      class="px-6 py-2 text-xs  text-center border-2 rounded-tr-md text-[#ffffff]"
+                                      class="px-6 py-2 text-xs  text-center border-2  text-[#ffffff]"
                                   >
                                      Photo
                                   </th>
@@ -138,7 +138,7 @@
                                   <td
                                   class="px-4 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
-                                  >  <img :src="'http://192.168.1.36:8000'+item.avatar" class=" w-12 h-12 border-2 rounded-full ml-10"/> 
+                                  >  <img :src="'http://192.168.1.210:8000'+item.avatar" class=" w-12 h-12 border-2 rounded-full ml-10"/> 
                                       
                                   </td>
                                 

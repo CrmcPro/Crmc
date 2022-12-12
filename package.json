@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "serve": "vite --host 192.168.1.187",
+    "serve": "vite --host 192.168.1.206",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -29,6 +29,7 @@
     "serve": "^14.1.1",
     "smart-webcomponents": "^14.4.0",
     "sweetalert2": "^11.6.7",
+    "vee-validate": "^3.4.14",
     "vite-plugin-icons": "^0.6.5",
     "vue": "^3.2.37",
     "vue-advanced-cropper": "^1.11.5",

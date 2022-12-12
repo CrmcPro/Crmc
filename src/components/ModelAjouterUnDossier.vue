@@ -34,7 +34,7 @@
               aria-labelledby="modal-headline"
             >
           
-            <img src="../assets/close.png" @click="closeModal()" class="absolute   right-4 top-11 ">              
+            <img src="../assets/close.png" @click="closeModal()" class="absolute w-4 h-4  right-4 top-4 ">              
 
               <slot>I'm empty inside</slot>
             </div>

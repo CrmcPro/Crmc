@@ -63,7 +63,7 @@ export default {
 <template>
 <div class="bg-white border-b-2">
     <nav
-      class="container py-2 mx-auto md:flex md:justify-between md:items-center">
+      class="container py-1 mx-auto md:flex md:justify-between md:items-center">
       <div class="flex items-center justify-between">
         <router-link
           to="/Accueil"
@@ -73,8 +73,8 @@ export default {
             text-gray-800
             md:text-2xl
             hover:text-blue-400">
-          <h1 class="text-blue-300 text-2xl shadow-black  font-bold	 ">
-            CRM<spam class="text-blue-500 ml-0 text-2xl font-bold	">C</spam>
+          <h1 class="text-blue-300 text-lg shadow-black  font-bold	 ">
+            CRM<spam class="text-blue-500  text-lg font-bold	">C</spam>
           </h1>
         </router-link>
       </div>
@@ -93,14 +93,14 @@ export default {
           md:mt-0">
 
           <div>   
-              <li class="  text-cyan-600 font-bold text-xl hover:text-blue-400 cursor-pointer"
+              <li class="  text-cyan-600 font-bold text-lg hover:text-blue-400 cursor-pointer"
               @click="Accueil" >
                 Acceuil
               </li>
         </div>
         <div>
              
-            <li class="text-cyan-600 font-bold text-xl hover:text-blue-400 cursor-pointer"
+            <li class="text-cyan-600 font-bold text-lg hover:text-blue-400 cursor-pointer"
             @click="Utilisateur">
               Utilisateurs
             </li>
@@ -116,7 +116,7 @@ export default {
 
         ">
           <div>
-            <li class="pl-14">{{user.first_name}}</li>
+            <li class="pl-12 font-semibold">{{user.first_name}}</li>
             <h6 class="text-gray-400 font-semibold">Administrateur</h6>
           </div >
          
@@ -128,7 +128,7 @@ export default {
         class="flex items-center    rounded-md"
       >
       <div  @click="show = !show">
-            <img :src="'http://192.168.1.36:8000'+user.avatar" alt="image" class="w-10 h-10 ml-3 rounded-full"/>
+            <img :src="'http://192.168.1.210:8000'+user.avatar" alt="image" class="w-10 h-10 ml-3 rounded-full"/>
           </div>
       </button>
 
