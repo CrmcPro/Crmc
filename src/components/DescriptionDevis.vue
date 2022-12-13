@@ -9,7 +9,7 @@
                         <div class="absolute left-40 py-4  ">
                           <span class=" text-left font-bold text-lg  ">{{title}}</span>
                         </div>
-                            <a :href="'http://192.168.1.36:8000'+pochette.url_pdf" target="_blank">
+                            <a :href="'http://192.168.1.210:8000'+pochette.url_pdf" target="_blank">
                               
                               <button  class="bg-cyan-700  w-32 h-9 rounded-md text-xs mr-4 text-white">
                                      Voir PDF

@@ -19,10 +19,11 @@
                        
                     </select>
                     
-                    <button class="bg-cyan-700 text-white	w-44 h-10 rounded text-sm ">
-                      <!-- <ModelList  /> --> Comparer
+                    <section class="bg-cyan-700 text-white	w-44 h-10 rounded text-sm ">
 
-                    </button>
+                      <ModelList  />
+
+                    </section>
                    
                </section>   
 

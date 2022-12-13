@@ -13,7 +13,7 @@
              
              
              
-              <form>
+              <form v-on:keyup.enter="submit">
 
              
                 <section class="justify-center">
@@ -88,11 +88,12 @@
     </div>
   </template>
 
-  <script setup>
-  import { useRouter} from "vue-router"
-  import { ref } from "vue"
-  import axios from "axios"
+<script setup>
+import { useRouter} from "vue-router"
+import { ref } from "vue"
+import axios from "axios"
 import store from "../../store"
+import Swal from 'sweetalert2'
   
   const router=useRouter()
   const Login=()=>{
@@ -129,10 +130,15 @@ import store from "../../store"
     let data=(form.value)
     e.preventDefault();
       axios.post("/companies/registration/",data).then(res=>{    
-            console.log("resultat",res)
-          
-      })
-  
+        Swal.fire(                 
+                    'Inscription a été effectué avec succes.',  
+                  ),2000        
+                 router.push("/")
+      }).catch 
+             Swal.fire(                 
+                    'Inscription a été refusé.',
+                       
+                     )        
   }
   
    
