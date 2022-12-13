@@ -2,15 +2,15 @@
     <div class="bg-slate-100  min-w-max">
       <div class="flex items-center text-center justify-between ">
         <h1 class="font-bold text-base py-6 ml-4 pl-10">Liste des utilisateurs</h1>
-        <button class="bg-cyan-700 w-70 h-8 px-6 text-xs mr-12 text-white rounded-md flex items-center justify-between">
+        <button class="bg-cyan-700 w-70 h-8 px-6 text-xs mr-12 text-white rounded-md flex items-center justify-between" @click="showModal = !showModal">
     
           <font-awesome-icon icon="fa-solid fa-user" class=" w-3 pr-2.5" />
       Ajouter un Utilisateur</button>
   <div class="absolute  justify-center items-center">
   
-      <ModalAjouterDossier :show="showModal" @close="showModal = false">
-           <AjouterDossier />
-      </ModalAjouterDossier>
+      <ModelAjoutUtilisateur :show="showModal" @close="showModal = false">
+           <AjouterUtilisateur/>
+      </ModelAjoutUtilisateur>
   </div>
       </div>
     <div class="bg-white px-10 rounded-xl">
@@ -64,14 +64,9 @@
                                       scope="col"
                                       class="px-6 py-2 text-xs  text-center border-2  text-[#ffffff]"
                                   >
-                                     Admin
+                                     Role
                                   </th>
-                                  <th
-                                      scope="col"
-                                      class="px-6 py-2 text-xs  text-center border-2  text-[#ffffff] "
-                                  >
-                                     Staff
-                                  </th>
+                                
                                   <th
                                       scope="col"
                                       class="px-6 py-2 text-xs  text-center border-2  text-[#ffffff]"
@@ -123,18 +118,30 @@
                                 {{item.company}}
                                  
                                   </td>
-                                  <td
-                                  class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+
+                               
+                                  <td v-if="item.is_admin_company===true"
+                                  scope="col" class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  >  
+                                  Admin
+                                  </td>
+
+                                  <td v-else-if="item.is_superuser===true"
+                                  scope="col" class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
                                   >  
-                                  {{item.is_admin_company}}
+                                     SuperUser
+
                                   </td>
-                                  <td
-                                  class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
+                                  <td v-else
+                                  scope="col" class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
-                                  >   {{item.is_staff}}
-                                      
+                                  >  
+                                     Utilisateur
+
                                   </td>
+                                
+                                
                                   <td
                                   class="px-4 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
   
@@ -165,8 +172,8 @@
 <script>
 import ChercheBar from "../screen/chercheBar.vue"
 import { ref ,onMounted} from 'vue';
-import AjouterDossier from '../components/AjouterUnDossier.vue'
-import  ModalAjouterDossier from "../components/ModelAjouterUnDossier.vue"
+import AjouterUtilisateur from '../components/AjoutUtilisateur.vue'
+import  ModelAjoutUtilisateur from "../components/ModelAjoutUtilisateur.vue"
 import axios from 'axios'
 import { useRouter} from "vue-router"
 import { mapActions, mapGetters, mapMutations } from 'vuex'
@@ -198,8 +205,8 @@ props :{
   },
   components: {
     ChercheBar ,
-    AjouterDossier ,
-    ModalAjouterDossier,
+    AjouterUtilisateur ,
+    ModelAjoutUtilisateur,
    
     
   },

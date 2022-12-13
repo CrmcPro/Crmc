@@ -16,8 +16,8 @@ const submitForm = (e) =>{
     let data = form.value
     axios.post("accounts/login/",data).then(response=>{
 
-const token = response.data.token
-  store.commit('setToken',token)
+    const token = response.data.token
+   store.commit('setToken',token)
 
   axios.defaults.headers.common['Authorization'] = 'Token '+ token
   localStorage.setItem('token',token)
@@ -35,7 +35,7 @@ const token = response.data.token
 ))
 setTimeout(() => {
   ErrorView.value = true
-},);
+},1000);
 }
 </script>
 
@@ -47,7 +47,7 @@ setTimeout(() => {
               CRM<spam class="text-blue-500 ml-0 text-2xl font-bold	">C</spam>
             </h1>
             <div class="py-2 text-base font-medium"><h2>Veuillez vous connecter pour continuer</h2></div>
-                <form >
+                <form  v-on:keyup.enter="submitForm">
                   <div class="py-2">
                     <input
                       type="text"
