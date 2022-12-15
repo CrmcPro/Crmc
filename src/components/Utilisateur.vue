@@ -182,7 +182,7 @@ import Swal from 'sweetalert2'
 
 
 export default {
-name:"Accueil",
+name:"Utilisateur",
 
 data()
 {
@@ -231,11 +231,11 @@ props :{
   }).then((result) => {
     if (result.isConfirmed) {
       axios.delete("/accounts/users",{params: { 
-                    dossier_id : el_Id
+                    id : el_Id
                 } }).then(response=>{
                   Swal.fire(
                     'Supprimé!',
-                    'le document est supprimé.',
+                    'l"utilisateur est supprimé.',
                     'success'
                   )
                 

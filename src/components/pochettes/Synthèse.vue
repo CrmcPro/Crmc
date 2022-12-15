@@ -38,6 +38,7 @@
         test: false ,
         id_pochette: 6,
         currentTitle : "Synthèse"
+        
       }
   },
   
@@ -66,10 +67,12 @@
       ...mapActions(['getdocument' , 'SETIdPochette','getPochetteData','testProgress']),
   },
   async mounted() {
+    console.log('idPochette', this.id_pochette , "route" , parseInt(this.$route.query.id_dossier) )
     const response = await   this.getdocument({
         pochette_id : this.id_pochette ,
         dossier_id : parseInt(this.$route.query.id_dossier),
       })
+      console.log('response',response)
       if(response.success)
        {
       this.looding = false 

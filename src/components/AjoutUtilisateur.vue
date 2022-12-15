@@ -110,8 +110,13 @@ methods :{
 
 
 submitForm() {
+     
+        axios.post("/accounts/users/",this.user,{
+          headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        }
 
-        axios.post("/accounts/users/",this.user  
         ).then(response => {
         window.location.reload()
         })

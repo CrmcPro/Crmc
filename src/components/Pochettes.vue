@@ -55,8 +55,8 @@ export default {
         { text : 'Fiche Préconisation' , value : 8 , checked : false ,PusherLooding :  false},
         { text : 'Liste des Entreprises' , value : 9 , checked : false ,PusherLooding :  false},
         { text : 'Géoportail ' , value : 10 , checked : false ,PusherLooding :  false},
-        { text : 'Cofrac' , value : 13 , checked : false ,PusherLooding :  false},
-        { text : "Avis d'impôt" , value : 14 , checked : false ,PusherLooding :  false},
+        { text : 'Cofrac' , value : 11 , checked : false ,PusherLooding :  false},
+        { text : "Avis d'impôt" , value : 12 , checked : false ,PusherLooding :  false},
 
       ],
       isActive : false
@@ -68,12 +68,6 @@ export default {
     progressBar
   },
   
- 
-  // watch:{
-  //   currentTitle: function(){
-      
-  //   }
-  // },
 computed : {
   ...mapGetters(["dossier_id","pochette_id"]),
         

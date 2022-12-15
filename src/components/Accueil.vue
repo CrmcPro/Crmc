@@ -186,7 +186,7 @@ props :{
                 } }).then(response=>{
                   Swal.fire(
                     'Supprimé!',
-                    'le document est supprimé.',
+                    'le dossier est supprimé.',
                     'success'
                   )
                 
