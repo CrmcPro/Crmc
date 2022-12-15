@@ -36,7 +36,7 @@
         router:useRouter(),
         view : false ,
         test: false ,
-        id_pochette: 13,
+        id_pochette: 11,
         currentTitle : "Cofrac"
       }
   },

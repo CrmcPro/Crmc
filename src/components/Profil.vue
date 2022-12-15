@@ -95,11 +95,11 @@ export default {
             </div>
           <div>
 
-          <h1 class="font-semibold text-sm py-2">Adresse de la societé</h1>
+          <h1 class="font-semibold text-sm py-2">Adresse de l'entreprise</h1>
           <input class="border-2 p-2  rounded w-full border-gray-400 text-xs   " placeholder="Rue de la societe"/>
            </div>
            <div>
-           <h1 class="font-semibold text-sm py-2">Département de la societé</h1>
+           <h1 class="font-semibold text-sm py-2">Département de l'entreprise</h1>
            <input class="border-2 p-2 rounded  w-full text-xs border-gray-400  " placeholder="Département de la societé"/>
            </div>
           <div>

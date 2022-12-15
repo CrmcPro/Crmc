@@ -73,8 +73,10 @@
       console.log('response',response)
       if(response.success)
        {
+       
       this.looding = false 
       this.view = true
+     
       }else if(response.success === false)
 
       {

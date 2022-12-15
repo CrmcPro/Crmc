@@ -18,7 +18,7 @@ import Facture from "../components/pochettes/Facture.vue"
 import Geoportail from "../components/pochettes/Geoportail.vue"
 import FichePréconisation from "../components/pochettes/FichePréconisation.vue"
 import ListedesEntreprises from "../components/pochettes/ListedesEntreprises.vue"
-import Synthèse from "../components/pochettes/ListedesEntreprises.vue"
+import Synthèse from "../components/pochettes/Synthèse.vue"
 
 import store from '../store'
 
@@ -62,12 +62,12 @@ const routes =[
             },
             {
                
-                path: '14',
+                path: '12',
                 component: AvisDimpôt,
             },
             {
                
-                path: '13',
+                path: '11',
                 component: Cofrac,
             },
             {

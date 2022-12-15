@@ -44,7 +44,7 @@
                     
                     </section>
                   
-            <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='id_props_pochette != 1 & id_props_pochette !=5 '>
+            <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='id_props_pochette != 1 & id_props_pochette !=5 & id_props_pochette !=6 & id_props_pochette !=2'>
                      
               
                     <div class="flex flex-row py-1 " v-if="pochette.bureau_etude">
@@ -133,19 +133,23 @@
                       </div>
              
         </section> 
-        <section  class="py-4 " v-if="id_props_pochette === 1 || id_props_pochette === 5">
+        <section  class="py-4 " v-if="id_props_pochette === 1 || id_props_pochette === 5 || id_props_pochette === 6 || id_props_pochette ===2">
                       <div class="flex flex-center justify-center items-center">
                        <div  class="text-white border-separate border-spacing-1 flex flex-col item-center text-center justify-center">
-                        <div class="flex flex-row justify-center w-full ">
+                        <div class="flex flex-row justify-center w-full " >
                                    <!-- TABLE 1  -->
                          <identitéTable :Modifer='Modifer'/>
                                    <!-- TABLE 2 -->
                          <DonneésEnergétiqueTable :Modifer='Modifer'/>
                            </div>
-                                  <!-- TABlEAUX 3 -->
-                          <TravauxTable :Modifer='Modifer'/>
-                                 <!-- Tableaux 4 -->
-                          <div class="flex flex-end justify-end">
+                             
+                           <!-- TABlEAUX 3 -->
+                           <div v-if="id_props_pochette != 6 & id_props_pochette != 2"> 
+                            <TravauxTable :Modifer='Modifer'/>
+                          </div>     
+                            <!-- Tableaux 4 -->
+                         
+                          <div class="flex flex-end justify-end" v-if="id_props_pochette != 6 & id_props_pochette != 2">
                             <Montants :Modifer='Modifer'/>
                           </div>                               
                        </div>

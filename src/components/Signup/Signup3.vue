@@ -133,12 +133,12 @@ import Swal from 'sweetalert2'
         Swal.fire(                 
                     'Inscription a été effectué avec succes.',  
                   ),2000        
-                 router.push("/")
-      }).catch 
-             Swal.fire(                 
+         router.push("/")
+      }).catch (err =>(  Swal.fire(                 
                     'Inscription a été refusé.',
                        
-                     )        
+        )))
+           
   }
   
    
