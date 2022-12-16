@@ -44,7 +44,7 @@
                     
                     </section>
                   
-            <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='id_props_pochette != 1 & id_props_pochette !=5 & id_props_pochette !=6 & id_props_pochette !=2'>
+            <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='id_props_pochette != 1 & id_props_pochette !=5 & id_props_pochette !=6 & id_props_pochette !=2 & id_props_pochette !=4'>
                      
               
                     <div class="flex flex-row py-1 " v-if="pochette.bureau_etude">
@@ -133,7 +133,7 @@
                       </div>
              
         </section> 
-        <section  class="py-4 " v-if="id_props_pochette === 1 || id_props_pochette === 5 || id_props_pochette === 6 || id_props_pochette ===2">
+        <section  class="py-4 " v-if="id_props_pochette === 1 || id_props_pochette === 5 || id_props_pochette === 6 || id_props_pochette ===2 || id_props_pochette === 4">
                       <div class="flex flex-center justify-center items-center">
                        <div  class="text-white border-separate border-spacing-1 flex flex-col item-center text-center justify-center">
                         <div class="flex flex-row justify-center w-full " >
@@ -141,15 +141,22 @@
                          <identitéTable :Modifer='Modifer'/>
                                    <!-- TABLE 2 -->
                          <DonneésEnergétiqueTable :Modifer='Modifer'/>
+                         
                            </div>
                              
                            <!-- TABlEAUX 3 -->
-                           <div v-if="id_props_pochette != 6 & id_props_pochette != 2"> 
+                           <div v-if="id_props_pochette != 6 & id_props_pochette != 2 & id_props_pochette != 4"> 
                             <TravauxTable :Modifer='Modifer'/>
-                          </div>     
-                            <!-- Tableaux 4 -->
+                          </div>   
+                                      
+                           <!-- TABlEAUX 4 -->
+                        
+                           <div v-if="id_props_pochette ===4"> 
+                            <DateTraveaux :Modifer='Modifer'/>
+                          </div>  
+                            <!-- Tableaux 5 -->
                          
-                          <div class="flex flex-end justify-end" v-if="id_props_pochette != 6 & id_props_pochette != 2">
+                          <div class="flex flex-end justify-end" v-if="id_props_pochette != 6 & id_props_pochette != 2  & id_props_pochette != 4 ">
                             <Montants :Modifer='Modifer'/>
                           </div>                               
                        </div>
@@ -168,6 +175,7 @@ import identitéTable from '../components/pochette/identitéTable.vue'
 import DonneésEnergétiqueTable from "../components/pochette/DonneésEnergétiqueTable.vue"
 import TravauxTable from "../components/pochette/TravauxTable.vue"
 import Montants from "../components/pochette/Montants.vue"
+import DateTraveaux from "../components/pochette/DateTraveaux.vue"
 import Swal from 'sweetalert2'
 import axios from "axios"
 export default {
@@ -176,6 +184,11 @@ export default {
   data(){
     return {
       Modifer : true ,
+      data :{
+        adresse_email:"",
+        date_cette_proposition:""
+
+      }
      }
 
   },
@@ -185,7 +198,8 @@ export default {
     identitéTable ,
     DonneésEnergétiqueTable ,
     TravauxTable ,
-    Montants
+    Montants,
+    DateTraveaux
   },
   computed : {
      ...mapGetters(['pochette']),
@@ -213,11 +227,16 @@ export default {
                   )        
                   this.$emit('onReloadEnd')
                 })}
-  })
-  
-  ) : null
-      
-    },
+  }) 
+  ) : null    
+ },
+        ModifyPochette(){
+          axios.put("/api/dossier/document/",{parmas: {
+            pochette_id : this.id_props_pochette, 
+            dossier_id : this.id_props_dossier ,
+          }})
+        }
+
     }
 
 }
