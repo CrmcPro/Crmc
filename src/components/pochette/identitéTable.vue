@@ -6,6 +6,16 @@
           <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Bureau d'etude</h1>
           <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.bureau_etude' :disabled="this.Modifer"/>
        </div>
+      
+       <div class="flex flex-row" v-if="pochette.reference_la_facture">
+          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Référence de la facture</h1>
+          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.reference_la_facture' :disabled="this.Modifer"/>
+       </div>
+
+       <div class="flex flex-row" v-if="pochette.date_etude_energetique">
+          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Date d'etude energetique</h1>
+          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.date_etude_energetique' :disabled="this.Modifer"/>
+       </div>
 
        <div class="flex flex-row" v-if="pochette.proprietaire">
           <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600">Proprietaire</h1>
@@ -28,6 +38,21 @@
           <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.tel' :disabled="this.Modifer"/>
        </div>
          
+       <div class="flex flex-row" v-if="pochette.date_engagement">
+          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Date d'engagement d'oeuvre</h1>
+          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.date_engagement' :disabled="this.Modifer"/>
+       </div>
+
+       <div class="flex flex-row" v-if="pochette.date_logiciel">
+          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Date du logiciel</h1>
+          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.date_logiciel' :disabled="this.Modifer"/>
+       </div>
+       
+       <div class="flex flex-row" v-if="pochette.date_preuve">
+          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Date de preuve de réalisation de l'operation</h1>
+          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.date_logiciel' :disabled="this.Modifer"/>
+       </div>
+
             <div class="flex flex-row " v-if="pochette.date_visite">
                <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Date de visite
                 </h1>
@@ -93,6 +118,11 @@
                <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Adresse</h1>
                  <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.adresse_client ? pochette.adresse_client : 'null' "  :disabled="this.Modifer"/>
             </div>
+            
+       <div class="flex flex-row" v-if="pochette.type_oeuvre">
+          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Type d'oeuvre</h1>
+          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='capitalized(pochette.type_oeuvre)' :disabled="this.Modifer"/>
+       </div>
     </div>
 </template>
 
@@ -112,7 +142,12 @@ export default {
      
   },
   methods: {
- 
+    capitalized(name) {
+      const capitalizedFirst = name[0].toUpperCase();
+      const rest = name.slice(1);
+
+      return capitalizedFirst + rest;
+    },
 
   },
 
