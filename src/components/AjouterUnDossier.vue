@@ -87,6 +87,8 @@ data(){
 methods :{
 
   
+
+  
 submitForm() {
 
   axios.post("/api/dossiers/",this.dossier  
