@@ -83,7 +83,7 @@
                                       @click="() => NavigationTodevis(item.id)" >  
   
                                   
-                                    {{item.first_name}} {{item.last_name}}
+                                  {{item.first_name}} {{item.last_name}} 
   
                                   </td>
                                  
@@ -171,6 +171,32 @@ props :{
          
 
   methods: {
+    
+    ModifyDossier(){
+    let bodyformData = new FormData();
+          bodyformData.append('first_name',this.first_name)
+          bodyformData.append('last_name',this.last_name)
+          bodyformData.append('montant_prime',this.dossier.last_name)
+
+    let params = {
+            dossier_id : this.id_props_dossier, 
+           
+          }
+    axios.put("/api/dossiers/",bodyformData,{params:params}).then(response=>{
+                  Swal.fire(
+                    'Modifier!',
+                    'les information sont modifiés.',
+                    'success'
+                  )
+                
+                }).then(res=>{
+                    // window.location.reload()
+                })
+        },
+
+
+
+
     deleteDossier(el_Id){
         Swal.fire({
         title: 'Vous etes sur ?',
