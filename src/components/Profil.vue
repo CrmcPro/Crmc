@@ -104,7 +104,7 @@ export default {
            </div>
           <div>
 
-          <h1 class="font-semibold text-sm py-2">Zip code</h1>
+          <h1 class="font-semibold text-sm py-2">code Postal</h1>
           <input class="border-2 p-2 rounded w-full text-xs border-gray-400  " placeholder="65769"/>
            </div>
          </section>

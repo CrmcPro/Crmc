@@ -23,7 +23,9 @@
                 <div  class=" md:flex flex-col mt-7 md:justify-between md:items-center ">
                   <div  v-for="item in   OneDossier" v-bind:key="item">
 
-                    <button  class="   p-2  px-10 bg-cyan-600	 rounded-l text-xs font-semibold  text-white "><font-awesome-icon icon="fa-solid fa-folder-open"/>  
+                    <button  class="   p-2  px-10 bg-cyan-600	 rounded-l text-xs font-semibold  text-white "
+                    @click="() => NavigationTodevis(item.id)">
+                    <font-awesome-icon icon="fa-solid fa-folder-open"/>  
                            Documents
                     </button>
                   
@@ -83,6 +85,17 @@ export default {
     dateTime(value) {
       return moment(value).format("DD-MM-YYYY [à] HH:mm ");
     },
+
+    ...mapActions(['getdossiers']),
+   async NavigationTodevis (id) {
+        console.log('id_dossier1',id)     
+        this.router.push({
+            path : '/Pochettes/1',
+            query : { id_dossier : id }
+            
+        })
+
+     },
 
     async NavigationToComparer (id) {
         console.log('id_dossier2',id)     

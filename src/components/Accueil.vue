@@ -102,7 +102,8 @@
                                   </td>
                                   <td
                                   class="px-6 py-4 text-xs font-medium border-2 border-slate-100 whitespace-nowrap  cursor-pointer"
-  
+                                  @click="() => NavigationTodevis(item.id)" 
+
                                   >  {{item.description}}
                                       
                                   </td>
