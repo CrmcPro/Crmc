@@ -28,7 +28,7 @@
     "pusher": "^5.1.1-beta",
     "serve": "^14.1.1",
     "smart-webcomponents": "^14.4.0",
-    "sweetalert2": "^11.6.7",
+    "sweetalert2": "^11.6.16",
     "vee-validate": "^3.4.14",
     "vite-plugin-icons": "^0.6.5",
     "vue": "^3.2.37",

@@ -15,6 +15,7 @@
         <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Prime CEE</h1>
         <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']"  :value="pochette.prime_cee ? pochette.prime_cee : 'Null' "  @input="event => pochette.prime_cee = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
       </div>
+     
      </div>
     </div>
          
