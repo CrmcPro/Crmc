@@ -14,7 +14,7 @@
                                     <div>
                                     <div class="flex flex-row  justify-center bg-slate-200 late-200 " v-for="(item,index) in pochette.travaux" v-bind:key=" item">
                                         <input :class='[this.Modifer ?"border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]' :value='index+1' :disabled="this.Modifer"/>
-                                        <input :class='[this.Modifer ? "border  border-slate-200 py-2 w-80 text-xs text-gray-600 font-bold	bg-slate-100 text-center" : "border  border-slate-200 py-2 w-80 text-xs text-gray-600 font-bold	bg-white text-center"]'  :value='item.nom_travail' @input="event => item.nom_travail = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
+                                        <input :class='[this.Modifer ? "border  border-slate-200 py-2 w-80 text-xs text-gray-600 font-bold	bg-slate-100 text-center" : "border  border-slate-200 py-2 w-80 text-xs text-gray-600 font-bold	bg-white text-center"]'  :value='capitalized(item.nom_travail)' @input="event => item.nom_travail = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
                                         <input :class='[this.Modifer ?"border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]' :value='item.num_certificat' @input="event => item.num_certificat = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
                                         <input :class='[this.Modifer ?"border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]'  :value='item.nom_entreprise' @input="event => item.nom_entreprise = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
                                    
@@ -39,7 +39,14 @@ export default {
      
   },
   methods: {
- 
+
+    capitalized(name) {
+     const capitalizedFirst = name[0].toUpperCase();
+     const rest = name.slice(1);
+
+     return capitalizedFirst + rest;
+   },
+
 
   },
 

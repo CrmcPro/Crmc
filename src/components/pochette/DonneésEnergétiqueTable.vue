@@ -5,27 +5,27 @@
                    <div class="flex flex-row" v-if="pochette.cef_init">
                      <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs font-bold	bg-cyan-600">Cef Initiale</h1>
                      <input  :class="[this.Modifer ?  'border bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border  border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']"   :value='pochette.cef_init'  @input="event => pochette.cef_init = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
-                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" />
+                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" disabled="disabled" />
 
                     </div>
 
                    <div class="flex flex-row" v-if="pochette.cep_init">
                      <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs font-bold	bg-cyan-600">Cep Initiale</h1>
                      <input  :class="[this.Modifer ?  'border  bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border  border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']"   :value='pochette.cep_init'  @input="event => pochette.cep_init = event.target.value" onfocus="this.value=''"  :disabled="this.Modifer"/>
-                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" />
+                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" disabled="disabled" />
                     </div>
 
                    <div class="flex flex-row" v-if="pochette.cef_initial">
                      <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs font-bold	bg-cyan-600">Cef Initiale </h1>
                      <input  :class="[this.Modifer ?  'border bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']"   :value='pochette.cef_initial'  @input="event => pochette.cef_initial = event.target.value"  onfocus="this.value=''" :disabled="this.Modifer"/>
-                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" />
+                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" disabled="disabled" />
 
                     </div>
 
                    <div class="flex flex-row" v-if="pochette.cep_initial">
                      <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs font-bold	bg-cyan-600">Cep Initiale</h1>
                      <input  :class="[this.Modifer ?  'border  bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']"   :value='pochette.cep_initial'  @input="event => pochette.cep_initial = event.target.value" onfocus="this.value=''"  :disabled="this.Modifer"/>
-                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" />
+                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" disabled="disabled" />
 
                     </div>
 
@@ -33,26 +33,32 @@
                    <div class="flex flex-row" v-if="pochette.cef_projet ">
                      <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs  font-bold	bg-cyan-600">Cef projet </h1>
                      <input :class="[this.Modifer ?  'border  bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border  border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']" :value='pochette.cef_projet' @input="event => pochette.cef_projet = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
-                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" />
+                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" disabled="disabled" />
 
                     </div>
 
                    <div class="flex flex-row" v-if="pochette.cep_projet ">
                      <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs  font-bold	bg-cyan-600">Cep projet </h1>
                      <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']" :value='pochette.cep_projet'  @input="event => pochette.cep_projet = event.target.value" onfocus="this.value=''"  :disabled="this.Modifer" />
-                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" />
+                     <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" disabled="disabled" />
                     </div>
             
                    <div class="flex flex-row" v-if="pochette.gain_energetique  ">
                    <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Gain Energétique</h1>
                    <input :class="[this.Modifer ?  'border   bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']" :value='pochette.gain_energetique'  @input="event => pochette.gain_energetique = event.target.value" onfocus="this.value=''"    :disabled='this.Modifer'/>
-                   <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="%" />
+                   <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="%" disabled="disabled" />
                   </div> 
 
                   <div class="flex flex-row " v-if="pochette.ref_audit ">
                      <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Référence Audit</h1>
                      <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.ref_audit "  @input="event => pochette.ref_audit = event.target.value" onfocus="this.value=''"   :disabled="this.Modifer"/>
                    </div>
+
+                   <div class="flex flex-row" v-if="pochette.surface_des_murs_isoler ">
+                   <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Surface des murs isoler</h1>
+                   <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.surface_des_murs_isoler "  @input="event => pochette.surface_des_murs_isoler = event.target.value" onfocus="this.value=''"    :disabled='this.Modifer'/>
+                   </div> 
+
 
                    <div class="flex flex-row" v-if="pochette.nature_chauffage ">
                    <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Nature de chauffage</h1>

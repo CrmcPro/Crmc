@@ -6,6 +6,11 @@
          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Bureau d'etude</h1>
          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.bureau_etude "  @input="event => pochette.bureau_etude = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
       </div>
+
+      <div class="flex flex-row" v-if="pochette.nom_beneficiaire">
+         <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600">Nom Bénéficiaire</h1>
+         <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.nom_beneficiaire "  @input="event => pochette.nom_beneficiaire = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
+      </div>
      
       <div class="flex flex-row" v-if="pochette.reference_la_facture">
          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Référence de la facture</h1>
@@ -25,6 +30,23 @@
          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Technique</h1>
          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.technique "  @input="event => pochette.technique = event.target.value" onfocus="this.value=''"  :disabled="this.Modifer"/>
       </div>
+
+      <div class="flex flex-row" v-if="pochette.adresse_complete">
+         <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Adresse Complete</h1>
+         <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.adresse_complete "  @input="event => pochette.adresse_complete = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
+      </div>
+
+      <div class="flex flex-row" v-if="pochette.ville">
+         <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Ville</h1>
+         <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.ville "  @input="event => pochette.ville = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
+      </div>
+
+      <div class="flex flex-row" v-if="pochette.code_postale">
+         <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Code Postal</h1>
+         <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.code_postale "  @input="event => pochette.code_postale = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
+      </div>
+
+
       <div class="flex flex-row" v-if="pochette.adresse">
          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Adresse</h1>
          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.adresse "  @input="event => pochette.adresse = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
@@ -48,6 +70,8 @@
          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.date_logiciel "  @input="event => pochette.date_logiciel = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
       </div>
       
+      
+    
       <div class="flex flex-row" v-if="pochette.date_preuve">
          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Date de preuve de réalisation de l'operation</h1>
          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.date_preuve "  @input="event => pochette.date_preuve = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>

@@ -44,7 +44,7 @@
                     
                     </section>
                   
-            <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='id_props_pochette != 1 & id_props_pochette !=5 & id_props_pochette !=6 & id_props_pochette !=2 & id_props_pochette !=4'>
+            <section class="flex flex-col justify-center items-center  text-white text-center py-10" v-if='id_props_pochette != 1 & id_props_pochette !=7  & id_props_pochette !=5 & id_props_pochette !=6 & id_props_pochette !=2 & id_props_pochette !=4'>
                                 
                     <div class="flex flex-row py-1 " v-if="pochette.bureau_etude">
                         <h1 class="border rounded-l-md border-slate-400 py-2.5 w-36  text-xs font-bold	bg-cyan-600">Bureau d'etude</h1>
@@ -165,7 +165,7 @@
                     </div>         
                   
         </section> 
-        <section  class="py-4 " v-if="id_props_pochette === 1 || id_props_pochette === 5 || id_props_pochette === 6 || id_props_pochette ===2 || id_props_pochette === 4">
+        <section  class="py-4 " v-if="id_props_pochette === 1 || id_props_pochette === 5 || id_props_pochette === 6 || id_props_pochette ===2 || id_props_pochette === 4 || id_props_pochette === 7">
                       <div class="flex flex-center justify-center items-center">
                        <div  class="text-white border-separate border-spacing-1 flex flex-col item-center text-center justify-center">
                         <div class="flex flex-row justify-center w-full " >
@@ -177,7 +177,7 @@
                            </div>
                              
                            <!-- TABlEAUX 3 -->
-                           <div v-if="id_props_pochette != 6 & id_props_pochette != 2 & id_props_pochette != 4"> 
+                           <div v-if="id_props_pochette != 6 & id_props_pochette != 2 & id_props_pochette != 4 & id_props_pochette != 7"> 
                             <TravauxTable :Modifer='Modifer'/>
                           </div>   
                                       
@@ -188,7 +188,7 @@
                           </div>  
                             <!-- Tableaux 5 -->
                          
-                          <div class="flex flex-end justify-end" v-if="id_props_pochette != 6 & id_props_pochette != 2  & id_props_pochette != 4 ">
+                          <div class="flex flex-end justify-end" v-if="id_props_pochette != 6 & id_props_pochette != 2  & id_props_pochette != 4 & id_props_pochette != 7">
                             <Montants :Modifer='Modifer'/>
                           </div>                               
                        </div>
@@ -260,7 +260,7 @@ export default {
   ) : null    
  },
         ModifyPochette(){
-          let bodyformData = new FormData();
+          var bodyformData = new FormData();
 
           //Montants
           bodyformData.append('prime_cee',this.pochette.prime_cee)
