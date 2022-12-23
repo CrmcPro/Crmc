@@ -54,6 +54,11 @@
                      <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.ref_audit "  @input="event => pochette.ref_audit = event.target.value" onfocus="this.value=''"   :disabled="this.Modifer"/>
                    </div>
 
+                   <div class="flex flex-row " v-if="pochette.chauffage_avant_travaux ">
+                     <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Chauffage avant traveaux</h1>
+                     <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.chauffage_avant_travaux "  @input="event => pochette.chauffage_avant_travaux = event.target.value" onfocus="this.value=''"   :disabled="this.Modifer"/>
+                   </div>
+
                    <div class="flex flex-row" v-if="pochette.surface_des_murs_isoler ">
                    <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Surface des murs isoler</h1>
                    <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.surface_des_murs_isoler "  @input="event => pochette.surface_des_murs_isoler = event.target.value" onfocus="this.value=''"    :disabled='this.Modifer'/>

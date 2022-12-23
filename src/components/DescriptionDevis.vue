@@ -186,14 +186,22 @@
                            <div v-if="id_props_pochette ===4"> 
                             <DateTraveaux :Modifer='Modifer'/>
                           </div>  
+                          
                             <!-- Tableaux 5 -->
                          
                           <div class="flex flex-end justify-end" v-if="id_props_pochette != 6 & id_props_pochette != 2  & id_props_pochette != 4 & id_props_pochette != 7">
                             <Montants :Modifer='Modifer'/>
-                          </div>                               
+                          </div>   
+                          
+                           <!-- TABlEAUX 4 -->
+                        
+                           <div v-if="id_props_pochette ===7"> 
+                            <Scenario :Modifer='Modifer'/>
+                          </div>  
+                          
                        </div>
-                         </div>
-                    </section>
+                    </div>
+                </section>
 
         <!-- :class='[this.Modifer ?"border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]' -->
       </section>
@@ -207,6 +215,7 @@ import identitéTable from '../components/pochette/identitéTable.vue'
 import DonneésEnergétiqueTable from "../components/pochette/DonneésEnergétiqueTable.vue"
 import TravauxTable from "../components/pochette/TravauxTable.vue"
 import Montants from "../components/pochette/Montants.vue"
+import Scenario from "../components/pochette/Scenario.vue"
 import DateTraveaux from "../components/pochette/DateTraveaux.vue"
 import Swal from 'sweetalert2'
 import axios from "axios"
@@ -227,7 +236,8 @@ export default {
     DonneésEnergétiqueTable ,
     TravauxTable ,
     Montants,
-    DateTraveaux
+    DateTraveaux,
+    Scenario
   },
   computed : {
      ...mapGetters(['pochette']),

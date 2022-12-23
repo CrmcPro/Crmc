@@ -3,7 +3,6 @@ import Accueil from "../components/Accueil.vue"
 import Login from "../components/Login.vue"
 import Signup1 from "../components/Signup/Signup1.vue"
 import Signup2 from "../components/Signup/Signup2.vue"
-import Signup3 from "../components/Signup/Signup3.vue"
 import Utilisateur from "../components/Utilisateur.vue"
 import Pochettes from "../components/Pochettes.vue"
 import VerificationList from "../components/VerificationList.vue"
@@ -114,14 +113,7 @@ const routes =[
 
 
     },
-    {
-        path : "/Signup3",
-        name  :'Signup3',
-        component : Signup3 ,
-        meta : { auth : false}
-
-
-    },
+    
     {
         path : "/Accueil",
         name  :'Accueil',

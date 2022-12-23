@@ -1,11 +1,11 @@
 
 
 <template >
-  <div class="bg-slate-200  h-screen py-96 justify-center items-center flex">
+  <div class="bg-slate-200  h-screen  justify-center items-center flex">
       <section class="w-3/6 ">
         
         <div class="text-gray-800 bg-white shadow-xl rounded-2xl text-center py-6  "> 
-          <spam class="text-black text-sm shadow-black font-bold float-right mr-12" >1/3</spam>
+          <spam class="text-black text-sm shadow-black font-bold float-right mr-12" >1/2</spam>
           <h1 class="text-blue-300 text-4xl shadow-black pt-10 font-bold	 ">
             CRM<spam class="text-blue-500 text-4xl font-bold	">C</spam>
           </h1>
@@ -44,16 +44,18 @@
                
               </section> 
               <section class="flex flex-wrap justify-center">
-                <div  class="mb-6">
-                  <input
-                    type="text"
-                    class="bg-slate-100   form-control mx-2 w-80 px-4 py-4 text-base font-normal text-gray-700  bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
-                    id="SirenNumber"
-                    placeholder="Numero Siren"
-                    required
-                    v-model="form.siren_number"
-                  />
+                <div class="mb-6">
+                     <input
+                      type="text"
+                      class="bg-slate-100 form-control mx-2 w-80   px-4 py-4 text-base font-normal text-gray-700 bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
+                      id="company_department"
+                      placeholder="Adresse Compagnie"
+                      v-model="form.company_department"
+                      required
+                      />
                 </div>
+                
+                
 
                 <div  class="mb-6">
                   <input
@@ -68,6 +70,32 @@
 
     
                 </section> 
+                <section class="flex flex-wrap justify-center">
+                 
+                <div class="mb-6">
+                  <input
+                     type="number"
+                     class="bg-slate-100   form-control mx-2 w-80  px-4 py-4 text-base font-normal text-gray-700  bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
+                     id="zip_code"
+                     placeholder="Code postal"
+                     v-model="form.zip_code"
+                     required
+                  />
+                </div>
+
+                <div  class="mb-6">
+                  <input
+                    type="text"
+                    class="bg-slate-100   form-control mx-2 w-80 px-4 py-4 text-base font-normal text-gray-700  bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
+                    id="SirenNumber"
+                    placeholder="Numero Siren"
+                    required
+                    v-model="form.siren_number"
+                  />
+                </div>
+    
+                </section> 
+ 
  
                 <div class="pb-3 pt-8">
                   <button
@@ -119,7 +147,7 @@ import axios from "axios"
    }
   
    
-  const form = ref({company_name: "", company_email: "",siren_number: "", company_street: ""})
+  const form = ref({company_name: "", company_email: "",company_department:"",company_street:"",zip_code: "", siren_number: ""})
   const ErrorView = ref(false)
 
   
@@ -131,8 +159,10 @@ import axios from "axios"
           
           localStorage.setItem('company_name',form.company_name)
           localStorage.setItem('company_email',form.company_email)
-          localStorage.setItem('siren_number',form.siren_number)
-          localStorage.setItem('company_street',form.company_street)     
+          localStorage.setItem('company_department',form.company_department)
+          localStorage.setItem('company_street',form.company_street)
+          localStorage.setItem('zip_code',form.zip_code)
+          localStorage.setItem('siren_number',form.siren_number)     
       
      
   }  
