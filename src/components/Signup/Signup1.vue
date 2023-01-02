@@ -133,15 +133,15 @@
     </div>
   </template>
 
-<script setup >
+<script  setup>
 import { useRouter} from "vue-router"
 import { ref } from "vue"
-import axios from "axios"
+import useVuelidate from '@vuelidate/core'
+import { required, email, minLength } from '@vuelidate/validators'
   
 
   
-  
-  const router=useRouter()
+const router=useRouter()
   const Login=()=>{
       router.push("/")
    }
@@ -149,7 +149,6 @@ import axios from "axios"
    
   const form = ref({company_name: "", company_email: "",company_department:"",company_street:"",zip_code: "", siren_number: ""})
   const ErrorView = ref(false)
-
   
   const ToSignup2 =(form )=> {
           
@@ -168,7 +167,11 @@ import axios from "axios"
   }  
     
   
+
   
+  
+
+
   
   </script>
   

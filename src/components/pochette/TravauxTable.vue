@@ -5,16 +5,16 @@
                                        <h1 class="text-gray-600  text-left px-3 p-1 font-semibold">Travaux réalisés </h1>
                                      <div class="flex justify-center ">
 
-                                      <div class="border rounded-tl-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Numéro</div>
-                                     <div class="border  border-slate-200 py-2 w-80 text-xs font-bold	bg-cyan-600">Nom du travail</div>
+                                      <div class="border rounded-tl-md border-slate-200 py-2 w-44 text-xs font-bold	bg-cyan-600">Numéro</div>
+                                     <div class="border  border-slate-200 py-2 w-96 text-xs font-bold	bg-cyan-600">Nom du travail</div>
                                      <div class="border  border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Nom du certifcat</div>
                                      <div class="border rounded-tr-md  border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Nom d'entreprise</div>
                                     </div>
                                  
                                     <div>
                                     <div class="flex flex-row  justify-center bg-slate-200 late-200 " v-for="(item,index) in pochette.travaux" v-bind:key=" item">
-                                        <input :class='[this.Modifer ?"border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]' :value='index+1' :disabled="this.Modifer"/>
-                                        <input :class='[this.Modifer ? "border  border-slate-200 py-2 w-80 text-xs text-gray-600 font-bold	bg-slate-100 text-center" : "border  border-slate-200 py-2 w-80 text-xs text-gray-600 font-bold	bg-white text-center"]'  :value='capitalized(item.nom_travail)' @input="event => item.nom_travail = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
+                                        <input :class='[this.Modifer ?"border  border-slate-200 py-2 w-44 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]' :value='index+1' :disabled="this.Modifer"/>
+                                        <input :class='[this.Modifer ? "border  border-slate-200 py-2  w-96 text-xs text-gray-600 font-bold	bg-slate-100 text-center" : "border  border-slate-200 py-2 w-80 text-xs text-gray-600 font-bold	bg-white text-center"]'  :value='capitalized(item.nom_travail)' @input="event => item.nom_travail = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
                                         <input :class='[this.Modifer ?"border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]' :value='item.num_certificat' @input="event => item.num_certificat = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
                                         <input :class='[this.Modifer ?"border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]'  :value='item.nom_entreprise' @input="event => item.nom_entreprise = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
                                    

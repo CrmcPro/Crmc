@@ -10,7 +10,7 @@
           <div class="pt-4 text-lg font-medium"><h2>Veuillez vous inscrire pour continuer</h2></div>
           <div class="pt-10">
             <div class="">
-              <form v-on:keyup.enter="submit">
+              <form>
 
                 <section class="flex flex-wrap justify-center">
 
@@ -155,13 +155,14 @@
     let data=(form.value)
     e.preventDefault();
       axios.post("/companies/registration/",data).then(res=>{    
-        Swal.fire(                 
-                    'Inscription a été effectué avec succes.',  
-                  ),2000        
+        Swal.fire({                 
+                    title:'Inscription a été effectué avec succes.',  
+                    confirmButtonColor: "#13698f",        
+        }),2000        
          router.push("/")
-      }).catch (err =>(  Swal.fire(                 
-                    'Inscription a été refusé.',
-                       
+      }).catch (err =>(  Swal.fire({                     
+                    title :'Inscription a été refusé.',   
+                    confirmButtonColor: "#13698f",}               
         )))
            
   }     
