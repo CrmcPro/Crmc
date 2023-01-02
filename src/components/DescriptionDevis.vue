@@ -337,10 +337,13 @@ export default {
             pochette_id :this.id_props_pochette
           }
           axios.put("/api/dossiers/document/",bodyformData,{params:params}).then(response=>{
-                  Swal.fire(
-                    'Modifier!',
-                    'les information sont modifiés.',
-                    'success'
+                  Swal.fire({
+                    title:'Modifier!',
+                    text:'les information sont modifiés.',
+                    type:'success',
+                    confirmButtonColor: "#13698f",
+                  }
+                  
                   )
                 
                 })

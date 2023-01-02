@@ -39,7 +39,7 @@
 
                    <div class="flex flex-row" v-if="pochette.cep_projet ">
                      <h1 class="border rounded-l-md border-slate-200 py-2 w-52  text-xs  font-bold	bg-cyan-600">Cep projet </h1>
-                     <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']" :value='pochette.cep_projet'  @input="event => pochette.cep_projet = event.target.value" onfocus="this.value=''"  :disabled="this.Modifer" />
+                     <input :class="[this.Modifer ?  'border bg-slate-100  flex-row  w-64 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-64 text-xs py-2 text-black text-center']" :value='pochette.cep_projet'  @input="event => pochette.cep_projet = event.target.value" onfocus="this.value=''"  :disabled="this.Modifer" />
                      <input class=" border rounded-r-md  bg-slate-100  flex-row w-16  text-xs py-2 text-center text-black" value="KWh/m²" disabled="disabled" />
                     </div>
             
