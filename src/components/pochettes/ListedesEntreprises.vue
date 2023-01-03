@@ -54,7 +54,7 @@
       reloadData() {
        Swal.fire({
          position: 'center',
-         icon: 'success',
+         icon: 'Success',
          title: 'le document est téléchargé ',
          showConfirmButton: false,
          timer: 3000
