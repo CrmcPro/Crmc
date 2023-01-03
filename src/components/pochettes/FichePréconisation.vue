@@ -55,7 +55,7 @@
        Swal.fire({
          position: 'center',
          icon: 'success',
-         title: 'le document est téléchargé ',
+         title: 'Success',
          showConfirmButton: false,
          timer: 3000
          }).then(res=>(

@@ -211,11 +211,15 @@ props :{
       axios.delete("/api/dossiers/",{params: { 
                     dossier_id : el_Id
                 } }).then(response=>{
-                  Swal.fire(
-                    'Supprimé!',
-                    'le dossier est supprimé.',
-                    'success'
-                  )
+                  Swal.fire({
+                    title:'Supprimé!',
+                    text:'le dossier est supprimé.',
+                    type:'success',
+                    confirmButtonColor: '#0E7490',
+                    timer:'5000',
+                    
+
+                })
                 
                 }).then(res=>{
                     window.location.reload()
