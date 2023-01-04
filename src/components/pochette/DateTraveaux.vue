@@ -22,10 +22,9 @@
                                        <br>
                                        <input :class="[this.Modifer ? 'border rounded-l-md rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.dates_travaux[5]'  @input="event => pochette.dates_travaux[5] = event.target.value" onfocus="this.value=''" :disabled="this.Modifer" />
                                        <br>
-
                                  </div>
-                                </div>
-   </div>
+                              </div>
+                         </div>
 </template>
 <script>
 import {mapGetters} from 'vuex'
