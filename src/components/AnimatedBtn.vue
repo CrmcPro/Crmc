@@ -1,7 +1,7 @@
 <template>
 
 
-      <a class="   text-lg group  ">
+<a class="   text-lg group  ">
 <span class="relative z-10 block px-3 py-2 overflow-hidden font-medium leading-tight text-[#1873a8] transition-colors duration-300 ease-out  border-[#1873a8] rounded-lg group-hover:text-white">
 <span class="absolute inset-0 w-72 h-72 px-5 py-2 rounded-lg "></span>
 <span class="absolute left-0 w-72 h-72 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-72 translate-y-12 bg-[#1873a8] group-hover:-rotate-180 ease"></span>

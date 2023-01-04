@@ -185,7 +185,7 @@
       let maxProgress = await data.message.progress;
         setInterval(() => {
            if(this.progress<= maxProgress){
-          this.progress +=.1    
+          this.progress +=.90  
           } 
   
         }, 10)

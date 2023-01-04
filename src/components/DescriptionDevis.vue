@@ -9,13 +9,12 @@
                         <div class="absolute left-40 py-4  ">
                           <span class=" text-left font-bold text-lg  ">{{title}}</span>
                         </div>
-                            <a :href="'http://192.168.1.210:8000'+pochette.url_pdf" target="_blank">
+                            <a :href="'http://192.168.1.123:8000'+pochette.url_pdf" target="_blank">
                               
                               <button  class="bg-cyan-700  w-32 h-9 rounded-md text-xs mr-4 text-white">
                                      Voir PDF
-                             <font-awesome-icon icon="fa-solid fa-eye" color="" class="ml-2" />
-                            </button> 
-
+                              <font-awesome-icon icon="fa-solid fa-eye" color="" class="ml-2" />
+                              </button> 
                             </a>
                            
                         <div v-if="Modifer"  @click="Modifer = !Modifer" >

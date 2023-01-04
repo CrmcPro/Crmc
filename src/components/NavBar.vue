@@ -66,7 +66,7 @@
           class="flex items-center    rounded-md"
         >
         <div  @click="show = !show">
-              <img :src="'http://192.168.1.210:8000'+user.avatar" alt="image" class="w-10 h-10 ml-3 rounded-full"/>
+              <img :src="'http://192.168.1.123:8000'+user.avatar" alt="image" class="w-10 h-10 ml-3 rounded-full"/>
             </div>
         </button>
   
