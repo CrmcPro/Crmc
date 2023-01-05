@@ -14,7 +14,7 @@
                               <button  class="bg-cyan-700  w-32 h-9 rounded-md text-xs mr-4 text-white">
                                      Voir PDF
                               <font-awesome-icon icon="fa-solid fa-eye" color="" class="ml-2" />
-                              </button> 
+                             
                             </a>
                            
                         <div v-if="Modifer"  @click="Modifer = !Modifer" >

@@ -79,15 +79,15 @@
                          <h1 class="border rounded-l-md border-slate-200 py-2 w-52 text-xs font-bold	bg-cyan-600">Parecelle Cadastrale</h1>
                          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.parcelle_cadastrale  "  @input="event => pochette.parcelle_cadastrale = event.target.value"  onfocus="this.value=''"   :disabled="this.Modifer"/>
                       </div>
-                                           <!-- Surface habitable and surface shon -->
+                       
+                      <div class="flex flex-row" v-if="pochette.surface_shon">
+                         <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Surface Shon</h1>
+                         <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.surface_shon'   @input="event => pochette.surface_shon = event.target.value"  onfocus="this.value=''"     :disabled="this.Modifer"/>
+                     </div>
+                      <!-- Surface habitable and surface shon -->
                      <div class="flex flex-row" v-if="pochette.surface_habitable">
                          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Surface habitable</h1>
                          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.surface_habitable' @input="event => pochette.surface_habitable = event.target.value" onfocus="this.value=''"     :disabled="this.Modifer"/>
-                     </div>
-
-                     <div class="flex flex-row" v-if="pochette.surface_shon">
-                         <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Surface Shon</h1>
-                         <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value='pochette.surface_shon'   @input="event => pochette.surface_shon = event.target.value"  onfocus="this.value=''"     :disabled="this.Modifer"/>
                      </div>
 
                       <div class="flex flex-row " v-if="pochette.version_logiciel">
