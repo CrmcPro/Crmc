@@ -34,7 +34,7 @@
               aria-labelledby="modal-headline"
             >
           
-            <img src="../assets/close.png" @click="closeModal()" class="absolute  w-5 right-4 top-3 ">              
+            <img src="../assets/close.png" @click="closeModal()" class="absolute cursor-pointer  w-5 right-4 top-3 ">              
 
               <slot>I'm empty inside</slot>
             </div>
@@ -59,7 +59,7 @@ export default {
     default: false,
   },
   },
-  components,
+  
   setup(props, context) {
     const showModal = ref(false);
     const modal = ref(null);

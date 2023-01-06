@@ -14,7 +14,7 @@
                               <button  class="bg-cyan-700  w-32 h-9 rounded-md text-xs mr-4 text-white">
                                      Voir PDF
                               <font-awesome-icon icon="fa-solid fa-eye" color="" class="ml-2" />
-                             
+                             </button>
                             </a>
                            
                         <div v-if="Modifer"  @click="Modifer = !Modifer" >
@@ -201,8 +201,6 @@
                        </div>
                     </div>
                 </section>
-
-        <!-- :class='[this.Modifer ?"border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-slate-100" : "border  border-slate-200 py-2 w-52 text-xs text-gray-600 font-bold text-center	bg-white"]' -->
       </section>
    </div>
    </template>
@@ -268,7 +266,7 @@ export default {
   }) 
   ) : null    
  },
-        ModifyPochette(){
+    ModifyPochette(){
           var bodyformData = new FormData();
 
           //Montants
@@ -346,9 +344,9 @@ export default {
                   )
                 
                 })
-        }
+     }
 
-    }
+   }
 
 }
 </script>

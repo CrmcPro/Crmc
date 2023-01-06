@@ -88,7 +88,7 @@
                     type="text"
                     class="bg-slate-100   form-control mx-2 w-80 px-4 py-4 text-base font-normal text-gray-700  bg-clip-padding border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-slate-100 focus:border-slate-100 focus:outline-none"
                     id="SirenNumber"
-                    placeholder="Numero Siren"
+                    placeholder="Numéro Siren"
                     required
                     v-model="form.siren_number"
                   />

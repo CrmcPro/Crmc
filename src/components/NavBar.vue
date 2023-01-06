@@ -16,7 +16,7 @@
             </h1>
           </router-link>
         </div>
-        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+        <!--  Menu open: "block", Menu closed: "hidden" -->
         <ul
         
           class="
@@ -36,8 +36,7 @@
                   Acceuil
                 </li>
           </div>
-          <div>
-               
+          <div> 
               <li class="text-cyan-600 font-bold text-lg hover:text-blue-400 cursor-pointer"
               @click="Utilisateur">
                 Utilisateurs
@@ -50,22 +49,20 @@
          md:flex-row
             md:items-end
             md:space-x-0
-            md:mt-0
-  
-          ">
+            md:mt-0">
+
             <div>
               <li class="pl-12 font-semibold">{{user.first_name}}</li>
               <h6 class="text-gray-400 font-semibold">Administrateur</h6>
             </div >
            
             <div>
-      <div class="relative">
+      <div class="relative" >
+
         <!-- Dropdown toggle button -->
-        <button
-         
-          class="flex items-center    rounded-md"
-        >
-        <div  @click="show = !show">
+
+        <button class="flex items-center rounded-md" @click="show=!show" v-click-outside="onClickOutside"  >
+        <div  >
               <img :src="'http://192.168.1.123:8000'+user.avatar" alt="image" class="w-10 h-10 ml-3 rounded-full"/>
             </div>
         </button>
@@ -81,35 +78,27 @@
             bg-white
             rounded-md
             shadow-xl
-            w-44
-          "
-        >
-         
+            w-44">   
           <div
             class="
               block
               px-4
               py-2
               text-sm 
-              hover:bg-cyan-600  hover:text-white
-            "
-          >
-          <div       @click="ShowProfil = !ShowProfil"
-                    >
+              hover:bg-cyan-600  hover:text-white cursor-pointer">
+          <div @click="ShowProfil =!ShowProfil">
                       Profile
                       <PorfilModel :show="ShowProfil" @close="ShowProfil = false">
                              <Profil/>
                     </PorfilModel>
                   </div>
-  
             </div>
-          <div
-            class=" block px-4  py-2 text-sm  hover:bg-cyan-600  hover:text-white "
-            @click="removeToken"
-  
-          >
+            <div
+            class=" block px-4  py-2 text-sm  hover:bg-cyan-600  hover:text-white cursor-pointer"
+            @click="removeToken">
              Déconnexion
           </div>
+
         </div>
       </div>
     </div>
@@ -122,12 +111,14 @@
 
 
 <script>
+import { ref, watch } from 'vue';
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import PorfilModel from './PorfilModel.vue'
 import Profil from "./Profil.vue"
 import store from "../store"
 import { useRouter} from "vue-router"
 import router from "../router"
+import vClickOutside from 'click-outside-vue3'
 
 export default {
   name : 'Navbar',
@@ -135,32 +126,37 @@ export default {
     show: {
     type: Boolean,
     default: false,
-  },
- 
-  
+  },},
 
-  },
   components: {
     Profil,
     PorfilModel,
   },
+
   data(){
     return {
       Modifer : true ,
       router:useRouter(),
       ShowProfil: false,
-       show : false ,
-       deconnection : false ,
+      show : false ,
+      deconnection : false ,
     }
   },
-
-  
+ 
 
   computed : {
     ...mapGetters(['user']) ,
   },
 
+  directives: {
+      clickOutside: vClickOutside.directive
+    },
+
   methods : {
+
+    onClickOutside (event) {
+      this.show = false 
+      },
 
     capitalized(name) {
      const capitalizedFirst = name[0].toUpperCase();
