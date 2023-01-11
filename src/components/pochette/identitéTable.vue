@@ -5,6 +5,14 @@
        <div class="flex flex-row" v-if="pochette.bureau_etude">
          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Bureau d'etude</h1>
          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.bureau_etude "  @input="event => pochette.bureau_etude = event.target.value" onfocus="this.value=''" :disabled="this.Modifer"/>
+         <div>
+            <div  >
+             <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="text-red-500  w-5 h-8 "/> 
+            </div>
+            <!-- <div>
+               <font-awesome-icon icon="fa-solid fa-check"  class="text-green-600 w-5 h-8"/>
+            </div> -->
+         </div>    
       </div>
 
       <div class="flex flex-row" v-if="pochette.nom_beneficiaire">
@@ -25,6 +33,7 @@
       <div class="flex flex-row" v-if="pochette.proprietaire">
          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600">Proprietaire</h1>
          <input :class="[this.Modifer ?  'border rounded-r-md  bg-slate-100  flex-row  w-80 text-xs py-2 text-black text-center': 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center']" :value="pochette.proprietaire "  @input="event => pochette.proprietaire = event.target.value" onfocus="this.value=''"   :disabled="this.Modifer"/>
+         <font-awesome-icon icon="fa-solid fa-check"  class="text-green-600 w-5 h-8"/>
       </div>
       <div class="flex flex-row" v-if="pochette.technique">
          <h1  class="border rounded-l-md border-slate-200 py-2 w-52 text-xs  font-bold	bg-cyan-600"> Technique</h1>
