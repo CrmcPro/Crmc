@@ -30,7 +30,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 
-axios.defaults.baseURL="http://192.168.1.123:8000/"
+axios.defaults.baseURL="http://192.168.1.9:8000/"
 
 
 /* add each imported icon to the library */

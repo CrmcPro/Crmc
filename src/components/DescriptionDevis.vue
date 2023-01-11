@@ -9,8 +9,13 @@
                         <div class="absolute left-40 py-4  ">
                           <span class=" text-left font-bold text-lg  ">{{title}}</span>
                         </div>
-                            <a :href="'http://192.168.1.123:8000'+pochette.url_pdf" target="_blank">
-                              
+
+                        <!-- Model Rapport -->
+                          <div>
+                            <ModelRapport/>
+                          </div>
+
+                            <a :href="'http://192.168.1.9:8000'+pochette.url_pdf" target="_blank">  
                               <button  class="bg-cyan-700  w-32 h-9 rounded-md text-xs mr-4 text-white">
                                      Voir PDF
                               <font-awesome-icon icon="fa-solid fa-eye" color="" class="ml-2" />
@@ -192,7 +197,7 @@
                             <Montants :Modifer='Modifer'/>
                           </div>   
                           
-                           <!-- TABlEAUX 4 -->
+                           <!-- TABlEAUX 6 -->
                         
                            <div v-if="id_props_pochette ===7"> 
                             <Scenario :Modifer='Modifer'/>
@@ -208,6 +213,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import ModelRapport from "../components/ModelRapport.vue"
 import identitéTable from '../components/pochette/identitéTable.vue'
 import DonneésEnergétiqueTable from "../components/pochette/DonneésEnergétiqueTable.vue"
 import TravauxTable from "../components/pochette/TravauxTable.vue"
@@ -229,6 +235,7 @@ export default {
   props : ['id_props_pochette' ,'id_props_dossier',"title" ],  
 
   components : {
+    ModelRapport,
     identitéTable ,
     DonneésEnergétiqueTable ,
     TravauxTable ,

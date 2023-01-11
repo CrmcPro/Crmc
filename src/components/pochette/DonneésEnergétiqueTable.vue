@@ -106,7 +106,6 @@ name:'DonneésEnergétiqueTable',
 data(){
  return {
    activeClass: 'active',
- errorClass: 'border rounded-r-md border-slate-200 bg-white  flex-row  w-80 text-xs py-2 text-black text-center'
   }
 
 },

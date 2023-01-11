@@ -63,7 +63,7 @@
 
         <button class="flex items-center rounded-md" @click="show=!show" v-click-outside="onClickOutside"  >
         <div  >
-              <img :src="'http://192.168.1.123:8000'+user.avatar" alt="image" class="w-10 h-10 ml-3 rounded-full"/>
+              <img :src="'http://192.168.1.9:8000'+user.avatar" alt="image" class="w-10 h-10 ml-3 rounded-full"/>
             </div>
         </button>
   

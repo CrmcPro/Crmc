@@ -13,7 +13,7 @@
            </div>
          </div>
         <section class="flex flex-warp justify-around items-center p-3  " @click="onchange">
-            <img :src="'http://192.168.1.123:8000'+user.avatar" alt="image" class=" w-16 h-16 bg-white border-2 rounded-full"/>
+            <img :src="'http://192.168.1.9:8000'+user.avatar" alt="image" class=" w-16 h-16 bg-white border-2 rounded-full"/>
               <label  class=" bg-slate-200  absolute ml-40  mt-32 border-1 rounded-full" for="fileInput" ></label>        
         </section>
       
@@ -57,7 +57,7 @@
             </div>
           <div>
 
-          <h1 class="font-semibold text-sm py-2">Adresse Compagnie</h1>
+          <h1 class="font-semibold text-sm py-2">Département Compagnie</h1>
           <input :class='["border-2 border-gray-400  rounded p-2 text-xs w-full"]' :value="user.company_department"  @input="event => user.company_department = event.target.value" />
            </div>
            <div>

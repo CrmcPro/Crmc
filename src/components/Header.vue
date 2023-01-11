@@ -39,7 +39,7 @@
 
                    <div class="flex flex-row items-center text-red-600 text-xs">
                       <font-awesome-icon icon="fa-solid fa-circle-exclamation"   class="pr-1 py-4"/> 
-                      <p>Documents qui manque</p>
+                      <p>4 Documents qui manque</p>
                     </div>
                   </div>  
                   
@@ -88,7 +88,6 @@ export default {
 
     ...mapActions(['getdossiers']),
    async NavigationTodevis (id) {
-        console.log('id_dossier1',id)     
         this.router.push({
             path : '/Pochettes/1',
             query : { id_dossier : id }
@@ -98,7 +97,6 @@ export default {
      },
 
     async NavigationToComparer (id) {
-        console.log('id_dossier2',id)     
         this.router.push({
             path : '/VerificationList',
             query : { id_dossier : id }
@@ -115,8 +113,6 @@ export default {
         },
 
  mounted () {
-
-     
       axios.get("/api/dossiers/",{params: { 
             dossier_id : this.dossier_id,
         } },).then (res => {
